@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dyphha0lp61m3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(10.667473, 19.768984)
+
+[sub_resource type="Gradient" id="Gradient_uhias"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h5jmt"]
+gradient = SubResource("Gradient_uhias")
+
+[node name="GoToNext" type="Area2D" unique_id=1679839569]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2118351862]
+position = Vector2(-5.290268, 22.529509)
+rotation = -3.1415925
+scale = Vector2(0.89909184, -2.3744764)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1167993948]
+position = Vector2(-9.935057, 22.80378)
+scale = Vector2(0.07863237, 45.60756)
+texture = SubResource("GradientTexture1D_h5jmt")
