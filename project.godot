@@ -27,6 +27,10 @@ window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gitot/plugin.cfg")
+
 [input]
 
 move_left={
