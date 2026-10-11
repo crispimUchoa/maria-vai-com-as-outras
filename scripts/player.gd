@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@export var id = "player"
+@export var char_name = "Maria"
+@export var portrait: Texture2D = preload("res://icon.svg")
+
 
 const SPEED = 128.0
 
