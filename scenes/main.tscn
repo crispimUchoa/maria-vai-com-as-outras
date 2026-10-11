@@ -2667,6 +2667,7 @@ platform_wall_layers = 255
 [node name="GoToNext" parent="." unique_id=1679839569 instance=ExtResource("4_jyhfs")]
 position = Vector2(312, 202)
 scale = Vector2(0.6000098, 1.14)
+target_scene = "uid://4bvpbtvi131k"
 
 [node name="InvisibleColisions" type="StaticBody2D" parent="." unique_id=924229225]
 position = Vector2(280, 207.00002)
@@ -2683,6 +2684,6 @@ scale = Vector2(2.7199998, 4.680002)
 script = ExtResource("5_tefeu")
 
 [node name="InteractionArea" parent="Cama" unique_id=1935205722 instance=ExtResource("5_tbgi4")]
-scale = Vector2(1.0000001, 1.0000001)
+scale = Vector2(0.6289348, 0.7257393)
 
 [connection signal="interacted" from="Cama/InteractionArea" to="Cama" method="_on_interaction_area_interacted"]

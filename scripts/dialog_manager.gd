@@ -2,6 +2,9 @@ extends Node
 const DIALOG_BOX = preload("res://scenes/dialogBox.tscn")
 var current_dialog = null
 
+func is_open():
+	return is_instance_valid(current_dialog)
+
 func idTextToDialogModel(line: DialogInfoModel) -> Dictionary:
 	return {
 		'text': line.text,
@@ -9,7 +12,7 @@ func idTextToDialogModel(line: DialogInfoModel) -> Dictionary:
 	}
 
 func start_talk(lines: Array[DialogInfoModel]): # {id, text}
-	if is_instance_valid(current_dialog):
+	if is_open():
 		return
 	var dialog_instance = DIALOG_BOX.instantiate()
 	current_dialog = dialog_instance
