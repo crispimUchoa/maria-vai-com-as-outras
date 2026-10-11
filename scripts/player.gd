@@ -20,14 +20,14 @@ func _physics_process(_delta: float) -> void:
 func update_animation(dir: Vector2):
 		if abs(dir.x) > abs(dir.y):
 			if dir.x > 0:
-				animated_sprite.play("idle_right")
+				animated_sprite.play("walk_right")
 			else:
-				animated_sprite.play("idle_left")
+				animated_sprite.play("walk_left")
 		else: 
 			if dir.y > 0:
-				animated_sprite.play("idle_down")
+				animated_sprite.play("walk_down")
 			else:
-				animated_sprite.play("idle_up")
+				animated_sprite.play("walk_up")
 				
 func update_idle_animation():
 	if abs(last_direction.x) > abs(last_direction.y):
