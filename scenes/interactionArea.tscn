@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://drmqs8v24pdwq"]
+
+[ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="1_yykax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aip8i"]
+
+[node name="InteractionArea" type="Area2D" unique_id=1935205722]
+script = ExtResource("1_yykax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1597757479]
+shape = SubResource("CircleShape2D_aip8i")
+debug_color = Color(4.1873755e-06, 0.64938504, 0.15810814, 0.41960785)

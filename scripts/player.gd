@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
-@export var id = "player"
-@export var char_name = "Maria"
-@export var portrait: Texture2D = preload("res://icon.svg")
-
 
 const SPEED = 128.0
 
+@onready var interaction_detector = $InteractionArea
 
 func _physics_process(delta: float) -> void:
 	
@@ -21,3 +18,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func interact():
+	var overlapping_areas = interaction_detector.get_overlapping_areas()
+	
+	for area in overlapping_areas:
+		if area is InteractionArea:
+			area.interact()
+			break;
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		interact()
