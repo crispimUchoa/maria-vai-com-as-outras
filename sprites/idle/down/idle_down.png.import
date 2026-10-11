@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hbmb5f2e5ms"
-path="res://.godot/imported/idlewdownmaria.png-d9e3466f22a870b0140a2d9d11645c3f.ctex"
+uid="uid://dkjj023xsnm42"
+path="res://.godot/imported/idle_down.png-a0b85ae00fb246a2883fe5a624b0dd4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/idlewdownmaria.png"
-dest_files=["res://.godot/imported/idlewdownmaria.png-d9e3466f22a870b0140a2d9d11645c3f.ctex"]
+source_file="res://sprites/idle/down/idle_down.png"
+dest_files=["res://.godot/imported/idle_down.png-a0b85ae00fb246a2883fe5a624b0dd4a.ctex"]
 
 [params]
 

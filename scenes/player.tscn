@@ -1,10 +1,48 @@
 [gd_scene format=3 uid="uid://4bvpbtvi131k"]
 
 [ext_resource type="Script" uid="uid://b1u1c5kum6o7l" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://c8hbmb5f2e5ms" path="res://sprites/idlewdownmaria.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dkjj023xsnm42" path="res://sprites/idle/down/idle_down.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://clucschcmdjpw" path="res://sprites/idle/left/idle_left.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://b6xvhhpnvjbpu" path="res://sprites/idle/right/idle_left.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://d1jpygn0t6dj6" path="res://sprites/idle/up/idle_up.png" id="5_smehm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlg0r")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fjrip")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_smehm")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
-size = Vector2(4.085068, 2.4447036)
+size = Vector2(4.992861, 3.667056)
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486]
 position = Vector2(1, 0)
@@ -13,12 +51,13 @@ collision_layer = 2
 collision_mask = 255
 script = ExtResource("1_g2els")
 
-[node name="player_sprite" type="Sprite2D" parent="." unique_id=1729391501]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_g2els")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"idle_up"
+frame_progress = 0.27882776
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
-position = Vector2(0, 15.999999)
+position = Vector2(-3.5762787e-07, 19.333334)
 rotation = -3.1415925
 scale = Vector2(5.8750563, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
