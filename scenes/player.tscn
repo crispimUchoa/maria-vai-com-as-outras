@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://4bvpbtvi131k"]
 
 [ext_resource type="Script" uid="uid://b1u1c5kum6o7l" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dkjj023xsnm42" path="res://sprites/idle/down/idle_down.png" id="2_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://clucschcmdjpw" path="res://sprites/idle/left/idle_left.png" id="3_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://b6xvhhpnvjbpu" path="res://sprites/idle/right/idle_left.png" id="4_fjrip"]
+[ext_resource type="Texture2D" path="res://sprites/idle/down/idle_down.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" path="res://sprites/idle/left/idle_left.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" path="res://sprites/idle/right/idle_left.png" id="4_fjrip"]
 [ext_resource type="Texture2D" uid="uid://d1jpygn0t6dj6" path="res://sprites/idle/up/idle_up.png" id="5_smehm"]
 [ext_resource type="Texture2D" uid="uid://28qp25m8gedc" path="res://sprites/walk/down/1.png" id="6_t4otl"]
 [ext_resource type="Texture2D" uid="uid://d3pox72cgs8ap" path="res://sprites/walk/down/2.png" id="7_j2b1d"]
