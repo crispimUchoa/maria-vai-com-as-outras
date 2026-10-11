@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://brdjynr4pn7r"]
+
+[ext_resource type="Script" uid="uid://b71sbb63oe3sc" path="res://scripts/dialog_box.gd" id="1_oohy4"]
+
+[sub_resource type="Gradient" id="Gradient_7w58v"]
+colors = PackedColorArray(0.16636813, 0.42546764, 0.59366953, 1, 0.54545707, 0.6496746, 0.86365443, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jplty"]
+gradient = SubResource("Gradient_7w58v")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="DialogBox" type="PanelContainer" unique_id=993877250]
+top_level = true
+offset_right = 400.0
+offset_bottom = 96.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 204)
+script = ExtResource("1_oohy4")
+
+[node name="Container" type="TextureRect" parent="." unique_id=1865611231]
+layout_mode = 2
+offset_transform_enabled = true
+texture = SubResource("GradientTexture2D_jplty")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container" unique_id=659353598]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Container/HBoxContainer" unique_id=883625331]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Container/HBoxContainer" unique_id=1608730703]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Contéudo do dialog"

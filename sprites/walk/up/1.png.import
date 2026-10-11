@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hbmb5f2e5ms"
-path="res://.godot/imported/idlewdownmaria.png-d9e3466f22a870b0140a2d9d11645c3f.ctex"
+uid="uid://c3kskjflqmd2i"
+path="res://.godot/imported/1.png-6fef2023e4dfb6aa4019d6faaab4dffb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/idlewdownmaria.png"
-dest_files=["res://.godot/imported/idlewdownmaria.png-d9e3466f22a870b0140a2d9d11645c3f.ctex"]
+source_file="res://sprites/walk/up/1.png"
+dest_files=["res://.godot/imported/1.png-6fef2023e4dfb6aa4019d6faaab4dffb.ctex"]
 
 [params]
 

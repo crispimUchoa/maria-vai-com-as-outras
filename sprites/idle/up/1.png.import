@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c53m2gyv1ekks"
-path="res://.godot/imported/idle_lobi.png-88e7635c46b0ff9f335c62e66c204f41.ctex"
+uid="uid://baqnwhg5iesll"
+path="res://.godot/imported/1.png-f4bebd0c383491722d1eb1308805f381.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/idle_lobi.png"
-dest_files=["res://.godot/imported/idle_lobi.png-88e7635c46b0ff9f335c62e66c204f41.ctex"]
+source_file="res://sprites/idle/up/1.png"
+dest_files=["res://.godot/imported/1.png-f4bebd0c383491722d1eb1308805f381.ctex"]
 
 [params]
 
