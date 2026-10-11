@@ -205,6 +205,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aip8i"]
+radius = 17.38454
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
 size = Vector2(4.992861, 3.667056)
 
@@ -215,9 +218,22 @@ collision_layer = 2
 collision_mask = 255
 script = ExtResource("1_g2els")
 
+<<<<<<< HEAD
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"idle_down"
+=======
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1638295669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=21665272]
+position = Vector2(0, 13.333336)
+shape = SubResource("CircleShape2D_aip8i")
+debug_color = Color(0.16026422, 0.64484626, 7.70092e-07, 0.41960785)
+
+[node name="player_sprite" type="Sprite2D" parent="." unique_id=1729391501]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_g2els")
+>>>>>>> feat/dialogos
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
 position = Vector2(-3.5762787e-07, 19.333334)
