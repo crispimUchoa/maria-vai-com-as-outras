@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp0lhn0sojfwp"
-path="res://.godot/imported/2.png-0a3e567c75c400cb5ccf3173dfe8b0a8.ctex"
+uid="uid://b3bwthvs03lwu"
+path="res://.godot/imported/face.png-a4d14e827a98ba677f3c02f8278f66f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/walk/left/2.png"
-dest_files=["res://.godot/imported/2.png-0a3e567c75c400cb5ccf3173dfe8b0a8.ctex"]
+source_file="res://sprites/maria/face.png"
+dest_files=["res://.godot/imported/face.png-a4d14e827a98ba677f3c02f8278f66f4.ctex"]
 
 [params]
 
