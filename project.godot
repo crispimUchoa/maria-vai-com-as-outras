@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="maria vai com as outras"
-run/main_scene="uid://csq8why3uvfol"
+run/main_scene="uid://bcjqc8au4wwu6"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,10 +21,9 @@ DialogManager="*uid://b0q5g3kt47ltv"
 
 [display]
 
-window/size/viewport_width=400
-window/size/viewport_height=300
-window/size/mode=3
-window/size/resizable=false
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
