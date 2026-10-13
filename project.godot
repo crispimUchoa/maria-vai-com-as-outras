@@ -19,6 +19,7 @@ run/size/borderless=true
 [autoload]
 
 DialogManager="*uid://b0q5g3kt47ltv"
+SceneManager="*uid://b6sepv37nksdt"
 
 [display]
 

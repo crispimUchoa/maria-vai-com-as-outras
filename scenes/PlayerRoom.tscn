@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cwluaiewpahf0"]
 
 [ext_resource type="TileSet" uid="uid://bexdl32hmp1ld" path="res://tilesets/interior_casa.tres" id="1_qfwco"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_tl1vm"]
 
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
 
@@ -34,3 +35,13 @@ tile_set = ExtResource("1_qfwco")
 z_index = 3
 tile_map_data = PackedByteArray("AAAJABAAAQAoACoAAAAJABEAAQAoACsAAAAJABIAAQAoACwAAAAKABAAAQApACoAAAAKABEAAQApACsAAAAKABIAAQApACwAAAALABAAAQAqACoAAAALABEAAQAqACsAAAALABIAAQAqACwAAAAMABAAAQArACoAAAAMABEAAQArACsAAAAMABIAAQArACwAAAANABAAAQAsACoAAAANABEAAQAsACsAAAANABIAAQAsACwAAAAOABAAAQAtACoAAAAOABEAAQAtACsAAAAOABIAAQAtACwAAAAPABAAAQAuACoAAAAPABEAAQAuACsAAAAPABIAAQAuACwAAAAQABAAAQAvACoAAAAQABEAAQAvACsAAAAQABIAAQAvACwAAAARABAAAQAwACoAAAARABEAAQAwACsAAAARABIAAQAwACwAAAASABAAAQAxACoAAAASABEAAQAxACsAAAASABIAAQAxACwAAAATABAAAQAyACoAAAATABEAAQAyACsAAAATABIAAQAyACwAAAAUABAAAQAzACoAAAAUABEAAQAzACsAAAAUABIAAQAzACwAAAA=")
 tile_set = ExtResource("1_qfwco")
+
+[node name="GoToNext" parent="." unique_id=609231163 instance=ExtResource("2_tl1vm")]
+position = Vector2(110.999985, 354)
+rotation = -3.1415925
+scale = Vector2(1.513598, -0.8)
+next_level_file = "uid://cflca4kbmmmho"
+next_spawn_id = "SpawnRoom"
+
+[node name="SpawnBedroom" type="Marker2D" parent="." unique_id=1395265233]
+position = Vector2(154, 400)
