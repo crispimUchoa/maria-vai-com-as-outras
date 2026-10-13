@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c1pdh8fuol2hp" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://4bvpbtvi131k" path="res://scenes/player.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://cofph5dm2kbns" path="res://scenes/PlayerRoom.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cflca4kbmmmho" path="res://scenes/PlayerBedRoom.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=307662509]
 script = ExtResource("1_o5qli")
 
-[node name="PlayerRoom" parent="." unique_id=1525808226 instance=ExtResource("2_sugp2")]
+[node name="PlayerBedRoom" parent="." unique_id=1851993271 instance=ExtResource("3_sugp2")]
 
 [node name="Player" parent="." unique_id=806091486 instance=ExtResource("2_0wfyh")]
-position = Vector2(380, 356.00003)
+position = Vector2(358.99997, 323.99997)
 scale = Vector2(1.25, 1.25)
 collision_mask = 1
 platform_wall_layers = 255

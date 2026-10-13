@@ -23,10 +23,8 @@ DialogManager="*uid://b0q5g3kt47ltv"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/size/mode=3
-window/size/resizable=false
+window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

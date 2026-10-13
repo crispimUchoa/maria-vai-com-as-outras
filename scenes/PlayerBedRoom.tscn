@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b4pwo8wuuman1"]
+[gd_scene format=4 uid="uid://cflca4kbmmmho"]
 
 [ext_resource type="Texture2D" uid="uid://ccle7dr0j3p2y" path="res://tilesets/InteriorTilesLITE.png" id="1_qeyxf"]
 [ext_resource type="TileSet" uid="uid://bexdl32hmp1ld" path="res://tilesets/interior_casa.tres" id="2_s8wwh"]
