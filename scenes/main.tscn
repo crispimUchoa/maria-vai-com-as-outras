@@ -10,7 +10,4 @@ script = ExtResource("1_o5qli")
 [node name="PlayerBedRoom" parent="." unique_id=1851993271 instance=ExtResource("3_sugp2")]
 
 [node name="Player" parent="." unique_id=806091486 instance=ExtResource("2_0wfyh")]
-position = Vector2(358.99997, 323.99997)
-scale = Vector2(1.25, 1.25)
-collision_mask = 1
-platform_wall_layers = 255
+position = Vector2(376, 341)
