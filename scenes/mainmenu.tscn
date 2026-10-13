@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bcjqc8au4wwu6"]
 
 [ext_resource type="Script" uid="uid://bjk2qhykk2we0" path="res://scripts/main_menu.gd" id="1_5mbse"]
-[ext_resource type="Texture2D" uid="uid://carf850sarj8g" path="res://sprites/fundo menu/Sprite Tela Inicial.jpg" id="2_natt5"]
-
-[sub_resource type="SystemFont" id="SystemFont_natt5"]
+[ext_resource type="Texture2D" uid="uid://7ojriyj1vi4v" path="res://sprites/fundo menu/Sprite Tela Inicial.jpg" id="2_natt5"]
+[ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_r3g3c"]
 
 [node name="MainMenu" type="Control" unique_id=576661600]
 layout_mode = 3
@@ -15,55 +14,65 @@ grow_vertical = 2
 script = ExtResource("1_5mbse")
 
 [node name="Backgroud" type="TextureRect" parent="." unique_id=1407070644]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 803.0
+offset_bottom = 600.0
 mouse_filter = 2
 texture = ExtResource("2_natt5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=843168081]
+z_as_relative = false
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.86
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -29.5
-offset_right = 20.0
-offset_bottom = 29.5
+anchor_bottom = 1.0
+offset_left = -379.5
+offset_top = -300.0
+offset_right = 379.5
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
+grow_vertical = 0
+theme_override_constants/separation = 40
 
 [node name="Title" type="Label" parent="VBoxContainer" unique_id=2121023652]
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_natt5")
+theme_override_fonts/font = ExtResource("3_r3g3c")
+theme_override_font_sizes/font_size = 33
 text = "MARIA VAI COM AS OUTRAS"
 
 [node name="PlayButton" type="MenuButton" parent="VBoxContainer" unique_id=230738116]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_r3g3c")
+theme_override_font_sizes/font_size = 22
 button_pressed = true
 text = "Jogar"
+alignment = 0
 script = ExtResource("1_5mbse")
 
 [node name="OptionsButton" type="MenuButton" parent="VBoxContainer" unique_id=152658522]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_r3g3c")
+theme_override_font_sizes/font_size = 22
 button_pressed = true
 text = "Opções"
+alignment = 0
 script = ExtResource("1_5mbse")
 
 [node name="QuitButton" type="MenuButton" parent="VBoxContainer" unique_id=1974115869]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_r3g3c")
+theme_override_font_sizes/font_size = 22
 button_pressed = true
 text = "Sair"
+alignment = 0
 script = ExtResource("1_5mbse")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
