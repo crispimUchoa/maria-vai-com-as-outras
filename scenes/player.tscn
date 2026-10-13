@@ -1,46 +1,46 @@
 [gd_scene format=3 uid="uid://4bvpbtvi131k"]
 
 [ext_resource type="Script" uid="uid://b1u1c5kum6o7l" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://ca2w45mlhy2hn" path="res://sprites/player/idle/down/1.png" id="2_2dvfe"]
-[ext_resource type="Texture2D" uid="uid://dr7whvjwy7qdg" path="res://sprites/player/idle/down/2.png" id="3_giy8y"]
-[ext_resource type="Texture2D" uid="uid://b3rk13nbm10kf" path="res://sprites/player/idle/left/1.png" id="4_fdfoy"]
-[ext_resource type="Texture2D" uid="uid://ccf6lqmgneep6" path="res://sprites/player/idle/left/2.png" id="5_hhpqf"]
-[ext_resource type="Texture2D" uid="uid://d1jpygn0t6dj6" path="res://sprites/player/idle/up/idle_up.png" id="5_smehm"]
-[ext_resource type="Texture2D" uid="uid://u5t5q46ebuen" path="res://sprites/player/idle/right/1.png" id="6_g5jhy"]
-[ext_resource type="Texture2D" uid="uid://28qp25m8gedc" path="res://sprites/player/walk/down/1.png" id="6_t4otl"]
-[ext_resource type="Texture2D" uid="uid://0d3kq55d6rit" path="res://sprites/player/idle/right/2.png" id="7_holxr"]
-[ext_resource type="Texture2D" uid="uid://d3pox72cgs8ap" path="res://sprites/player/walk/down/2.png" id="7_j2b1d"]
-[ext_resource type="Texture2D" uid="uid://b6cxr80g122ag" path="res://sprites/player/walk/down/3.png" id="8_cs1tg"]
-[ext_resource type="Texture2D" uid="uid://bhkgi3rgog5o1" path="res://sprites/player/walk/down/4.png" id="9_2dvfe"]
-[ext_resource type="Texture2D" uid="uid://dbytq7htbrp2j" path="res://sprites/player/walk/down/5.png" id="10_giy8y"]
-[ext_resource type="Texture2D" uid="uid://dwniss6u8di35" path="res://sprites/player/walk/down/7.png" id="11_fdfoy"]
-[ext_resource type="Texture2D" uid="uid://c1gx4kebs38vt" path="res://sprites/player/walk/down/8.png" id="12_hhpqf"]
-[ext_resource type="Texture2D" uid="uid://07algayfr0e8" path="res://sprites/player/walk/down/9.png" id="13_g5jhy"]
-[ext_resource type="Texture2D" uid="uid://tomddw4bsfu7" path="res://sprites/player/walk/left/1.png" id="14_holxr"]
-[ext_resource type="Texture2D" uid="uid://bp0lhn0sojfwp" path="res://sprites/player/walk/left/2.png" id="15_mx1m4"]
-[ext_resource type="Texture2D" uid="uid://bguhjcbke7k7f" path="res://sprites/player/walk/left/3.png" id="16_4gjji"]
-[ext_resource type="Texture2D" uid="uid://dqarfslkm62y3" path="res://sprites/player/walk/left/4.png" id="17_u2ulf"]
-[ext_resource type="Texture2D" uid="uid://dcofi7kdq8jkg" path="res://sprites/player/walk/left/5.png" id="18_6e8lb"]
-[ext_resource type="Texture2D" uid="uid://cytrp46xd3ske" path="res://sprites/player/walk/left/7.png" id="19_2gdjj"]
-[ext_resource type="Texture2D" uid="uid://dwd1pleijp0yx" path="res://sprites/player/walk/left/6.png" id="20_sc3ue"]
-[ext_resource type="Texture2D" uid="uid://lkllhu0eoire" path="res://sprites/player/walk/left/8.png" id="21_lxlsd"]
-[ext_resource type="Texture2D" uid="uid://b6jcguhy7vngl" path="res://sprites/player/walk/left/9.png" id="22_ha2mi"]
-[ext_resource type="Texture2D" uid="uid://4ses4ob7fmjg" path="res://sprites/player/walk/right/1.png" id="23_apa73"]
-[ext_resource type="Texture2D" uid="uid://m7ntf7ku7hxa" path="res://sprites/player/walk/right/2.png" id="24_74r1k"]
-[ext_resource type="Texture2D" uid="uid://5dj7ec1rvqpg" path="res://sprites/player/walk/right/3.png" id="25_8svfe"]
-[ext_resource type="Texture2D" uid="uid://b458jx8p5cwt5" path="res://sprites/player/walk/right/4.png" id="26_2a3c5"]
-[ext_resource type="Texture2D" uid="uid://dkekm0w4sk2qq" path="res://sprites/player/walk/right/5.png" id="27_42b1b"]
-[ext_resource type="Texture2D" uid="uid://c30r05adqsgnn" path="res://sprites/player/walk/right/6.png" id="28_h7ic4"]
-[ext_resource type="Texture2D" uid="uid://co8qpxi2o3vi6" path="res://sprites/player/walk/right/7.png" id="29_au7lq"]
-[ext_resource type="Texture2D" uid="uid://cimuwynr8fegj" path="res://sprites/player/walk/right/8.png" id="30_nubpm"]
-[ext_resource type="Texture2D" uid="uid://eqiv5ua47vfx" path="res://sprites/player/walk/right/9.png" id="31_ua5cf"]
-[ext_resource type="Texture2D" uid="uid://c3kskjflqmd2i" path="res://sprites/player/walk/up/1.png" id="32_51ujp"]
-[ext_resource type="Texture2D" uid="uid://b3afvm2qehyre" path="res://sprites/player/walk/up/3.png" id="33_tk41t"]
-[ext_resource type="Texture2D" uid="uid://c2r344bpltyn6" path="res://sprites/player/walk/up/4.png" id="34_fuw3a"]
-[ext_resource type="Texture2D" uid="uid://dqe5skghix6yn" path="res://sprites/player/walk/up/5.png" id="35_8txt3"]
-[ext_resource type="Texture2D" uid="uid://bg2cpfxq3cnjf" path="res://sprites/player/walk/up/8.png" id="36_2w11d"]
-[ext_resource type="Texture2D" uid="uid://qcye6d6b1c3y" path="res://sprites/player/walk/up/7.png" id="37_770dr"]
-[ext_resource type="Texture2D" uid="uid://n3i81n7uador" path="res://sprites/player/walk/up/9.png" id="38_8f1cb"]
+[ext_resource type="Texture2D" uid="uid://ca2w45mlhy2hn" path="res://sprites/maria/idle/down/1.png" id="2_2dvfe"]
+[ext_resource type="Texture2D" uid="uid://dr7whvjwy7qdg" path="res://sprites/maria/idle/down/2.png" id="3_giy8y"]
+[ext_resource type="Texture2D" uid="uid://b3rk13nbm10kf" path="res://sprites/maria/idle/left/1.png" id="4_fdfoy"]
+[ext_resource type="Texture2D" uid="uid://ccf6lqmgneep6" path="res://sprites/maria/idle/left/2.png" id="5_hhpqf"]
+[ext_resource type="Texture2D" uid="uid://d1jpygn0t6dj6" path="res://sprites/maria/idle/up/idle_up.png" id="5_smehm"]
+[ext_resource type="Texture2D" uid="uid://u5t5q46ebuen" path="res://sprites/maria/idle/right/1.png" id="6_g5jhy"]
+[ext_resource type="Texture2D" uid="uid://28qp25m8gedc" path="res://sprites/maria/walk/down/1.png" id="6_t4otl"]
+[ext_resource type="Texture2D" uid="uid://0d3kq55d6rit" path="res://sprites/maria/idle/right/2.png" id="7_holxr"]
+[ext_resource type="Texture2D" uid="uid://d3pox72cgs8ap" path="res://sprites/maria/walk/down/2.png" id="7_j2b1d"]
+[ext_resource type="Texture2D" uid="uid://b6cxr80g122ag" path="res://sprites/maria/walk/down/3.png" id="8_cs1tg"]
+[ext_resource type="Texture2D" uid="uid://bhkgi3rgog5o1" path="res://sprites/maria/walk/down/4.png" id="9_2dvfe"]
+[ext_resource type="Texture2D" uid="uid://dbytq7htbrp2j" path="res://sprites/maria/walk/down/5.png" id="10_giy8y"]
+[ext_resource type="Texture2D" uid="uid://dwniss6u8di35" path="res://sprites/maria/walk/down/7.png" id="11_fdfoy"]
+[ext_resource type="Texture2D" uid="uid://c1gx4kebs38vt" path="res://sprites/maria/walk/down/8.png" id="12_hhpqf"]
+[ext_resource type="Texture2D" uid="uid://07algayfr0e8" path="res://sprites/maria/walk/down/9.png" id="13_g5jhy"]
+[ext_resource type="Texture2D" uid="uid://tomddw4bsfu7" path="res://sprites/maria/walk/left/1.png" id="14_holxr"]
+[ext_resource type="Texture2D" uid="uid://bp0lhn0sojfwp" path="res://sprites/maria/walk/left/2.png" id="15_mx1m4"]
+[ext_resource type="Texture2D" uid="uid://bguhjcbke7k7f" path="res://sprites/maria/walk/left/3.png" id="16_4gjji"]
+[ext_resource type="Texture2D" uid="uid://dqarfslkm62y3" path="res://sprites/maria/walk/left/4.png" id="17_u2ulf"]
+[ext_resource type="Texture2D" uid="uid://dcofi7kdq8jkg" path="res://sprites/maria/walk/left/5.png" id="18_6e8lb"]
+[ext_resource type="Texture2D" uid="uid://cytrp46xd3ske" path="res://sprites/maria/walk/left/7.png" id="19_2gdjj"]
+[ext_resource type="Texture2D" uid="uid://dwd1pleijp0yx" path="res://sprites/maria/walk/left/6.png" id="20_sc3ue"]
+[ext_resource type="Texture2D" uid="uid://lkllhu0eoire" path="res://sprites/maria/walk/left/8.png" id="21_lxlsd"]
+[ext_resource type="Texture2D" uid="uid://b6jcguhy7vngl" path="res://sprites/maria/walk/left/9.png" id="22_ha2mi"]
+[ext_resource type="Texture2D" uid="uid://4ses4ob7fmjg" path="res://sprites/maria/walk/right/1.png" id="23_apa73"]
+[ext_resource type="Texture2D" uid="uid://m7ntf7ku7hxa" path="res://sprites/maria/walk/right/2.png" id="24_74r1k"]
+[ext_resource type="Texture2D" uid="uid://5dj7ec1rvqpg" path="res://sprites/maria/walk/right/3.png" id="25_8svfe"]
+[ext_resource type="Texture2D" uid="uid://b458jx8p5cwt5" path="res://sprites/maria/walk/right/4.png" id="26_2a3c5"]
+[ext_resource type="Texture2D" uid="uid://dkekm0w4sk2qq" path="res://sprites/maria/walk/right/5.png" id="27_42b1b"]
+[ext_resource type="Texture2D" uid="uid://c30r05adqsgnn" path="res://sprites/maria/walk/right/6.png" id="28_h7ic4"]
+[ext_resource type="Texture2D" uid="uid://co8qpxi2o3vi6" path="res://sprites/maria/walk/right/7.png" id="29_au7lq"]
+[ext_resource type="Texture2D" uid="uid://cimuwynr8fegj" path="res://sprites/maria/walk/right/8.png" id="30_nubpm"]
+[ext_resource type="Texture2D" uid="uid://eqiv5ua47vfx" path="res://sprites/maria/walk/right/9.png" id="31_ua5cf"]
+[ext_resource type="Texture2D" uid="uid://c3kskjflqmd2i" path="res://sprites/maria/walk/up/1.png" id="32_51ujp"]
+[ext_resource type="Texture2D" uid="uid://b3afvm2qehyre" path="res://sprites/maria/walk/up/3.png" id="33_tk41t"]
+[ext_resource type="Texture2D" uid="uid://c2r344bpltyn6" path="res://sprites/maria/walk/up/4.png" id="34_fuw3a"]
+[ext_resource type="Texture2D" uid="uid://dqe5skghix6yn" path="res://sprites/maria/walk/up/5.png" id="35_8txt3"]
+[ext_resource type="Texture2D" uid="uid://bg2cpfxq3cnjf" path="res://sprites/maria/walk/up/8.png" id="36_2w11d"]
+[ext_resource type="Texture2D" uid="uid://qcye6d6b1c3y" path="res://sprites/maria/walk/up/7.png" id="37_770dr"]
+[ext_resource type="Texture2D" uid="uid://n3i81n7uador" path="res://sprites/maria/walk/up/9.png" id="38_8f1cb"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="42_giy8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
@@ -113,7 +113,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -145,7 +145,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -177,7 +177,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -203,7 +203,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_up",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
@@ -217,7 +217,8 @@ script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle_down"
+animation = &"walk_right"
+frame_progress = 0.07919239
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
 position = Vector2(-3.5762787e-07, 19.333334)
