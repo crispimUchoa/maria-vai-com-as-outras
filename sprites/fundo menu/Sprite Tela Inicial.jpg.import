@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1jpygn0t6dj6"
-path="res://.godot/imported/idle_up.png-042525aab67f70e60cf7004c4fda11fc.ctex"
+uid="uid://carf850sarj8g"
+path="res://.godot/imported/Sprite Tela Inicial.jpg-485254757988a242e433539ea9b8bd84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/maria/idle/up/idle_up.png"
-dest_files=["res://.godot/imported/idle_up.png-042525aab67f70e60cf7004c4fda11fc.ctex"]
+source_file="res://sprites/fundo menu/Sprite Tela Inicial.jpg"
+dest_files=["res://.godot/imported/Sprite Tela Inicial.jpg-485254757988a242e433539ea9b8bd84.ctex"]
 
 [params]
 
