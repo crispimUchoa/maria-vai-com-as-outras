@@ -12,10 +12,10 @@ fill_to = Vector2(0, 0)
 
 [node name="DialogBox" type="PanelContainer" unique_id=993877250]
 top_level = true
-offset_right = 400.0
+offset_right = 800.0
 offset_bottom = 96.0
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 204)
+offset_transform_position = Vector2(0, 504)
 script = ExtResource("1_oohy4")
 
 [node name="Container" type="TextureRect" parent="." unique_id=1865611231]
