@@ -12,6 +12,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_h5jmt"]
 gradient = SubResource("Gradient_uhias")
+width = 64
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aip8i"]
 size = Vector2(4, 50)
@@ -20,25 +21,28 @@ size = Vector2(4, 50)
 script = ExtResource("1_h5jmt")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1285247361]
+position = Vector2(-17, -1)
 script = ExtResource("1_5enim")
 metadata/_custom_type_script = "uid://cqdabla0iyxhr"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2118351862]
-position = Vector2(-5.290268, 22.529509)
-rotation = -3.1415925
-scale = Vector2(0.89909184, -2.3744764)
+position = Vector2(0, 64)
+rotation = -3.1415923
+scale = Vector2(4.7936325, -6.610963)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(3.0322374e-06, 0.6429913, 0.31355715, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1167993948]
-position = Vector2(-9.935057, 22.80378)
-scale = Vector2(0.07863237, 45.60756)
+z_index = 16
+position = Vector2(-32, 64)
+scale = Vector2(1, 128)
 texture = SubResource("GradientTexture1D_h5jmt")
 
 [node name="LimitArea" type="StaticBody2D" parent="." unique_id=1340139746]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimitArea" unique_id=1955386705]
-position = Vector2(2, 24)
+position = Vector2(0, 64)
+scale = Vector2(-1.113161, 2.7370706)
 shape = SubResource("RectangleShape2D_aip8i")
 debug_color = Color(1, 0.013793166, 0.039712105, 0.41960785)
 

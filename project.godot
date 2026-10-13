@@ -21,8 +21,8 @@ DialogManager="*uid://b0q5g3kt47ltv"
 
 [display]
 
-window/size/viewport_width=400
-window/size/viewport_height=300
+window/size/viewport_width=800
+window/size/viewport_height=600
 window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="canvas_items"

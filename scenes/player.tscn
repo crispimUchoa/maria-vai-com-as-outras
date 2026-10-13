@@ -211,7 +211,6 @@ size = Vector2(4.992861, 3.667056)
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486]
 position = Vector2(1, 0)
-scale = Vector2(0.75, 0.75)
 collision_layer = 2
 collision_mask = 255
 script = ExtResource("1_g2els")
@@ -224,7 +223,7 @@ frame_progress = 0.07919239
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
 position = Vector2(-3.5762787e-07, 19.333334)
 rotation = -3.1415925
-scale = Vector2(5.8750563, 5.453967)
+scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
 
 [node name="InteractionArea" parent="." unique_id=1935205722 instance=ExtResource("42_giy8y")]
