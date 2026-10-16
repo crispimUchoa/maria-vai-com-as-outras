@@ -223,7 +223,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
-size = Vector2(4.992861, 3.667056)
+size = Vector2(6.033003, 4.400467)
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486]
 position = Vector2(1, 0)
@@ -237,7 +237,7 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
-position = Vector2(-3.5762787e-07, 19.333334)
+position = Vector2(-3, 21)
 rotation = -3.1415925
 scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")

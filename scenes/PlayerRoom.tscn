@@ -55,3 +55,16 @@ polygon = PackedVector2Array(0, 0, 26.124054, -0.93170166, -31.665497, 56.898865
 
 [node name="SpawnBedroom" type="Marker2D" parent="." unique_id=1395265233]
 position = Vector2(187, 410)
+
+[node name="SpawnKitchen" type="Marker2D" parent="." unique_id=2067527128]
+position = Vector2(448, 435)
+
+[node name="SpawnParentsBedroom" type="Marker2D" parent="." unique_id=1045659657]
+position = Vector2(568, 394)
+
+[node name="GoToNext2" parent="." unique_id=262759676 instance=ExtResource("2_tl1vm")]
+position = Vector2(489, 530)
+rotation = 1.5707964
+scale = Vector2(0.984, 0.63)
+next_level_file = "uid://c1x4rs2w34fap"
+next_spawn_id = "SpawnRoom"
