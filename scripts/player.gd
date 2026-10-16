@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 105.0
+const SPEED = 128.0
 var last_direction = Vector2.DOWN
 
 
@@ -42,7 +42,7 @@ func update_animation(dir: Vector2):
 			else:
 				animated_sprite.play("walk_up")
 				
-func update_idle_animation():
+func update_idle_animation():	
 	if abs(last_direction.x) > abs(last_direction.y):
 		if last_direction.x > 0:
 			animated_sprite.play("idle_right")
