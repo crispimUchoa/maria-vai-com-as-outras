@@ -59,7 +59,7 @@ position = Vector2(187, 410)
 [node name="SpawnKitchen" type="Marker2D" parent="." unique_id=2067527128]
 position = Vector2(448, 435)
 
-[node name="SpawnParentsBedroom" type="Marker2D" parent="." unique_id=1045659657]
+[node name="SpawnMariaParentsBedroom" type="Marker2D" parent="." unique_id=1045659657]
 position = Vector2(568, 394)
 
 [node name="GoToNext2" parent="." unique_id=262759676 instance=ExtResource("2_tl1vm")]
@@ -68,3 +68,19 @@ rotation = 1.5707964
 scale = Vector2(0.984, 0.63)
 next_level_file = "uid://c1x4rs2w34fap"
 next_spawn_id = "SpawnRoom"
+
+[node name="GoToNext3" parent="." unique_id=522707908 instance=ExtResource("2_tl1vm")]
+position = Vector2(657.4079, 354.00003)
+scale = Vector2(1.1309886, 0.8)
+next_level_file = "uid://cethc6nqo6la7"
+next_spawn_id = "SpawnRoom"
+
+[node name="InvisibleColisions2" type="StaticBody2D" parent="." unique_id=1782928603]
+position = Vector2(611, 360.6)
+rotation = -3.1415925
+scale = Vector2(2.3238595, -0.81139576)
+
+[node name="CollisionPolygron2D" type="CollisionPolygon2D" parent="InvisibleColisions2" unique_id=1762200626]
+position = Vector2(-16.934566, -5.915769)
+scale = Vector2(1.4875647, 1.953696)
+polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.957611, 72.04047)
