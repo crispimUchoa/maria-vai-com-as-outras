@@ -9,7 +9,7 @@ var initial_dialogs: Array[DialogInfoModel] = [
 
 
 func _ready() -> void:	
-	print("Sistema inicializado com sucesso!")
+	GameManager.jogo_salvo = true
 	DialogManager.start_talk(initial_dialogs)
 	SceneManager.level_change_requested.connect(_on_level_change_requested)
 	
