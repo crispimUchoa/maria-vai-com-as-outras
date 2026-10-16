@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-const SPEED = 128.0
+const WALK_SPEED = 130.0
+const RUN_SPEED = 230.0
 var last_direction = Vector2.DOWN
-
+var run = false
+var speed = WALK_SPEED
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -11,26 +13,48 @@ var last_direction = Vector2.DOWN
 
 func can_move():
 	return !DialogManager.is_open()
+	 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	if Input.is_action_pressed("run"):
+		speed = RUN_SPEED
+		run = true
+	else:
+		speed = WALK_SPEED
+		run = false
+		
+	# Funções update_animation e update_idle_animaton são para o player caminhando
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
 	if can_move() && direction  != Vector2.ZERO:
-
-		velocity = direction * SPEED
+		velocity = direction * speed
 		last_direction = direction
-		update_animation(direction)
+		
+		if run:
+			update_run_animation(direction)
+		else:
+			update_walk_animation(direction)
+			
 	else:
 		velocity = Vector2.ZERO
 		update_idle_animation()
 
 	move_and_slide()
 
-	
-func update_animation(dir: Vector2):
+func update_run_animation(dir: Vector2):
+		if abs(dir.x) > abs(dir.y):
+			if dir.x > 0:
+				animated_sprite.play("run_right")
+			else:
+				animated_sprite.play("run_left")
+		else: 
+			if dir.y > 0:
+				animated_sprite.play("run_down")
+			else:
+				animated_sprite.play("run_up")
+
+func update_walk_animation(dir: Vector2):
 		if abs(dir.x) > abs(dir.y):
 			if dir.x > 0:
 				animated_sprite.play("walk_right")
@@ -54,7 +78,7 @@ func update_idle_animation():
 		else:
 			animated_sprite.play("idle_up")
 
-
+# Funções de interação com os objetos
 func interact():
 	var overlapping_areas = interaction_detector.get_overlapping_areas()
 	
