@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1pdh8fuol2hp" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://4bvpbtvi131k" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cflca4kbmmmho" path="res://scenes/PlayerBedRoom.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
 
 [node name="Main" type="Node2D" unique_id=307662509 node_paths=PackedStringArray("level_container")]
 script = ExtResource("1_o5qli")
@@ -15,3 +16,5 @@ level_container = NodePath("LevelContainer")
 [node name="Player" parent="." unique_id=806091486 instance=ExtResource("2_0wfyh")]
 position = Vector2(283, 221)
 scale = Vector2(1.35, 1.35)
+
+[node name="PauseMenu" parent="." unique_id=24157495 instance=ExtResource("4_jyhfs")]

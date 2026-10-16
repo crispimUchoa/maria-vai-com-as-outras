@@ -21,6 +21,7 @@ run/size/borderless=true
 DialogManager="*uid://b0q5g3kt47ltv"
 SceneManager="*uid://b6sepv37nksdt"
 ProgressManager="*uid://bg4tqnyr2lh8b"
+GameManager="*uid://bqdbh20oc8rov"
 
 [display]
 

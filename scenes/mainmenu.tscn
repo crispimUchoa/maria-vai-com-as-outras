@@ -42,39 +42,43 @@ theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 33
 text = "MARIA VAI COM AS OUTRAS"
 
-[node name="PlayButton" type="MenuButton" parent="VBoxContainer" unique_id=230738116]
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=1893484476]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_r3g3c")
+theme_override_font_sizes/font_size = 22
+text = "Continuar"
+autowrap_trim_flags = 0
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=988262959]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
-button_pressed = true
 text = "Jogar"
 alignment = 0
-script = ExtResource("1_5mbse")
 
-[node name="OptionsButton" type="MenuButton" parent="VBoxContainer" unique_id=152658522]
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=575221282]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
-button_pressed = true
 text = "Opções"
 alignment = 0
-script = ExtResource("1_5mbse")
 
-[node name="QuitButton" type="MenuButton" parent="VBoxContainer" unique_id=1974115869]
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=245624047]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
-button_pressed = true
 text = "Sair"
 alignment = 0
-script = ExtResource("1_5mbse")
 
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
