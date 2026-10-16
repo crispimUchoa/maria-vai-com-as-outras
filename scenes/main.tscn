@@ -13,4 +13,5 @@ level_container = NodePath("LevelContainer")
 [node name="PlayerBedRoom" parent="LevelContainer" unique_id=1851993271 instance=ExtResource("3_sugp2")]
 
 [node name="Player" parent="." unique_id=806091486 instance=ExtResource("2_0wfyh")]
-position = Vector2(376, 341)
+position = Vector2(342, 233)
+scale = Vector2(1.35, 1.35)
