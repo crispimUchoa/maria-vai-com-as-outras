@@ -12,6 +12,8 @@ fill_to = Vector2(0, 0)
 
 [node name="DialogBox" type="PanelContainer" unique_id=993877250]
 top_level = true
+z_index = 999
+z_as_relative = false
 offset_right = 800.0
 offset_bottom = 96.0
 offset_transform_enabled = true
