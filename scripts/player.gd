@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 105.0
+const SPEED = 128.0
 var last_direction = Vector2.DOWN
 
 
