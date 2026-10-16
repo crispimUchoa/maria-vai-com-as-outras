@@ -76,7 +76,7 @@ visible = false
 position = Vector2(521, 194.99998)
 rotation = 1.5707964
 scale = Vector2(-0.976, 0.63)
-next_level_file = "uid://c1x4rs2w34fap"
+next_level_file = "uid://phppkesylvwp"
 next_spawn_id = "SpawnRoom"
 
 [node name="GoToParentsBedRoom" parent="." unique_id=522707908 instance=ExtResource("2_tl1vm")]
