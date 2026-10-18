@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4bvpbtvi131k" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cflca4kbmmmho" path="res://scenes/PlayerBedRoom.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://bwi044hq6ooow" path="res://assets/sounds/door-creak.wav" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=307662509 node_paths=PackedStringArray("level_container")]
 script = ExtResource("1_o5qli")
@@ -18,3 +19,8 @@ position = Vector2(283, 221)
 scale = Vector2(1.35, 1.35)
 
 [node name="PauseMenu" parent="." unique_id=24157495 instance=ExtResource("4_jyhfs")]
+
+[node name="Sounds" type="Node2D" parent="." unique_id=1782088673]
+
+[node name="DoorCreak" type="AudioStreamPlayer" parent="Sounds" unique_id=394528258]
+stream = ExtResource("5_tbgi4")
