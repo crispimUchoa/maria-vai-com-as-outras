@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = $Player
+@onready var door_creak: AudioStreamPlayer = $Sounds/DoorCreak
 
 var initial_dialogs: Array[DialogInfoModel] = [
 	DialogInfoModel.new("player", "Minha Nossa Senhora, que sono miseravi..."),
@@ -23,6 +24,8 @@ func _on_level_change_requested(next_level_path: String, next_spawn_id: String):
 		
 	var next_level_scene = load(next_level_path)
 	if (next_level_scene):
+		door_creak.play(0.64)
+
 		var new_level = next_level_scene.instantiate()
 		level_container.add_child(new_level)
 		_position_player(new_level, next_spawn_id)
