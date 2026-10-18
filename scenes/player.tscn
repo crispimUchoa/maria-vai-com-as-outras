@@ -381,7 +381,7 @@ script = ExtResource("1_g2els")
 
 [node name="WalkingSound" type="AudioStreamPlayer" parent="." unique_id=530840448]
 stream = ExtResource("2_6c3st")
-volume_db = -7.0
+volume_db = -10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
