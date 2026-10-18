@@ -24,3 +24,4 @@ scale = Vector2(1.35, 1.35)
 
 [node name="DoorCreak" type="AudioStreamPlayer" parent="Sounds" unique_id=394528258]
 stream = ExtResource("5_tbgi4")
+volume_db = 4.457

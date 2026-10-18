@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bjk2qhykk2we0" path="res://scripts/main_menu.gd" id="1_5mbse"]
 [ext_resource type="Texture2D" uid="uid://7ojriyj1vi4v" path="res://sprites/fundo menu/Sprite Tela Inicial.jpg" id="2_natt5"]
 [ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_r3g3c"]
+[ext_resource type="AudioStream" uid="uid://cre54k68qlqxn" path="res://assets/sounds/menu-hover.wav" id="4_3vvtq"]
 
 [node name="MainMenu" type="Control" unique_id=576661600]
 layout_mode = 3
@@ -77,6 +78,9 @@ theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
 text = "Sair"
 alignment = 0
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=899545756]
+stream = ExtResource("4_3vvtq")
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
