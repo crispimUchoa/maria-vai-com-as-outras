@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="1_5enim"]
 [ext_resource type="Script" uid="uid://cnqpf4f6b3s25" path="res://scripts/go_to_next.gd" id="1_h5jmt"]
+[ext_resource type="AudioStream" uid="uid://dpcuf56ck1aqb" path="res://assets/sounds/door-locked.wav" id="3_fufvg"]
+[ext_resource type="AudioStream" uid="uid://bwi044hq6ooow" path="res://assets/sounds/door-creak.wav" id="4_a7jco"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(10.667473, 19.768984)
@@ -45,5 +47,11 @@ position = Vector2(0, 64)
 scale = Vector2(-1.113161, 2.7370706)
 shape = SubResource("RectangleShape2D_aip8i")
 debug_color = Color(1, 0.013793166, 0.039712105, 0.41960785)
+
+[node name="DoorLocked" type="AudioStreamPlayer" parent="." unique_id=859928596]
+stream = ExtResource("3_fufvg")
+
+[node name="DoorCreak" type="AudioStreamPlayer" parent="." unique_id=1449480814]
+stream = ExtResource("4_a7jco")
 
 [connection signal="interacted" from="InteractionArea" to="." method="_on_interaction_area_interacted"]
