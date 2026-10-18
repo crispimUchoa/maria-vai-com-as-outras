@@ -26,6 +26,9 @@ func _on_resume_button_pressed() -> void:
 	resume_game()
 
 func _on_main_menu_button_pressed() -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		GameManager.salvar_jogo(player.global_position)
 	# Despausa o jogo antes de mudar de cena
 	get_tree().paused = false
 	get_tree().change_scene_to_file(main_menu_scene)

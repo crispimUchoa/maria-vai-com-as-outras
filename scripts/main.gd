@@ -10,7 +10,8 @@ var initial_dialogs: Array[DialogInfoModel] = [
 
 
 func _ready() -> void:	
-	GameManager.jogo_salvo = true
+	if GameManager.player_position != Vector2.ZERO:
+		player.global_position = GameManager.player_position
 	DialogManager.start_talk(initial_dialogs)
 	SceneManager.level_change_requested.connect(_on_level_change_requested)
 	
