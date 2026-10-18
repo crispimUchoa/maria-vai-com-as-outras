@@ -29,16 +29,21 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	if can_move() && direction  != Vector2.ZERO:
-		walking_sound.play()
+		if(not walking_sound.playing):
+			walking_sound.play()
 		velocity = direction * speed
 		last_direction = direction
 		
 		if run:
 			update_run_animation(direction)
+			
+			walking_sound.pitch_scale = RUN_SPEED/WALK_SPEED
 		else:
+			walking_sound.pitch_scale = 1.0
 			update_walk_animation(direction)
 			
 	else:
+		walking_sound.stop()
 		velocity = Vector2.ZERO
 		update_idle_animation()
 

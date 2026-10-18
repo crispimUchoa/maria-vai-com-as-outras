@@ -4,7 +4,6 @@ extends Node2D
 
 @onready var interaction_area = $InteractionArea
 @onready var door_locked: AudioStreamPlayer  = $DoorLocked
-@onready var door_creak: AudioStreamPlayer  = $DoorCreak
 @export_file(".tscn") var next_level_file: String
 @export var next_spawn_id: String = ""
 var can_go: bool = true
@@ -18,7 +17,6 @@ func _on_interaction_area_interacted() -> void:
 			alternative_func.call()
 		return
 	if (next_level_file):
-		door_creak.play(0.64)
 		SceneManager.change_level(next_level_file, next_spawn_id)
 	else:
 		push_warning("Nenhuma cena destino foi configurada em:", name)
