@@ -39,7 +39,7 @@ func carregar_jogo() -> bool:
 			var y = config.get_value("Player", "pos_y", 0.0)
 			var current_level = config.get_value("Player", "current_level", "")
 			player_position = Vector2(x, y)
-			SceneManager.current_level_path = current_level
+			ProgressManager.current_scene = current_level
 			continued_game = true
 			return true
 		

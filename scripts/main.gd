@@ -15,8 +15,9 @@ func _ready() -> void:
 		player.global_position = GameManager.player_position
 	else:
 		DialogManager.start_talk(initial_dialogs)
-	if (not SceneManager.current_level_path.is_empty()):
-		SceneManager.change_level(SceneManager.current_level_path, 'SpawnBedroom')
+	if (not (ProgressManager.current_scene.is_empty() or 
+	ProgressManager.current_spawn_id.is_empty())):
+		SceneManager.change_level(ProgressManager.current_scene, ProgressManager.current_spawn_id)
 	
 @export var level_container: Node
 
