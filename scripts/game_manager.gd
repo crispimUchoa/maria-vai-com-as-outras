@@ -6,7 +6,6 @@ const SAVE_PATH = "user://savegame.cfg"
 var jogo_salvo: bool = false
 var player_position: Vector2 = Vector2.ZERO
 var continued_game = false
-var current_level: String = ""
 
 func _ready() -> void:
 	verificar_save_existente()
@@ -19,12 +18,16 @@ func verificar_save_existente() -> void:
 	else:
 		jogo_salvo = false
 
-func salvar_jogo(posicao_jogador: Vector2, current_level: String) -> void:
+func salvar_jogo(posicao_jogador: Vector2) -> void:
 	var config = ConfigFile.new()
 	
 	config.set_value("Player", "pos_x", posicao_jogador.x)
 	config.set_value("Player", "pos_y", posicao_jogador.y)
-	config.set_value("Player", "current_level", current_level)
+	config.set_value("Player", "progress", {
+		"current_level": ProgressManager.current_level,
+		"current_spawn_id": ProgressManager.current_spawn_id,
+		"current_act": ProgressManager.current_act,
+	})
 	
 	var err = config.save(SAVE_PATH)
 	if err == OK:
@@ -37,9 +40,9 @@ func carregar_jogo() -> bool:
 		if err == OK:
 			var x = config.get_value("Player", "pos_x", 0.0)
 			var y = config.get_value("Player", "pos_y", 0.0)
-			var current_level = config.get_value("Player", "current_level", "")
+			var progress = config.get_value("Player", "progress", ProgressManager.INITIAL_PROGRESS)
+			ProgressManager.load_progress(progress)
 			player_position = Vector2(x, y)
-			SceneManager.current_level_path = current_level
 			continued_game = true
 			return true
 		

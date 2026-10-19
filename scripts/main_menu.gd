@@ -18,8 +18,10 @@ func _on_continue_button_pressed():
 	if GameManager.carregar_jogo():
 		get_tree().change_scene_to_file(main_game_scene)
 
+# Novo jogo
 func _on_play_button_pressed():
 	GameManager.player_position = Vector2.ZERO
+	ProgressManager.reset_progress()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 func _on_options_button_pressed():
