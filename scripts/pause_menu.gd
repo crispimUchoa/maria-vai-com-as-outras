@@ -1,10 +1,17 @@
 extends CanvasLayer
 
 @export_file("pausemenu.tscn") var main_menu_scene: String = "res://scenes/mainmenu.tscn"
+@onready var button_hover: AudioStreamPlayer = $ButtonHover
 
 func _ready() -> void:
 	# Começa escondido ao carregar a fase
+	var buttons: Array[Node] = find_children("*", "Button",true, false)
+	for button in buttons:
+		button.mouse_entered.connect(_on_mouse_entered)
 	hide()
+	
+func _on_mouse_entered():
+	button_hover.play()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Tecla ESC abre/fecha o menu

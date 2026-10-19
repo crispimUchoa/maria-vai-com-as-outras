@@ -24,7 +24,7 @@ func _on_level_change_requested(next_level_path: String, next_spawn_id: String):
 		
 	var next_level_scene = load(next_level_path)
 	if (next_level_scene):
-		door_creak.play(0.64)
+		door_creak.play(1.45)
 
 		var new_level = next_level_scene.instantiate()
 		level_container.add_child(new_level)
