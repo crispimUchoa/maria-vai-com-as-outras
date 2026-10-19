@@ -61,6 +61,9 @@ position = Vector2(187, 410)
 [node name="SpawnKitchen" type="Marker2D" parent="." unique_id=2067527128]
 position = Vector2(448, 435)
 
+[node name="SpawnOutside" type="Marker2D" parent="." unique_id=81818688]
+position = Vector2(481, 250)
+
 [node name="SpawnMariaParentsBedroom" type="Marker2D" parent="." unique_id=1045659657]
 position = Vector2(568, 394)
 
