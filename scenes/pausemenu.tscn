@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bb3e5i7rd87xq" path="res://scripts/pause_menu.gd" id="1_3otxd"]
 [ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_r33we"]
+[ext_resource type="AudioStream" uid="uid://cre54k68qlqxn" path="res://assets/sounds/menu-hover.wav" id="3_8ljkb"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=378061740]
 process_mode = 3
@@ -35,11 +36,21 @@ theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
 text = "Continuar"
 
+[node name="SaveButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=208265015]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_r33we")
+theme_override_font_sizes/font_size = 22
+text = "Salvar Jogo"
+
 [node name="MainMenuButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1229465319]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
 text = "Menu Inicial"
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=1535061173]
+stream = ExtResource("3_8ljkb")
+
 [connection signal="pressed" from="ColorRect/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

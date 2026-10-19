@@ -10,9 +10,13 @@ var initial_dialogs: Array[DialogInfoModel] = [
 
 
 func _ready() -> void:	
-	GameManager.jogo_salvo = true
-	DialogManager.start_talk(initial_dialogs)
 	SceneManager.level_change_requested.connect(_on_level_change_requested)
+	if GameManager.player_position != Vector2.ZERO and player and GameManager.continued_game:
+		player.global_position = GameManager.player_position
+	else:
+		DialogManager.start_talk(initial_dialogs)
+	if (not SceneManager.current_level_path.is_empty()):
+		SceneManager.change_level(SceneManager.current_level_path, 'SpawnBedroom')
 	
 @export var level_container: Node
 
@@ -24,7 +28,7 @@ func _on_level_change_requested(next_level_path: String, next_spawn_id: String):
 		
 	var next_level_scene = load(next_level_path)
 	if (next_level_scene):
-		door_creak.play(0.64)
+		door_creak.play(1.45)
 
 		var new_level = next_level_scene.instantiate()
 		level_container.add_child(new_level)

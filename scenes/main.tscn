@@ -10,12 +10,12 @@
 script = ExtResource("1_o5qli")
 level_container = NodePath("LevelContainer")
 
-[node name="LevelContainer" type="Node2D" parent="." unique_id=912664583]
+[node name="LevelContainer" type="Node2D" parent="." unique_id=912664583 groups=["LevelContainer"]]
 
 [node name="PlayerBedRoom" parent="LevelContainer" unique_id=1851993271 instance=ExtResource("3_sugp2")]
 
-[node name="Player" parent="." unique_id=806091486 instance=ExtResource("2_0wfyh")]
-position = Vector2(283, 221)
+[node name="Player" parent="." unique_id=806091486 groups=["Player"] instance=ExtResource("2_0wfyh")]
+position = Vector2(285, 373)
 scale = Vector2(1.35, 1.35)
 
 [node name="PauseMenu" parent="." unique_id=24157495 instance=ExtResource("4_jyhfs")]
@@ -24,3 +24,4 @@ scale = Vector2(1.35, 1.35)
 
 [node name="DoorCreak" type="AudioStreamPlayer" parent="Sounds" unique_id=394528258]
 stream = ExtResource("5_tbgi4")
+volume_db = 4.457
