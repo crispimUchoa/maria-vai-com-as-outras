@@ -23,8 +23,11 @@ func salvar_jogo(posicao_jogador: Vector2) -> void:
 	
 	config.set_value("Player", "pos_x", posicao_jogador.x)
 	config.set_value("Player", "pos_y", posicao_jogador.y)
-	config.set_value("Player", "current_level", ProgressManager.current_level)
-	config.set_value("Player", "current_spawn_id", ProgressManager.current_spawn_id)
+	config.set_value("Player", "progress", {
+		"current_level": ProgressManager.current_level,
+		"current_spawn_id": ProgressManager.current_spawn_id,
+		"current_act": ProgressManager.current_act,
+	})
 	
 	var err = config.save(SAVE_PATH)
 	if err == OK:
@@ -37,8 +40,8 @@ func carregar_jogo() -> bool:
 		if err == OK:
 			var x = config.get_value("Player", "pos_x", 0.0)
 			var y = config.get_value("Player", "pos_y", 0.0)
-			ProgressManager.current_level = config.get_value("Player", "current_level", "")
-			ProgressManager.current_spawn_id = config.get_value("Player", "current_spawn_id", "")
+			var progress = config.get_value("Player", "progress", ProgressManager.INITIAL_PROGRESS)
+			ProgressManager.load_progress(progress)
 			player_position = Vector2(x, y)
 			continued_game = true
 			return true
