@@ -8,7 +8,7 @@ var speed = WALK_SPEED
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
-
+const display_name: String = "Maria"
 
 @onready var interaction_detector = $InteractionArea
 
