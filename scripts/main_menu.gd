@@ -8,10 +8,11 @@ func _ready() -> void:
 		continue_button.visible = GameManager.jogo_salvo
 
 func _on_continue_button_pressed():
-	get_tree().change_scene_to_file(main_game_scene)
+	if GameManager.carregar_jogo():
+		get_tree().change_scene_to_file(main_game_scene)
 
 func _on_play_button_pressed():
-	GameManager.jogo_salvo = true
+	GameManager.player_position = Vector2.ZERO
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
 func _on_options_button_pressed():

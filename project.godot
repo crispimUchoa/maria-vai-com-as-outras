@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/gitot/plugin.cfg")
 [global_group]
 
 Player=""
+LevelContainer=""
 
 [input]
 
