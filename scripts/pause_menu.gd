@@ -36,7 +36,7 @@ func _on_save_button_pressed() -> void:
 	var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 	
 	if player:
-		GameManager.salvar_jogo(player.global_position, ProgressManager.current_spawn_id)
+		GameManager.salvar_jogo(player.global_position)
 
 func _on_main_menu_button_pressed() -> void:
 	_on_save_button_pressed()

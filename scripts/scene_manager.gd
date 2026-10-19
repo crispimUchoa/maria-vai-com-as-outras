@@ -3,5 +3,5 @@ signal level_change_requested(next_level_path: String, next_spawn_id: String)
 
 func change_level(next_level_path: String, next_spawn_id: String) -> void:
 	level_change_requested.emit(next_level_path, next_spawn_id)
-	ProgressManager.current_scene=next_level_path
+	ProgressManager.current_level=next_level_path
 	ProgressManager.current_spawn_id=next_spawn_id

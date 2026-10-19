@@ -6,5 +6,11 @@ enum Act {
 }
 
 var current_act: Act = Act.BEGIN_MARIA_HOUSE
-var current_scene: String = ""
+var current_level: String = ""
 var current_spawn_id: String = ""
+
+
+func reset_progress():
+	current_act = Act.BEGIN_MARIA_HOUSE
+	current_level = ""
+	current_spawn_id = ""
