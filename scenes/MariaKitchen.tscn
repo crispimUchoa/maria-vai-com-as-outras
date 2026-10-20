@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cdj0ok778berh" path="res://sprites/vovo/sit/left/3.png" id="3_eul7q"]
 [ext_resource type="Script" uid="uid://dnf3fl4cdds0u" path="res://scripts/vovo.gd" id="3_ri44h"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="4_85wyp"]
+[ext_resource type="Script" uid="uid://d22wmqcd3g45c" path="res://scripts/cenarios/maria_kitchen/pia.gd" id="6_gcfee"]
+[ext_resource type="Script" uid="uid://dt6542qjooyow" path="res://scripts/cenarios/maria_kitchen/armario.gd" id="7_0f2me"]
+[ext_resource type="Script" uid="uid://bkkeyg5oo8jmg" path="res://scripts/cenarios/maria_kitchen/fogao.gd" id="8_5ujh3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(53.77434, 142.65741)
@@ -92,7 +95,37 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_eul7q")
 
 [node name="InteractionArea" parent="Vovo" unique_id=1935205722 instance=ExtResource("4_85wyp")]
-position = Vector2(439.74582, 374.99997)
-scale = Vector2(2.7787342, 5.833101)
+position = Vector2(439.74585, 388)
+scale = Vector2(2.7787342, 3.3130984)
+
+[node name="Pia" type="Node2D" parent="." unique_id=1763728161]
+position = Vector2(439.74582, 388)
+scale = Vector2(2.778734, 3.3130984)
+script = ExtResource("6_gcfee")
+
+[node name="InteractionArea" parent="Pia" unique_id=306515626 instance=ExtResource("4_85wyp")]
+position = Vector2(24.513151, -36.823536)
+scale = Vector2(-1.0152085, 1.3717982)
+
+[node name="Armario" type="Node2D" parent="." unique_id=1003615736]
+position = Vector2(439.74582, 388)
+scale = Vector2(2.778734, 3.3130984)
+script = ExtResource("7_0f2me")
+
+[node name="InteractionArea" parent="Armario" unique_id=513133393 instance=ExtResource("4_85wyp")]
+position = Vector2(-11.896089, -33.20155)
+scale = Vector2(-1.0084865, 0.47088853)
+
+[node name="Fogao" type="Node2D" parent="." unique_id=444811854]
+position = Vector2(439.74582, 388)
+scale = Vector2(2.778734, 3.3130984)
+script = ExtResource("8_5ujh3")
+
+[node name="InteractionArea" parent="Fogao" unique_id=1799400615 instance=ExtResource("4_85wyp")]
+position = Vector2(33.164856, -3.9238214)
+scale = Vector2(0.57281405, 1.4345095)
 
 [connection signal="interacted" from="Vovo/InteractionArea" to="Vovo" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="Pia/InteractionArea" to="Pia" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="Armario/InteractionArea" to="Armario" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="Fogao/InteractionArea" to="Fogao" method="_on_interaction_area_interacted"]
