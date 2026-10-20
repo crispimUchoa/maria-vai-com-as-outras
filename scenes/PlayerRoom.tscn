@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://cnkoqoexiclr2" path="res://scripts/player_room.gd" id="1_otcsp"]
 [ext_resource type="TileSet" uid="uid://bexdl32hmp1ld" path="res://tilesets/interior_casa.tres" id="1_qfwco"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_tl1vm"]
+[ext_resource type="Script" uid="uid://c01f622dcr4el" path="res://scripts/cenarios/maria_room/tv.gd" id="4_7x7k0"]
+[ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="5_bfcy3"]
+[ext_resource type="Script" uid="uid://chswubmfak1t1" path="res://scripts/cenarios/maria_room/bible.gd" id="6_bfcy3"]
+[ext_resource type="Script" uid="uid://cysr05khx6826" path="res://scripts/cenarios/maria_room/couch.gd" id="7_5rw8c"]
 
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
 script = ExtResource("1_otcsp")
@@ -97,3 +101,28 @@ scale = Vector2(2.3238595, -0.81139576)
 position = Vector2(-16.934566, -5.915769)
 scale = Vector2(1.4875647, 1.953696)
 polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.957611, 72.04047)
+
+[node name="Tv" type="Node2D" parent="." unique_id=1002351767]
+script = ExtResource("4_7x7k0")
+
+[node name="InteractionArea" parent="Tv" unique_id=1935205722 instance=ExtResource("5_bfcy3")]
+position = Vector2(290, 182.99998)
+scale = Vector2(5.7999988, 6.53987)
+
+[node name="Bible" type="Node2D" parent="." unique_id=45314026]
+script = ExtResource("6_bfcy3")
+
+[node name="InteractionArea" parent="Bible" unique_id=1409998494 instance=ExtResource("5_bfcy3")]
+position = Vector2(561, 192.00002)
+scale = Vector2(3.9599962, 5.3798685)
+
+[node name="Couch" type="Node2D" parent="." unique_id=1592826711]
+script = ExtResource("7_5rw8c")
+
+[node name="InteractionArea" parent="Couch" unique_id=2127591333 instance=ExtResource("5_bfcy3")]
+position = Vector2(291, 341)
+scale = Vector2(9.559996, 2.091333)
+
+[connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="Couch/InteractionArea" to="Couch" method="_on_interaction_area_interacted"]

@@ -6,4 +6,3 @@ class_name DialogModel extends Resource
 func _init(name: String, texture: Texture2D) -> void:
 	display_name=name
 	portrait=texture
-
