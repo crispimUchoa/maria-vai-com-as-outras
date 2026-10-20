@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b127foakp2t6m"]
+
+[ext_resource type="Script" uid="uid://c85k8bsxk51we" path="res://scenes/inventory_ui.gd" id="1_wqexf"]
+
+[node name="InventoryUi" type="CanvasLayer" unique_id=1523494795]
+script = ExtResource("1_wqexf")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=271279290]
+offset_right = 40.0
+offset_bottom = 40.0

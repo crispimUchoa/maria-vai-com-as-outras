@@ -28,6 +28,7 @@ func salvar_jogo(posicao_jogador: Vector2) -> void:
 		"current_spawn_id": ProgressManager.current_spawn_id,
 		"current_act": ProgressManager.current_act,
 	})
+	config.set_value("Inventory", "items", InventoryManager.items)
 	
 	var err = config.save(SAVE_PATH)
 	if err == OK:
@@ -45,5 +46,8 @@ func carregar_jogo() -> bool:
 			player_position = Vector2(x, y)
 			continued_game = true
 			return true
+			
+			InventoryManager.itemms = config.set_value("Inventory", "items", [])
+			InventoryManager.inventory_update.emit()
 		
 		return false

@@ -11,10 +11,15 @@ var speed = WALK_SPEED
 const display_name: String = "Maria"
 
 @onready var interaction_detector = $InteractionArea
+@onready var axe_hitbox = $AxeHitbox/CollisionShape2D
+
+func _ready() -> void:
+	# garante que a colisão do ataque comece desativada
+	if axe_hitbox:
+		axe_hitbox.disable = true
 
 func can_move():
-	return !DialogManager.is_open()
-	 
+	return !DialogManager.is_open() #and !is_attacking
 
 func _physics_process(_delta: float) -> void:
 	
