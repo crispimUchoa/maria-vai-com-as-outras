@@ -1,7 +1,7 @@
 class_name DialogBox extends PanelContainer
 
-@onready var portrait_rect: TextureRect = $Container/HBoxContainer/TextureRect
-@onready var text_label: RichTextLabel = $Container/HBoxContainer/RichTextLabel
+@onready var portrait_rect: TextureRect = $Container/MarginContainer/HBoxContainer/TextureRect
+@onready var text_label: RichTextLabel = $Container/MarginContainer/HBoxContainer/RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -26,21 +26,27 @@ layout_mode = 2
 offset_transform_enabled = true
 texture = SubResource("GradientTexture2D_jplty")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container" unique_id=659353598]
-propagate_maximum_size = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="Container" unique_id=1434734252]
+custom_maximum_size = Vector2(800, 600)
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 96.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
 
-[node name="TextureRect" type="TextureRect" parent="Container/HBoxContainer" unique_id=883625331]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer" unique_id=659353598]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TextureRect" type="TextureRect" parent="Container/MarginContainer/HBoxContainer" unique_id=883625331]
 layout_mode = 2
 expand_mode = 2
 stretch_mode = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Container/HBoxContainer" unique_id=1608730703]
+[node name="RichTextLabel" type="RichTextLabel" parent="Container/MarginContainer/HBoxContainer" unique_id=1608730703]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("2_oohy4")
