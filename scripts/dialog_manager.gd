@@ -1,6 +1,7 @@
 extends Node
 const DIALOG_BOX = preload("res://scenes/dialogBox.tscn")
 var current_dialog = null
+signal dialog_finished
 
 func is_open():
 	return is_instance_valid(current_dialog)
@@ -17,7 +18,11 @@ func start_talk(lines: Array[DialogInfoModel]): # {id, text}
 	var dialog_instance = DIALOG_BOX.instantiate()
 	current_dialog = dialog_instance
 	get_tree().current_scene.add_child(dialog_instance)
-	
+	dialog_instance.tree_exited.connect(
+		func():
+			current_dialog=null
+			dialog_finished.emit() 
+			)
 	# No dialog_manager.gd, altere a linha do map para:
 	var formated_lines: Array[Dictionary] = []
 	for line in lines:

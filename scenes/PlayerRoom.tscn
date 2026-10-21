@@ -120,8 +120,8 @@ scale = Vector2(3.9599962, 5.3798685)
 script = ExtResource("7_5rw8c")
 
 [node name="InteractionArea" parent="Couch" unique_id=2127591333 instance=ExtResource("5_bfcy3")]
-position = Vector2(293, 331)
-scale = Vector2(9.799995, 5.4513326)
+position = Vector2(293.00003, 331.99997)
+scale = Vector2(9.919994, 5.0113325)
 
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]
