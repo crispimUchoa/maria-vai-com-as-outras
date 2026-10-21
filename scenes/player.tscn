@@ -395,4 +395,4 @@ shape = SubResource("RectangleShape2D_fbssg")
 
 [node name="InteractionArea" parent="." unique_id=1935205722 instance=ExtResource("42_giy8y")]
 position = Vector2(0, 19.000002)
-scale = Vector2(2.1466677, 1.9466678)
+scale = Vector2(1.5466685, 1.3435965)

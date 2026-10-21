@@ -113,8 +113,8 @@ scale = Vector2(2.778734, 3.3130984)
 script = ExtResource("7_0f2me")
 
 [node name="InteractionArea" parent="Armario" unique_id=513133393 instance=ExtResource("4_85wyp")]
-position = Vector2(-11.896089, -33.20155)
-scale = Vector2(-1.0084865, 0.47088853)
+position = Vector2(-11.175114, -31.088724)
+scale = Vector2(-1.3527582, 0.5058869)
 
 [node name="Fogao" type="Node2D" parent="." unique_id=444811854]
 position = Vector2(439.74582, 388)
