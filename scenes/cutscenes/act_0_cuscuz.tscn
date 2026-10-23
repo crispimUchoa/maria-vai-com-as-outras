@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c3vx4vssact6"]
+
+[ext_resource type="Texture2D" uid="uid://bgr5y12axwfnj" path="res://assets/cutscenes/act_0_cuscuz.jpeg" id="1_226e0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_226e0")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}]
+
+[node name="Cuscuz" type="Node2D" unique_id=1986963882]
+z_index = 500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826874270]
+sprite_frames = SubResource("SpriteFrames_qhds1")
+animation = &"0"
+offset = Vector2(400, 300)
