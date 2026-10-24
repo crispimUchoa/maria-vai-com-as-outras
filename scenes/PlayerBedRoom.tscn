@@ -5317,6 +5317,9 @@ scale = Vector2(0.55611074, -0.88241005)
 [node name="SpawnRoom" type="Marker2D" parent="." unique_id=2016579050]
 position = Vector2(442, 389)
 
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=1098080202]
+position = Vector2(350, 350)
+
 [connection signal="interacted" from="CamaMaria/InteractionArea" to="CamaMaria" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Estante/InteractionArea" to="Estante" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="CamaVovo/InteractionArea" to="CamaVovo" method="_on_interaction_area_interacted"]

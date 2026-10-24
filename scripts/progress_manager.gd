@@ -27,8 +27,8 @@ func is_act(act: Act):
 
 func reset_progress():
 	current_act = Act.BEGIN_MARIA_HOUSE
-	current_level = ""
-	current_spawn_id = ""
+	current_level = "res://scenes/PlayerBedRoom.tscn"
+	current_spawn_id = "InitialSpawn"
 
 func load_progress(loaded):
 	current_act = loaded["current_act"]

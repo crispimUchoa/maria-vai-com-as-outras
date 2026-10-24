@@ -6,9 +6,9 @@ signal cutscene_finished
 var current: Node = null
 var cutscene_running = false
 func change_level(next_level_path: String, next_spawn_id: String) -> void:
-	level_change_requested.emit(next_level_path, next_spawn_id)
 	ProgressManager.current_level = next_level_path
 	ProgressManager.current_spawn_id = next_spawn_id
+	level_change_requested.emit(next_level_path, next_spawn_id)
 
 func show_cutscene(scene_path: String, animation: String, timer: float = -1.0) -> void:
 	if get_tree() == null:
