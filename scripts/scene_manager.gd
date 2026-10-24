@@ -4,7 +4,7 @@ signal level_change_requested(next_level_path: String, next_spawn_id: String)
 signal cutscene_finished
 
 var current: Node = null
-
+var cutscene_running = false
 func change_level(next_level_path: String, next_spawn_id: String) -> void:
 	level_change_requested.emit(next_level_path, next_spawn_id)
 	ProgressManager.current_level = next_level_path
@@ -13,7 +13,7 @@ func change_level(next_level_path: String, next_spawn_id: String) -> void:
 func show_cutscene(scene_path: String, animation: String, timer: float = -1.0) -> void:
 	if get_tree() == null:
 		return
-
+	cutscene_running = true
 	# Se a cutscene já está na tela, apenas trocamos a animação/quadro!
 	if is_instance_valid(current):
 		var cutscene_sprite: AnimatedSprite2D = current.get_child(0) as AnimatedSprite2D
@@ -51,5 +51,5 @@ func stop_cutscene() -> void:
 		current.queue_free()
 		current = null
 		
-		
+	cutscene_running = false
 	cutscene_finished.emit()

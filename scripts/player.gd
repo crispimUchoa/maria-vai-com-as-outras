@@ -13,7 +13,7 @@ const display_name: String = "Maria"
 @onready var interaction_detector = $InteractionArea
 
 func can_move():
-	return !DialogManager.is_open()
+	return !DialogManager.is_open() and !SceneManager.cutscene_running
 	 
 
 func _physics_process(_delta: float) -> void:

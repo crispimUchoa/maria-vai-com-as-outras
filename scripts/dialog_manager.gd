@@ -33,6 +33,7 @@ func start_talk(lines: Array[DialogInfoModel]): # {id, text}
 var DIALOGS_INFO: Dictionary[String, DialogModel] = {
 	"player": DialogModel.new("Maria",preload("res://sprites/maria/face.png")),
 	"vovo": DialogModel.new("Vovó Chiquinha",preload("res://sprites/vovo/face.png")),
+	"pai_maria": DialogModel.new("Pai Maria",preload("res://sprites/pai_maria/idle/down/1.png")),
 }
 
 func get_info(id: String, key: String):
