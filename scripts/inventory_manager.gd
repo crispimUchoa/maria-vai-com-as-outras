@@ -4,7 +4,7 @@ extends Node
 signal inventory_updated
 
 # Lista de IDs ou nomes dos itens coletados
-var items : Array[String] = []
+var items : Array = []
 
 func add_item(item_id: String) -> void:
 	if not items.has(item_id):
