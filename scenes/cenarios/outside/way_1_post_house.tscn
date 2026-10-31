@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d3x7l0kxhmbx0"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_oit0c"]
+[ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
@@ -51,9 +52,6 @@ scale = Vector2(1, 2.1600003)
 next_level_file = "uid://cyd10lnrp2e8e"
 next_spawn_id = "SpawnWay1PostHouse"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=776955175]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=895075303]
-position = Vector2(806, 176)
-scale = Vector2(1, 17.400002)
-shape = SubResource("RectangleShape2D_qhds1")
+[node name="MachadoItem" parent="." unique_id=1390710440 instance=ExtResource("3_htrpx")]
+position = Vector2(521, 155)
+scale = Vector2(0.2, 0.2)

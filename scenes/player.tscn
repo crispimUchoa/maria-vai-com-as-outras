@@ -4,84 +4,264 @@
 [ext_resource type="Texture2D" uid="uid://ca2w45mlhy2hn" path="res://sprites/maria/idle/down/1.png" id="2_2dvfe"]
 [ext_resource type="AudioStream" uid="uid://cjw8mm3gfvrvp" path="res://assets/sounds/footsteps.wav" id="2_6c3st"]
 [ext_resource type="Texture2D" uid="uid://dr7whvjwy7qdg" path="res://sprites/maria/idle/down/2.png" id="3_giy8y"]
+[ext_resource type="Texture2D" uid="uid://jc8s1ly82gat" path="res://sprites/maria/axe/down/1.png" id="3_hrkfm"]
 [ext_resource type="Texture2D" uid="uid://b3rk13nbm10kf" path="res://sprites/maria/idle/left/1.png" id="4_fdfoy"]
+[ext_resource type="Texture2D" uid="uid://b5h8mcts0du00" path="res://sprites/maria/axe/down/2.png" id="4_oxcmq"]
 [ext_resource type="Texture2D" uid="uid://ccf6lqmgneep6" path="res://sprites/maria/idle/left/2.png" id="5_hhpqf"]
+[ext_resource type="Texture2D" uid="uid://bmme2qbdoy8ab" path="res://sprites/maria/axe/down/3.png" id="5_wylla"]
+[ext_resource type="Texture2D" uid="uid://cmt7a7dvii2py" path="res://sprites/maria/axe/down/4.png" id="6_a3eqm"]
 [ext_resource type="Texture2D" uid="uid://u5t5q46ebuen" path="res://sprites/maria/idle/right/1.png" id="6_g5jhy"]
 [ext_resource type="Texture2D" uid="uid://28qp25m8gedc" path="res://sprites/maria/walk/down/1.png" id="6_t4otl"]
 [ext_resource type="Texture2D" uid="uid://0d3kq55d6rit" path="res://sprites/maria/idle/right/2.png" id="7_holxr"]
 [ext_resource type="Texture2D" uid="uid://d3pox72cgs8ap" path="res://sprites/maria/walk/down/2.png" id="7_j2b1d"]
+[ext_resource type="Texture2D" uid="uid://dkg1wna0a5irk" path="res://sprites/maria/axe/down/5.png" id="7_plx2b"]
 [ext_resource type="Texture2D" uid="uid://bgg5qhdgbsxa1" path="res://sprites/maria/walk/down/6.png" id="7_t4otl"]
+[ext_resource type="Texture2D" uid="uid://xbr88em2s2nu" path="res://sprites/maria/axe/down/6.png" id="8_3capk"]
 [ext_resource type="Texture2D" uid="uid://b6cxr80g122ag" path="res://sprites/maria/walk/down/3.png" id="8_cs1tg"]
 [ext_resource type="Texture2D" uid="uid://baqnwhg5iesll" path="res://sprites/maria/idle/up/1.png" id="8_holxr"]
 [ext_resource type="Texture2D" uid="uid://bhkgi3rgog5o1" path="res://sprites/maria/walk/down/4.png" id="9_2dvfe"]
+[ext_resource type="Texture2D" uid="uid://d105ii4i5xgj5" path="res://sprites/maria/axe/down/7.png" id="9_kg5hq"]
 [ext_resource type="Texture2D" uid="uid://c65ws7178arm7" path="res://sprites/maria/idle/up/2.png" id="9_mx1m4"]
 [ext_resource type="Texture2D" uid="uid://dbytq7htbrp2j" path="res://sprites/maria/walk/down/5.png" id="10_giy8y"]
+[ext_resource type="Texture2D" uid="uid://b7g3kpjnji73x" path="res://sprites/maria/axe/down/8.png" id="10_kp0if"]
 [ext_resource type="Texture2D" uid="uid://bc40g14rw3vya" path="res://sprites/maria/run/down/1.png" id="10_qk6i7"]
+[ext_resource type="Texture2D" uid="uid://d08vnl6imnc62" path="res://sprites/maria/axe/down/9.png" id="11_2xkbm"]
 [ext_resource type="Texture2D" uid="uid://bstekq87gxpap" path="res://sprites/maria/run/down/2.png" id="11_6c3st"]
 [ext_resource type="Texture2D" uid="uid://dwniss6u8di35" path="res://sprites/maria/walk/down/7.png" id="11_fdfoy"]
 [ext_resource type="Texture2D" uid="uid://c455yanjaripj" path="res://sprites/maria/run/down/3.png" id="12_1da1t"]
+[ext_resource type="Texture2D" uid="uid://d2gxqcttcvqho" path="res://sprites/maria/axe/down/10.png" id="12_dqoq3"]
 [ext_resource type="Texture2D" uid="uid://c1gx4kebs38vt" path="res://sprites/maria/walk/down/8.png" id="12_hhpqf"]
 [ext_resource type="Texture2D" uid="uid://07algayfr0e8" path="res://sprites/maria/walk/down/9.png" id="13_g5jhy"]
 [ext_resource type="Texture2D" uid="uid://ce8a1kjs4l82n" path="res://sprites/maria/run/down/4.png" id="13_p21yu"]
+[ext_resource type="Texture2D" uid="uid://d13jjxqy8j3g5" path="res://sprites/maria/axe/left/1.png" id="13_y8tjj"]
+[ext_resource type="Texture2D" uid="uid://b5ptwtmjwk7bg" path="res://sprites/maria/axe/left/2.png" id="14_6ptwb"]
 [ext_resource type="Texture2D" uid="uid://tomddw4bsfu7" path="res://sprites/maria/walk/left/1.png" id="14_holxr"]
 [ext_resource type="Texture2D" uid="uid://7nuc6cpqljwo" path="res://sprites/maria/run/down/5.png" id="14_irpag"]
+[ext_resource type="Texture2D" uid="uid://c8bmfoiqsa0sc" path="res://sprites/maria/axe/left/3.png" id="15_8pj6w"]
 [ext_resource type="Texture2D" uid="uid://dq2gqyfsy6gpd" path="res://sprites/maria/run/down/6.png" id="15_bpsgo"]
 [ext_resource type="Texture2D" uid="uid://bp0lhn0sojfwp" path="res://sprites/maria/walk/left/2.png" id="15_mx1m4"]
 [ext_resource type="Texture2D" uid="uid://bguhjcbke7k7f" path="res://sprites/maria/walk/left/3.png" id="16_4gjji"]
+[ext_resource type="Texture2D" uid="uid://ch6aegc7b4ip1" path="res://sprites/maria/axe/left/4.png" id="16_08upi"]
 [ext_resource type="Texture2D" uid="uid://jh81kbxmtd7k" path="res://sprites/maria/run/down/7.png" id="16_jx8is"]
+[ext_resource type="Texture2D" uid="uid://crcpdufmm13un" path="res://sprites/maria/axe/left/5.png" id="17_4tsya"]
 [ext_resource type="Texture2D" uid="uid://dqarfslkm62y3" path="res://sprites/maria/walk/left/4.png" id="17_u2ulf"]
 [ext_resource type="Texture2D" uid="uid://dpuo3xy0pj3a3" path="res://sprites/maria/run/down/8.png" id="17_vx63k"]
 [ext_resource type="Texture2D" uid="uid://dcofi7kdq8jkg" path="res://sprites/maria/walk/left/5.png" id="18_6e8lb"]
+[ext_resource type="Texture2D" uid="uid://belgatdds2nop" path="res://sprites/maria/axe/left/6.png" id="18_68qdx"]
 [ext_resource type="Texture2D" uid="uid://cqak2lnmh2wf8" path="res://sprites/maria/run/left/1.png" id="18_lw0jh"]
 [ext_resource type="Texture2D" uid="uid://cytrp46xd3ske" path="res://sprites/maria/walk/left/7.png" id="19_2gdjj"]
+[ext_resource type="Texture2D" uid="uid://b4c38xldkovtt" path="res://sprites/maria/axe/left/7.png" id="19_ccnn6"]
 [ext_resource type="Texture2D" uid="uid://crvdaemgp0w8f" path="res://sprites/maria/run/left/2.png" id="19_ry8ed"]
 [ext_resource type="Texture2D" uid="uid://ca6t53qkbmxmc" path="res://sprites/maria/run/left/3.png" id="20_au8ao"]
+[ext_resource type="Texture2D" uid="uid://b8gb01sapnn0h" path="res://sprites/maria/axe/left/8.png" id="20_mcvyg"]
 [ext_resource type="Texture2D" uid="uid://dwd1pleijp0yx" path="res://sprites/maria/walk/left/6.png" id="20_sc3ue"]
+[ext_resource type="Texture2D" uid="uid://ccseyeq8de18g" path="res://sprites/maria/axe/left/9.png" id="21_ealyq"]
 [ext_resource type="Texture2D" uid="uid://lkllhu0eoire" path="res://sprites/maria/walk/left/8.png" id="21_lxlsd"]
 [ext_resource type="Texture2D" uid="uid://b4i87egniy1wm" path="res://sprites/maria/run/left/4.png" id="21_w5j5w"]
 [ext_resource type="Texture2D" uid="uid://bp28uyw1hbk5g" path="res://sprites/maria/run/left/5.png" id="22_cbf1i"]
 [ext_resource type="Texture2D" uid="uid://b6jcguhy7vngl" path="res://sprites/maria/walk/left/9.png" id="22_ha2mi"]
+[ext_resource type="Texture2D" uid="uid://c33wfw15u0wc4" path="res://sprites/maria/axe/left/10.png" id="22_qms75"]
+[ext_resource type="Texture2D" uid="uid://bcjs75wj1djh5" path="res://sprites/maria/axe/right/1.png" id="23_1lovq"]
 [ext_resource type="Texture2D" uid="uid://b3o8sdqh7i3bu" path="res://sprites/maria/run/left/6.png" id="23_4vfid"]
 [ext_resource type="Texture2D" uid="uid://4ses4ob7fmjg" path="res://sprites/maria/walk/right/1.png" id="23_apa73"]
+[ext_resource type="Texture2D" uid="uid://cfx6wf6ycf5pj" path="res://sprites/maria/axe/right/2.png" id="24_0usgs"]
 [ext_resource type="Texture2D" uid="uid://m7ntf7ku7hxa" path="res://sprites/maria/walk/right/2.png" id="24_74r1k"]
 [ext_resource type="Texture2D" uid="uid://thg0qp2ovea4" path="res://sprites/maria/run/left/7.png" id="24_ljgr3"]
 [ext_resource type="Texture2D" uid="uid://5dj7ec1rvqpg" path="res://sprites/maria/walk/right/3.png" id="25_8svfe"]
+[ext_resource type="Texture2D" uid="uid://cn3thayveucpt" path="res://sprites/maria/axe/right/3.png" id="25_c7iw1"]
 [ext_resource type="Texture2D" uid="uid://dhu7j8vaefyip" path="res://sprites/maria/run/left/8.png" id="25_fr8ja"]
 [ext_resource type="Texture2D" uid="uid://b458jx8p5cwt5" path="res://sprites/maria/walk/right/4.png" id="26_2a3c5"]
+[ext_resource type="Texture2D" uid="uid://8y4u3jxh6qs4" path="res://sprites/maria/axe/right/4.png" id="26_fccsy"]
 [ext_resource type="Texture2D" uid="uid://ciwgbjnta2po7" path="res://sprites/maria/run/right/1.png" id="26_gvmy4"]
 [ext_resource type="Texture2D" uid="uid://dkekm0w4sk2qq" path="res://sprites/maria/walk/right/5.png" id="27_42b1b"]
+[ext_resource type="Texture2D" uid="uid://cxgq4l574530m" path="res://sprites/maria/axe/right/5.png" id="27_e4c5e"]
 [ext_resource type="Texture2D" uid="uid://b2yaf3okivkpl" path="res://sprites/maria/run/right/2.png" id="27_fcu33"]
+[ext_resource type="Texture2D" uid="uid://ekyex5c3rrsq" path="res://sprites/maria/axe/right/6.png" id="28_72noi"]
 [ext_resource type="Texture2D" uid="uid://c30r05adqsgnn" path="res://sprites/maria/walk/right/6.png" id="28_h7ic4"]
 [ext_resource type="Texture2D" uid="uid://jcfeyoppw388" path="res://sprites/maria/run/right/3.png" id="28_qmsq4"]
+[ext_resource type="Texture2D" uid="uid://ki2makg3y5n7" path="res://sprites/maria/axe/right/7.png" id="29_0j382"]
 [ext_resource type="Texture2D" uid="uid://qnrbo2f4b1ry" path="res://sprites/maria/run/right/4.png" id="29_5vs2b"]
 [ext_resource type="Texture2D" uid="uid://co8qpxi2o3vi6" path="res://sprites/maria/walk/right/7.png" id="29_au7lq"]
 [ext_resource type="Texture2D" uid="uid://dg7wnlh4or63j" path="res://sprites/maria/run/right/5.png" id="30_a7i4v"]
+[ext_resource type="Texture2D" uid="uid://c3cra1jbkjdef" path="res://sprites/maria/axe/right/8.png" id="30_b3jfe"]
 [ext_resource type="Texture2D" uid="uid://6cs4v5nf030n" path="res://sprites/maria/walk/up/2.png" id="30_j2b1d"]
 [ext_resource type="Texture2D" uid="uid://cimuwynr8fegj" path="res://sprites/maria/walk/right/8.png" id="30_nubpm"]
 [ext_resource type="Texture2D" uid="uid://bdqxrxrhx28qy" path="res://sprites/maria/run/right/6.png" id="31_b5l0c"]
+[ext_resource type="Texture2D" uid="uid://7t1xav12f40j" path="res://sprites/maria/axe/right/9.png" id="31_gvigm"]
 [ext_resource type="Texture2D" uid="uid://eqiv5ua47vfx" path="res://sprites/maria/walk/right/9.png" id="31_ua5cf"]
 [ext_resource type="Texture2D" uid="uid://csiqh7qux7xx4" path="res://sprites/maria/run/right/7.png" id="32_2a33p"]
+[ext_resource type="Texture2D" uid="uid://c5ie222sykp22" path="res://sprites/maria/axe/right/10.png" id="32_5ej1x"]
 [ext_resource type="Texture2D" uid="uid://c3kskjflqmd2i" path="res://sprites/maria/walk/up/1.png" id="32_51ujp"]
 [ext_resource type="Texture2D" uid="uid://csgecfk2ijo7h" path="res://sprites/maria/run/right/8.png" id="33_reqs7"]
 [ext_resource type="Texture2D" uid="uid://b3afvm2qehyre" path="res://sprites/maria/walk/up/3.png" id="33_tk41t"]
+[ext_resource type="Texture2D" uid="uid://cl156e7njlcpx" path="res://sprites/maria/axe/up/1.png" id="33_tlfvf"]
 [ext_resource type="Texture2D" uid="uid://bgyj86txx5k2d" path="res://sprites/maria/run/up/1.png" id="34_2yjfb"]
 [ext_resource type="Texture2D" uid="uid://de18ksrjwkxey" path="res://sprites/maria/walk/up/6.png" id="34_cs1tg"]
 [ext_resource type="Texture2D" uid="uid://c2r344bpltyn6" path="res://sprites/maria/walk/up/4.png" id="34_fuw3a"]
+[ext_resource type="Texture2D" uid="uid://0kwrgw7aee0d" path="res://sprites/maria/axe/up/2.png" id="34_i18u8"]
 [ext_resource type="Texture2D" uid="uid://dqe5skghix6yn" path="res://sprites/maria/walk/up/5.png" id="35_8txt3"]
+[ext_resource type="Texture2D" uid="uid://w5nvysd4vq5y" path="res://sprites/maria/axe/up/3.png" id="35_46bxm"]
 [ext_resource type="Texture2D" uid="uid://dchag2bt6uupk" path="res://sprites/maria/run/up/2.png" id="35_dnnjp"]
 [ext_resource type="Texture2D" uid="uid://bg2cpfxq3cnjf" path="res://sprites/maria/walk/up/8.png" id="36_2w11d"]
+[ext_resource type="Texture2D" uid="uid://b6vxg54dq6rn" path="res://sprites/maria/axe/up/4.png" id="36_llmf1"]
 [ext_resource type="Texture2D" uid="uid://bsalrdrxswg7n" path="res://sprites/maria/run/up/3.png" id="36_wqna8"]
 [ext_resource type="Texture2D" uid="uid://qcye6d6b1c3y" path="res://sprites/maria/walk/up/7.png" id="37_770dr"]
 [ext_resource type="Texture2D" uid="uid://cjpcqthqwlbs6" path="res://sprites/maria/run/up/4.png" id="37_l7gmo"]
+[ext_resource type="Texture2D" uid="uid://bju0bnhqpfhdk" path="res://sprites/maria/axe/up/5.png" id="37_qywrh"]
 [ext_resource type="Texture2D" uid="uid://n3i81n7uador" path="res://sprites/maria/walk/up/9.png" id="38_8f1cb"]
+[ext_resource type="Texture2D" uid="uid://8b8yu5wsgvcm" path="res://sprites/maria/axe/up/6.png" id="38_jopkk"]
 [ext_resource type="Texture2D" uid="uid://cc0ekwptv4imn" path="res://sprites/maria/run/up/5.png" id="38_kft7l"]
 [ext_resource type="Texture2D" uid="uid://rubkbd8nwl4c" path="res://sprites/maria/run/up/6.png" id="39_2s4os"]
+[ext_resource type="Texture2D" uid="uid://e6jw8ptibjn1" path="res://sprites/maria/axe/up/7.png" id="39_5l1xu"]
 [ext_resource type="Texture2D" uid="uid://ddpf7gki7amij" path="res://sprites/maria/run/up/7.png" id="40_2em0j"]
+[ext_resource type="Texture2D" uid="uid://b0ahaia4fqkpw" path="res://sprites/maria/axe/up/8.png" id="40_inwxp"]
+[ext_resource type="Texture2D" uid="uid://c6l4hptvdrr5l" path="res://sprites/maria/axe/up/9.png" id="41_eb62r"]
 [ext_resource type="Texture2D" uid="uid://cpq5eeltl8hvl" path="res://sprites/maria/run/up/8.png" id="41_qe2k6"]
+[ext_resource type="Texture2D" uid="uid://dmm1j87yw8mdg" path="res://sprites/maria/axe/up/10.png" id="42_5tfe1"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="42_giy8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hrkfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oxcmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wylla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a3eqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_plx2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3capk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kg5hq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kp0if")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2xkbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dqoq3")
+}],
+"loop": 0,
+"name": &"attack_down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_y8tjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6ptwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8pj6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_08upi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4tsya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_68qdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ccnn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_mcvyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ealyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_qms75")
+}],
+"loop": 0,
+"name": &"attack_left",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_1lovq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0usgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_c7iw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_fccsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_e4c5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_72noi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0j382")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_b3jfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gvigm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_5ej1x")
+}],
+"loop": 0,
+"name": &"attack_right",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_tlfvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_i18u8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_46bxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_llmf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_qywrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_jopkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_5l1xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_inwxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_eb62r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_5tfe1")
+}],
+"loop": 0,
+"name": &"attack_up",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2dvfe")
@@ -396,5 +576,9 @@ scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
 
 [node name="InteractionArea" parent="." unique_id=1935205722 instance=ExtResource("42_giy8y")]
-position = Vector2(0, -9.999998)
-scale = Vector2(1.5466685, 1.3435965)
+position = Vector2(0, 19.000002)
+scale = Vector2(2.1466677, 1.9466678)
+
+[node name="AxeHitbox" type="Area2D" parent="." unique_id=1652668614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]

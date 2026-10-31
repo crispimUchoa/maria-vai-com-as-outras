@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://o1ch2g5gv876"]
+
+[ext_resource type="Script" uid="uid://cq0uhgqtvlfok" path="res://scripts/mochila_item.gd" id="1_um232"]
+[ext_resource type="Texture2D" uid="uid://dmcch1p6kix81" path="res://sprites/inventory itens/mochila maria.png" id="2_6meuo"]
+[ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="3_6116v"]
+[ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_6meuo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upkfo"]
+radius = 93.00538
+
+[node name="MochilaItem" type="Area2D" unique_id=224047904]
+light_mask = 1023
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_um232")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1270872765]
+light_mask = 1023
+visibility_layer = 3
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_6meuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=144932220]
+position = Vector2(2, -3)
+shape = SubResource("CircleShape2D_upkfo")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1197438170]
+script = ExtResource("3_6116v")
+metadata/_custom_type_script = "uid://cqdabla0iyxhr"
+
+[node name="Label_mochila" type="Label" parent="." unique_id=952795977]
+offset_left = 64.0
+offset_top = -103.0
+offset_right = 952.0
+offset_bottom = -79.0
+theme_override_fonts/font = ExtResource("4_6meuo")
+theme_override_font_sizes/font_size = 24
+text = "Pressione \"espaço\" para coletar item."

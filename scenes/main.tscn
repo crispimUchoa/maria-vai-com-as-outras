@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cflca4kbmmmho" path="res://scenes/PlayerBedRoom.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://bwi044hq6ooow" path="res://assets/sounds/door-creak.wav" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://o1ch2g5gv876" path="res://scenes/MochilaItem.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=307662509]
 y_sort_enabled = true
@@ -23,3 +24,6 @@ volume_db = 4.457
 
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=1187404950]
 position = Vector2(350, 350)
+[node name="LivroItem" parent="." unique_id=160389756 instance=ExtResource("6_tefeu")]
+position = Vector2(220.00002, 296)
+scale = Vector2(0.2, 0.2)
