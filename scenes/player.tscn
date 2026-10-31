@@ -554,6 +554,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
 size = Vector2(5.6308026, 4.5838194)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrkfm"]
+
 [node name="Player" type="CharacterBody2D" unique_id=806091486 groups=["Player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -566,7 +568,7 @@ stream = ExtResource("2_6c3st")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"walk_down"
+animation = &"attack_down"
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
@@ -576,9 +578,12 @@ scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
 
 [node name="InteractionArea" parent="." unique_id=1935205722 instance=ExtResource("42_giy8y")]
-position = Vector2(0, 19.000002)
+position = Vector2(0, -10.999998)
 scale = Vector2(2.1466677, 1.9466678)
 
 [node name="AxeHitbox" type="Area2D" parent="." unique_id=1652668614]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]
+position = Vector2(29.000002, -38)
+scale = Vector2(0.5600006, 0.5600006)
+shape = SubResource("CapsuleShape2D_hrkfm")

@@ -24,6 +24,7 @@ volume_db = 4.457
 
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=1187404950]
 position = Vector2(350, 350)
-[node name="LivroItem" parent="." unique_id=160389756 instance=ExtResource("6_tefeu")]
+
+[node name="MochilaItem" parent="." unique_id=160389756 instance=ExtResource("6_tefeu")]
 position = Vector2(220.00002, 296)
 scale = Vector2(0.2, 0.2)
