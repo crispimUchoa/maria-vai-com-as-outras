@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://nw1o751nlqdi"]
+
+[ext_resource type="Texture2D" uid="uid://cuo5do5qx3msm" path="res://assets/cutscenes/dead_girl_0.jpeg" id="1_xcsbn"]
+[ext_resource type="Texture2D" uid="uid://cceg4tdnw7it" path="res://assets/cutscenes/dead_girl_1.jpeg" id="2_4qphp"]
+[ext_resource type="Texture2D" uid="uid://cxne64dbjr5rl" path="res://assets/cutscenes/dead_girl_2.jpeg" id="3_7cbls"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xcsbn")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4qphp")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7cbls")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="DeadGirl" type="Node2D" unique_id=1986963882]
+z_index = 500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826874270]
+sprite_frames = SubResource("SpriteFrames_qhds1")
+animation = &"2"
+offset = Vector2(400, 300)

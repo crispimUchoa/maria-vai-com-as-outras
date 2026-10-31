@@ -1,22 +1,18 @@
 [gd_scene format=3 uid="uid://csq8why3uvfol"]
 
 [ext_resource type="Script" uid="uid://c1pdh8fuol2hp" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://4bvpbtvi131k" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cflca4kbmmmho" path="res://scenes/PlayerBedRoom.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://bwi044hq6ooow" path="res://assets/sounds/door-creak.wav" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://o1ch2g5gv876" path="res://scenes/MochilaItem.tscn" id="6_tefeu"]
 
-[node name="Main" type="Node2D" unique_id=307662509 node_paths=PackedStringArray("level_container")]
+[node name="Main" type="Node2D" unique_id=307662509]
+y_sort_enabled = true
 script = ExtResource("1_o5qli")
-level_container = NodePath("LevelContainer")
 
 [node name="LevelContainer" type="Node2D" parent="." unique_id=912664583 groups=["LevelContainer"]]
 
 [node name="PlayerBedRoom" parent="LevelContainer" unique_id=1851993271 instance=ExtResource("3_sugp2")]
-
-[node name="Player" parent="." unique_id=806091486 groups=["Player"] instance=ExtResource("2_0wfyh")]
-position = Vector2(285, 373)
-scale = Vector2(1.35, 1.35)
 
 [node name="PauseMenu" parent="." unique_id=24157495 instance=ExtResource("4_jyhfs")]
 
@@ -25,3 +21,10 @@ scale = Vector2(1.35, 1.35)
 [node name="DoorCreak" type="AudioStreamPlayer" parent="Sounds" unique_id=394528258]
 stream = ExtResource("5_tbgi4")
 volume_db = 4.457
+
+[node name="InitialSpawn" type="Marker2D" parent="." unique_id=1187404950]
+position = Vector2(350, 350)
+
+[node name="MochilaItem" parent="." unique_id=160389756 instance=ExtResource("6_tefeu")]
+position = Vector2(220.00002, 296)
+scale = Vector2(0.2, 0.2)
