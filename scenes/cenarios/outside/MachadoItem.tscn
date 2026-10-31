@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://pdrtunckjwh1"]
+
+[ext_resource type="Script" uid="uid://b4eem50wippgr" path="res://scripts/machado_item.gd" id="1_nfikn"]
+[ext_resource type="Texture2D" uid="uid://bcrveqkkmcm5n" path="res://sprites/inventory itens/Iron_Axe_JE5_BE2.png" id="2_rkges"]
+[ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="3_3g5ew"]
+[ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_cvv10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p36ux"]
+radius = 80.65978
+
+[node name="MachadoItem" type="Area2D" unique_id=1390710440]
+light_mask = 3
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_nfikn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419184869]
+visibility_layer = 1023
+position = Vector2(0, 2)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_rkges")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=93760755]
+position = Vector2(-2, 11.000002)
+rotation = 0.76096356
+shape = SubResource("CircleShape2D_p36ux")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=661686135]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-1, 7)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_3g5ew")
+metadata/_custom_type_script = "uid://cqdabla0iyxhr"
+
+[node name="Label_machado" type="Label" parent="." unique_id=153480106]
+visible = false
+offset_left = 79.0
+offset_top = -1.0
+offset_right = 967.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_cvv10")
+theme_override_font_sizes/font_size = 26
+text = "Pressione \"espaço\" para coletar item."
+horizontal_alignment = 1
+vertical_alignment = 1
