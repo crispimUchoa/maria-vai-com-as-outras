@@ -25,9 +25,7 @@ func _ready() -> void:
 
 func can_move() -> bool:
 	return !DialogManager.is_open() and !is_attacking and !SceneManager.cutscene_running
-	 
-	# Toca a animação correspondente
-	tocar_animacao_ataque(last_direction)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Ação de Ataque
@@ -51,8 +49,8 @@ func executar_ataque() -> void:
 	if axe_hitbox_shape:
 		axe_hitbox_shape.disabled = false
 		atualizar_posicao_hitbox(last_direction)
-
-
+	# Toca a animação correspondente
+	tocar_animacao_ataque(last_direction)
 
 func atualizar_posicao_hitbox(dir: Vector2) -> void:
 	var offset := 24.0
