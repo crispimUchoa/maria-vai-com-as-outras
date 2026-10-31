@@ -13,8 +13,9 @@ var is_attacking: bool = false
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
 @onready var interaction_detector = $InteractionArea
 @onready var axe_hitbox_shape: CollisionShape2D = $AxeHitbox/CollisionShape2D
-
+var screen_size: Vector2
 func _ready() -> void:
+	screen_size = get_viewport_rect().size
 	# Garante que a colisão do ataque comece desativada
 	if axe_hitbox_shape:
 		axe_hitbox_shape.disabled = true
@@ -103,6 +104,7 @@ func _physics_process(_delta: float) -> void:
 		update_idle_animation()
 
 	move_and_slide()
+	global_position = global_position.clamp(Vector2.ZERO, screen_size)
 
 func update_run_animation(dir: Vector2) -> void:
 	if abs(dir.x) > abs(dir.y):
