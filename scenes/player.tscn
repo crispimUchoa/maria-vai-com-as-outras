@@ -552,9 +552,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
-size = Vector2(6.033003, 4.767172)
+size = Vector2(5.6308026, 4.5838194)
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486 groups=["Player"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 255
 script = ExtResource("1_g2els")
@@ -563,11 +564,13 @@ script = ExtResource("1_g2els")
 stream = ExtResource("2_6c3st")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"attack_down"
+animation = &"walk_down"
+offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
-position = Vector2(1.1920929e-07, 19)
+position = Vector2(-9.834766e-07, -10.5)
 rotation = -3.1415925
 scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")

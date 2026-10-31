@@ -49,6 +49,9 @@ func executar_ataque() -> void:
 		axe_hitbox_shape.disabled = false
 		atualizar_posicao_hitbox(last_direction)
 
+func can_move():
+	return !DialogManager.is_open() and !SceneManager.cutscene_running
+	 
 	# Toca a animação correspondente
 	tocar_animacao_ataque(last_direction)
 
