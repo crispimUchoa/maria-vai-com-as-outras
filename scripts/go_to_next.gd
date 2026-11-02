@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 @onready var interaction_area = $InteractionArea
 @onready var door_locked: AudioStreamPlayer  = $DoorLocked
 @export_file(".tscn") var next_level_file: String

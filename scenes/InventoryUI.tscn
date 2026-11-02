@@ -3,8 +3,13 @@
 [ext_resource type="Script" uid="uid://c85k8bsxk51we" path="res://scripts/inventory_ui.gd" id="1_wqexf"]
 
 [node name="InventoryUi" type="CanvasLayer" unique_id=1523494795]
+process_mode = 3
+offset = Vector2(350, 200)
+transform = Transform2D(1, 0, 0, 1, 350, 200)
 script = ExtResource("1_wqexf")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=271279290]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1575271591]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12

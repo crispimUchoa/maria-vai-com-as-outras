@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
-
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -54,4 +52,4 @@ next_spawn_id = "SpawnWay1PostHouse"
 
 [node name="MachadoItem" parent="." unique_id=1390710440 instance=ExtResource("3_htrpx")]
 position = Vector2(521, 155)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(1, 1)
