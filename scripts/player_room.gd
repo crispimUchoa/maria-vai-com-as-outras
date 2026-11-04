@@ -23,11 +23,15 @@ func _ready() -> void:
 						DialogInfoModel.new('player', 'Que fome...'),
 						DialogInfoModel.new('player', 'Cuidar ver o que é a merenda.')
 						])
+<<<<<<< HEAD
 
 		ProgressManager.Act.BEGIN_GO_TO_SCHOOL:
 			can_not_go_parents_bedroom()
 			if not InventoryManager.has_item("Mochila"):
 				go_to_outside.alternative_func = func():
+=======
+				elif not InventoryManager.has_item("Mochila"):
+>>>>>>> b30042deaaf09871733811f1297a08f26d217a2c
 					DialogManager.start_talk([
 						DialogInfoModel.new('player', 'Ave Maria, tô esquecendo a mochila!')
 					])
