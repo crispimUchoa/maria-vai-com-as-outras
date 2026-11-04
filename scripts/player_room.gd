@@ -23,7 +23,7 @@ func _ready() -> void:
 						DialogInfoModel.new('player', 'Que fome...'),
 						DialogInfoModel.new('player', 'Cuidar ver o que é a merenda.')
 						])
-				elif not InventoryManager.has_item("mochila"):
+				elif not InventoryManager.has_item("Mochila"):
 					DialogManager.start_talk([
 						DialogInfoModel.new('player', 'Ave Maria, tô esquecendo a mochila!')
 					])
