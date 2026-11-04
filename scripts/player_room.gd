@@ -7,7 +7,7 @@ func can_not_go_parents_bedroom():
 	go_to_parents.can_go = false
 	go_to_parents.alternative_func = func():
 		DialogManager.start_talk([
-		DialogInfoModel.new('player', 'Tô atrasada, melhor não perder tempo aqui...')
+			DialogInfoModel.new('player', 'Tô atrasada, melhor não perder tempo aqui...')
 		])
 		
 func _ready() -> void:
@@ -16,10 +16,21 @@ func _ready() -> void:
 			can_not_go_parents_bedroom()
 			
 			go_to_outside.can_go = false
+			
 			go_to_outside.alternative_func = func():
-				DialogManager.start_talk([
-					DialogInfoModel.new('player', 'Que fome...'),
-					DialogInfoModel.new('player', 'Cuidar ver o que é a merenda.'),
-				])
+				if not ProgressManager.merendou:
+					DialogManager.start_talk([
+						DialogInfoModel.new('player', 'Que fome...'),
+						DialogInfoModel.new('player', 'Cuidar ver o que é a merenda.')
+						])
+				elif not InventoryManager.has_item("mochila"):
+					DialogManager.start_talk([
+						DialogInfoModel.new('player', 'Ave Maria, tô esquecendo a mochila!')
+					])
+				else:
+					go_to_outside.can_go = true
+					ProgressManager.set_act(ProgressManager.Act.BEGIN_GO_TO_SCHOOL)
+					go_to_outside.trocar_de_fase()
 		ProgressManager.Act.BEGIN_GO_TO_SCHOOL:
 			can_not_go_parents_bedroom()
+			go_to_outside.can_go = true
