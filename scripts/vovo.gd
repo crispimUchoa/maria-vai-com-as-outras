@@ -17,6 +17,7 @@ func _on_interaction_area_interacted() -> void:
 			await SceneManager.cutscene_finished
 			SceneManager.stop_cutscene()
 			
+			ProgressManager.merendou = true
 		_:
 			DialogManager.start_talk([
 				DialogInfoModel.new("vovo", "É bom se apressar!"),
