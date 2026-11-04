@@ -19,4 +19,6 @@ func remove_item(item_id: String) -> void:
 		print("Item usado:", item_id)
 		
 func has_item(item_id: String) -> bool:
+	print(items)
+	print(items.has(item_id))
 	return items.has(item_id)
