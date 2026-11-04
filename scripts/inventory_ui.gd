@@ -4,16 +4,32 @@ extends CanvasLayer
 
 func _ready() -> void:
 	# se conecta ao sinal do InventoryManager
-	InventoryManager.inventory_update.connect(update_ui)
-	update_ui()
+	InventoryManager.inventory_updated.connect(atualizar_inventario)
+	atualizar_inventario()
 	
-func update_ui() -> void:
-	# limpa a interface atual
+func atualizar_inventario() -> void:
+	if not container:
+		return
+		
+	# Limpa os elementos antigos
 	for child in container.get_children():
 		child.queue_free()
 		
-	# cria um ícone/texto para cada item no inventário
+	# Se o inventário estiver vazio
+	if InventoryManager.items.is_empty():
+		var empty_label := Label.new()
+		empty_label.text = "Inventário Vazio"
+		empty_label.custom_minimum_size = Vector2(120, 24)
+		empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		container.add_child(empty_label)
+		return
+
+	# Se houver itens
 	for item_id in InventoryManager.items:
-		var label = Label.new()
-		label.text = "[" + item_id + "]"
-		container.add_child(label)
+		var item_label := Label.new()
+		item_label.text = "• " + String(item_id).capitalize()
+		item_label.custom_minimum_size = Vector2(80, 24)
+		item_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		item_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		
+		container.add_child(item_label)
