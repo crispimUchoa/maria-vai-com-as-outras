@@ -3503,6 +3503,10 @@ texture = ExtResource("3_of0jk")
 61:1/0 = 0
 61:1/0/texture_origin = Vector2i(0, 200)
 61:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-116.56384, -54.47173, 125.59543, -50.520412, 125.030975, 6.4914474, -114.305954, 5.9269714)
+0:35/size_in_atlas = Vector2i(27, 23)
+0:35/0 = 0
+0:35/0/texture_origin = Vector2i(0, 175)
+0:35/0/physics_layer_0/polygon_0/points = PackedVector2Array(-150.99675, -60.680943, 200.10599, -59.551994, 200.67047, 3.1046066, -150.99675, 4.233551)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_reltv"]
 texture = ExtResource("4_4nv3x")
