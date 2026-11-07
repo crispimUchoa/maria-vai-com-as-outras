@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dnblrrg8wymtd"]
+
+[ext_resource type="Script" uid="uid://kw834nxv1pu1" path="res://scripts/lobisomem.gd" id="1_nr7hh"]
+
+[node name="lobisomem" type="Node2D" unique_id=1233252297]
+script = ExtResource("1_nr7hh")

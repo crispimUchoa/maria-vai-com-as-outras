@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c6h7pgk6uva8r"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_mfohv"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_28ly4"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -26,3 +27,25 @@ position = Vector2(-4, 38)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD//xAAAwAAAAYAAAD//w8AAwADAAUAAAD//w4AAwACAAYAAAD//w0AAwAAAAQAAAD//wwAAwABAAQAAAD//wsAAwACAAcAAAD//woAAwABAAQAAAD//wkAAwADAAQAAAD//wgAAwABAAQAAAD//wcAAwABAAQAAAD//wYAAwAAAAUAAAD//wUAAwAAAAQAAAD//wQAAwABAAQAAAD//wMAAwADAAQAAAAZAP//AwADAAYAAAAZAAAAAwACAAYAAAAaAAEAAwACAAcAAAAaAAIAAwABAAQAAAAaAAMAAwAAAAQAAAAaAAQAAwABAAUAAAAaAAUAAwABAAUAAAAaAAYAAwABAAQAAAAaAAcAAwABAAUAAAAaAAgAAwADAAUAAAAaAAkAAwACAAQAAAAaAAoAAwADAAQAAAAaAAsAAwADAAQAAAAZAAsAAwADAAQAAAAZAAwAAwADAAQAAAAZAA0AAwACAAcAAAACAP7/AwACAAYAAAADAP7/AwABAAcAAAAEAP7/AwABAAYAAAAFAP7/AwABAAcAAAAGAP7/AwACAAcAAAAHAP7/AwACAAUAAAAIAP7/AwACAAYAAAAJAP7/AwACAAYAAAAKAP7/AwABAAQAAAALAP7/AwADAAQAAAAMAP7/AwADAAYAAAANAP7/AwAAAAYAAAAOAP7/AwAAAAYAAAAPAP7/AwAAAAYAAAAQAP7/AwADAAQAAAARAP7/AwABAAQAAAASAP7/AwAAAAUAAAATAP7/AwABAAQAAAAUAP7/AwAAAAcAAAAVAP7/AwAAAAYAAAAWAP7/AwACAAcAAAAXAP7/AwAAAAQAAAAJAA0AAwADAAUAAAAFAAoAAwAAAAQAAAAIAAMAAwADAAYAAAAIAAYAAwADAAQAAAAEAAIAAwACAAYAAAAOAAkAAwAAAAUAAAASAAcAAwABAAUAAAASAAkAAwACAAYAAAASAAAAAwACAAYAAAAWAAUAAwABAAcAAAAPABQAAwABAAYAAAAXABMAAwACAAQAAAARAAwAAwAAAAUAAAAEABIAAwACAAcAAAA=")
 tile_set = ExtResource("1_mfohv")
+
+[node name="SpawnVillage3" type="Marker2D" parent="." unique_id=1236767692]
+position = Vector2(366, 494)
+
+[node name="SpawnTrilha2" type="Marker2D" parent="." unique_id=1246966415]
+position = Vector2(372, 102)
+
+[node name="GoToVillage3" parent="." unique_id=609231163 instance=ExtResource("2_28ly4")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(797, 600)
+rotation = 1.5707964
+scale = Vector2(1, 6.280001)
+next_level_file = "uid://cg4tetjd7h3oo"
+next_spawn_id = "SpawnTrilha1"
+
+[node name="GoToTrilha2" parent="." unique_id=2038018809 instance=ExtResource("2_28ly4")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(797, -0.99999905)
+rotation = -1.5707964
+scale = Vector2(1, -6.28)
+next_level_file = "uid://cruxt5bosnvsx"
+next_spawn_id = "SpawnTrilha1"

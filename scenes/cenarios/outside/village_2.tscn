@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b80dypf5m015j"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_2olnu"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_hhp2c"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -37,3 +38,45 @@ y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAVAAkABgAQABAAAAALAAUABgAIAAAAAAAEAAUABgAQAAgAAAABABEABgAQAAgAAAAPAA4ABgAIABAAAAAWABEABgAYAAgAAAARABcABgAQABAAAAASABcABgAQAAAAAAATABcABgAAABgAAAAUABcABgAYAAgAAAAVABcABgAAABAAAAAZABYABgAQAAAAAAA=")
 tile_set = ExtResource("1_2olnu")
+
+[node name="GoToVillage4" parent="." unique_id=609231163 instance=ExtResource("2_hhp2c")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(801, 350)
+scale = Vector2(1, 1.4)
+next_level_file = "uid://d0run3nfjtg6y"
+next_spawn_id = "SpawnVillage2"
+
+[node name="GoToVillage3" parent="." unique_id=254033052 instance=ExtResource("2_hhp2c")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(-0.9999981, 49)
+scale = Vector2(-1.04, 1.0399996)
+next_level_file = "uid://cg4tetjd7h3oo"
+next_spawn_id = "SpawnVillage2"
+
+[node name="GoToVillage1" parent="." unique_id=1049626642 instance=ExtResource("2_hhp2c")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(363.99997, 601.99994)
+rotation = -1.5707964
+scale = Vector2(-1.04, 0.7600008)
+next_level_file = "uid://ra88yat4ystn"
+next_spawn_id = "SpawnVillage2"
+
+[node name="GoPonte" parent="." unique_id=1045575902 instance=ExtResource("2_hhp2c")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(459.99997, 0)
+rotation = 1.5707964
+scale = Vector2(-1.04, 0.7600008)
+next_level_file = "uid://dthtroi886x25"
+next_spawn_id = "SpawnVillage2"
+
+[node name="SpawnVillage1" type="Marker2D" parent="." unique_id=352666599]
+position = Vector2(420, 524)
+
+[node name="SpawnPonte" type="Marker2D" parent="." unique_id=1185546411]
+position = Vector2(416, 62)
+
+[node name="SpawnVillage3" type="Marker2D" parent="." unique_id=1615349841]
+position = Vector2(84, 98)
+
+[node name="SpawnVillage4" type="Marker2D" parent="." unique_id=66037130]
+position = Vector2(737, 429)

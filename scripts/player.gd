@@ -12,13 +12,13 @@ var is_attacking: bool = false
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
 @onready var interaction_detector = $InteractionArea
-@onready var axe_hitbox_shape: CollisionShape2D = $AxeHitbox/CollisionShape2D
+@onready var axe_hitbox: CollisionShape2D = $AxeHitbox/CollisionShape2D
 var screen_size: Vector2
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	# Garante que a colisão do ataque comece desativada
-	if axe_hitbox_shape:
-		axe_hitbox_shape.disabled = true
+	if axe_hitbox:
+		axe_hitbox.disabled = true
 	
 	# Conecta o sinal de fim da animação 
 	if not animated_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
@@ -47,8 +47,8 @@ func executar_ataque() -> void:
 		walking_sound.stop()
 	
 	# ativa colisão hitbox no ataque
-	if axe_hitbox_shape:
-		axe_hitbox_shape.disabled = false
+	if axe_hitbox:
+		axe_hitbox.disabled = false
 		atualizar_posicao_hitbox(last_direction)
 	# Toca a animação correspondente
 	tocar_animacao_ataque(last_direction)
@@ -56,9 +56,9 @@ func executar_ataque() -> void:
 func atualizar_posicao_hitbox(dir: Vector2) -> void:
 	var offset := 24.0
 	if abs(dir.x) > abs(dir.y):
-		axe_hitbox_shape.position = Vector2(offset if dir.x > 0 else -offset, 0)
+		axe_hitbox.position = Vector2(offset if dir.x > 0 else -offset, 0)
 	else:
-		axe_hitbox_shape.position = Vector2(0, offset if dir.y > 0 else -offset)
+		axe_hitbox.position = Vector2(0, offset if dir.y > 0 else -offset)
 
 func tocar_animacao_ataque(dir: Vector2) -> void:
 	if abs(dir.x) > abs(dir.y):
@@ -152,6 +152,6 @@ func interact() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_attacking:
 		is_attacking = false
-		if axe_hitbox_shape:
-			axe_hitbox_shape.disabled = true
+		if axe_hitbox:
+			axe_hitbox.disabled = true
 		update_idle_animation()
