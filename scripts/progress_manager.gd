@@ -1,5 +1,7 @@
 extends Node
 
+signal mission_requested
+
 enum Act {
 	BEGIN_MARIA_HOUSE,
 	BEGIN_GO_TO_SCHOOL,
@@ -17,6 +19,7 @@ var current_act: Act = Act.BEGIN_MARIA_HOUSE
 var current_level: String = ""
 var current_spawn_id: String = ""
 var merendou: bool = false
+var mission = "Vá merendar"
 
 func set_act(act: Act):
 	current_act = act
@@ -46,3 +49,7 @@ func save_progress() -> Dictionary:
 		"current_spawn_id": current_spawn_id,
 		"merendou": merendou,
 	}
+
+func set_mission(new_mission: String):
+	mission = new_mission
+	mission_requested.emit(new_mission)

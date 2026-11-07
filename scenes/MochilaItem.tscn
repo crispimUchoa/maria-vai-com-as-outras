@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_6meuo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_upkfo"]
-radius = 169.23947
+radius = 113.03982
 
 [node name="MochilaItem" type="Area2D" unique_id=224047904]
 light_mask = 1023
