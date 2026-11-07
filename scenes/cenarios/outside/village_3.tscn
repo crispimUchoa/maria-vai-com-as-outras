@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cg4tetjd7h3oo"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_bva8x"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_rseh7"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -36,3 +37,25 @@ y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAACABMAAwADAAEAAAAKABQAAwADAAIAAAARAA0AAwAAAAAAAAARAAQAAwADAAAAAAAWABAAAwACAAAAAAASABEAAwABAAMAAAAVABYAAwAAAAEAAAAPABgAAwADAAAAAAAGABcAAwABAAAAAAACABcAAwACAAAAAAA=")
 tile_set = ExtResource("1_bva8x")
+
+[node name="GoToVillage2" parent="." unique_id=609231163 instance=ExtResource("2_rseh7")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(800, 30)
+scale = Vector2(1, 1.1600003)
+next_level_file = "uid://b80dypf5m015j"
+next_spawn_id = "SpawnVillage3"
+
+[node name="GoToTrilha1" parent="." unique_id=1176435365 instance=ExtResource("2_rseh7")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(587.00006, 5.9604645e-08)
+rotation = -1.5716797
+scale = Vector2(1, 1.4000003)
+next_level_file = "uid://c6h7pgk6uva8r"
+next_spawn_id = "SpawnVillage3"
+
+[node name="SpawnVillage2" type="Marker2D" parent="." unique_id=364710905]
+position = Vector2(713.99994, 117)
+scale = Vector2(1.1208792, 0.060606062)
+
+[node name="SpawnTrilha1" type="Marker2D" parent="." unique_id=1708123583]
+position = Vector2(673, 76)
