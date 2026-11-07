@@ -3,14 +3,14 @@ extends Area2D
 @export var damage_amount: int = 1
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-	area_entered.connect(_on_area_entered)
+	if not body_entered.is_connected(_on_body_entered):
+		body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 	# se for tilemap
+	# Alinha com a função quebrar_tile_na_posicao passando o argumento de posição
 	if body.has_method("quebrar_tile"):
-		body.quebrar_tile()
-	# se for inimigo ou staticbody / characterbody
+		body.quebrar_tile(global_position)
 	elif body.has_method("take_damage"):
 		body.take_damage(damage_amount)
 
