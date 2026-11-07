@@ -1,6 +1,7 @@
 extends Node
 
 signal mission_requested
+signal change_acess_requested
 
 enum Act {
 	BEGIN_MARIA_HOUSE,
@@ -23,6 +24,7 @@ var mission = "Vá merendar"
 
 func set_act(act: Act):
 	current_act = act
+	change_acess_requested.emit()
 
 func get_act():
 	return current_act

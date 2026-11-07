@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cenkkpijmc1av"]
+
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="1_ue2hc"]
+
+[node name="ActGroup" type="Node2D" unique_id=1092087895]
+script = ExtResource("1_ue2hc")

@@ -12,7 +12,7 @@ func _on_interaction_area_interacted() -> void:
 				DialogInfoModel.new("player", "Pois vou logo arrochar que a fome ta medonha!"),
 			])
 			await DialogManager.dialog_finished
-			ProgressManager.current_act = ProgressManager.Act.BEGIN_GO_TO_SCHOOL
+			ProgressManager.set_act(ProgressManager.Act.BEGIN_GO_TO_SCHOOL) 
 			SceneManager.show_cutscene('res://scenes/cutscenes/act_0_cuscuz.tscn', '0', 2.5)
 			await SceneManager.cutscene_finished
 			SceneManager.stop_cutscene()
