@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dthtroi886x25"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_1qbw4"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_yhxcq"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -30,3 +31,24 @@ tile_set = ExtResource("1_1qbw4")
 position = Vector2(-4, 38)
 tile_map_data = PackedByteArray("AAAWABMAAAASACkAAAAXABMAAAATACkAAAAYABMAAAASACkAAAAZABMAAAAQACkAAAAYABEAAAATACkAAAAZABEAAAARACkAAAAaABEAAAASACkAAAAbABEAAAATACkAAAAVABEAAAAQACkAAAAWABEAAAARACkAAAAXABEAAAASACkAAAAaABMAAAARACkAAAAbABMAAAASACkAAAAcABMAAAATACkAAAAUABMAAAAQACkAAAAVABMAAAARACkAAAA=")
 tile_set = ExtResource("1_1qbw4")
+
+[node name="GoToBar" parent="." unique_id=609231163 instance=ExtResource("2_yhxcq")]
+modulate = Color(1, 1, 1, 0.11372549)
+rotation = -1.5707964
+scale = Vector2(1, 6.2400017)
+next_level_file = "uid://0milpouy7mk5"
+next_spawn_id = "SpawnPonte"
+
+[node name="GoToVillage2" parent="." unique_id=337131006 instance=ExtResource("2_yhxcq")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(799.00006, 602)
+rotation = 1.5707964
+scale = Vector2(1, 6.2400017)
+next_level_file = "uid://b80dypf5m015j"
+next_spawn_id = "SpawnPonte"
+
+[node name="SpawnBar" type="Marker2D" parent="." unique_id=824715497]
+position = Vector2(392, 83)
+
+[node name="SpawnVillage2" type="Marker2D" parent="." unique_id=845304566]
+position = Vector2(398, 519)

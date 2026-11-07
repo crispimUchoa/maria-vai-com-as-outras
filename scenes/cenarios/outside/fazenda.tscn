@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bdwjpvhq3atyx"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_bs0kv"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_65w6m"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -32,3 +33,15 @@ position = Vector2(-4, 38)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAACABEAAwAAAAMAAAAIABEAAwADAAAAAAAaABEAAwABAAEAAAADAAQAAwABAAAAAAAKAAQAAwAAAAAAAAANAA8AAwABAAAAAAA=")
 tile_set = ExtResource("1_bs0kv")
+
+[node name="GoToBar" parent="." unique_id=609231163 instance=ExtResource("2_65w6m")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(-1, 174)
+scale = Vector2(-0.9200003, 1.6)
+next_level_file = "uid://0milpouy7mk5"
+next_spawn_id = "SpawnFazenda"
+
+[node name="SpawnBar" type="Marker2D" parent="." unique_id=1957767687]
+position = Vector2(84.00001, 270)
+rotation = 3.1415927
+scale = Vector2(0.9200003, -1.6)

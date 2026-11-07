@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
-
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -36,12 +34,23 @@ position = Vector2(97, 144)
 [node name="SpawnWay2PostHouse" type="Marker2D" parent="." unique_id=1026227092]
 position = Vector2(537, 510)
 
+[node name="SpawnVillage1" type="Marker2D" parent="." unique_id=637998308]
+position = Vector2(708, 147)
+
 [node name="GoToMariaFrontHouse" parent="." unique_id=609231163 instance=ExtResource("5_csuyj")]
 modulate = Color(1, 1, 1, 0.11372549)
 position = Vector2(0, 272)
 rotation = -3.1415925
 scale = Vector2(1, 1.7600002)
 next_level_file = "uid://phppkesylvwp"
+next_spawn_id = "SpawnWay1PostHouse"
+
+[node name="GoToVillage1" parent="." unique_id=992403952 instance=ExtResource("5_csuyj")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(800, 272)
+rotation = -3.1415925
+scale = Vector2(-0.84000003, 1.7600002)
+next_level_file = "uid://ra88yat4ystn"
 next_spawn_id = "SpawnWay1PostHouse"
 
 [node name="GoToWay2PostHouse" parent="." unique_id=1687809277 instance=ExtResource("5_csuyj")]

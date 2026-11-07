@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cruxt5bosnvsx"]
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_wb21w"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_q43mf"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -31,3 +32,24 @@ position = Vector2(-4, 38)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD//xMAAwADAAQAAAAEABMAAwADAAUAAAAIABMAAwACAAQAAAAIAA8AAwACAAYAAAAHAA8AAwABAAUAAAACAAwAAwADAAQAAAAJAA0AAwADAAQAAAAWAAIAAwAAAAUAAAAYAAQAAwAAAAQAAAAQAAAAAwABAAYAAAARAAQAAwADAAUAAAAUAAQAAwACAAcAAAANAAIAAwACAAYAAAANAAUAAwABAAcAAAASAA8AAwACAAUAAAASABEAAwABAAQAAAAQAA0AAwAAAAUAAAAPABAAAwABAAQAAAAVAAwAAwACAAQAAAATAAsAAwABAAcAAAAWABAAAwABAAUAAAAYABEAAwABAAQAAAA=")
 tile_set = ExtResource("1_wb21w")
+
+[node name="GoToBar" parent="." unique_id=609231163 instance=ExtResource("2_q43mf")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(801, 183)
+scale = Vector2(1, 3.2799988)
+next_level_file = "uid://0milpouy7mk5"
+next_spawn_id = "SpawnTrilha2"
+
+[node name="GoToTrilha1" parent="." unique_id=501353629 instance=ExtResource("2_q43mf")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(795, 599)
+rotation = 1.5707964
+scale = Vector2(1, 6.4399986)
+next_level_file = "uid://c6h7pgk6uva8r"
+next_spawn_id = "SpawnTrilha2"
+
+[node name="SpawnBar" type="Marker2D" parent="." unique_id=2029729931]
+position = Vector2(710, 271)
+
+[node name="SpawnTrilha1" type="Marker2D" parent="." unique_id=594854808]
+position = Vector2(448, 518)
