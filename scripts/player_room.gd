@@ -14,8 +14,8 @@ func _ready() -> void:
 	match ProgressManager.current_act:
 		ProgressManager.Act.BEGIN_MARIA_HOUSE:
 			can_not_go_parents_bedroom()
-			
 			go_to_outside.can_go = false
+			
 			
 			go_to_outside.alternative_func = func():
 				if not ProgressManager.merendou:
@@ -23,14 +23,13 @@ func _ready() -> void:
 						DialogInfoModel.new('player', 'Que fome...'),
 						DialogInfoModel.new('player', 'Cuidar ver o que é a merenda.')
 						])
-				elif not InventoryManager.has_item("Mochila"):
+
+		ProgressManager.Act.BEGIN_GO_TO_SCHOOL:
+			can_not_go_parents_bedroom()
+			if not InventoryManager.has_item("Mochila"):
+				go_to_outside.alternative_func = func():
 					DialogManager.start_talk([
 						DialogInfoModel.new('player', 'Ave Maria, tô esquecendo a mochila!')
 					])
-				else:
-					go_to_outside.can_go = true
-					ProgressManager.set_act(ProgressManager.Act.BEGIN_GO_TO_SCHOOL)
-					go_to_outside.trocar_de_fase()
-		ProgressManager.Act.BEGIN_GO_TO_SCHOOL:
-			can_not_go_parents_bedroom()
+				return	
 			go_to_outside.can_go = true

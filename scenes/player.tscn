@@ -119,6 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://cpq5eeltl8hvl" path="res://sprites/maria/run/up/8.png" id="41_qe2k6"]
 [ext_resource type="Texture2D" uid="uid://dmm1j87yw8mdg" path="res://sprites/maria/axe/up/10.png" id="42_5tfe1"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="42_giy8y"]
+[ext_resource type="Script" uid="uid://c7qno7stxpek7" path="res://scripts/axe_hitbox.gd" id="120_oxcmq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -582,8 +583,14 @@ position = Vector2(0, -10.999998)
 scale = Vector2(2.1466677, 1.9466678)
 
 [node name="AxeHitbox" type="Area2D" parent="." unique_id=1652668614]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("120_oxcmq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]
 position = Vector2(29.000002, -38)
 scale = Vector2(0.5600006, 0.5600006)
 shape = SubResource("CapsuleShape2D_hrkfm")
+
+[connection signal="area_entered" from="AxeHitbox" to="AxeHitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="AxeHitbox" to="AxeHitbox" method="_on_body_entered"]
