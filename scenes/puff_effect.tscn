@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dnx85p6tiw4pw"]
+
+[ext_resource type="Script" uid="uid://c32h88yxnprvk" path="res://scripts/puff_effect.gd" id="1_dew3e"]
+[ext_resource type="Texture2D" uid="uid://cuorwhq6syxxp" path="res://sprites/fumaça/1.png" id="2_qhr73"]
+[ext_resource type="Texture2D" uid="uid://42l0m2r3y3af" path="res://sprites/fumaça/2.png" id="3_3l2d2"]
+[ext_resource type="Texture2D" uid="uid://bflh2mrl3xjge" path="res://sprites/fumaça/3.png" id="4_s6fys"]
+[ext_resource type="Texture2D" uid="uid://bshvhm7s6tfyl" path="res://sprites/fumaça/4.png" id="5_s4ed7"]
+[ext_resource type="Texture2D" uid="uid://bm6ejgmw26g7d" path="res://sprites/fumaça/5.png" id="6_k8kne"]
+[ext_resource type="Texture2D" uid="uid://ch3pso01ooe1g" path="res://sprites/fumaça/6.png" id="7_crbqs"]
+[ext_resource type="Texture2D" uid="uid://donp228jt3no1" path="res://sprites/fumaça/7.png" id="8_aywtn"]
+[ext_resource type="AudioStream" uid="uid://c0572alr4hc3l" path="res://assets/sounds/puff_sound.wav" id="9_86j1v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l5ldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhr73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3l2d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s6fys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s4ed7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k8kne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_crbqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_aywtn")
+}],
+"loop": 1,
+"name": &"fumaca",
+"speed": 5.0
+}]
+
+[node name="PuffEffect" type="AnimatedSprite2D" unique_id=715733997]
+script = ExtResource("1_dew3e")
+
+[node name="fumaca_animation" type="AnimatedSprite2D" parent="." unique_id=1007701075]
+sprite_frames = SubResource("SpriteFrames_l5ldj")
+animation = &"fumaca"
+frame_progress = 0.5102725
+
+[node name="som_puff" type="AudioStreamPlayer2D" parent="." unique_id=1826096050]
+stream = ExtResource("9_86j1v")
