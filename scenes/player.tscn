@@ -165,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_6ptwb")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": ExtResource("15_8pj6w")
 }, {
 "duration": 1.0,
@@ -556,6 +556,8 @@ animations = [{
 size = Vector2(5.6308026, 4.5838194)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrkfm"]
+radius = 12.499985
+height = 24.99997
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486 groups=["Player"]]
 y_sort_enabled = true
@@ -569,7 +571,9 @@ stream = ExtResource("2_6c3st")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"attack_down"
+animation = &"attack_left"
+frame = 2
+frame_progress = 0.8721819
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
@@ -588,7 +592,7 @@ collision_mask = 3
 script = ExtResource("120_oxcmq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]
-position = Vector2(29.000002, -38)
+position = Vector2(-34, -36)
 scale = Vector2(0.5600006, 0.5600006)
 shape = SubResource("CapsuleShape2D_hrkfm")
 

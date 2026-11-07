@@ -15,6 +15,8 @@ var is_attacking: bool = false
 @onready var axe_hitbox: CollisionShape2D = $AxeHitbox/CollisionShape2D
 var screen_size: Vector2
 func _ready() -> void:
+	# Conecta o sinal de mudança de frame
+	animated_sprite.frame_changed.connect(_on_frame_changed)
 	screen_size = get_viewport_rect().size
 	# Garante que a colisão do ataque comece desativada
 	if axe_hitbox:
@@ -155,3 +157,70 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		if axe_hitbox:
 			axe_hitbox.disabled = true
 		update_idle_animation()
+
+func _on_frame_changed() -> void:
+	# Exemplo: Se estiver rodando a animação de ataque com machado
+	if animated_sprite.animation.begins_with("attack"):
+		match animated_sprite.frame:
+			"attack_right":
+				_frame_right()
+			"attack_left":
+				_frame_left()
+			"attack_up":
+				_frame_up()
+			"attack_down":
+				_frame_down()
+
+func _frame_right() -> void:
+	match animated_sprite.frame:
+		0: 
+			axe_hitbox.disabled = true
+		1: 
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(8, -4)
+		2: 
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(16, 4)
+		3:
+			axe_hitbox.disabled = true
+
+func _frame_left() -> void:
+	match animated_sprite.frame:
+		0:
+			axe_hitbox.disabled = true
+		1:
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(-8, -4)
+		2:
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(-16, 4)
+		3:
+			axe_hitbox.disabled = true
+
+func _frame_up() -> void:
+	match animated_sprite.frame:
+		0: # Preparação do golpe
+			axe_hitbox.disabled = true
+		1: # Início do corte
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(8, -4)
+		2: # Ponto máximo de impacto do machado
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(16, 4)
+		3: # Final da animação / recuperação
+			axe_hitbox.disabled = true
+
+
+# 4. Mapeia frame a frame para a Esquerda
+func _frame_down() -> void:
+	match animated_sprite.frame:
+		0:
+			axe_hitbox.disabled = true
+		1:
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(-8, -4)
+		2:
+			axe_hitbox.disabled = false
+			axe_hitbox.position = Vector2(-16, 4)
+		3:
+			axe_hitbox.disabled = true
