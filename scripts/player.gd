@@ -199,19 +199,17 @@ func _frame_left() -> void:
 
 func _frame_up() -> void:
 	match animated_sprite.frame:
-		0: # Preparação do golpe
+		0: 
 			axe_hitbox.disabled = true
-		1: # Início do corte
+		1: 
 			axe_hitbox.disabled = false
 			axe_hitbox.position = Vector2(8, -4)
-		2: # Ponto máximo de impacto do machado
+		2: 
 			axe_hitbox.disabled = false
 			axe_hitbox.position = Vector2(16, 4)
-		3: # Final da animação / recuperação
+		3: 
 			axe_hitbox.disabled = true
 
-
-# 4. Mapeia frame a frame para a Esquerda
 func _frame_down() -> void:
 	match animated_sprite.frame:
 		0:
