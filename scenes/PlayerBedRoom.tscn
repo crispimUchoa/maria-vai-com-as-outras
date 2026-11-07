@@ -5258,10 +5258,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAIAAcAAQAkABQAAAAIAAkAAQAkABYAAAAJAAcAAQAlABQAAAAJAAgAAQAlABUAAAAJAAkAAQAlABYAAAAJAAoAAQAlABcAAAAJAAsAAQAlABgAAAAKAAcAAQAmABQAAAAKAAgAAQAmABUAAAAKAAkAAQAmABYAAAAKAAoAAQAmABcAAAAKAAsAAQAmABgAAAALAAcAAQAnABQAAAALAAgAAQAnABUAAAAMAAkAAQAxABgAAAAMAAoAAQAxABkAAAAMAAsAAQAxABoAAAAMAAwAAQAxABsAAAANAAkAAQAyABgAAAANAAoAAQAyABkAAAANAAsAAQAyABoAAAANAAwAAQAyABsAAAAOAAkAAQAzABgAAAAOAAoAAQAzABkAAAAOAAsAAQAzABoAAAAOAAwAAQAzABsAAAA=")
 tile_set = SubResource("TileSet_xf4uu")
 
-[node name="MochilaItem" parent="TileMap/Objetos2" unique_id=224047904 instance=ExtResource("3_qedg3")]
-position = Vector2(316, 223)
-scale = Vector2(0.18, 0.18)
-
 [node name="Bordas1" type="TileMapLayer" parent="TileMap" unique_id=464764258]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAEAA8AAQAcAAIAAAAEABAAAQAcAAMAAAAEABYAAQAcAAUAAAAEABUAAQAcAAQAAAAEABQAAQAcAAMAAAAEABMAAQAcAAIAAAAEABIAAQAcAAUAAAAEABEAAQAcAAQAAAAEAAgAAQAcAAMAAAAEAAkAAQAcAAQAAAAEAAoAAQAcAAUAAAAEAAsAAQAcAAIAAAAEAAwAAQAcAAMAAAAEAA0AAQAcAAQAAAAEAA4AAQAcAAUAAAAEAAUAAQAcAAQAAAAEAAYAAQAcAAUAAAAEAAcAAQAcAAIAAAAEAAQAAQAHAAUAABAEAAMAAQAHAAUAABAXAAIAAQAHAAMAABAXAAMAAQAHAAQAABAXAAQAAQAHAAUAABAXAAUAAQAHAAQAABAXAAYAAQAHAAUAABAXAAcAAQAHAAYAABAXAAgAAQAHAAcAABA=")
@@ -5292,8 +5288,8 @@ scale = Vector2(2.7199998, 4.680002)
 script = ExtResource("3_s8wwh")
 
 [node name="InteractionArea" parent="CamaMaria" unique_id=1935205722 instance=ExtResource("4_ah242")]
-position = Vector2(158.08826, 69.44441)
-scale = Vector2(1.3061095, -0.399908)
+position = Vector2(156.9853, 58.76065)
+scale = Vector2(1.2130207, -1.311294)
 
 [node name="Estante" type="Node2D" parent="." unique_id=9699982]
 scale = Vector2(2.7199998, 4.680002)
@@ -5301,15 +5297,15 @@ script = ExtResource("6_1d3g3")
 
 [node name="InteractionArea" parent="Estante" unique_id=1710290660 instance=ExtResource("4_ah242")]
 position = Vector2(134.1912, 55.128178)
-scale = Vector2(0.9892073, 0.5011006)
+scale = Vector2(1.2338215, 0.4465614)
 
 [node name="CamaVovo" type="Node2D" parent="." unique_id=1448020601]
-scale = Vector2(2.7199998, 4.680002)
+scale = Vector2(2.7793095, 4.5557446)
 script = ExtResource("6_ah242")
 
 [node name="InteractionArea" parent="CamaVovo" unique_id=1037693660 instance=ExtResource("4_ah242")]
-position = Vector2(75.000015, 69.44441)
-scale = Vector2(1.3208163, -0.45505977)
+position = Vector2(73.39953, 60.80236)
+scale = Vector2(1.0028383, -1.2355466)
 
 [node name="Planta" type="Node2D" parent="." unique_id=1506017296]
 scale = Vector2(2.7199998, 4.680002)
@@ -5317,7 +5313,11 @@ script = ExtResource("7_xf4uu")
 
 [node name="InteractionArea" parent="Planta" unique_id=1317304807 instance=ExtResource("4_ah242")]
 position = Vector2(92.64706, 51.4957)
-scale = Vector2(0.55611074, -0.88241005)
+scale = Vector2(0.49797934, -0.40124366)
+
+[node name="MochilaItem" parent="." unique_id=224047904 instance=ExtResource("3_qedg3")]
+position = Vector2(408, 293)
+scale = Vector2(0.18, 0.18)
 
 [node name="SpawnRoom" type="Marker2D" parent="." unique_id=2016579050]
 position = Vector2(442, 389)

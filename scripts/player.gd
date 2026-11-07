@@ -13,6 +13,7 @@ var is_attacking: bool = false
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
 @onready var interaction_detector = $InteractionArea
 @onready var axe_hitbox: CollisionShape2D = $AxeHitbox/CollisionShape2D
+
 var screen_size: Vector2
 func _ready() -> void:
 	# Conecta o sinal de mudança de frame
@@ -86,6 +87,7 @@ func _physics_process(_delta: float) -> void:
 		run = false
 		
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	update_interact_area_angle(direction)
 	
 	if can_move() and direction != Vector2.ZERO:
 		if not walking_sound.playing:
@@ -144,12 +146,18 @@ func update_idle_animation() -> void:
 		else:
 			animated_sprite.play("idle_up")
 
+func update_interact_area_angle(direction: Vector2):
+	if (direction):
+		interaction_detector.rotation = direction.angle() - PI/2
+	
+
 func interact() -> void:
 	var overlapping_areas = interaction_detector.get_overlapping_areas()
 	for area in overlapping_areas:
 		if area is InteractionArea or area.has_method("interact"):
 			area.interact()
 			break
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_attacking:

@@ -3,6 +3,7 @@ extends Node2D
 @onready var level_container: Node2D = $LevelContainer
 @onready var initial_player_spawn: Marker2D = $InitialSpawn
 @onready var door_creak: AudioStreamPlayer = $Sounds/DoorCreak
+@onready var missionLabel: Label = $MissionControl/Label
 
 var spawn_point_id = ""
 var current_level_node: Node2D = null
@@ -25,7 +26,9 @@ func spawn_player(initial_spawn: bool=false):
 	current_level_node.add_child(player)
 
 func _ready() -> void:	
+	ProgressManager.mission_requested.connect(_on_mission_requested)
 	SceneManager.level_change_requested.connect(_on_level_change_requested)
+	ProgressManager.set_mission(ProgressManager.mission)
 	if GameManager.player_position != Vector2.ZERO and GameManager.continued_game:
 		spawn_player()
 		player.global_position = GameManager.player_position
@@ -64,3 +67,6 @@ func _position_player(level: Node, spawn_id: String):
 		player.global_position = spawn_point.global_position
 	else:
 		push_warning("Ponto de spawn '", spawn_id, "' não foi encontrado na fase: ", level.name)
+
+func _on_mission_requested(mission: String):
+	missionLabel.text = "Missão: " + mission
