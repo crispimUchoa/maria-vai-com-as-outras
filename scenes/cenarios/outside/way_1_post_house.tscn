@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_oit0c"]
 [ext_resource type="Script" uid="uid://badf3qju544jg" path="res://scripts/cercas_1.gd" id="2_oit0c"]
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
+[ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="4_csuyj"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
@@ -63,6 +64,13 @@ scale = Vector2(1, 2.1600003)
 next_level_file = "uid://cyd10lnrp2e8e"
 next_spawn_id = "SpawnWay1PostHouse"
 
-[node name="MachadoItem" parent="." unique_id=1390710440 instance=ExtResource("3_htrpx")]
-position = Vector2(521, 155)
-scale = Vector2(1, 1)
+[node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("4_csuyj")]
+position = Vector2(800, 272)
+scale = Vector2(0.84000003, -1.7600002)
+needed_items = Dictionary[String, bool]({
+"machado": false
+})
+
+[node name="MachadoItem" parent="ActGroup" unique_id=1390710440 instance=ExtResource("3_htrpx")]
+position = Vector2(-332.14288, 66.47726)
+scale = Vector2(1.1904762, -0.56818175)
