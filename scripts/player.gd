@@ -12,27 +12,26 @@ var is_attacking: bool = false
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
 @onready var interaction_detector = $InteractionArea
-@onready var axe_hitbox: CollisionShape2D = $AxeHitbox/CollisionShape2D
+
+@onready var axe_area: Area2D = $AxeHitbox
+@onready var axe_shape: CollisionShape2D = $AxeHitbox/CollisionAxe
 
 var screen_size: Vector2
+
 func _ready() -> void:
-	# Conecta o sinal de mudança de frame
 	animated_sprite.frame_changed.connect(_on_frame_changed)
 	screen_size = get_viewport_rect().size
-	# Garante que a colisão do ataque comece desativada
-	if axe_hitbox:
-		axe_hitbox.disabled = true
 	
-	# Conecta o sinal de fim da animação 
+	if axe_shape:
+		axe_shape.set_deferred("disabled", true)
+	
 	if not animated_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
 		animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
 func can_move() -> bool:
 	return !DialogManager.is_open() and !is_attacking and !SceneManager.cutscene_running
 
-
 func _unhandled_input(event: InputEvent) -> void:
-	# Ação de Ataque
 	if event.is_action_pressed("attack") and not is_attacking:
 		if InventoryManager.has_item("machado"):
 			executar_ataque()
@@ -41,7 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 	if event.is_action_pressed("ui_accept"):
 		interact()
-		
+
 func executar_ataque() -> void:
 	is_attacking = true
 	velocity = Vector2.ZERO
@@ -49,19 +48,7 @@ func executar_ataque() -> void:
 	if walking_sound.playing:
 		walking_sound.stop()
 	
-	# ativa colisão hitbox no ataque
-	if axe_hitbox:
-		axe_hitbox.disabled = false
-		atualizar_posicao_hitbox(last_direction)
-	# Toca a animação correspondente
 	tocar_animacao_ataque(last_direction)
-
-func atualizar_posicao_hitbox(dir: Vector2) -> void:
-	var offset := 24.0
-	if abs(dir.x) > abs(dir.y):
-		axe_hitbox.position = Vector2(offset if dir.x > 0 else -offset, 0)
-	else:
-		axe_hitbox.position = Vector2(0, offset if dir.y > 0 else -offset)
 
 func tocar_animacao_ataque(dir: Vector2) -> void:
 	if abs(dir.x) > abs(dir.y):
@@ -133,7 +120,7 @@ func update_walk_animation(dir: Vector2) -> void:
 			animated_sprite.play("walk_down")
 		else:
 			animated_sprite.play("walk_up")
-				
+
 func update_idle_animation() -> void:    
 	if abs(last_direction.x) > abs(last_direction.y):
 		if last_direction.x > 0:
@@ -149,7 +136,6 @@ func update_idle_animation() -> void:
 func update_interact_area_angle(direction: Vector2):
 	if (direction):
 		interaction_detector.rotation = direction.angle() - PI/2
-	
 
 func interact() -> void:
 	var overlapping_areas = interaction_detector.get_overlapping_areas()
@@ -158,18 +144,16 @@ func interact() -> void:
 			area.interact()
 			break
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_attacking:
 		is_attacking = false
-		if axe_hitbox:
-			axe_hitbox.disabled = true
+		if axe_shape:
+			axe_shape.set_deferred("disabled", true)
 		update_idle_animation()
 
 func _on_frame_changed() -> void:
-	# Exemplo: Se estiver rodando a animação de ataque com machado
 	if animated_sprite.animation.begins_with("attack"):
-		match animated_sprite.frame:
+		match animated_sprite.animation:
 			"attack_right":
 				_frame_right()
 			"attack_left":
@@ -181,52 +165,52 @@ func _on_frame_changed() -> void:
 
 func _frame_right() -> void:
 	match animated_sprite.frame:
-		0: 
-			axe_hitbox.disabled = true
+		0: axe_shape.set_deferred("disabled", true)
 		1: 
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(8, -4)
-		2: 
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(16, 4)
-		3:
-			axe_hitbox.disabled = true
+			axe_shape.set_deferred("disabled", false)
+			axe_shape.position = Vector2(10, -42)
+		2: axe_shape.position = Vector2(34, -36)
+		3: axe_shape.position = Vector2(34, -37)
+		4: axe_shape.position = Vector2(31, -18)
+		5: axe_shape.position = Vector2(25, -8)
+		6: axe_shape.position = Vector2(20, -15)
+		7: axe_shape.set_deferred("disabled", true)
 
 func _frame_left() -> void:
 	match animated_sprite.frame:
-		0:
-			axe_hitbox.disabled = true
-		1:
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(-8, -4)
-		2:
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(-16, 4)
-		3:
-			axe_hitbox.disabled = true
+		0: axe_shape.set_deferred("disabled", true)
+		1: 
+			axe_shape.set_deferred("disabled", false)
+			axe_shape.position = Vector2(-10, -44)
+		2: axe_shape.position = Vector2(-34, -36)
+		3: axe_shape.position = Vector2(-34, -36)
+		4: axe_shape.position = Vector2(-31, -18)
+		5: axe_shape.position = Vector2(-25, -8)
+		6: axe_shape.position = Vector2(-20, -15)
+		7: axe_shape.set_deferred("disabled", true)
 
 func _frame_up() -> void:
 	match animated_sprite.frame:
-		0: 
-			axe_hitbox.disabled = true
+		0: axe_shape.set_deferred("disabled", true)
 		1: 
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(8, -4)
-		2: 
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(16, 4)
-		3: 
-			axe_hitbox.disabled = true
+			axe_shape.set_deferred("disabled", false)
+			axe_shape.position = Vector2(26, -40)
+		2: axe_shape.position = Vector2(21, -43)
+		3: axe_shape.position = Vector2(21, -43)
+		4: axe_shape.position = Vector2(1, -26)
+		5: axe_shape.position = Vector2(-12, -31)
+		6: axe_shape.position = Vector2(0, -18)
+		7: axe_shape.set_deferred("disabled", true)
 
 func _frame_down() -> void:
 	match animated_sprite.frame:
-		0:
-			axe_hitbox.disabled = true
-		1:
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(-8, -4)
-		2:
-			axe_hitbox.disabled = false
-			axe_hitbox.position = Vector2(-16, 4)
-		3:
-			axe_hitbox.disabled = true
+		0: axe_shape.set_deferred("disabled", true)
+		1: 
+			axe_shape.set_deferred("disabled", false)
+			axe_shape.position = Vector2(29, -38)
+		2: axe_shape.position = Vector2(31, -29)
+		3: axe_shape.position = Vector2(31, -29)
+		4: axe_shape.position = Vector2(12, -7)
+		5: axe_shape.position = Vector2(3, -10)
+		6: axe_shape.position = Vector2(11, -7)
+		7: axe_shape.set_deferred("disabled", true)

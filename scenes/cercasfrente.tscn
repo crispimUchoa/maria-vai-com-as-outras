@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bw6e5vo2htrtq"]
+
+[ext_resource type="Script" uid="uid://imuwfm8he4ld" path="res://scripts/destroi_objeto.gd" id="1_1sxvg"]
+[ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="1_1xrxo"]
+[ext_resource type="Texture2D" uid="uid://bmtq7flvnon2a" path="res://assets/tilemaps/cerca.png" id="2_1sxvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ldj"]
+size = Vector2(137, 28)
+
+[node name="Cercasfrente" type="Area2D" unique_id=1256694481]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1, -1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_1sxvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1013150410]
+position = Vector2(0, -37)
+scale = Vector2(1, 1.25)
+texture = ExtResource("2_1sxvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500683862]
+position = Vector2(-2, -12)
+shape = SubResource("RectangleShape2D_l5ldj")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=84453495]
+position = Vector2(-1, -11)
+script = ExtResource("1_1xrxo")
+metadata/_custom_type_script = "uid://cqdabla0iyxhr"

@@ -34,18 +34,19 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_aywtn")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"fumaca",
 "speed": 5.0
 }]
 
-[node name="PuffEffect" type="AnimatedSprite2D" unique_id=715733997]
+[node name="PuffEffect" type="CharacterBody2D" unique_id=1856837887]
 script = ExtResource("1_dew3e")
 
-[node name="fumaca_animation" type="AnimatedSprite2D" parent="." unique_id=1007701075]
+[node name="fumaca" type="AnimatedSprite2D" parent="." unique_id=1007701075]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_l5ldj")
 animation = &"fumaca"
-frame_progress = 0.5102725
+frame_progress = 0.52978104
 
 [node name="som_puff" type="AudioStreamPlayer2D" parent="." unique_id=1826096050]
 stream = ExtResource("9_86j1v")

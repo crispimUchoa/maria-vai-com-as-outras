@@ -142,7 +142,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_3capk")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": ExtResource("9_kg5hq")
 }, {
 "duration": 1.0,
@@ -165,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_6ptwb")
 }, {
-"duration": 10.0,
+"duration": 1.0,
 "texture": ExtResource("15_8pj6w")
 }, {
 "duration": 1.0,
@@ -186,7 +186,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_ealyq")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": ExtResource("22_qms75")
 }],
 "loop": 0,
@@ -212,7 +212,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_72noi")
 }, {
-"duration": 1.0,
+"duration": 20.0,
 "texture": ExtResource("29_0j382")
 }, {
 "duration": 1.0,
@@ -555,11 +555,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbssg"]
 size = Vector2(5.6308026, 4.5838194)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrkfm"]
 radius = 12.499985
 height = 24.99997
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486 groups=["Player"]]
 y_sort_enabled = true
@@ -574,25 +574,16 @@ stream = ExtResource("2_6c3st")
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"attack_left"
-frame = 2
-frame_progress = 0.8721819
+frame = 9
+frame_progress = 1.0
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
+light_mask = 1023
 position = Vector2(-9.834766e-07, -10.5)
 rotation = -3.1415925
 scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
-
-[node name="AxeHitbox" type="Area2D" parent="." unique_id=1652668614]
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("120_oxcmq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]
-position = Vector2(-34, -36)
-scale = Vector2(0.5600006, 0.5600006)
-shape = SubResource("CapsuleShape2D_hrkfm")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=42438288]
 position = Vector2(0, -14)
@@ -604,6 +595,21 @@ metadata/_custom_type_script = "uid://cqdabla0iyxhr"
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.45675665, 0.58480626, 0.31296664, 0.41960785)
+
+[node name="AxeHitbox" type="Area2D" parent="." unique_id=1652668614]
+process_mode = 3
+light_mask = 3
+visibility_layer = 3
+y_sort_enabled = true
+scale = Vector2(1, 0.99999994)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("120_oxcmq")
+
+[node name="CollisionAxe" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]
+position = Vector2(9.536743e-07, -1.1920929e-07)
+scale = Vector2(0.5600006, 0.5600006)
+shape = SubResource("CapsuleShape2D_hrkfm")
 
 [connection signal="area_entered" from="AxeHitbox" to="AxeHitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="AxeHitbox" to="AxeHitbox" method="_on_body_entered"]

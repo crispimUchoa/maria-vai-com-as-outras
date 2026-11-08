@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://buq4hc2w8e4j0"]
+
+[ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="1_ibr3y"]
+[ext_resource type="Script" uid="uid://imuwfm8he4ld" path="res://scripts/destroi_objeto.gd" id="1_resya"]
+[ext_resource type="Texture2D" uid="uid://bcyxyrc8w3rnv" path="res://assets/tilemaps/cercalado.png" id="2_resya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ldj"]
+size = Vector2(16, 49)
+
+[node name="Cercalado" type="Area2D" unique_id=796599163]
+position = Vector2(0, -1)
+script = ExtResource("1_resya")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=415895766]
+position = Vector2(0, -22)
+scale = Vector2(1.0735295, 1)
+texture = ExtResource("2_resya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1723808550]
+position = Vector2(0, -21.5)
+shape = SubResource("RectangleShape2D_l5ldj")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1773546689]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-1, -21)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ibr3y")
+metadata/_custom_type_script = "uid://cqdabla0iyxhr"
