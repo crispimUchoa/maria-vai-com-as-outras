@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_oit0c"]
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
 [ext_resource type="PackedScene" uid="uid://buq4hc2w8e4j0" path="res://scenes/cercalado.tscn" id="4_csuyj"]
+[ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="4_csuyj"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 [ext_resource type="PackedScene" uid="uid://bw6e5vo2htrtq" path="res://scenes/cercasfrente.tscn" id="5_tx18u"]
 
@@ -132,3 +133,13 @@ position = Vector2(97, 278)
 
 [node name="Cercasfrente10" parent="." unique_id=2017878742 instance=ExtResource("5_tx18u")]
 position = Vector2(-39, 278)
+[node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("4_csuyj")]
+position = Vector2(800, 272)
+scale = Vector2(0.84000003, -1.7600002)
+needed_items = Dictionary[String, bool]({
+"machado": false
+})
+
+[node name="MachadoItem" parent="ActGroup" unique_id=1390710440 instance=ExtResource("3_htrpx")]
+position = Vector2(-332.14288, 66.47726)
+scale = Vector2(1.1904762, -0.56818175)

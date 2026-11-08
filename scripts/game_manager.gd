@@ -23,11 +23,7 @@ func salvar_jogo(posicao_jogador: Vector2) -> void:
 	
 	config.set_value("Player", "pos_x", posicao_jogador.x)
 	config.set_value("Player", "pos_y", posicao_jogador.y)
-	config.set_value("Player", "progress", {
-		"current_level": ProgressManager.current_level,
-		"current_spawn_id": ProgressManager.current_spawn_id,
-		"current_act": ProgressManager.current_act,
-	})
+	config.set_value("Player", "progress", ProgressManager.save_progress())
 	config.set_value("Inventory", "items", InventoryManager.items)
 	
 	var err = config.save(SAVE_PATH)

@@ -40,6 +40,7 @@ scale = Vector2(1, 128)
 texture = SubResource("GradientTexture1D_h5jmt")
 
 [node name="LimitArea" type="StaticBody2D" parent="." unique_id=1340139746]
+process_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimitArea" unique_id=1955386705]
 position = Vector2(0, 64)
