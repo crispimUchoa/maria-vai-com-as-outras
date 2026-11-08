@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_31qgm"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_7ddsc"]
+[ext_resource type="PackedScene" uid="uid://buq4hc2w8e4j0" path="res://scenes/cercalado.tscn" id="3_nmuj1"]
 
 [node name="Bar" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -54,7 +55,7 @@ next_spawn_id = "SpawnBar"
 
 [node name="GoToFazenda" parent="." unique_id=1598023079 instance=ExtResource("2_7ddsc")]
 modulate = Color(1, 1, 1, 0.11372549)
-position = Vector2(800, 399)
+position = Vector2(824, 399)
 scale = Vector2(1, 1.640005)
 next_level_file = "uid://bdwjpvhq3atyx"
 next_spawn_id = "SpawnBar"
@@ -70,3 +71,15 @@ scale = Vector2(2.4782403, 1.4153694)
 [node name="SpawnFazenda" type="Marker2D" parent="." unique_id=1667869927]
 position = Vector2(700, 526)
 scale = Vector2(1, 1.640005)
+
+[node name="Cercalado" parent="." unique_id=796599163 instance=ExtResource("3_nmuj1")]
+position = Vector2(771, 445)
+
+[node name="Cercalado2" parent="." unique_id=1110734052 instance=ExtResource("3_nmuj1")]
+position = Vector2(771, 488)
+
+[node name="Cercalado3" parent="." unique_id=1393938777 instance=ExtResource("3_nmuj1")]
+position = Vector2(771, 534)
+
+[node name="Cercalado4" parent="." unique_id=606991340 instance=ExtResource("3_nmuj1")]
+position = Vector2(771, 579)

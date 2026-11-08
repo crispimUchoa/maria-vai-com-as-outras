@@ -35,7 +35,7 @@ debug_color = Color(3.0322374e-06, 0.6429913, 0.31355715, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1167993948]
 z_index = 16
-position = Vector2(-32, 64)
+position = Vector2(-13, 62)
 scale = Vector2(1, 128)
 texture = SubResource("GradientTexture1D_h5jmt")
 
