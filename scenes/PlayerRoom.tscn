@@ -371,6 +371,8 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
 visible = true
+min_act = 3
+max_act = 3
 
 [node name="Mãe" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=89111940]
 position = Vector2(569, 281)
@@ -405,6 +407,7 @@ shape = SubResource("RectangleShape2D_57qmd")
 position = Vector2(3, -40)
 scale = Vector2(2.6887484, 2.1362867)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_7ksj7"), SubResource("Resource_8pvy5")])
+actions = Array[int]([2])
 
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]
