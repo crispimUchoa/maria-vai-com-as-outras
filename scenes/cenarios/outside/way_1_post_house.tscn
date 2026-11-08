@@ -2,10 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_oit0c"]
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
-[ext_resource type="PackedScene" uid="uid://buq4hc2w8e4j0" path="res://scenes/cercalado.tscn" id="4_csuyj"]
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="4_csuyj"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
-[ext_resource type="PackedScene" uid="uid://bw6e5vo2htrtq" path="res://scenes/cercasfrente.tscn" id="5_tx18u"]
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -58,81 +56,6 @@ scale = Vector2(1, 2.1600003)
 next_level_file = "uid://cyd10lnrp2e8e"
 next_spawn_id = "SpawnWay1PostHouse"
 
-[node name="MachadoItem" parent="." unique_id=1390710440 instance=ExtResource("3_htrpx")]
-position = Vector2(521, 155)
-scale = Vector2(1, 1)
-
-[node name="Cercalado" parent="." unique_id=796599163 instance=ExtResource("4_csuyj")]
-position = Vector2(429, 326)
-
-[node name="Cercalado2" parent="." unique_id=395301874 instance=ExtResource("4_csuyj")]
-position = Vector2(429, 374)
-
-[node name="Cercalado3" parent="." unique_id=1621149421 instance=ExtResource("4_csuyj")]
-position = Vector2(428, 424)
-
-[node name="Cercalado4" parent="." unique_id=2050483947 instance=ExtResource("4_csuyj")]
-position = Vector2(427, 473)
-
-[node name="Cercalado5" parent="." unique_id=2046519454 instance=ExtResource("4_csuyj")]
-position = Vector2(427, 521)
-
-[node name="Cercalado6" parent="." unique_id=1366919279 instance=ExtResource("4_csuyj")]
-position = Vector2(427, 570)
-
-[node name="Cercalado7" parent="." unique_id=577952665 instance=ExtResource("4_csuyj")]
-position = Vector2(427, 618)
-
-[node name="Cercalado8" parent="." unique_id=1721463972 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 321)
-
-[node name="Cercalado9" parent="." unique_id=118261593 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 371)
-
-[node name="Cercalado10" parent="." unique_id=9833458 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 420)
-
-[node name="Cercalado11" parent="." unique_id=1360637992 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 469)
-
-[node name="Cercalado12" parent="." unique_id=93447736 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 517)
-
-[node name="Cercalado13" parent="." unique_id=2051867739 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 567)
-
-[node name="Cercalado14" parent="." unique_id=1980189706 instance=ExtResource("4_csuyj")]
-position = Vector2(791, 616)
-
-[node name="Cercasfrente" parent="." unique_id=1256694481 instance=ExtResource("5_tx18u")]
-position = Vector2(68, 36)
-
-[node name="Cercasfrente2" parent="." unique_id=1093855686 instance=ExtResource("5_tx18u")]
-position = Vector2(204, 36)
-
-[node name="Cercasfrente3" parent="." unique_id=712349280 instance=ExtResource("5_tx18u")]
-position = Vector2(341, 36)
-
-[node name="Cercasfrente4" parent="." unique_id=497088725 instance=ExtResource("5_tx18u")]
-position = Vector2(478, 36)
-
-[node name="Cercasfrente5" parent="." unique_id=1416964691 instance=ExtResource("5_tx18u")]
-position = Vector2(615, 36)
-
-[node name="Cercasfrente6" parent="." unique_id=970234966 instance=ExtResource("5_tx18u")]
-position = Vector2(752, 36)
-
-[node name="Cercasfrente7" parent="." unique_id=44057525 instance=ExtResource("5_tx18u")]
-position = Vector2(371, 278)
-
-[node name="Cercasfrente8" parent="." unique_id=209654509 instance=ExtResource("5_tx18u")]
-position = Vector2(234, 278)
-
-[node name="Cercasfrente9" parent="." unique_id=126535279 instance=ExtResource("5_tx18u")]
-position = Vector2(97, 278)
-
-[node name="Cercasfrente10" parent="." unique_id=2017878742 instance=ExtResource("5_tx18u")]
-position = Vector2(-39, 278)
 [node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("4_csuyj")]
 position = Vector2(800, 272)
 scale = Vector2(0.84000003, -1.7600002)
