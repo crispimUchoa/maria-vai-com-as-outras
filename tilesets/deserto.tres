@@ -3480,7 +3480,7 @@ texture = ExtResource("3_of0jk")
 43:8/size_in_atlas = Vector2i(16, 25)
 43:8/0 = 0
 43:8/0/texture_origin = Vector2i(0, 110)
-43:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-116.16031, -42.918674, 112.894775, -39.653122, 112, 90, 99, 93, 100.765564, 7.4641113, -102.63161, 6.9976044, -104.03113, 90.96891, -116.16031, 90.96891)
+43:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-116.56386, -72.252655, 113.741486, -69.99476, 112, 90, 99, 93, 100.765564, 7.4641113, -102.63161, 6.9976044, -104.03113, 90.96891, -116.16031, 90.96891)
 24:59/size_in_atlas = Vector2i(19, 21)
 24:59/0 = 0
 24:59/0/texture_origin = Vector2i(0, 71)
@@ -3488,7 +3488,7 @@ texture = ExtResource("3_of0jk")
 57:43/size_in_atlas = Vector2i(21, 14)
 57:43/0 = 0
 57:43/0/texture_origin = Vector2i(0, 93)
-57:43/0/physics_layer_0/polygon_0/points = PackedVector2Array(-157.66895, -7.0862427, 125.78084, -5.314682, 125, 95, -83, 97, -93, 114, -149, 113, -157.66895, 97.43587)
+57:43/0/physics_layer_0/polygon_0/points = PackedVector2Array(-158.5, -129, 123.5, -126, 120.5, 15, -160.5, 12)
 30:85/size_in_atlas = Vector2i(6, 4)
 30:85/0 = 0
 30:85/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.90982, -32.022392, -32.97828, -32.341022, -31.703758, 21.188946, -47.635292, 22.14484)
@@ -3504,14 +3504,15 @@ texture = ExtResource("3_of0jk")
 27:36/size_in_atlas = Vector2i(28, 22)
 27:36/0 = 0
 27:36/0/texture_origin = Vector2i(0, 156)
+27:36/0/physics_layer_0/polygon_0/points = PackedVector2Array(-209.5, -107, 223.5, -108, 218.5, 11, -205.5, 12)
 61:1/size_in_atlas = Vector2i(18, 26)
 61:1/0 = 0
 61:1/0/texture_origin = Vector2i(0, 200)
-61:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-116.56384, -54.47173, 125.59543, -50.520412, 125.030975, 6.4914474, -114.305954, 5.9269714)
+61:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-112.5, -134, 123.5, -135, 125.030975, 6.4914474, -114.305954, 5.9269714)
 0:35/size_in_atlas = Vector2i(27, 23)
 0:35/0 = 0
 0:35/0/texture_origin = Vector2i(0, 175)
-0:35/0/physics_layer_0/polygon_0/points = PackedVector2Array(-150.99675, -60.680943, 200.10599, -59.551994, 200.67047, 3.1046066, -150.99675, 4.233551)
+0:35/0/physics_layer_0/polygon_0/points = PackedVector2Array(-148.5, -176, 195.5, -175, 200.67047, 3.1046066, -150.99675, 4.233551)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_reltv"]
 texture = ExtResource("4_4nv3x")
@@ -3634,7 +3635,7 @@ texture = ExtResource("7_bxq4c")
 0:0/size_in_atlas = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 244)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-223.5, -99.5, 225.5, -95.5, 218.5, -4.5, -217.5, -4.5)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-220.5, -212, 216.5, -214, 218.5, -26, -221.5, -26)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lcv5w"]
 texture = ExtResource("8_reltv")

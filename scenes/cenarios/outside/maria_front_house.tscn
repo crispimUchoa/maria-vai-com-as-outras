@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_naalv"]
 [ext_resource type="Texture2D" uid="uid://dbhmwdg5tcqny" path="res://sprites/pai_maria/idle/down/1.png" id="4_6o1nb"]
 [ext_resource type="Texture2D" uid="uid://v7jgv7nt7aps" path="res://sprites/pai_maria/idle/down/2.png" id="5_2cjva"]
+[ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="5_tw2xs"]
 [ext_resource type="Script" uid="uid://bw81r65013rmu" path="res://scripts/pai_maria.gd" id="5_ud8s8"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="7_djula"]
 
@@ -104,24 +105,29 @@ scale = Vector2(1.1999999, 0.5199988)
 next_level_file = "uid://cwluaiewpahf0"
 next_spawn_id = "SpawnOutside"
 
-[node name="PaiMaria" type="StaticBody2D" parent="." unique_id=1179313426]
+[node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("5_tw2xs")]
+visible = true
+y_sort_enabled = true
+max_act = 1
+
+[node name="PaiMaria" type="StaticBody2D" parent="ActGroup" unique_id=1179313426]
 position = Vector2(323, 249.99998)
 scale = Vector2(1.35, 1.35)
 script = ExtResource("5_ud8s8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PaiMaria" unique_id=1802679933]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ActGroup/PaiMaria" unique_id=1802679933]
 position = Vector2(0.14815718, -13.925917)
 sprite_frames = SubResource("SpriteFrames_qhds1")
 animation = &"idle_down"
 autoplay = "idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PaiMaria" unique_id=322229758]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActGroup/PaiMaria" unique_id=322229758]
 position = Vector2(0.14815718, -0.147398)
 scale = Vector2(0.89320385, 0.28182474)
 shape = SubResource("RectangleShape2D_qhds1")
 
-[node name="InteractionArea" parent="PaiMaria" unique_id=1935205722 instance=ExtResource("7_djula")]
+[node name="InteractionArea" parent="ActGroup/PaiMaria" unique_id=1935205722 instance=ExtResource("7_djula")]
 position = Vector2(1.6296387, -7.259239)
 scale = Vector2(3.1629639, 3.1629639)
 
-[connection signal="interacted" from="PaiMaria/InteractionArea" to="PaiMaria" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]
