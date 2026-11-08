@@ -168,49 +168,37 @@ func _frame_right() -> void:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(10, -42)
-		2: axe_shape.position = Vector2(34, -36)
-		3: axe_shape.position = Vector2(34, -37)
-		4: axe_shape.position = Vector2(31, -18)
-		5: axe_shape.position = Vector2(25, -8)
-		6: axe_shape.position = Vector2(20, -15)
-		7: axe_shape.set_deferred("disabled", true)
-
+			axe_shape.position = Vector2(31, -18)
+		2: axe_shape.position = Vector2(25, -8)
+		3: axe_shape.position = Vector2(20, -15)
+		4: axe_shape.set_deferred("disabled", true)
+		
 func _frame_left() -> void:
 	match animated_sprite.frame:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(-10, -44)
-		2: axe_shape.position = Vector2(-34, -36)
-		3: axe_shape.position = Vector2(-34, -36)
-		4: axe_shape.position = Vector2(-31, -18)
-		5: axe_shape.position = Vector2(-25, -8)
-		6: axe_shape.position = Vector2(-20, -15)
-		7: axe_shape.set_deferred("disabled", true)
+			axe_shape.position = Vector2(-31, -18)
+		2: axe_shape.position = Vector2(-25, -8)
+		3: axe_shape.position = Vector2(-20, -15)
+		4: axe_shape.set_deferred("disabled", true)
 
 func _frame_up() -> void:
 	match animated_sprite.frame:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(26, -40)
-		2: axe_shape.position = Vector2(21, -43)
-		3: axe_shape.position = Vector2(21, -43)
-		4: axe_shape.position = Vector2(1, -26)
-		5: axe_shape.position = Vector2(-12, -31)
-		6: axe_shape.position = Vector2(0, -18)
-		7: axe_shape.set_deferred("disabled", true)
+			axe_shape.position = Vector2(1, -26)
+		2: axe_shape.position = Vector2(-12, -31)
+		3: axe_shape.position = Vector2(0, -18)
+		4: axe_shape.set_deferred("disabled", true)
 
 func _frame_down() -> void:
 	match animated_sprite.frame:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(29, -38)
-		2: axe_shape.position = Vector2(31, -29)
-		3: axe_shape.position = Vector2(31, -29)
-		4: axe_shape.position = Vector2(12, -7)
-		5: axe_shape.position = Vector2(3, -10)
-		6: axe_shape.position = Vector2(11, -7)
-		7: axe_shape.set_deferred("disabled", true)
+			axe_shape.position = Vector2(12, -7)
+		2: axe_shape.position = Vector2(3, -10)
+		3: axe_shape.position = Vector2(11, -7)
+		4: axe_shape.set_deferred("disabled", true)

@@ -142,7 +142,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_3capk")
 }, {
-"duration": 20.0,
+"duration": 1.0,
 "texture": ExtResource("9_kg5hq")
 }, {
 "duration": 1.0,
@@ -186,7 +186,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_ealyq")
 }, {
-"duration": 20.0,
+"duration": 1.0,
 "texture": ExtResource("22_qms75")
 }],
 "loop": 0,
@@ -212,7 +212,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_72noi")
 }, {
-"duration": 20.0,
+"duration": 1.0,
 "texture": ExtResource("29_0j382")
 }, {
 "duration": 1.0,
@@ -573,9 +573,7 @@ stream = ExtResource("2_6c3st")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"attack_left"
-frame = 9
-frame_progress = 1.0
+animation = &"attack_up"
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
