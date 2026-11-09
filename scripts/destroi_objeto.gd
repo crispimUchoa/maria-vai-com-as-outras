@@ -1,8 +1,14 @@
-extends Area2D
+extends StaticBody2D
 class_name DestroiObjeto
 
+@export var id_unico: String = ""
 @export var required_item: String = "machado"
 @export var puff_effect_scene: PackedScene = preload("res://scenes/puff_effect.tscn")
+
+func _ready() -> void:
+	# Se a cerca já foi destruída, remove ela no início da cena
+	if id_unico != "" and GameManager.is_objeto_destruido(id_unico):
+		queue_free()
 
 func take_damage(_amount: int = 1) -> void:
 	quebrar()
@@ -16,6 +22,9 @@ func quebrar() -> void:
 			])
 		return
 		
+	if id_unico != "":
+		GameManager.registrar_objeto_destruido(id_unico)
+	
 	gerar_puffeffect()
 	queue_free()
 
