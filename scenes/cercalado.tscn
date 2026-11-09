@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ldj"]
 size = Vector2(16, 48)
 
-[node name="Cercalado" type="Area2D" unique_id=796599163]
+[node name="Cercalado" type="StaticBody2D" unique_id=986580296]
 position = Vector2(0, -1)
 script = ExtResource("1_resya")
 

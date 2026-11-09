@@ -75,12 +75,18 @@ scale = Vector2(1, 1.640005)
 
 [node name="Cercalado" parent="." unique_id=796599163 instance=ExtResource("3_nmuj1")]
 position = Vector2(771, 445)
+id_unico = "cerca_bar1"
 
 [node name="Cercalado2" parent="." unique_id=1110734052 instance=ExtResource("3_nmuj1")]
 position = Vector2(771, 488)
+collision_layer = 3
+collision_mask = 3
+id_unico = "cerca_bar2"
 
 [node name="Cercalado3" parent="." unique_id=1393938777 instance=ExtResource("3_nmuj1")]
 position = Vector2(771, 534)
+id_unico = "cerca_bar3"
 
 [node name="Cercalado4" parent="." unique_id=606991340 instance=ExtResource("3_nmuj1")]
 position = Vector2(771, 579)
+id_unico = "cerca_bar4"
