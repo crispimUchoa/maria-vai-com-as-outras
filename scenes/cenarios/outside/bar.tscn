@@ -41,6 +41,7 @@ tile_set = ExtResource("1_31qgm")
 
 [node name="GoToTrilha2" parent="." unique_id=609231163 instance=ExtResource("2_7ddsc")]
 modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(13, 20)
 scale = Vector2(-0.8800005, 4.6800003)
 next_level_file = "uid://cruxt5bosnvsx"
 next_spawn_id = "SpawnBar"
