@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://wrmr42p0ggbx" path="res://sprites/vovo/idle/right/2.png" id="15_73x6m"]
 [ext_resource type="Texture2D" uid="uid://omj3mr3vvbxo" path="res://sprites/mae_maria/idle/up/1.png" id="16_l2vlj"]
 [ext_resource type="Texture2D" uid="uid://c8ka3462dfjbg" path="res://sprites/mae_maria/idle/up/2.png" id="17_f7dfj"]
+[ext_resource type="Texture2D" uid="uid://b2bwhdvvvpmle" path="res://sprites/mae_maria/idle/left/1.png" id="18_l2vlj"]
+[ext_resource type="Texture2D" uid="uid://cfeosihwjr3sf" path="res://sprites/mae_maria/idle/left/2.png" id="19_f7dfj"]
+[ext_resource type="Texture2D" uid="uid://bcbegrjm4bfig" path="res://sprites/pai_maria/idle/up/1.png" id="20_kax03"]
+[ext_resource type="Texture2D" uid="uid://b0luapjtw8eou" path="res://sprites/pai_maria/idle/up/2.png" id="21_bc48l"]
 
 [sub_resource type="Resource" id="Resource_1gyjw"]
 script = ExtResource("13_pbkl3")
@@ -75,7 +79,81 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_l2vlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_f7dfj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(23, 24)
+
+[sub_resource type="Resource" id="Resource_kax03"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Mãe! Eu to dizeno! Não foi uma onça que matou a bichinha!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_bc48l"]
+script = ExtResource("13_pbkl3")
+id = "pai_maria"
+text = "Deixa de conversar besteira, Maria! O William Boné ta dizeno aqui que a onça matou a menina!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_gxmxq"]
+script = ExtResource("13_pbkl3")
+id = "pai_maria"
+text = "Tu vai dizer que o jornal ta errado e tu ta certa?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_472o0"]
+script = ExtResource("13_pbkl3")
+id = "pai_maria"
+text = "Aproveita a disposição e vai comprar um espoca bucho no bar do Neísso."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_7iq7q"]
+script = ExtResource("13_pbkl3")
+id = "pai_maria"
+text = "Depois de uma tragédia dessa, deu até um fartí..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxmxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_kax03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bc48l")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_7ksj7"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Pai, ei-"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_8pvy5"]
+script = ExtResource("13_pbkl3")
+id = "pai_maria"
+text = "Shh! Tão falando no jornal que uma onça matou a menina..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
+metadata/_edit_horizontal_guides_ = [-1.0]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=2078963445]
 position = Vector2(49, 18)
@@ -162,8 +240,8 @@ scale = Vector2(3.9599962, 5.3798685)
 script = ExtResource("7_5rw8c")
 
 [node name="InteractionArea" parent="Couch" unique_id=2127591333 instance=ExtResource("5_bfcy3")]
-position = Vector2(293.00003, 331.99997)
-scale = Vector2(9.919994, 5.0113325)
+position = Vector2(293, 341.99997)
+scale = Vector2(9.919994, 3.6113324)
 
 [node name="ActGroups" type="Node2D" parent="." unique_id=420572506]
 
@@ -234,7 +312,6 @@ scale = Vector2(1.4875647, 1.953696)
 polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.957611, 72.04047)
 
 [node name="ActGroupAlerta" parent="ActGroups" unique_id=303861555 instance=ExtResource("8_ptpo5")]
-visible = true
 y_sort_enabled = true
 min_act = 2
 max_act = 2
@@ -283,7 +360,7 @@ position = Vector2(478, 297)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ActGroups/ActGroupAlerta/Mãe" unique_id=2112221354]
 y_sort_enabled = true
-position = Vector2(1.2000008, -37.800003)
+position = Vector2(-1.0000114, 6.9999847)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_bc48l")
 
@@ -291,6 +368,46 @@ sprite_frames = SubResource("SpriteFrames_bc48l")
 y_sort_enabled = true
 position = Vector2(1.2000008, -10.800003)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
+visible = true
+min_act = 3
+max_act = 3
+
+[node name="Mãe" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=89111940]
+position = Vector2(569, 281)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ActGroups/ActGroupEspocaBucho/Mãe" unique_id=212473679]
+position = Vector2(0, -35)
+scale = Vector2(1.35, 1.35)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActGroups/ActGroupEspocaBucho/Mãe" unique_id=1058384998]
+position = Vector2(1.5, -8)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="DialogArea" parent="ActGroups/ActGroupEspocaBucho/Mãe" unique_id=1576141098 instance=ExtResource("12_1gyjw")]
+position = Vector2(-1, -12)
+scale = Vector2(2.28, 2.5200024)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_kax03"), SubResource("Resource_bc48l"), SubResource("Resource_gxmxq"), SubResource("Resource_472o0"), SubResource("Resource_7iq7q")])
+
+[node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=418563778]
+position = Vector2(294, 316)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ActGroups/ActGroupEspocaBucho/Pai" unique_id=1614683287]
+position = Vector2(0, -35)
+scale = Vector2(1.35, 1.35)
+sprite_frames = SubResource("SpriteFrames_gxmxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActGroups/ActGroupEspocaBucho/Pai" unique_id=89212691]
+position = Vector2(1.5, -8)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="DialogArea" parent="ActGroups/ActGroupEspocaBucho/Pai" unique_id=583163311 instance=ExtResource("12_1gyjw")]
+position = Vector2(3, -40)
+scale = Vector2(2.6887484, 2.1362867)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_7ksj7"), SubResource("Resource_8pvy5")])
+actions = Array[int]([2])
 
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]

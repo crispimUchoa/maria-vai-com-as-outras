@@ -9,6 +9,11 @@
 [ext_resource type="Script" uid="uid://dc0vcvu3guad5" path="res://scripts/cenarios/maria_bedroom/estante.gd" id="6_1d3g3"]
 [ext_resource type="Script" uid="uid://duyqym01e54es" path="res://scripts/cenarios/maria_bedroom/cama_vovo.gd" id="6_ah242"]
 [ext_resource type="Script" uid="uid://vy8cfddx1wsp" path="res://scripts/cenarios/maria_bedroom/planta.gd" id="7_xf4uu"]
+[ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="9_lq444"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="11_h8hev"]
+[ext_resource type="Texture2D" uid="uid://t180hh1tscdr" path="res://sprites/vovo/sit/right/3.png" id="12_tqrg2"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="13_tqrg2"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="14_sdo57"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sugp2"]
 
@@ -5223,6 +5228,41 @@ physics_layer_0/collision_mask = 2
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_tefeu")
 sources/1 = SubResource("TileSetAtlasSource_ah242")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfj4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_tqrg2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_sdo57"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "Pai Nosso que estais no céu-"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_4v22x"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "Vovó! A senhora acredita em m-"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_x6t05"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "CALA A BOCA, MOLECA! ESTOU REZANDO!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ib0b1"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "Pai Nosso que estais no Céu, santificado seja o vosso Nome.  Venha a nós o vosso Reino. Seja feita a vossa vontade, assim na terra como no Céu. O pão nosso de cada dia nos dai hoje. Perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido. E não nos deixeis cair em tentação. Mas livrai-nos do mal. Amém."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="PlayerBedRoom" type="Node2D" unique_id=1851993271]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1274250068]
@@ -5299,14 +5339,6 @@ script = ExtResource("6_1d3g3")
 position = Vector2(134.1912, 55.128178)
 scale = Vector2(1.2338215, 0.4465614)
 
-[node name="CamaVovo" type="Node2D" parent="." unique_id=1448020601]
-scale = Vector2(2.7793095, 4.5557446)
-script = ExtResource("6_ah242")
-
-[node name="InteractionArea" parent="CamaVovo" unique_id=1037693660 instance=ExtResource("4_ah242")]
-position = Vector2(73.39953, 60.80236)
-scale = Vector2(1.0028383, -1.2355466)
-
 [node name="Planta" type="Node2D" parent="." unique_id=1506017296]
 scale = Vector2(2.7199998, 4.680002)
 script = ExtResource("7_xf4uu")
@@ -5315,17 +5347,50 @@ script = ExtResource("7_xf4uu")
 position = Vector2(92.64706, 51.4957)
 scale = Vector2(0.49797934, -0.40124366)
 
-[node name="MochilaItem" parent="." unique_id=224047904 instance=ExtResource("3_qedg3")]
-position = Vector2(408, 293)
-scale = Vector2(0.18, 0.18)
-
 [node name="SpawnRoom" type="Marker2D" parent="." unique_id=2016579050]
 position = Vector2(442, 389)
 
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=1098080202]
 position = Vector2(350, 350)
 
+[node name="Mochila" parent="." unique_id=1092087895 instance=ExtResource("9_lq444")]
+position = Vector2(229, 284)
+scale = Vector2(2.9997144, -2.8704143)
+needed_items = Dictionary[String, bool]({
+"Mochila": true
+})
+appear_mode = false
+
+[node name="MochilaItem" parent="Mochila" unique_id=224047904 instance=ExtResource("3_qedg3")]
+position = Vector2(59.67234, -3.1354294)
+scale = Vector2(0.060005713, -0.06270872)
+
+[node name="PreDefunta" parent="." unique_id=693582267 instance=ExtResource("9_lq444")]
+max_act = 2
+
+[node name="CamaVovo" type="Node2D" parent="PreDefunta" unique_id=1448020601]
+scale = Vector2(2.7793095, 4.5557446)
+script = ExtResource("6_ah242")
+
+[node name="InteractionArea" parent="PreDefunta/CamaVovo" unique_id=1037693660 instance=ExtResource("4_ah242")]
+position = Vector2(73.39953, 60.80236)
+scale = Vector2(1.0028383, -1.2355466)
+
+[node name="VoRezando" parent="." unique_id=409014499 instance=ExtResource("9_lq444")]
+visible = true
+min_act = 3
+max_act = 3
+
+[node name="Vó" parent="VoRezando" unique_id=551480179 instance=ExtResource("11_h8hev")]
+position = Vector2(223, 311)
+sprite_frames = SubResource("SpriteFrames_hfj4i")
+
+[node name="DialogArea" parent="VoRezando/Vó" unique_id=1530829626 instance=ExtResource("13_tqrg2")]
+position = Vector2(5.999999, -26.999998)
+scale = Vector2(2.9997144, -2.8704143)
+dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_sdo57"), SubResource("Resource_4v22x"), SubResource("Resource_x6t05"), SubResource("Resource_ib0b1")])
+
 [connection signal="interacted" from="CamaMaria/InteractionArea" to="CamaMaria" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Estante/InteractionArea" to="Estante" method="_on_interaction_area_interacted"]
-[connection signal="interacted" from="CamaVovo/InteractionArea" to="CamaVovo" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Planta/InteractionArea" to="Planta" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="PreDefunta/CamaVovo/InteractionArea" to="PreDefunta/CamaVovo" method="_on_interaction_area_interacted"]
