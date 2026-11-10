@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="5_tw2xs"]
 [ext_resource type="Script" uid="uid://bw81r65013rmu" path="res://scripts/pai_maria.gd" id="5_ud8s8"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="7_djula"]
+[ext_resource type="PackedScene" uid="uid://cgy4sq226oiko" path="res://scenes/safe_zone.tscn" id="10_niyox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jotlg"]
 size = Vector2(20, 20.507282)
@@ -129,5 +130,8 @@ shape = SubResource("RectangleShape2D_qhds1")
 [node name="InteractionArea" parent="ActGroup/PaiMaria" unique_id=1935205722 instance=ExtResource("7_djula")]
 position = Vector2(1.6296387, -7.259239)
 scale = Vector2(3.1629639, 3.1629639)
+
+[node name="SafeZone" parent="." unique_id=1003842484 instance=ExtResource("10_niyox")]
+position = Vector2(797, 361)
 
 [connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]
