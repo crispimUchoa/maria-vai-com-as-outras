@@ -4,17 +4,22 @@ signal mission_requested
 signal change_acess_requested
 
 enum Act {
+	ATO_NULO,
 	BEGIN_MARIA_HOUSE,
 	BEGIN_GO_TO_SCHOOL,
 	DEAD_GIRL_WARNING,
 	ESPOCA_BUCHO,
+	CONSERTE_A_PONTE,
+	PROJETA_SUA_FAMILIA,
 	OLA
 }
 
 enum Action {
 	MERENDAR_COM_A_VO_NO_COMECO,
 	PEDIR_BENCA_PRO_PAI_NO_COMECO,
-	VA_COMPRAR_ESPOCA_BUCHO
+	FALAR_COM_VOVO_POS_ALERTA,
+	VA_COMPRAR_ESPOCA_BUCHO,
+	DESMATE_O_BAR
 }
 
 var actions: Array[Action] = []
@@ -34,10 +39,13 @@ var current_spawn_id: String = ""
 var merendou: bool = false
 var mission = "Vá merendar"
 
+func update_acess():
+	change_acess_requested.emit()
+	
+
 func set_act(act: Act):
 	current_act = act
-	change_acess_requested.emit()
-
+	update_acess()
 func get_act():
 	return current_act
 

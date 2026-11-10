@@ -4,6 +4,7 @@ class_name DestroiObjeto
 @export var id_unico: String = ""
 @export var required_item: String = "machado"
 @export var puff_effect_scene: PackedScene = preload("res://scenes/puff_effect.tscn")
+@export var drop_item: bool = false
 
 func _ready() -> void:
 	# Se a cerca já foi destruída, remove ela no início da cena
@@ -24,6 +25,8 @@ func quebrar() -> void:
 		
 	if id_unico != "":
 		GameManager.registrar_objeto_destruido(id_unico)
+		if (drop_item):
+			InventoryManager.add_item(id_unico)
 	
 	gerar_puffeffect()
 	queue_free()
