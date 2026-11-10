@@ -4,6 +4,7 @@ signal mission_requested
 signal change_acess_requested
 
 enum Act {
+	ATO_NULO,
 	BEGIN_MARIA_HOUSE,
 	BEGIN_GO_TO_SCHOOL,
 	DEAD_GIRL_WARNING,
@@ -14,7 +15,9 @@ enum Act {
 enum Action {
 	MERENDAR_COM_A_VO_NO_COMECO,
 	PEDIR_BENCA_PRO_PAI_NO_COMECO,
-	VA_COMPRAR_ESPOCA_BUCHO
+	FALAR_COM_VOVO_POS_ALERTA,
+	VA_COMPRAR_ESPOCA_BUCHO,
+
 }
 
 var actions: Array[Action] = []

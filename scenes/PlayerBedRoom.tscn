@@ -5378,8 +5378,8 @@ scale = Vector2(1.0028383, -1.2355466)
 
 [node name="VoRezando" parent="." unique_id=409014499 instance=ExtResource("9_lq444")]
 visible = true
-min_act = 3
-max_act = 3
+min_act = 4
+max_act = 4
 
 [node name="Vó" parent="VoRezando" unique_id=551480179 instance=ExtResource("11_h8hev")]
 position = Vector2(223, 311)
@@ -5389,6 +5389,7 @@ sprite_frames = SubResource("SpriteFrames_hfj4i")
 position = Vector2(5.999999, -26.999998)
 scale = Vector2(2.9997144, -2.8704143)
 dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_sdo57"), SubResource("Resource_4v22x"), SubResource("Resource_x6t05"), SubResource("Resource_ib0b1")])
+actions = Array[int]([2])
 
 [connection signal="interacted" from="CamaMaria/InteractionArea" to="CamaMaria" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Estante/InteractionArea" to="Estante" method="_on_interaction_area_interacted"]

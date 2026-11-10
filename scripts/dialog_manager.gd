@@ -9,7 +9,8 @@ func is_open():
 func idTextToDialogModel(line: DialogInfoModel) -> Dictionary:
 	return {
 		'text': line.text,
-		'portrait': get_info(line.id, 'portrait')
+		'portrait': get_info(line.id, 'portrait'),
+		'display_name': get_info(line.id, 'display_name')
 	}
 
 func start_talk(lines: Array[DialogInfoModel]): # {id, text}
@@ -32,8 +33,10 @@ func start_talk(lines: Array[DialogInfoModel]): # {id, text}
 
 var DIALOGS_INFO: Dictionary[String, DialogModel] = {
 	"player": DialogModel.new("Maria",preload("res://sprites/maria/face.png")),
-	"vovo": DialogModel.new("Vovó Chiquinha",preload("res://sprites/vovo/face.png")),
-	"pai_maria": DialogModel.new("Pai Maria",preload("res://sprites/pai_maria/idle/down/1.png")),
+	"vovo": DialogModel.new("Chiquinha",preload("res://sprites/vovo/face.png")),
+	"pai_maria": DialogModel.new("Raimundo",preload("res://sprites/pai_maria/idle/down/1.png")),
+	"neisso": DialogModel.new("Néisso",preload("res://sprites/neisso/idle/down/1.png")),
+	"mae_maria": DialogModel.new("Benedita",preload("res://sprites/mae_maria/idle/down/1.png")),
 }
 
 func get_info(id: String, key: String):

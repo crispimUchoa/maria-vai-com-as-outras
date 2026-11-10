@@ -18,6 +18,7 @@ func _on_interaction_area_interacted() -> void:
 		SceneManager.stop_cutscene()
 		
 		ProgressManager.do_action(merendou)
+		ProgressManager.set_mission("Vá para a escola")
 	else:
 		DialogManager.start_talk([
 			DialogInfoModel.new("vovo", "É bom se apressar!"),

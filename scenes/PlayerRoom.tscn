@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cfeosihwjr3sf" path="res://sprites/mae_maria/idle/left/2.png" id="19_f7dfj"]
 [ext_resource type="Texture2D" uid="uid://bcbegrjm4bfig" path="res://sprites/pai_maria/idle/up/1.png" id="20_kax03"]
 [ext_resource type="Texture2D" uid="uid://b0luapjtw8eou" path="res://sprites/pai_maria/idle/up/2.png" id="21_bc48l"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="22_bc48l"]
 
 [sub_resource type="Resource" id="Resource_1gyjw"]
 script = ExtResource("13_pbkl3")
@@ -152,6 +153,30 @@ id = "pai_maria"
 text = "Shh! Tão falando no jornal que uma onça matou a menina..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_0f6dk"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Ainda não falei com a vovó depois de tudo isso..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_a2mkg"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Melhor ir ver como ela tá."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_0ccyf"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Aquele caderno parece ser importante..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_74n2g"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Melhor levar ele comigo."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
 metadata/_edit_horizontal_guides_ = [-1.0]
 
@@ -262,6 +287,7 @@ position = Vector2(480, 206)
 scale = Vector2(3.6, 2.4)
 
 [node name="ActGroupPosMerenda" parent="ActGroups" unique_id=2016916900 instance=ExtResource("8_ptpo5")]
+visible = true
 needed_actions = Dictionary[int, bool]({
 0: true
 })
@@ -271,9 +297,9 @@ needed_items = Dictionary[String, bool]({
 
 [node name="GoToOutside" parent="ActGroups/ActGroupPosMerenda" unique_id=1230648572 instance=ExtResource("2_tl1vm")]
 visible = false
-position = Vector2(521, 194.99998)
+position = Vector2(521, 189)
 rotation = -1.5707963
-scale = Vector2(0.976, -0.63)
+scale = Vector2(0.49600118, -0.63)
 next_level_file = "uid://phppkesylvwp"
 next_spawn_id = "SpawnRoom"
 
@@ -313,8 +339,8 @@ polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.9
 
 [node name="ActGroupAlerta" parent="ActGroups" unique_id=303861555 instance=ExtResource("8_ptpo5")]
 y_sort_enabled = true
-min_act = 2
-max_act = 2
+min_act = 3
+max_act = 3
 
 [node name="DialogArea" parent="ActGroups/ActGroupAlerta" unique_id=1192711266 instance=ExtResource("12_1gyjw")]
 y_sort_enabled = true
@@ -322,7 +348,8 @@ position = Vector2(475.00006, 254.00002)
 rotation = 3.1415925
 scale = Vector2(-8.582293, -6.0613356)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_1gyjw"), SubResource("Resource_pbkl3")])
-next_act = 3
+next_act = 4
+autoInteract = true
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupAlerta" unique_id=374328675]
 y_sort_enabled = true
@@ -370,9 +397,8 @@ position = Vector2(1.2000008, -10.800003)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
-visible = true
-min_act = 3
-max_act = 3
+min_act = 4
+max_act = 4
 
 [node name="Mãe" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=89111940]
 position = Vector2(569, 281)
@@ -390,6 +416,9 @@ shape = SubResource("RectangleShape2D_57qmd")
 position = Vector2(-1, -12)
 scale = Vector2(2.28, 2.5200024)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_kax03"), SubResource("Resource_bc48l"), SubResource("Resource_gxmxq"), SubResource("Resource_472o0"), SubResource("Resource_7iq7q")])
+actions = null
+next_act = null
+autoInteract = null
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=418563778]
 position = Vector2(294, 316)
@@ -408,6 +437,39 @@ position = Vector2(3, -40)
 scale = Vector2(2.6887484, 2.1362867)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_7ksj7"), SubResource("Resource_8pvy5")])
 actions = Array[int]([2])
+next_act = null
+autoInteract = null
+
+[node name="ActGroupFalarComAVo" type="Node2D" parent="ActGroups" unique_id=1046574845]
+script = ExtResource("22_bc48l")
+min_act = 4
+max_act = 4
+needed_actions = Dictionary[int, bool]({
+2: false
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/ActGroupFalarComAVo" unique_id=827895765 instance=ExtResource("12_1gyjw")]
+position = Vector2(480, 198)
+scale = Vector2(4.9116406, 2.3296738)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0f6dk"), SubResource("Resource_a2mkg")])
+
+[node name="ActGroupPegarDiario" type="Node2D" parent="ActGroups" unique_id=132216699]
+script = ExtResource("22_bc48l")
+min_act = 4
+max_act = 4
+needed_actions = Dictionary[int, bool]({
+2: true
+})
+needed_items = Dictionary[String, bool]({
+"Diario": false
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/ActGroupPegarDiario" unique_id=615313832 instance=ExtResource("12_1gyjw")]
+position = Vector2(480, 198)
+scale = Vector2(4.9116406, 2.3296738)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf"), SubResource("Resource_74n2g")])
 
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]

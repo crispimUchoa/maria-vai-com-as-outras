@@ -1,16 +1,17 @@
-extends Node2D
+class_name ActGroup extends Node2D
 
 @export var min_act: ProgressManager.Act = ProgressManager.Act.BEGIN_MARIA_HOUSE
-@export var max_act: ProgressManager.Act 
+@export var max_act: ProgressManager.Act = ProgressManager.Act.ATO_NULO
 
 @export var needed_actions: Dictionary[ProgressManager.Action, bool]
 
 @export var needed_items: Dictionary[String, bool]
 @export var appear_mode: bool = true
 @export var always_visible: bool = false
+@export var use_act_inverval: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if (!max_act):
+	if (max_act == ProgressManager.Act.ATO_NULO):
 		max_act = ProgressManager.Act.values()[-1]
 	ProgressManager.change_acess_requested.connect(update_acess)
 	
@@ -32,10 +33,14 @@ func is_all_items_done():
 	print("ALL ITEMS ", needed_items.keys().all(is_item_done))
 	return needed_items.keys().all(is_item_done)
 
-func can_acess():
+func is_in_act_interval():
+	if (not use_act_inverval): return true
 	var current_act = ProgressManager.get_act()
+	return (min_act <= current_act and max_act >= current_act)
+
+func can_acess():
 	print(name, ' ', is_all_needed_actions_done() )
-	return ((min_act <= current_act and max_act >= current_act) 
+	return ( is_in_act_interval()
 	and is_all_needed_actions_done() and is_all_items_done())
 
 func set_acess():
