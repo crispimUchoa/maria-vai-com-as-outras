@@ -5,9 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://ou7dvquxdi5a" path="res://sprites/dead_girl/dead_girl.png" id="3_j666f"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="4_vwmy4"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_hv2q3"]
+[ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="6_48h6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(13.783142, 123.69313)
+
+[sub_resource type="Curve2D" id="Curve2D_j666f"]
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -50,7 +53,7 @@ position = Vector2(711, 423)
 scale = Vector2(5.2865987, 5.4408846)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1869851427]
-position = Vector2(3.1084442, -26.741974)
+position = Vector2(20.050697, -20.952473)
 shape = SubResource("RectangleShape2D_qhds1")
 
 [node name="SpawnWay1PostHouse" type="Marker2D" parent="." unique_id=595564]
@@ -62,5 +65,18 @@ position = Vector2(135, -1)
 rotation = -1.5707964
 next_level_file = "uid://d3x7l0kxhmbx0"
 next_spawn_id = "SpawnWay2PostHouse"
+
+[node name="Trilho do lobi" type="Path2D" parent="." unique_id=1081208545]
+visibility_layer = 3
+y_sort_enabled = true
+curve = SubResource("Curve2D_j666f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Trilho do lobi" unique_id=1462651302]
+visibility_layer = 3
+y_sort_enabled = true
+
+[node name="lobisomem" parent="Trilho do lobi/PathFollow2D" unique_id=1955558193 instance=ExtResource("6_48h6t")]
+y_sort_enabled = true
+position = Vector2(643, 396)
 
 [connection signal="interacted" from="Defunta/InteractionArea" to="Defunta" method="_on_interaction_area_interacted"]

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://d3x7l0kxhmbx0"]
 
+[ext_resource type="Script" uid="uid://c55p1jh1ob211" path="res://scenes/cenarios/outside/way_1_post_house.gd" id="1_csuyj"]
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_oit0c"]
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="4_csuyj"]
@@ -7,6 +8,7 @@
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
+script = ExtResource("1_csuyj")
 
 [node name="TileMap" type="Node2D" parent="." unique_id=2016210167]
 y_sort_enabled = true
@@ -71,3 +73,6 @@ needed_items = Dictionary[String, bool]({
 [node name="MachadoItem" parent="ActGroup" unique_id=1390710440 instance=ExtResource("3_htrpx")]
 position = Vector2(-332.14288, 66.47726)
 scale = Vector2(1.1904762, -0.56818175)
+
+[node name="LobisomemSpawn" type="Marker2D" parent="." unique_id=1305106370]
+position = Vector2(543, 574)

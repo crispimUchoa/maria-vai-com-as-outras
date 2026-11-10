@@ -373,36 +373,63 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5ldj"]
-radius = 174.39323
+radius = 53.15073
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw7s"]
 size = Vector2(41, 45.25)
 
 [node name="lobisomem" type="CharacterBody2D" unique_id=1955558193]
+light_mask = 1023
+visibility_layer = 3
+scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 255
 script = ExtResource("1_nr7hh")
+id_unico = "lobisomem"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=476006515]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
 position = Vector2(4, -1.125)
 shape = SubResource("RectangleShape2D_l5ldj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613930654]
+y_sort_enabled = true
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_l5ldj")
 animation = &"walk_left"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=394500703]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
 position = Vector2(2, -1)
+collision_layer = 3
+collision_mask = 255
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectionArea" unique_id=1131972954]
-position = Vector2(0, 1)
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
+position = Vector2(1, -13)
 shape = SubResource("CircleShape2D_l5ldj")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1036658663]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
 position = Vector2(1, 2)
+collision_layer = 3
+collision_mask = 255
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="AttackArea" unique_id=1212660001]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
 position = Vector2(2.5, -15.375)
 shape = SubResource("RectangleShape2D_dlw7s")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

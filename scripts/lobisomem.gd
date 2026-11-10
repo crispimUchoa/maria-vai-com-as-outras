@@ -13,118 +13,168 @@ class_name Lobisomem
 @export var velocidade: float = 230.0 
 @export var puff_effect_scene: PackedScene = preload("res://scenes/puff_effect.tscn")
 
-var ultima_direcao: Vector2 = Vector2.DOWN
+var last_direction: Vector2 = Vector2.DOWN
 var path_follow: PathFollow2D = null
 var vida_atual: int = 3
 var target_player: CharacterBody2D = null
 var esta_despistado: bool = false
-var velocidade_patrulha = 130.0
+var velocidade_patrulha: float = 130.0
 var capturou_player: bool = false
+var em_introducao: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var detection_area: Area2D = $DetectionArea
+@onready var attack_area: Area2D = $AttackArea
 
 func _ready() -> void:
 	vida_atual = vida_maxima
 	
-	# verifica se foi instanciado dentro de um path follow
+	# Garante a conexão dos sinais dos nós de visão e ataque
+	if detection_area and not detection_area.body_entered.is_connected(_on_detection_area_body_entered):
+		detection_area.body_entered.connect(_on_detection_area_body_entered)
+		
+	if attack_area and not attack_area.body_entered.is_connected(_on_attack_area_body_entered):
+		attack_area.body_entered.connect(_on_attack_area_body_entered)
+	
 	if get_parent() is PathFollow2D:
 		path_follow = get_parent() as PathFollow2D
 	
-	# Se já foi derrotado/despistado em um save anterior, remove do mapa
+	# Se já foi derrotado/despistado em save anterior
 	if id_unico != "" and GameManager.is_objeto_destruido(id_unico):
 		if path_follow: 
 			path_follow.queue_free()
 		else:
 			queue_free()
-
-func _physics_process(delta: float) -> void:
-	# Trava o movimento em diálogos, cutscenes ou se já tiver sido despistado/derrotado
-	if DialogManager.is_open() or SceneManager.cutscene_running or esta_despistado:
-		velocity = Vector2.ZERO
 		return
 
-	# estado de perseguição a maria
+	# Auto-detecção da Maria se recarregar na fuga entre mapas
+	if ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING):
+		await get_tree().process_frame
+		var players = get_tree().get_nodes_in_group("player")
+		if players.size() > 0:
+			target_player = players[0] as CharacterBody2D
+		else:
+			var player_node = get_parent().find_child("Maria", true, false)
+			if not player_node:
+				player_node = get_parent().find_child("Player", true, false)
+			if player_node is CharacterBody2D:
+				target_player = player_node
+
+func _physics_process(delta: float) -> void:
+	# Trava o movimento em diálogos, cutscenes ou morte
+	if em_introducao or capturou_player or DialogManager.is_open() or SceneManager.cutscene_running or esta_despistado:
+		velocity = Vector2.ZERO
+		update_idle_animation()
+		return
+
+	var direction: Vector2 = Vector2.ZERO
+
+	# Estado 1: Perseguição ativa (Correndo atrás da Maria)
 	if target_player:
-		var direcao: Vector2 = (target_player.global_position - global_position).normalized()
-		velocity = direcao * velocidade
-		
-		atualizar_animacao(direcao)
+		direction = (target_player.global_position - global_position).normalized()
+		velocity = direction * velocidade
+		last_direction = direction
+		update_run_animation(direction)
 		move_and_slide()
 	
-	#estado de patrulhamento ao longo do pathfollow2D
+	# Estado 2: Patrulha no trilho (Andando pelo PathFollow2D)
 	elif path_follow:
 		var pos_anterior = path_follow.global_position
 		path_follow.progress += velocidade_patrulha * delta
+		direction = (path_follow.global_position - pos_anterior).normalized()
 		
-		var deslocamento = path_follow.global_position - pos_anterior
-		atualizar_animacao(deslocamento)
+		if direction != Vector2.ZERO:
+			last_direction = direction
+			update_walk_animation(direction)
+		else:
+			update_idle_animation()
 		
-	#estado parado no lugar
+	# Estado 3: Parado
 	else:
 		velocity = Vector2.ZERO
-		atualizar_animacao(Vector2.ZERO)
-		
-func atualizar_animacao(direcao: Vector2) -> void:
+		update_idle_animation()
+
+func update_run_animation(dir: Vector2) -> void:
 	if not animated_sprite:
 		return
-	
-	animated_sprite.flip_h = false
-
-	if direcao.length() > 0.1:
-		ultima_direcao = direcao
-		var sufixo_direcao: String = obter_sufixo_direcao(direcao)
 		
-		if target_player:
-			if animated_sprite.sprite_frames.has_animation("run_" + sufixo_direcao):
-				animated_sprite.play("run_" + sufixo_direcao)
-			else:
-				animated_sprite.play("walk_" + sufixo_direcao)
-		
-		else:
-			animated_sprite.play("walk_" + sufixo_direcao)
-	else:
-		
-		var sufixo_direcao: String = obter_sufixo_direcao(ultima_direcao)
-		animated_sprite.play("idle_" + sufixo_direcao)
-
-# Função auxiliar p/ direção
-func obter_sufixo_direcao(dir: Vector2) -> String:
 	if abs(dir.x) > abs(dir.y):
-		return "right" if dir.x > 0 else "left"
+		if dir.x > 0:
+			animated_sprite.play("run_right")
+		else:
+			animated_sprite.play("run_left")
 	else:
-		return "down" if dir.y > 0 else "up"
-	
-# SINAIS DE DETECÇÃO (Perseguição)
-# Conecte o sinal body_entered da Area2D de visão aqui
-func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and body.name == "Player":
-		target_player = body
-		
-		# se tiver em um trilho "desacopla" pra andar atras da maria
-		if path_follow and is_instance_valid(path_follow):
-			var pos_global = global_position
-			var mapa_raiz = path_follow.get_parent().get_parent()
-			reparent(mapa_raiz)
-			global_position = pos_global
-			path_follow = null 
+		if dir.y > 0:
+			animated_sprite.play("run_down")
+		else:
+			animated_sprite.play("run_up")
 
-# Conecte o sinal body_exited da Area2D de visão aqui
+func update_walk_animation(dir: Vector2) -> void:
+	if not animated_sprite:
+		return
+		
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			animated_sprite.play("walk_right")
+		else:
+			animated_sprite.play("walk_left")
+	else:
+		if dir.y > 0:
+			animated_sprite.play("walk_down")
+		else:
+			animated_sprite.play("walk_up")
+
+func update_idle_animation() -> void:
+	if not animated_sprite:
+		return
+		
+	if abs(last_direction.x) > abs(last_direction.y):
+		if last_direction.x > 0:
+			animated_sprite.play("idle_right")
+		else:
+			animated_sprite.play("idle_left")
+	else:
+		if last_direction.y > 0:
+			animated_sprite.play("idle_down")
+		else:
+			animated_sprite.play("idle_up")
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		if ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING):
+			if not em_introducao and target_player == null:
+				target_player = body as CharacterBody2D
+				iniciar_interacao_inicial()
+
+func iniciar_interacao_inicial() -> void:
+	em_introducao = true
+	velocity = Vector2.ZERO
+	
+	if path_follow and is_instance_valid(path_follow):
+		var pos_global = global_position
+		var mapa_raiz = path_follow.get_parent().get_parent()
+		reparent(mapa_raiz)
+		global_position = pos_global
+		path_follow = null
+	
+	await get_tree().create_timer(0.6).timeout
+	em_introducao = false
+
 func _on_detection_area_body_exited(body: Node2D) -> void:
 	if body == target_player:
 		target_player = null
-		
+
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.name == "player" and not capturou_player and not esta_despistado:
+	# Só ataca se estiver perseguindo o player ativamente
+	if body is Player and target_player != null and not capturou_player and not esta_despistado:
 		capturou_player = true
 		velocity = Vector2.ZERO
 		
-		# Notifica o script da Maria sobre o ataque
 		if body.has_method("receber_dano_fatal"):
 			body.receber_dano_fatal()
 		elif body.has_method("take_damage"):
 			body.take_damage(dano_no_player)
 
-# MECÂNICA DE DANO & COMBATE (Acionado pela AxeHitbox) 
 func take_damage(damage: int = 1) -> void:
 	if not InventoryManager.has_item(item_necessario):
 		if not DialogManager.is_open():
@@ -134,8 +184,6 @@ func take_damage(damage: int = 1) -> void:
 		return
 	
 	vida_atual -= damage
-	print("Lobisomem atingido! Vida restante: ", vida_atual)
-	
 	piscar_dano()
 	
 	if vida_atual <= 0:
@@ -154,10 +202,8 @@ func derrotar() -> void:
 	gerar_puffeffect()
 	queue_free()
 
-# MECÂNICA DE DESPISTAR FUGIR
-
 func despistar() -> void:
-	if esta_despistado:
+	if esta_despistado or capturou_player:
 		return
 		
 	esta_despistado = true
@@ -169,7 +215,7 @@ func despistar() -> void:
 		
 	if not DialogManager.is_open():
 		DialogManager.start_talk([
-			DialogInfoModel.new('Maria', 'Vala meu Deus! Consegui dar um arrudeio na fera!')
+			DialogInfoModel.new('player', 'Vala meu Deus! Consegui dar um arrudeio na fera!')
 		])
 	
 	gerar_puffeffect()

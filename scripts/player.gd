@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const WALK_SPEED = 130.0
 const RUN_SPEED = 230.0
@@ -30,7 +31,7 @@ func _ready() -> void:
 		animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
 func can_move() -> bool:
-	return !DialogManager.is_open() and !is_attacking and !SceneManager.cutscene_running
+	return !DialogManager.is_open() and !is_attacking and !SceneManager.cutscene_running and !esta_morta
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and not is_attacking:
@@ -64,7 +65,7 @@ func tocar_animacao_ataque(dir: Vector2) -> void:
 			animated_sprite.play("attack_up")
 
 func _physics_process(_delta: float) -> void:
-	if is_attacking:
+	if esta_morta or is_attacking:
 		return
 	
 	if Input.is_action_pressed("run"):
@@ -211,11 +212,18 @@ func receber_dano_fatal() -> void:
 	esta_morta = true
 	velocity = Vector2.ZERO
 	
-	if animated_sprite:
-		if animated_sprite.sprite_frames.has_animation("hurt"):
-			animated_sprite.play("hurt")
+	if walking_sound and walking_sound.playing:
+		walking_sound.stop()
+	
+	# Força o play na animação "hurt"
+	if animated_sprite and animated_sprite.sprite_frames.has_animation("hurt"):
+		animated_sprite.play("hurt")
+	else:
+		print("[ERRO] Animação 'hurt' não encontrada no SpriteFrames da Maria!")
 
-	get_tree().create_timer(1.5).timeout.connect(game_over)
+	# Espera os 1.5 segundos da animação de morte rodar ANTES de abrir diálogo ou game over
+	await get_tree().create_timer(1.5).timeout
+	game_over()
 
 func game_over() -> void:
 	# Reinicia o jogo a partir do save ou recarrega a cena atual
