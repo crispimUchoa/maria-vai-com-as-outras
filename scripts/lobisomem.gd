@@ -157,7 +157,7 @@ func iniciar_interacao_inicial() -> void:
 		global_position = pos_global
 		path_follow = null
 	
-	await get_tree().create_timer(0.6).timeout
+	await get_tree().create_timer(1.0).timeout
 	em_introducao = false
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
