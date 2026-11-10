@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="13_tqrg2"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="14_sdo57"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="15_x6t05"]
-[ext_resource type="Texture2D" uid="uid://cnu54pkbqfqxx" path="res://icon.svg" id="16_ib0b1"]
+[ext_resource type="Texture2D" uid="uid://iesck11ccql1" path="res://sprites/diario.png" id="16_x6t05"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sugp2"]
 
@@ -5297,6 +5297,36 @@ id = "player"
 text = "\"Diário Chico\"? Isso é o diário do vovô?"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_av80n"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "Página 1."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_70ebp"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "\"Caçada dia 1,A fera é perigosa.Já to de tocaia faz dois mês.To escreveno isso porque talvez alguém va ter que matar um desse também e num quero que passa pela mesma peleja que a gente.\""
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_syr1e"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "A página 2 tá rasgada."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_hrvam"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "\"proteja todos e se esconda o mais ligeiro possive. Não deixe sair nem na boquinha noite.\""
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_bvhqj"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "O resto eu não consigo entender. O que diabo é isso, vó?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [sub_resource type="Resource" id="Resource_4dnxf"]
 script = ExtResource("14_sdo57")
 id = "vovo"
@@ -5463,14 +5493,14 @@ autoInteract = true
 [node name="Node2D" type="Node2D" parent="AGDiario" unique_id=221388225]
 
 [node name="Sprite2D" type="Sprite2D" parent="AGDiario/Node2D" unique_id=1942320016]
-position = Vector2(351.00003, 307.00003)
-scale = Vector2(0.17334327, 0.17334327)
-texture = ExtResource("16_ib0b1")
+position = Vector2(352.99997, 307)
+scale = Vector2(0.18949623, 0.18949623)
+texture = ExtResource("16_x6t05")
 
 [node name="DialogArea" parent="AGDiario" unique_id=1518724680 instance=ExtResource("13_tqrg2")]
 position = Vector2(353, 307)
 scale = Vector2(3.0400047, 3.0400047)
-dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_ctdfa"), SubResource("Resource_vfmqm"), SubResource("Resource_rk8hh"), SubResource("Resource_4dnxf")])
+dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_ctdfa"), SubResource("Resource_vfmqm"), SubResource("Resource_rk8hh"), SubResource("Resource_av80n"), SubResource("Resource_70ebp"), SubResource("Resource_syr1e"), SubResource("Resource_hrvam"), SubResource("Resource_bvhqj"), SubResource("Resource_4dnxf")])
 items = Array[String](["Diario"])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AGDiario" unique_id=1656975844]
