@@ -583,7 +583,7 @@ rotation = -3.1415925
 scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
 
-[node name="InteractionArea" type="Area2D" parent="." unique_id=42438288]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=42438288 groups=["PlayerArea"]]
 position = Vector2(0, -14)
 scale = Vector2(-0.6095011, 0.99902135)
 script = ExtResource("120_wylla")

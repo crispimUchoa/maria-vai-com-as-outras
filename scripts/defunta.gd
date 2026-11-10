@@ -56,3 +56,4 @@ func _on_interaction_area_interacted() -> void:
 	ProgressManager.set_act(ProgressManager.Act.DEAD_GIRL_WARNING)
 	
 	SceneManager.stop_cutscene()
+	ProgressManager.set_mission("Reporte o corpo")

@@ -4,6 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="3_htrpx"]
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="4_csuyj"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="5_tx18u"]
+[ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="6_ytvba"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_ytvba"]
+
+[sub_resource type="Resource" id="Resource_wv4q4"]
+script = ExtResource("7_ytvba")
+id = "player"
+text = "Oxii! A escola é pra cá não!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_2idmk"]
+script = ExtResource("7_ytvba")
+id = "player"
+text = "Atrasada e errando caminho! Ô putariaaa!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
+size = Vector2(48, 26.08173)
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -45,14 +63,6 @@ scale = Vector2(1, 1.7600002)
 next_level_file = "uid://phppkesylvwp"
 next_spawn_id = "SpawnWay1PostHouse"
 
-[node name="GoToVillage1" parent="." unique_id=992403952 instance=ExtResource("5_csuyj")]
-modulate = Color(1, 1, 1, 0.11372549)
-position = Vector2(800, 272)
-rotation = -3.1415925
-scale = Vector2(-0.84000003, 1.7600002)
-next_level_file = "uid://ra88yat4ystn"
-next_spawn_id = "SpawnWay1PostHouse"
-
 [node name="GoToWay2PostHouse" parent="." unique_id=1687809277 instance=ExtResource("5_csuyj")]
 modulate = Color(1, 1, 1, 0.11372549)
 position = Vector2(674, 600)
@@ -71,3 +81,34 @@ needed_items = Dictionary[String, bool]({
 [node name="MachadoItem" parent="ActGroup" unique_id=1390710440 instance=ExtResource("3_htrpx")]
 position = Vector2(-332.14288, 66.47726)
 scale = Vector2(1.1904762, -0.56818175)
+
+[node name="AGGoToVillage1" type="Node2D" parent="." unique_id=2092026740]
+script = ExtResource("5_tx18u")
+max_act = 2
+appear_mode = false
+always_visible = true
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="GoToVillage1" parent="AGGoToVillage1" unique_id=992403952 instance=ExtResource("5_csuyj")]
+modulate = Color(1, 1, 1, 0.11372549)
+position = Vector2(800, 272)
+scale = Vector2(0.84000003, -1.7600002)
+next_level_file = "uid://ra88yat4ystn"
+next_spawn_id = "SpawnWay1PostHouse"
+
+[node name="AGApressada" type="Node2D" parent="." unique_id=7550514]
+script = ExtResource("5_tx18u")
+max_act = 2
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" type="Area2D" parent="AGApressada" unique_id=1170191218]
+position = Vector2(807, 41)
+script = ExtResource("6_ytvba")
+dialogs = Array[ExtResource("7_ytvba")]([SubResource("Resource_wv4q4"), SubResource("Resource_2idmk")])
+metadata/_custom_type_script = "uid://dni5k4arclvqk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AGApressada/DialogArea" unique_id=1600683056]
+position = Vector2(-16, 120.5)
+scale = Vector2(1, 8.32)
+shape = SubResource("RectangleShape2D_qhds1")
+debug_color = Color(0.23541039, 0.6277717, 0.32674706, 0.41960785)

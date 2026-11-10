@@ -108,7 +108,7 @@ next_spawn_id = "SpawnOutside"
 [node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("5_tw2xs")]
 visible = true
 y_sort_enabled = true
-max_act = 1
+max_act = 2
 
 [node name="PaiMaria" type="StaticBody2D" parent="ActGroup" unique_id=1179313426]
 position = Vector2(323, 249.99998)
