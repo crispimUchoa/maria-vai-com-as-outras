@@ -8,6 +8,7 @@ var last_direction = Vector2.DOWN
 var run = false
 var speed = WALK_SPEED
 var is_attacking: bool = false
+var esta_morta: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
@@ -202,3 +203,24 @@ func _frame_down() -> void:
 		2: axe_shape.position = Vector2(3, -10)
 		3: axe_shape.position = Vector2(11, -7)
 		4: axe_shape.set_deferred("disabled", true)
+
+func receber_dano_fatal() -> void:
+	if esta_morta:
+		return
+		
+	esta_morta = true
+	velocity = Vector2.ZERO
+	
+	if animated_sprite:
+		if animated_sprite.sprite_frames.has_animation("hurt"):
+			animated_sprite.play("hurt")
+
+	get_tree().create_timer(1.5).timeout.connect(game_over)
+
+func game_over() -> void:
+	# Reinicia o jogo a partir do save ou recarrega a cena atual
+	if GameManager.jogo_salvo:
+		GameManager.carregar_jogo()
+		get_tree().reload_current_scene()
+	else:
+		get_tree().reload_current_scene()
