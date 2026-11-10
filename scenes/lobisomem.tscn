@@ -372,7 +372,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw7s"]
 size = Vector2(32, 20.5)
 
-[node name="lobisomem" type="Node2D" unique_id=1233252297]
+[node name="lobisomem" type="CharacterBody2D" unique_id=1955558193]
 script = ExtResource("1_nr7hh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613930654]
