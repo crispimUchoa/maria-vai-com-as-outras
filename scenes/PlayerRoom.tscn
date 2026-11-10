@@ -168,13 +168,7 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 [sub_resource type="Resource" id="Resource_0ccyf"]
 script = ExtResource("13_pbkl3")
 id = "player"
-text = "Aquele caderno parece ser importante..."
-metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
-
-[sub_resource type="Resource" id="Resource_74n2g"]
-script = ExtResource("13_pbkl3")
-id = "player"
-text = "Melhor levar ele comigo."
+text = "Nem falei com meus pais também..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
@@ -397,6 +391,7 @@ position = Vector2(1.2000008, -10.800003)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
+visible = true
 min_act = 4
 max_act = 4
 
@@ -416,9 +411,7 @@ shape = SubResource("RectangleShape2D_57qmd")
 position = Vector2(-1, -12)
 scale = Vector2(2.28, 2.5200024)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_kax03"), SubResource("Resource_bc48l"), SubResource("Resource_gxmxq"), SubResource("Resource_472o0"), SubResource("Resource_7iq7q")])
-actions = null
-next_act = null
-autoInteract = null
+actions = Array[int]([3])
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=418563778]
 position = Vector2(294, 316)
@@ -437,10 +430,9 @@ position = Vector2(3, -40)
 scale = Vector2(2.6887484, 2.1362867)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_7ksj7"), SubResource("Resource_8pvy5")])
 actions = Array[int]([2])
-next_act = null
-autoInteract = null
 
 [node name="ActGroupFalarComAVo" type="Node2D" parent="ActGroups" unique_id=1046574845]
+visible = false
 script = ExtResource("22_bc48l")
 min_act = 4
 max_act = 4
@@ -455,21 +447,23 @@ scale = Vector2(4.9116406, 2.3296738)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0f6dk"), SubResource("Resource_a2mkg")])
 
 [node name="ActGroupPegarDiario" type="Node2D" parent="ActGroups" unique_id=132216699]
+visible = false
 script = ExtResource("22_bc48l")
 min_act = 4
 max_act = 4
 needed_actions = Dictionary[int, bool]({
-2: true
+2: true,
+3: false
 })
 needed_items = Dictionary[String, bool]({
-"Diario": false
+"Diario": true
 })
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="DialogArea" parent="ActGroups/ActGroupPegarDiario" unique_id=615313832 instance=ExtResource("12_1gyjw")]
 position = Vector2(480, 198)
 scale = Vector2(4.9116406, 2.3296738)
-dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf"), SubResource("Resource_74n2g")])
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf")])
 
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]

@@ -37,10 +37,13 @@ var current_spawn_id: String = ""
 var merendou: bool = false
 var mission = "Vá merendar"
 
+func update_acess():
+	change_acess_requested.emit()
+	
+
 func set_act(act: Act):
 	current_act = act
-	change_acess_requested.emit()
-
+	update_acess()
 func get_act():
 	return current_act
 

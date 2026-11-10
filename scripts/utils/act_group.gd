@@ -40,6 +40,7 @@ func is_in_act_interval():
 
 func can_acess():
 	print(name, ' ', is_all_needed_actions_done() )
+	
 	return ( is_in_act_interval()
 	and is_all_needed_actions_done() and is_all_items_done())
 
