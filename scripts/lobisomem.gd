@@ -160,10 +160,6 @@ func iniciar_interacao_inicial() -> void:
 	await get_tree().create_timer(0.6).timeout
 	em_introducao = false
 
-func _on_detection_area_body_exited(body: Node2D) -> void:
-	if body == target_player:
-		target_player = null
-
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	# Só ataca se estiver perseguindo o player ativamente
 	if body is Player and target_player != null and not capturou_player and not esta_despistado:
