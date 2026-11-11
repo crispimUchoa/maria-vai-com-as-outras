@@ -10,13 +10,15 @@ enum Act {
 	DEAD_GIRL_WARNING,
 	ESPOCA_BUCHO,
 	CONSERTE_A_PONTE,
-	PROJETA_SUA_FAMILIA,
+	PROTEJA_SUA_FAMILIA,
+	SALVE_SUA_MAE,
 	OLA
 }
 
 enum Action {
 	MERENDAR_COM_A_VO_NO_COMECO,
 	PEDIR_BENCA_PRO_PAI_NO_COMECO,
+	FAMILIA_ALERTADA,
 	FALAR_COM_VOVO_POS_ALERTA,
 	VA_COMPRAR_ESPOCA_BUCHO,
 	DESMATE_O_BAR
@@ -29,7 +31,8 @@ const INITIAL_PROGRESS = {
 	'current_level': "",
 	'current_spawn_id': "",
 	'merendou': false,
-	'actions': []
+	'actions': [],
+	'mission': "Vá merendar"
 }
 
 
@@ -57,7 +60,9 @@ func reset_progress():
 	current_level = "res://scenes/PlayerBedRoom.tscn"
 	current_spawn_id = "InitialSpawn"
 	merendou = false
+	InventoryManager.items = []
 	actions = []
+	mission = "Vá merendar"
 
 func load_progress(loaded):
 	current_act = loaded["current_act"]
@@ -65,6 +70,7 @@ func load_progress(loaded):
 	current_spawn_id = loaded["current_spawn_id"]
 	merendou = loaded.get("merendou", false)
 	actions = loaded.get("actions", [] as Array[Action])
+	mission = loaded.get('mission', "Vá merendar")
 
 func save_progress() -> Dictionary:
 	return {
@@ -72,7 +78,8 @@ func save_progress() -> Dictionary:
 		"current_level": current_level,
 		"current_spawn_id": current_spawn_id,
 		"merendou": merendou,
-		"actions": actions
+		"actions": actions,
+		"mission": mission
 	}
 
 func set_mission(new_mission: String):

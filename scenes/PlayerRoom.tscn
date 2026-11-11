@@ -17,23 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://wrmr42p0ggbx" path="res://sprites/vovo/idle/right/2.png" id="15_73x6m"]
 [ext_resource type="Texture2D" uid="uid://omj3mr3vvbxo" path="res://sprites/mae_maria/idle/up/1.png" id="16_l2vlj"]
 [ext_resource type="Texture2D" uid="uid://c8ka3462dfjbg" path="res://sprites/mae_maria/idle/up/2.png" id="17_f7dfj"]
+[ext_resource type="Script" uid="uid://cs1ay58fmm47c" path="res://scripts/interact_alerta.gd" id="17_gxmxq"]
 [ext_resource type="Texture2D" uid="uid://b2bwhdvvvpmle" path="res://sprites/mae_maria/idle/left/1.png" id="18_l2vlj"]
 [ext_resource type="Texture2D" uid="uid://cfeosihwjr3sf" path="res://sprites/mae_maria/idle/left/2.png" id="19_f7dfj"]
 [ext_resource type="Texture2D" uid="uid://bcbegrjm4bfig" path="res://sprites/pai_maria/idle/up/1.png" id="20_kax03"]
 [ext_resource type="Texture2D" uid="uid://b0luapjtw8eou" path="res://sprites/pai_maria/idle/up/2.png" id="21_bc48l"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="22_bc48l"]
-
-[sub_resource type="Resource" id="Resource_1gyjw"]
-script = ExtResource("13_pbkl3")
-id = "player"
-text = "SOCORRO, PAI! MATARAM O FIA DA DONA ZUMIRA! "
-metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
-
-[sub_resource type="Resource" id="Resource_pbkl3"]
-script = ExtResource("13_pbkl3")
-id = "player"
-text = "ME AJUDAAAAAAAAAA!"
-metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -79,6 +68,18 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="Resource" id="Resource_1gyjw"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "SOCORRO, PAI! MATARAM O FIA DA DONA ZUMIRA! "
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_pbkl3"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "ME AJUDAAAAAAAAAA!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
@@ -281,7 +282,6 @@ position = Vector2(480, 206)
 scale = Vector2(3.6, 2.4)
 
 [node name="ActGroupPosMerenda" parent="ActGroups" unique_id=2016916900 instance=ExtResource("8_ptpo5")]
-visible = true
 needed_actions = Dictionary[int, bool]({
 0: true
 })
@@ -291,14 +291,13 @@ needed_items = Dictionary[String, bool]({
 
 [node name="GoToOutside" parent="ActGroups/ActGroupPosMerenda" unique_id=1230648572 instance=ExtResource("2_tl1vm")]
 visible = false
-position = Vector2(521, 189)
+position = Vector2(520, 177)
 rotation = -1.5707963
 scale = Vector2(0.49600118, -0.63)
 next_level_file = "uid://phppkesylvwp"
 next_spawn_id = "SpawnRoom"
 
 [node name="AGPaisQuartoPreDefunta" parent="ActGroups" unique_id=1669208884 instance=ExtResource("8_ptpo5")]
-visible = true
 max_act = 1
 
 [node name="NaoEntrarNoQuartoDosPais" type="Node2D" parent="ActGroups/AGPaisQuartoPreDefunta" unique_id=1727263347]
@@ -309,9 +308,7 @@ position = Vector2(647, 401.99997)
 scale = Vector2(4.289415, 7.4498825)
 
 [node name="AGPaisQuartoPosDefunta" parent="ActGroups" unique_id=1398969902 instance=ExtResource("8_ptpo5")]
-visible = true
 min_act = 2
-max_act = 2
 always_visible = true
 
 [node name="GoToParentsBedRoom" parent="ActGroups/AGPaisQuartoPosDefunta" unique_id=522707908 instance=ExtResource("2_tl1vm")]
@@ -335,15 +332,6 @@ polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.9
 y_sort_enabled = true
 min_act = 3
 max_act = 3
-
-[node name="DialogArea" parent="ActGroups/ActGroupAlerta" unique_id=1192711266 instance=ExtResource("12_1gyjw")]
-y_sort_enabled = true
-position = Vector2(475.00006, 254.00002)
-rotation = 3.1415925
-scale = Vector2(-8.582293, -6.0613356)
-dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_1gyjw"), SubResource("Resource_pbkl3")])
-next_act = 4
-autoInteract = true
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupAlerta" unique_id=374328675]
 y_sort_enabled = true
@@ -390,6 +378,40 @@ y_sort_enabled = true
 position = Vector2(1.2000008, -10.800003)
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="AGAlertaCutscene" type="Node2D" parent="ActGroups/ActGroupAlerta" unique_id=580610786]
+z_index = 1002
+z_as_relative = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+2: true
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="InteractAlerta" type="Node2D" parent="ActGroups/ActGroupAlerta/AGAlertaCutscene" unique_id=1695637617]
+script = ExtResource("17_gxmxq")
+
+[node name="InteractionArea" parent="ActGroups/ActGroupAlerta/AGAlertaCutscene/InteractAlerta" unique_id=717582101 instance=ExtResource("5_bfcy3")]
+position = Vector2(478, 255)
+scale = Vector2(9.103728, 5.4448857)
+autoInteract = true
+
+[node name="AGAlerta" type="Node2D" parent="ActGroups/ActGroupAlerta" unique_id=1233373254]
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+2: false
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/ActGroupAlerta/AGAlerta" unique_id=1192711266 instance=ExtResource("12_1gyjw")]
+y_sort_enabled = true
+position = Vector2(475.00006, 254.00002)
+scale = Vector2(8.582293, 6.0613356)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_1gyjw"), SubResource("Resource_pbkl3")])
+actions = Array[int]([2])
+autoInteract = true
+
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
 visible = true
 min_act = 4
@@ -411,7 +433,8 @@ shape = SubResource("RectangleShape2D_57qmd")
 position = Vector2(-1, -12)
 scale = Vector2(2.28, 2.5200024)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_kax03"), SubResource("Resource_bc48l"), SubResource("Resource_gxmxq"), SubResource("Resource_472o0"), SubResource("Resource_7iq7q")])
-actions = Array[int]([3])
+actions = Array[int]([4])
+next_mission = "Compre espoca bucho"
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=418563778]
 position = Vector2(294, 316)
@@ -437,7 +460,7 @@ script = ExtResource("22_bc48l")
 min_act = 4
 max_act = 4
 needed_actions = Dictionary[int, bool]({
-2: false
+3: false
 })
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
@@ -446,21 +469,21 @@ position = Vector2(480, 198)
 scale = Vector2(4.9116406, 2.3296738)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0f6dk"), SubResource("Resource_a2mkg")])
 
-[node name="ActGroupPegarDiario" type="Node2D" parent="ActGroups" unique_id=132216699]
+[node name="ActGroupFalarComPais" type="Node2D" parent="ActGroups" unique_id=132216699]
 visible = false
 script = ExtResource("22_bc48l")
 min_act = 4
 max_act = 4
 needed_actions = Dictionary[int, bool]({
-2: true,
-3: false
+3: true,
+4: false
 })
 needed_items = Dictionary[String, bool]({
 "Diario": true
 })
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="DialogArea" parent="ActGroups/ActGroupPegarDiario" unique_id=615313832 instance=ExtResource("12_1gyjw")]
+[node name="DialogArea" parent="ActGroups/ActGroupFalarComPais" unique_id=615313832 instance=ExtResource("12_1gyjw")]
 position = Vector2(480, 198)
 scale = Vector2(4.9116406, 2.3296738)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf")])
@@ -470,3 +493,4 @@ dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf")])
 [connection signal="interacted" from="Couch/InteractionArea" to="Couch" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="ActGroups/ActGroupPreMerenda/VaMerendarArea/InteractionArea" to="ActGroups/ActGroupPreMerenda/VaMerendarArea" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="ActGroups/AGPaisQuartoPreDefunta/NaoEntrarNoQuartoDosPais/InteractionArea" to="ActGroups/AGPaisQuartoPreDefunta/NaoEntrarNoQuartoDosPais" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="ActGroups/ActGroupAlerta/AGAlertaCutscene/InteractAlerta/InteractionArea" to="ActGroups/ActGroupAlerta/AGAlertaCutscene/InteractAlerta" method="_on_interaction_area_interacted"]
