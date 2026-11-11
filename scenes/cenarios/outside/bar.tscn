@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://bafvmwxk7874x" path="res://assets/tilemaps/igreja.png" id="16_dnfb6"]
 [ext_resource type="Texture2D" uid="uid://dgn4r21xshne5" path="res://assets/tilemaps/bar.png" id="17_tishs"]
 [ext_resource type="Texture2D" uid="uid://dwu7ycx2umd3h" path="res://sprites/construcoes/cerca.png" id="18_sufq6"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="19_5vcgp"]
+[ext_resource type="Texture2D" uid="uid://cgdxfmi38povi" path="res://sprites/mae_maria/morta/hurt/up/3.png" id="20_mbh0w"]
+[ext_resource type="Texture2D" uid="uid://c0abkvm7xm5b3" path="res://sprites/sangue.png" id="21_a1mr4"]
+[ext_resource type="Texture2D" uid="uid://dahm0m6dmgrbb" path="res://sprites/neisso/morto/hurt/up/6.png" id="22_dnfb6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
 animations = [{
@@ -3809,6 +3813,28 @@ tile_proxies/coords_level = [[3, Vector2i(0, 0)], [6, Vector2i(0, 0)], [3, Vecto
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhds1"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbh0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_mbh0w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_reltv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_dnfb6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Bar" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 scale = Vector2(1, 0.9975425)
@@ -3899,9 +3925,9 @@ position = Vector2(771, 579)
 id_unico = "cerca_bar4"
 
 [node name="Neisso" parent="." unique_id=1092087895 instance=ExtResource("4_xh0g2")]
-visible = true
 y_sort_enabled = true
 min_act = 4
+max_act = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Neisso" unique_id=1788070892]
 y_sort_enabled = true
@@ -3957,6 +3983,7 @@ dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_dnfb6"), SubResou
 next_act = 5
 
 [node name="AGArvoresQuebraveis" type="Node2D" parent="." unique_id=289148052]
+visible = false
 y_sort_enabled = true
 script = ExtResource("7_xpv7c")
 needed_actions = Dictionary[int, bool]({
@@ -4044,3 +4071,86 @@ position = Vector2(1.4781952e-05, 0.093860626)
 scale = Vector2(-1.539693, 4.917773)
 shape = SubResource("CircleShape2D_qhds1")
 debug_color = Color(0.9207215, 0.2601914, 0.28222877, 0.41960785)
+
+[node name="AGMaeMorta" type="Node2D" parent="." unique_id=871033749]
+y_sort_enabled = true
+script = ExtResource("7_xpv7c")
+min_act = 7
+max_act = 7
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Mãe" parent="AGMaeMorta" unique_id=551480179 instance=ExtResource("19_5vcgp")]
+y_sort_enabled = true
+position = Vector2(141, 189.4656)
+sprite_frames = SubResource("SpriteFrames_mbh0w")
+
+[node name="Neísso" parent="AGMaeMorta" unique_id=1456368084 instance=ExtResource("19_5vcgp")]
+y_sort_enabled = true
+position = Vector2(357, 360.88687)
+sprite_frames = SubResource("SpriteFrames_reltv")
+
+[node name="sangues" type="Node2D" parent="AGMaeMorta" unique_id=1738424692]
+
+[node name="Sprite2D" type="Sprite2D" parent="AGMaeMorta/sangues" unique_id=1988639911]
+y_sort_enabled = true
+position = Vector2(360, 336.82776)
+scale = Vector2(1.8147154, 1.2246553)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AGMaeMorta/sangues" unique_id=331886682]
+position = Vector2(143.00002, 178.43854)
+scale = Vector2(-0.85759336, 0.7174187)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="AGMaeMorta/sangues" unique_id=1706652266]
+position = Vector2(184, 209.51488)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="sangues2" type="Node2D" parent="AGMaeMorta" unique_id=1759645791]
+
+[node name="Sprite2D" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=2066380832]
+y_sort_enabled = true
+position = Vector2(360, 336.82776)
+scale = Vector2(1.8147154, 1.2246553)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=309358981]
+position = Vector2(143.00002, 178.43854)
+scale = Vector2(-0.85759336, 0.7174187)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=163851835]
+position = Vector2(184, 209.51488)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=62912721]
+position = Vector2(220, 268.66022)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D5" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=1069847709]
+position = Vector2(263, 331.81543)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D6" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=935387315]
+position = Vector2(450, 376.9263)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D7" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=105668148]
+position = Vector2(514, 426.04703)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D8" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=1200760365]
+position = Vector2(622, 466.14554)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
+
+[node name="Sprite2D9" type="Sprite2D" parent="AGMaeMorta/sangues2" unique_id=1438954043]
+position = Vector2(728.99994, 449.10367)
+scale = Vector2(-0.33759332, 0.28241327)
+texture = ExtResource("21_a1mr4")
