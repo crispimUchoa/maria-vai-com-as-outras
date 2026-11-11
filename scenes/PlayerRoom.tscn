@@ -396,6 +396,7 @@ use_act_inverval = false
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="TextureRect" type="TextureRect" parent="ActGroups/ActGroupAlerta/AGAlertaCutscene" unique_id=720605290]
+visible = false
 offset_right = 800.0
 offset_bottom = 600.0
 texture = SubResource("GradientTexture2D_dffqp")
@@ -413,7 +414,7 @@ y_sort_enabled = true
 position = Vector2(475.00006, 254.00002)
 scale = Vector2(8.582293, 6.0613356)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_1gyjw"), SubResource("Resource_pbkl3")])
-actions = Array[int]([2])
+actions = Array[int]([3])
 autoInteract = true
 
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]

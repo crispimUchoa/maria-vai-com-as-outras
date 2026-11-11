@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cyegqpe4xdtq1"]
+
+[ext_resource type="Texture2D" uid="uid://biw31dr1w2mqm" path="res://assets/cutscenes/conserto_ponte_1.jpeg" id="1_bpcfx"]
+[ext_resource type="Texture2D" uid="uid://cfy05e8yurdor" path="res://assets/cutscenes/conserto_ponte_2.jpeg" id="2_26nie"]
+[ext_resource type="Texture2D" uid="uid://c0p4esmd7p06h" path="res://assets/cutscenes/conserto_ponte_3.jpeg" id="3_26nie"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bpcfx")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_26nie")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_26nie")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="ConsertoPonte" type="Node2D" unique_id=1986963882]
+z_index = 500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826874270]
+sprite_frames = SubResource("SpriteFrames_qhds1")
+animation = &"2"
+offset = Vector2(400, 300)
