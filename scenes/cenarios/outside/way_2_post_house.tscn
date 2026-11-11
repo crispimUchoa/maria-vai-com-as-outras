@@ -69,7 +69,6 @@ y_sort_enabled = true
 y_sort_enabled = true
 position = Vector2(643, 396)
 
-[connection signal="interacted" from="Defunta/InteractionArea" to="Defunta" method="_on_interaction_area_interacted"]
 [node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("3_48h6t")]
 visible = true
 max_act = 3

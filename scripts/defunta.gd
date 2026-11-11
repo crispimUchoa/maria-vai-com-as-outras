@@ -16,6 +16,7 @@ func _on_interaction_area_interacted() -> void:
 		
 		
 		return
+	GameManager.salvar_jogo(position)
 	# 1. Cutscene Quadro 1
 	DialogManager.start_talk([
 		DialogInfoModel.new('player', "O que isso? Ela ta dormino?"),
