@@ -13,6 +13,7 @@ enum Act {
 	PROTEJA_SUA_FAMILIA,
 	SALVE_SUA_MAE,
 	FUNERAL,
+	POS_FUNERAL,
 }
 
 enum Action {
