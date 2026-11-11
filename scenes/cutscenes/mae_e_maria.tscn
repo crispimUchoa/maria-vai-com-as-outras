@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://upjcrbtnfghy"]
+
+[ext_resource type="Texture2D" uid="uid://7cmlwfs3yobo" path="res://assets/cutscenes/mae_e_maria.jpeg" id="1_a8wy1"]
+[ext_resource type="Texture2D" uid="uid://cah8hxoum640r" path="res://assets/cutscenes/lua.jpeg" id="2_0ejvu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a8wy1")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ejvu")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}]
+
+[node name="MaeEMaria" type="CanvasLayer" unique_id=1903781201]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826874270]
+sprite_frames = SubResource("SpriteFrames_qhds1")
+animation = &"1"
+offset = Vector2(400, 300)

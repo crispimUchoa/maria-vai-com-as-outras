@@ -13,18 +13,27 @@ func idTextToDialogModel(line: DialogInfoModel) -> Dictionary:
 		'display_name': get_info(line.id, 'display_name')
 	}
 
-func start_talk(lines: Array[DialogInfoModel]): # {id, text}
+func start_talk(lines: Array[DialogInfoModel]):
 	if is_open():
 		return
 	var dialog_instance = DIALOG_BOX.instantiate()
 	current_dialog = dialog_instance
-	get_tree().current_scene.add_child(dialog_instance)
+	
+	# Criar um CanvasLayer para envelopar a UI do diálogo no topo
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 100
+	canvas_layer.add_child(dialog_instance)
+	
+	get_tree().current_scene.add_child(canvas_layer)
+	
+	# Remove o CanvasLayer inteiro quando o diálogo fechar
 	dialog_instance.tree_exited.connect(
 		func():
-			current_dialog=null
-			dialog_finished.emit() 
-			)
-	# No dialog_manager.gd, altere a linha do map para:
+			current_dialog = null
+			dialog_finished.emit()
+			canvas_layer.queue_free()
+	)
+	
 	var formated_lines: Array[Dictionary] = []
 	for line in lines:
 		formated_lines.append(idTextToDialogModel(line))

@@ -5554,7 +5554,7 @@ autoplay = true
 [node name="AGProtegerFamilia" type="Node2D" parent="." unique_id=12592904]
 script = ExtResource("15_x6t05")
 min_act = 6
-max_act = 6
+max_act = 7
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="Personagem" parent="AGProtegerFamilia" unique_id=908747956 instance=ExtResource("11_h8hev")]

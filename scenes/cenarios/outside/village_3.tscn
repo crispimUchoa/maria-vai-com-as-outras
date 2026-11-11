@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_bva8x"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_rseh7"]
 
-[node name="GenericOutside" type="Node2D" unique_id=1265579234]
+[node name="Village3" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
 [node name="TileMap" type="Node2D" parent="." unique_id=2016210167]
@@ -59,3 +59,6 @@ scale = Vector2(1.1208792, 0.060606062)
 
 [node name="SpawnTrilha1" type="Marker2D" parent="." unique_id=1708123583]
 position = Vector2(673, 76)
+
+[node name="SpawnFuneral" type="Marker2D" parent="." unique_id=687781141]
+position = Vector2(212, 345)
