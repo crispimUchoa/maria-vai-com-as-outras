@@ -36,4 +36,8 @@ func _on_interaction_area_interacted() -> void:
 	await DialogManager.dialog_finished
 	
 	SceneManager.stop_cutscene()
+	InventoryManager.remove_item("arvore_bar_1")
+	InventoryManager.remove_item("arvore_bar_2")
+	InventoryManager.remove_item("arvore_bar_3")
+	InventoryManager.remove_item("arvore_bar_4")
 	ProgressManager.set_mission("Proteja sua família")

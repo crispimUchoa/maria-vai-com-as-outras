@@ -54,7 +54,7 @@ func set_acess():
 	else:
 		visible = false or always_visible
 		process_mode = Node.PROCESS_MODE_DISABLED
-	_set_collisions_recursive(self, active)
+	_set_collisions_recursive(self, active or always_visible)
 	
 func _set_collisions_recursive(node: Node, enabled: bool) -> void:
 	for child in node.get_children():

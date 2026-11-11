@@ -5505,13 +5505,14 @@ sprite_frames = SubResource("SpriteFrames_hfj4i")
 position = Vector2(5.999999, -26.999998)
 scale = Vector2(2.9997144, -2.8704143)
 dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_sdo57"), SubResource("Resource_4v22x"), SubResource("Resource_x6t05"), SubResource("Resource_ib0b1")])
-actions = Array[int]([2])
+actions = Array[int]([3])
 
 [node name="AGDiario" type="Node2D" parent="." unique_id=1025399617]
-visible = false
 script = ExtResource("15_x6t05")
+min_act = 4
+max_act = 4
 needed_actions = Dictionary[int, bool]({
-2: true
+3: true
 })
 needed_items = Dictionary[String, bool]({
 "Diario": false
