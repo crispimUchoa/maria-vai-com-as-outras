@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://cgdxfmi38povi" path="res://sprites/mae_maria/morta/hurt/up/3.png" id="20_mbh0w"]
 [ext_resource type="Texture2D" uid="uid://c0abkvm7xm5b3" path="res://sprites/sangue.png" id="21_a1mr4"]
 [ext_resource type="Texture2D" uid="uid://dahm0m6dmgrbb" path="res://sprites/neisso/morto/hurt/up/6.png" id="22_dnfb6"]
+[ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="23_dnfb6"]
+[ext_resource type="Script" uid="uid://cj0hicnwkof1d" path="res://scripts/cenarios/outside/mae_e_maria.gd" id="23_tishs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
 animations = [{
@@ -3835,6 +3837,84 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Resource" id="Resource_reltv"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Meu Deus! Neísso, o que aconteceu???"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_upnnn"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Por que tem tanto sangue?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_lcv5w"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Cadê minha mãe, seu Neísso?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_x3j4j"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "NEÍSSO, ME RESPONDE! CADÊ A MINHA MÃE!?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_fgs8t"]
+script = ExtResource("9_hqfrt")
+id = "neisso"
+text = "A fazenda..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ai5bc"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Ela foi pra fazenda?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_70hq0"]
+script = ExtResource("9_hqfrt")
+id = "neisso"
+text = "Num consigo dormir. Dá nem pra pregar os zói..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_hl4ni"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "DORMIR NÃO, SEU NEÍSSO! LEVANTA! ACORDA, POR FAVOR! VOCÊ TEM QUE ME AJUDAR A ACHAR MAMÃE!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_h7fu3"]
+script = ExtResource("9_hqfrt")
+id = "neisso"
+text = "A fazenda é muito zoadenta, minha fi-"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_yu0a6"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Seu Neísso?? SEU NEÍIIIISSOOO! AAAAAAAAAAAAAAAAH"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_n3w7o"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Quem é aquela na árvore?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_fsum8"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "MEU DEUS"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_bfks6"]
+script = ExtResource("9_hqfrt")
+id = "player"
+text = "Não. Não. Não. Não."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="Bar" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 scale = Vector2(1, 0.9975425)
@@ -4154,3 +4234,37 @@ texture = ExtResource("21_a1mr4")
 position = Vector2(728.99994, 449.10367)
 scale = Vector2(-0.33759332, 0.28241327)
 texture = ExtResource("21_a1mr4")
+
+[node name="AchandoOsCorpos" type="Node2D" parent="AGMaeMorta" unique_id=1627779550]
+visible = false
+script = ExtResource("7_xpv7c")
+needed_actions = Dictionary[int, bool]({
+6: false
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="AGMaeMorta/AchandoOsCorpos" unique_id=828094422 instance=ExtResource("7_ejfvy")]
+position = Vector2(375, 536.3181)
+scale = Vector2(9.240001, 6.978105)
+dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_reltv"), SubResource("Resource_upnnn"), SubResource("Resource_lcv5w"), SubResource("Resource_x3j4j"), SubResource("Resource_fgs8t"), SubResource("Resource_ai5bc"), SubResource("Resource_70hq0"), SubResource("Resource_hl4ni"), SubResource("Resource_h7fu3"), SubResource("Resource_yu0a6"), SubResource("Resource_n3w7o"), SubResource("Resource_fsum8"), SubResource("Resource_bfks6")])
+actions = Array[int]([6])
+autoInteract = true
+
+[node name="CutsceneCorpo" type="Node2D" parent="AGMaeMorta" unique_id=985254252]
+script = ExtResource("7_xpv7c")
+needed_actions = Dictionary[int, bool]({
+6: true
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="MaeEMaria" type="Node2D" parent="AGMaeMorta/CutsceneCorpo" unique_id=1911594029]
+script = ExtResource("23_tishs")
+
+[node name="InteractionArea" parent="AGMaeMorta/CutsceneCorpo/MaeEMaria" unique_id=549526492 instance=ExtResource("23_dnfb6")]
+position = Vector2(374, 536.318)
+scale = Vector2(13.400002, 6.2566175)
+autoInteract = true
+
+[connection signal="interacted" from="AGMaeMorta/CutsceneCorpo/MaeEMaria/InteractionArea" to="AGMaeMorta/CutsceneCorpo/MaeEMaria" method="_on_interaction_area_interacted"]

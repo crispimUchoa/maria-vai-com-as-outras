@@ -12,7 +12,7 @@ enum Act {
 	CONSERTE_A_PONTE,
 	PROTEJA_SUA_FAMILIA,
 	SALVE_SUA_MAE,
-	OLA
+	FUNERAL,
 }
 
 enum Action {
