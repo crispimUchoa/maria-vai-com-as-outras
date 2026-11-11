@@ -5,6 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_yhxcq"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="3_6qscw"]
 [ext_resource type="Script" uid="uid://cxg3hkcwpomt8" path="res://scripts/actions/consertar_ponte.gd" id="3_d5ekl"]
+[ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="6_quler"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_41ssh"]
+
+[sub_resource type="Resource" id="Resource_jotlg"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "Eu pergunto as coisas pro Neísso depois!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_dffqp"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "O importante agora é salva minha família!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
+size = Vector2(819, 128)
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -89,5 +106,23 @@ position = Vector2(392, 83)
 
 [node name="SpawnVillage2" type="Marker2D" parent="." unique_id=845304566]
 position = Vector2(398, 519)
+
+[node name="AGProtejaSuaFamilia" type="Node2D" parent="." unique_id=1901477228]
+script = ExtResource("2_5tiq0")
+min_act = 6
+max_act = 6
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" type="Area2D" parent="AGProtejaSuaFamilia" unique_id=1850109333]
+script = ExtResource("6_quler")
+dialogs = Array[ExtResource("7_41ssh")]([SubResource("Resource_jotlg"), SubResource("Resource_dffqp")])
+autoInteract = true
+metadata/_custom_type_script = "uid://dni5k4arclvqk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AGProtejaSuaFamilia/DialogArea" unique_id=473320848]
+z_index = 1
+position = Vector2(399.5, 54)
+shape = SubResource("RectangleShape2D_qhds1")
+debug_color = Color(0.9578518, 0.88740873, 0, 0.41960785)
 
 [connection signal="interacted" from="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar/InteractionArea" to="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar" method="_on_interaction_area_interacted"]

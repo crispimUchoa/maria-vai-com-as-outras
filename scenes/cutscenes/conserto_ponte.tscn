@@ -31,8 +31,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ConsertoPonte" type="Node2D" unique_id=1986963882]
-z_index = 500
+[node name="ConsertoPonte" type="CanvasLayer" unique_id=527400417]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826874270]
 sprite_frames = SubResource("SpriteFrames_qhds1")

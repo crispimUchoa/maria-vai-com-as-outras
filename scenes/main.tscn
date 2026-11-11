@@ -2,8 +2,17 @@
 
 [ext_resource type="Script" uid="uid://c1pdh8fuol2hp" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cflca4kbmmmho" path="res://scenes/PlayerBedRoom.tscn" id="3_sugp2"]
+[ext_resource type="Shader" uid="uid://gecof63y0xf8" path="res://scripts/utils/night_shader.gdshader" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://ms1wpimgki3l" path="res://scripts/utils/night_setter.gd" id="4_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bwi044hq6ooow" path="res://assets/sounds/door-creak.wav" id="5_tbgi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jotlg"]
+shader = ExtResource("3_tbgi4")
+shader_parameter/night_color = Color(0.1, 0.2, 0.45, 1)
+shader_parameter/night_amount = 0.0
+shader_parameter/brightness = 0.75
+shader_parameter/contrast = 1.1
 
 [node name="Main" type="Node2D" unique_id=307662509]
 y_sort_enabled = true
@@ -12,6 +21,15 @@ script = ExtResource("1_o5qli")
 [node name="LevelContainer" type="Node2D" parent="." unique_id=912664583 groups=["LevelContainer"]]
 
 [node name="PlayerBedRoom" parent="LevelContainer" unique_id=1851993271 instance=ExtResource("3_sugp2")]
+
+[node name="NightFilter" type="CanvasLayer" parent="." unique_id=1422679742]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="NightFilter" unique_id=2094895420]
+material = SubResource("ShaderMaterial_jotlg")
+offset_right = 802.0
+offset_bottom = 600.0
+script = ExtResource("4_tefeu")
 
 [node name="PauseMenu" parent="." unique_id=24157495 instance=ExtResource("4_jyhfs")]
 visible = false
@@ -25,13 +43,8 @@ volume_db = 4.457
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=1187404950]
 position = Vector2(350, 350)
 
-[node name="MissionControl" type="Control" parent="." unique_id=2060689319]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MissionControl" type="CanvasLayer" parent="." unique_id=1201164910]
 
 [node name="Label" type="Label" parent="MissionControl" unique_id=1977000786]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

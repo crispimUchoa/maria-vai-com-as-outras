@@ -2,6 +2,15 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_2olnu"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_hhp2c"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="3_tfgbv"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="4_m1o2t"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="5_eg5p3"]
+
+[sub_resource type="Resource" id="Resource_qhds1"]
+script = ExtResource("5_eg5p3")
+id = "player"
+text = "Não tenho tempo pra desvios!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -36,7 +45,7 @@ tile_set = ExtResource("1_2olnu")
 [node name="Arvores" type="TileMapLayer" parent="TileMap" unique_id=1435440939]
 y_sort_enabled = true
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAVAAkABgAQABAAAAALAAUABgAIAAAAAAAEAAUABgAQAAgAAAABABEABgAQAAgAAAAPAA4ABgAIABAAAAAWABEABgAYAAgAAAARABcABgAQABAAAAASABcABgAQAAAAAAATABcABgAAABgAAAAUABcABgAYAAgAAAAVABcABgAAABAAAAAZABYABgAQAAAAAAA=")
+tile_map_data = PackedByteArray("AAARABcABgAQABAAAAASABcABgAQAAAAAAATABcABgAAABgAAAAUABcABgAYAAgAAAAVABcABgAAABAAAAAZABYABgAQAAAAAAAHAA8AAwAAAAEAAAAHAAYAAwAAAAIAAAACAAEAAwACAAAAAAAUAAsAAwACAAAAAAAPAAsAAwAAAAAAAAAWABQAAwACAAAAAAACABUAAwAAAAAAAAA=")
 tile_set = ExtResource("1_2olnu")
 
 [node name="GoToVillage4" parent="." unique_id=609231163 instance=ExtResource("2_hhp2c")]
@@ -80,3 +89,22 @@ position = Vector2(84, 98)
 
 [node name="SpawnVillage4" type="Marker2D" parent="." unique_id=66037130]
 position = Vector2(737, 429)
+
+[node name="AGProtejaSalveMae" type="Node2D" parent="." unique_id=988502103]
+scale = Vector2(2, 2)
+script = ExtResource("3_tfgbv")
+min_act = 6
+max_act = 7
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="AGProtejaSalveMae" unique_id=1935205722 instance=ExtResource("4_m1o2t")]
+position = Vector2(17.5, 50.5)
+scale = Vector2(3.0035243, 3.2041273)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_qhds1")])
+autoInteract = true
+
+[node name="DialogArea2" parent="AGProtejaSalveMae" unique_id=1773139671 instance=ExtResource("4_m1o2t")]
+position = Vector2(372.99997, 220.00002)
+scale = Vector2(3.5033185, 5.6387715)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_qhds1")])
+autoInteract = true
