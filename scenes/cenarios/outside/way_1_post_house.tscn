@@ -72,7 +72,7 @@ next_level_file = "uid://cyd10lnrp2e8e"
 next_spawn_id = "SpawnWay1PostHouse"
 
 [node name="LobisomemSpawn" type="Marker2D" parent="." unique_id=1305106370]
-position = Vector2(543, 574)
+position = Vector2(546, 586)
 
 [node name="AGGoToVillage1" type="Node2D" parent="." unique_id=2092026740]
 script = ExtResource("5_tx18u")
