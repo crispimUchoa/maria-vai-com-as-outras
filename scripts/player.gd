@@ -13,6 +13,7 @@ var esta_morta: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
+@onready var swing_axe_sound: AudioStreamPlayer = $SwingAxeSound
 @onready var interaction_detector = $InteractionArea
 
 @onready var axe_area: Area2D = $AxeHitbox
@@ -49,7 +50,7 @@ func executar_ataque() -> void:
 	
 	if walking_sound.playing:
 		walking_sound.stop()
-	
+	swing_axe_sound.play()
 	tocar_animacao_ataque(last_direction)
 
 func tocar_animacao_ataque(dir: Vector2) -> void:
