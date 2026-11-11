@@ -11,12 +11,15 @@ func add_item(item_id: String) -> void:
 		items.append(item_id)
 		inventory_updated.emit()
 		print("Item coletado:", item_id)
+		ProgressManager.update_acess()
 		
 func remove_item(item_id: String) -> void:
 	if items.has(item_id):
 		items.erase(item_id)
 		inventory_updated.emit()
 		print("Item usado:", item_id)
+		ProgressManager.update_acess()
+		
 		
 func has_item(item_id: String) -> bool:
 	return items.has(item_id)

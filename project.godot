@@ -38,6 +38,7 @@ enabled=PackedStringArray("res://addons/gitot/plugin.cfg")
 
 Player=""
 LevelContainer=""
+PlayerArea=""
 
 [input]
 

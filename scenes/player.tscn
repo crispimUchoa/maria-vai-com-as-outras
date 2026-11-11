@@ -118,6 +118,12 @@
 [ext_resource type="Texture2D" uid="uid://c6l4hptvdrr5l" path="res://sprites/maria/axe/up/9.png" id="41_eb62r"]
 [ext_resource type="Texture2D" uid="uid://cpq5eeltl8hvl" path="res://sprites/maria/run/up/8.png" id="41_qe2k6"]
 [ext_resource type="Texture2D" uid="uid://dmm1j87yw8mdg" path="res://sprites/maria/axe/up/10.png" id="42_5tfe1"]
+[ext_resource type="Texture2D" uid="uid://cl4u1lxweg6la" path="res://sprites/maria/hurt/up/1.png" id="43_kp0if"]
+[ext_resource type="Texture2D" uid="uid://dknpmv6d8crle" path="res://sprites/maria/hurt/up/2.png" id="44_2xkbm"]
+[ext_resource type="Texture2D" uid="uid://chs13rxmnbfgl" path="res://sprites/maria/hurt/up/3.png" id="45_dqoq3"]
+[ext_resource type="Texture2D" uid="uid://c00ehr4eybb0s" path="res://sprites/maria/hurt/up/4.png" id="46_y8tjj"]
+[ext_resource type="Texture2D" uid="uid://cm61tw80s6de6" path="res://sprites/maria/hurt/up/5.png" id="47_6ptwb"]
+[ext_resource type="Texture2D" uid="uid://c18j3n48uy85s" path="res://sprites/maria/hurt/up/6.png" id="48_8pj6w"]
 [ext_resource type="Script" uid="uid://c7qno7stxpek7" path="res://scripts/axe_hitbox.gd" id="120_oxcmq"]
 [ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="120_wylla"]
 
@@ -262,6 +268,29 @@ animations = [{
 "loop": 0,
 "name": &"attack_up",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_kp0if")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_2xkbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_dqoq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_y8tjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_6ptwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_8pj6w")
+}],
+"loop": 0,
+"name": &"hurt",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -573,7 +602,7 @@ stream = ExtResource("2_6c3st")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"idle_down"
+animation = &"hurt"
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
@@ -583,7 +612,7 @@ rotation = -3.1415925
 scale = Vector2(4.972648, 5.453967)
 shape = SubResource("RectangleShape2D_fbssg")
 
-[node name="InteractionArea" type="Area2D" parent="." unique_id=42438288]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=42438288 groups=["PlayerArea"]]
 position = Vector2(0, -14)
 scale = Vector2(-0.6095011, 0.99902135)
 script = ExtResource("120_wylla")

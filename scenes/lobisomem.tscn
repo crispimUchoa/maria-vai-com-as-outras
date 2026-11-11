@@ -78,6 +78,9 @@
 [ext_resource type="Texture2D" uid="uid://dk7erstlum6h8" path="res://sprites/lobisomem/walk/up/8.png" id="76_kpcme"]
 [ext_resource type="Texture2D" uid="uid://do05nlutpueiy" path="res://sprites/lobisomem/walk/up/9.png" id="77_2g34a"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ldj"]
+size = Vector2(41.5, 20.25)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_l5ldj"]
 animations = [{
 "frames": [{
@@ -88,7 +91,7 @@ animations = [{
 "texture": ExtResource("3_nj4l1")
 }],
 "loop": 1,
-"name": &"idle down",
+"name": &"idle_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -99,7 +102,7 @@ animations = [{
 "texture": ExtResource("5_opfxw")
 }],
 "loop": 1,
-"name": &"idle left",
+"name": &"idle_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -110,7 +113,7 @@ animations = [{
 "texture": ExtResource("7_u45v3")
 }],
 "loop": 1,
-"name": &"idle right",
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -121,7 +124,7 @@ animations = [{
 "texture": ExtResource("9_xq4ud")
 }],
 "loop": 1,
-"name": &"idle up",
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -150,7 +153,7 @@ animations = [{
 "texture": ExtResource("17_7wap7")
 }],
 "loop": 1,
-"name": &"run down",
+"name": &"run_down",
 "speed": 10.0
 }, {
 "frames": [{
@@ -179,7 +182,7 @@ animations = [{
 "texture": ExtResource("25_7okou")
 }],
 "loop": 1,
-"name": &"run left",
+"name": &"run_left",
 "speed": 10.0
 }, {
 "frames": [{
@@ -208,7 +211,7 @@ animations = [{
 "texture": ExtResource("33_k4ny5")
 }],
 "loop": 1,
-"name": &"run right",
+"name": &"run_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -237,7 +240,7 @@ animations = [{
 "texture": ExtResource("41_eiws0")
 }],
 "loop": 1,
-"name": &"run up",
+"name": &"run_up",
 "speed": 10.0
 }, {
 "frames": [{
@@ -269,7 +272,7 @@ animations = [{
 "texture": ExtResource("50_hsf2c")
 }],
 "loop": 1,
-"name": &"walk down",
+"name": &"walk_down",
 "speed": 10.0
 }, {
 "frames": [{
@@ -301,7 +304,7 @@ animations = [{
 "texture": ExtResource("59_ab0ln")
 }],
 "loop": 1,
-"name": &"walk left",
+"name": &"walk_left",
 "speed": 10.0
 }, {
 "frames": [{
@@ -333,7 +336,7 @@ animations = [{
 "texture": ExtResource("68_ork50")
 }],
 "loop": 1,
-"name": &"walk right",
+"name": &"walk_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -365,20 +368,68 @@ animations = [{
 "texture": ExtResource("77_2g34a")
 }],
 "loop": 1,
-"name": &"walk up",
+"name": &"walk_up",
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw7s"]
-size = Vector2(32, 20.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5ldj"]
+radius = 53.15073
 
-[node name="lobisomem" type="Node2D" unique_id=1233252297]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw7s"]
+size = Vector2(41, 45.25)
+
+[node name="lobisomem" type="CharacterBody2D" unique_id=1955558193]
+light_mask = 1023
+visibility_layer = 3
+scale = Vector2(2, 2)
+collision_layer = 3
+collision_mask = 255
 script = ExtResource("1_nr7hh")
+id_unico = "lobisomem"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=476006515]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
+position = Vector2(4, -1.125)
+shape = SubResource("RectangleShape2D_l5ldj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613930654]
+y_sort_enabled = true
+position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_l5ldj")
-animation = &"walk up"
+animation = &"walk_left"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212660001]
-position = Vector2(0, 19.75)
+[node name="DetectionArea" type="Area2D" parent="." unique_id=394500703]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
+position = Vector2(2, -1)
+collision_layer = 3
+collision_mask = 255
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DetectionArea" unique_id=1131972954]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
+position = Vector2(1, -13)
+shape = SubResource("CircleShape2D_l5ldj")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1036658663]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
+position = Vector2(1, 2)
+collision_layer = 3
+collision_mask = 255
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AttackArea" unique_id=1212660001]
+light_mask = 1023
+visibility_layer = 3
+y_sort_enabled = true
+position = Vector2(2.5, -15.375)
 shape = SubResource("RectangleShape2D_dlw7s")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
