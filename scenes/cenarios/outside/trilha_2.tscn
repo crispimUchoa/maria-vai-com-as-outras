@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_wb21w"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_q43mf"]
+[ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="3_fv731"]
+[ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="4_nvncf"]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -53,3 +55,14 @@ position = Vector2(710, 271)
 
 [node name="SpawnTrilha1" type="Marker2D" parent="." unique_id=594854808]
 position = Vector2(448, 518)
+
+[node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("3_fv731")]
+visible = true
+position = Vector2(320, 50)
+scale = Vector2(0.84000003, -1.7600002)
+needed_items = Dictionary[String, bool]({
+"machado": false
+})
+
+[node name="MachadoItem" parent="ActGroup" unique_id=1390710440 instance=ExtResource("4_nvncf")]
+scale = Vector2(1.1904762, -0.56818175)
