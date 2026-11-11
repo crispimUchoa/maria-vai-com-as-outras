@@ -23,18 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://b0luapjtw8eou" path="res://sprites/pai_maria/idle/up/2.png" id="21_bc48l"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="22_bc48l"]
 
-[sub_resource type="Resource" id="Resource_1gyjw"]
-script = ExtResource("13_pbkl3")
-id = "player"
-text = "SOCORRO, PAI! MATARAM O FIA DA DONA ZUMIRA! "
-metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
-
-[sub_resource type="Resource" id="Resource_pbkl3"]
-script = ExtResource("13_pbkl3")
-id = "player"
-text = "ME AJUDAAAAAAAAAA!"
-metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
@@ -79,6 +67,26 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_bc48l"]
+colors = PackedColorArray(0.03, 0.03, 0.03, 1, 0.08468998, 0.08468992, 0.08468989, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dffqp"]
+gradient = SubResource("Gradient_bc48l")
+fill_from = Vector2(0.6752137, 0.75213677)
+fill_to = Vector2(0.6923077, 0.14102565)
+
+[sub_resource type="Resource" id="Resource_1gyjw"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "SOCORRO, PAI! MATARAM O FIA DA DONA ZUMIRA! "
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_pbkl3"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "ME AJUDAAAAAAAAAA!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
 animations = [{
@@ -281,7 +289,6 @@ position = Vector2(480, 206)
 scale = Vector2(3.6, 2.4)
 
 [node name="ActGroupPosMerenda" parent="ActGroups" unique_id=2016916900 instance=ExtResource("8_ptpo5")]
-visible = true
 needed_actions = Dictionary[int, bool]({
 0: true
 })
@@ -290,15 +297,13 @@ needed_items = Dictionary[String, bool]({
 })
 
 [node name="GoToOutside" parent="ActGroups/ActGroupPosMerenda" unique_id=1230648572 instance=ExtResource("2_tl1vm")]
-visible = false
-position = Vector2(521, 189)
+position = Vector2(520, 177)
 rotation = -1.5707963
 scale = Vector2(0.49600118, -0.63)
 next_level_file = "uid://phppkesylvwp"
 next_spawn_id = "SpawnRoom"
 
 [node name="AGPaisQuartoPreDefunta" parent="ActGroups" unique_id=1669208884 instance=ExtResource("8_ptpo5")]
-visible = true
 max_act = 1
 
 [node name="NaoEntrarNoQuartoDosPais" type="Node2D" parent="ActGroups/AGPaisQuartoPreDefunta" unique_id=1727263347]
@@ -309,9 +314,7 @@ position = Vector2(647, 401.99997)
 scale = Vector2(4.289415, 7.4498825)
 
 [node name="AGPaisQuartoPosDefunta" parent="ActGroups" unique_id=1398969902 instance=ExtResource("8_ptpo5")]
-visible = true
 min_act = 2
-max_act = 2
 always_visible = true
 
 [node name="GoToParentsBedRoom" parent="ActGroups/AGPaisQuartoPosDefunta" unique_id=522707908 instance=ExtResource("2_tl1vm")]
@@ -332,18 +335,10 @@ scale = Vector2(1.4875647, 1.953696)
 polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.957611, 72.04047)
 
 [node name="ActGroupAlerta" parent="ActGroups" unique_id=303861555 instance=ExtResource("8_ptpo5")]
+visible = true
 y_sort_enabled = true
 min_act = 3
 max_act = 3
-
-[node name="DialogArea" parent="ActGroups/ActGroupAlerta" unique_id=1192711266 instance=ExtResource("12_1gyjw")]
-y_sort_enabled = true
-position = Vector2(475.00006, 254.00002)
-rotation = 3.1415925
-scale = Vector2(-8.582293, -6.0613356)
-dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_1gyjw"), SubResource("Resource_pbkl3")])
-next_act = 4
-autoInteract = true
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupAlerta" unique_id=374328675]
 y_sort_enabled = true
@@ -390,8 +385,38 @@ y_sort_enabled = true
 position = Vector2(1.2000008, -10.800003)
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="AGAlertaCutscene" type="Node2D" parent="ActGroups/ActGroupAlerta" unique_id=580610786]
+z_index = 1002
+z_as_relative = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+2: true
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="TextureRect" type="TextureRect" parent="ActGroups/ActGroupAlerta/AGAlertaCutscene" unique_id=720605290]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = SubResource("GradientTexture2D_dffqp")
+
+[node name="AGAlerta" type="Node2D" parent="ActGroups/ActGroupAlerta" unique_id=1233373254]
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+2: false
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/ActGroupAlerta/AGAlerta" unique_id=1192711266 instance=ExtResource("12_1gyjw")]
+y_sort_enabled = true
+position = Vector2(475.00006, 254.00002)
+scale = Vector2(8.582293, 6.0613356)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_1gyjw"), SubResource("Resource_pbkl3")])
+actions = Array[int]([2])
+autoInteract = true
+
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
-visible = true
 min_act = 4
 max_act = 4
 
@@ -412,6 +437,7 @@ position = Vector2(-1, -12)
 scale = Vector2(2.28, 2.5200024)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_kax03"), SubResource("Resource_bc48l"), SubResource("Resource_gxmxq"), SubResource("Resource_472o0"), SubResource("Resource_7iq7q")])
 actions = Array[int]([3])
+next_mission = "Compre espoca bucho"
 
 [node name="Pai" type="StaticBody2D" parent="ActGroups/ActGroupEspocaBucho" unique_id=418563778]
 position = Vector2(294, 316)

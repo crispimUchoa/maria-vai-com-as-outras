@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://g2xcl7hap37"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = []
+
+[node name="Alerta" type="Node2D" unique_id=1986963882]
+z_index = 500
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=826874270]
+sprite_frames = SubResource("SpriteFrames_qhds1")
+animation = &""
+offset = Vector2(400, 300)
