@@ -2,6 +2,76 @@
 
 [ext_resource type="TileSet" uid="uid://bexdl32hmp1ld" path="res://tilesets/interior_casa.tres" id="1_8csl4"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_khb13"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="3_voyhc"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="4_yoln3"]
+[ext_resource type="Texture2D" uid="uid://c8737woe5gqas" path="res://sprites/pai_maria/sit/down/1.png" id="5_a3bn2"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="6_5gsn1"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_6wts5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a3bn2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ww6jp"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "PAI! CADÊ A MÃE!?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_oa4sc"]
+script = ExtResource("7_6wts5")
+id = "pai_maria"
+text = "Deixe de zuada, minina! Onde é que tu tava até agora?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ynh0k"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "Pai, me escuta-"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_3q5d6"]
+script = ExtResource("7_6wts5")
+id = "pai_maria"
+text = "Me escuta nada! Te mandei comprar um espoca bucho de manhã! E tu aparece de nooooite! Sem nem uma pitchulinha!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_gogah"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "A mãe, pai! Onde a mãe tá?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_0ld4d"]
+script = ExtResource("7_6wts5")
+id = "pai_maria"
+text = "Ela foi no Neísso. Comprar o espoca. Já que tu num quis nem fazer um suco. Ela teve que ir lá."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_wkge3"]
+script = ExtResource("7_6wts5")
+id = "pai_maria"
+text = "Agora espere só ela chegar. Que você vai ver! E não quero você faça silêncio!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_voyhc"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "Mas, pai..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_yoln3"]
+script = ExtResource("7_6wts5")
+id = "pai_maria"
+text = "Shhh! Quando sua mãe chegar, você vai ver!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="MariaParentsBedroom" type="Node2D" unique_id=858555542]
 
@@ -62,3 +132,41 @@ polygon = PackedVector2Array(0, -3.450592, 21.487732, -3.450592, -30.655842, 56.
 position = Vector2(297, 336)
 rotation = 3.1415927
 scale = Vector2(1.07, -0.42)
+
+[node name="ProtegerFamilia" type="Node2D" parent="." unique_id=1063833776]
+script = ExtResource("3_voyhc")
+min_act = 6
+max_act = 7
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Personagem" parent="ProtegerFamilia" unique_id=551480179 instance=ExtResource("4_yoln3")]
+position = Vector2(418, 310)
+sprite_frames = SubResource("SpriteFrames_qhds1")
+
+[node name="Proteger" type="Node2D" parent="ProtegerFamilia" unique_id=2059885744]
+visible = false
+script = ExtResource("3_voyhc")
+min_act = 6
+max_act = 6
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ProtegerFamilia/Proteger" unique_id=1935205722 instance=ExtResource("6_5gsn1")]
+position = Vector2(419, 290)
+scale = Vector2(4.96, 4.96)
+dialogs = Array[ExtResource("7_6wts5")]([SubResource("Resource_ww6jp"), SubResource("Resource_oa4sc"), SubResource("Resource_ynh0k"), SubResource("Resource_3q5d6"), SubResource("Resource_gogah"), SubResource("Resource_0ld4d"), SubResource("Resource_wkge3")])
+next_act = 7
+next_mission = "Salve sua mãe"
+
+[node name="SalvarMae" type="Node2D" parent="ProtegerFamilia" unique_id=1496957496]
+visible = false
+script = ExtResource("3_voyhc")
+min_act = 7
+max_act = 7
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea2" parent="ProtegerFamilia/SalvarMae" unique_id=1783377218 instance=ExtResource("6_5gsn1")]
+position = Vector2(419, 290)
+scale = Vector2(4.96, 4.96)
+dialogs = Array[ExtResource("7_6wts5")]([SubResource("Resource_voyhc"), SubResource("Resource_yoln3")])
+next_act = 7
+next_mission = "Salve sua mãe"

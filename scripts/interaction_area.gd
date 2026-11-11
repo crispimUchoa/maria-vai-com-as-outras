@@ -4,6 +4,7 @@ class_name InteractionArea extends Area2D
 @export var items: Array[String] = []
 @export var next_act: ProgressManager.Act = ProgressManager.Act.BEGIN_MARIA_HOUSE
 @export var autoInteract = false
+@export var next_mission: String = ""
 signal interacted
 
 
@@ -29,6 +30,9 @@ func set_act_actions():
 	for item in items:
 		if (not InventoryManager.has_item(item)):
 			InventoryManager.add_item(item)
+	
+	if (not next_mission.is_empty()):
+		ProgressManager.set_mission(next_mission)
 	
 	ProgressManager.update_acess()
 

@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="14_sdo57"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="15_x6t05"]
 [ext_resource type="Texture2D" uid="uid://iesck11ccql1" path="res://sprites/diario.png" id="16_x6t05"]
+[ext_resource type="Texture2D" uid="uid://dv42vosscbbbs" path="res://sprites/vovo/climb/up/1.png" id="17_ib0b1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sugp2"]
 
@@ -5338,6 +5339,47 @@ data = PackedByteArray("cW9hZgAAsgACAKxEFAAQKAAAAAAAAAAAAAAAAOAAQAAAAAAAAAAAAAAA
 format = 1
 stereo = true
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6t05"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ib0b1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_nxg3s"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "POR QUEEEEEEEE?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_0lhfa"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "EU FALEI PRA ELA NÃO IR!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_13fe2"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "EU ENTEGUEI A PROVA PRA ELA!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_2kawl"]
+script = ExtResource("14_sdo57")
+id = "player"
+text = "Vovó...?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_o1fyi"]
+script = ExtResource("14_sdo57")
+id = "vovo"
+text = "POR QUEEEE?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="PlayerBedRoom" type="Node2D" unique_id=1851993271]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1274250068]
@@ -5452,7 +5494,6 @@ position = Vector2(73.39953, 60.80236)
 scale = Vector2(1.0028383, -1.2355466)
 
 [node name="VoRezando" parent="." unique_id=409014499 instance=ExtResource("9_lq444")]
-visible = true
 min_act = 4
 max_act = 4
 
@@ -5464,12 +5505,14 @@ sprite_frames = SubResource("SpriteFrames_hfj4i")
 position = Vector2(5.999999, -26.999998)
 scale = Vector2(2.9997144, -2.8704143)
 dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_sdo57"), SubResource("Resource_4v22x"), SubResource("Resource_x6t05"), SubResource("Resource_ib0b1")])
-actions = Array[int]([2])
+actions = Array[int]([3])
 
 [node name="AGDiario" type="Node2D" parent="." unique_id=1025399617]
 script = ExtResource("15_x6t05")
+min_act = 4
+max_act = 4
 needed_actions = Dictionary[int, bool]({
-2: true
+3: true
 })
 needed_items = Dictionary[String, bool]({
 "Diario": false
@@ -5507,6 +5550,21 @@ items = Array[String](["Diario"])
 stream = SubResource("AudioStreamWAV_x6t05")
 volume_db = -3.05
 autoplay = true
+
+[node name="AGProtegerFamilia" type="Node2D" parent="." unique_id=12592904]
+script = ExtResource("15_x6t05")
+min_act = 6
+max_act = 6
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Personagem" parent="AGProtegerFamilia" unique_id=908747956 instance=ExtResource("11_h8hev")]
+position = Vector2(203, 317)
+sprite_frames = SubResource("SpriteFrames_x6t05")
+
+[node name="DialogArea" parent="AGProtegerFamilia" unique_id=1716493509 instance=ExtResource("13_tqrg2")]
+position = Vector2(205, 292)
+scale = Vector2(4.080001, 4.640001)
+dialogs = Array[ExtResource("14_sdo57")]([SubResource("Resource_nxg3s"), SubResource("Resource_0lhfa"), SubResource("Resource_13fe2"), SubResource("Resource_2kawl"), SubResource("Resource_o1fyi")])
 
 [connection signal="interacted" from="CamaMaria/InteractionArea" to="CamaMaria" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Estante/InteractionArea" to="Estante" method="_on_interaction_area_interacted"]
