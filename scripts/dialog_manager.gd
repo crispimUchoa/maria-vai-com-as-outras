@@ -57,10 +57,21 @@ var DIALOGS_INFO: Dictionary[String, DialogModel] = {
 	"filha_7_4": DialogModel.new("Joseana Texeira",preload("res://sprites/familia_7/filha_4/idle/down/1.png")),
 	"filha_7_5": DialogModel.new("Jiselma Texeira",preload("res://sprites/familia_7/filha_5/idle/down/1.png")),
 	"filha_7_6": DialogModel.new("Jisele Texeira",preload("res://sprites/familia_7/filha_6/idle/down/1.png")),
+	
+	"francisco_anysio": DialogModel.new("Francisco Anysio",preload("res://sprites/familia_anysio/francisco/idle/down/1.png")),
+	"socorro_anysio": DialogModel.new("Socorro Anysio",preload("res://sprites/familia_anysio/socorro/idle/down/1.png")),
+	"sebastiao_anysio": DialogModel.new("Sebastião Anysio",preload("res://sprites/familia_anysio/sebastiao/idle/down/1.png")),
+	"graca_anysio": DialogModel.new("Graça Anysio",preload("res://sprites/familia_anysio/graça/idle/down/1.png")),
+	
+	"renato_aragao": DialogModel.new("Renato Aragão",preload("res://sprites/renato_aragao/idle/down/1.png")),
+	
+	
 	"padre": DialogModel.new("Padre Ricardo",preload("res://sprites/padre/idle/down/1.png")),
 	
 	"josefino_neto": DialogModel.new("Josefino Da Silva Souza Neto",preload("res://sprites/josefino_neto/idle/down/1.png")),
 	"fazendeiro": DialogModel.new("Josefino Da Silva Souza",preload("res://sprites/fazendeiro/idle/down/1.png")),
+	"fazendeira": DialogModel.new("Océlia Da Silva Souza",preload("res://sprites/fazendeira/idle/down/1.png")),
+	"ocelina": DialogModel.new("Ocelina Da Silva Souza",preload("res://sprites/ocelina/idle/down/1.png")),
 		
 	"mae_defunta": DialogModel.new("Zumira Costa",preload("res://sprites/mae_defunta/idle/down/1.png")),
 	
