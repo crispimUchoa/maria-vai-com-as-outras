@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d3x7l0kxhmbx0"]
 
-[ext_resource type="Script" uid="uid://c55p1jh1ob211" path="res://scenes/cenarios/outside/way_1_post_house.gd" id="1_csuyj"]
+[ext_resource type="Script" uid="uid://c55p1jh1ob211" path="res://scripts/way_1_post_house.gd" id="1_csuyj"]
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_oit0c"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="5_tx18u"]
