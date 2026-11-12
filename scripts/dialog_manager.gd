@@ -70,6 +70,8 @@ var DIALOGS_INFO: Dictionary[String, DialogModel] = {
 	
 	"josefino_neto": DialogModel.new("Josefino Da Silva Souza Neto",preload("res://sprites/josefino_neto/idle/down/1.png")),
 	"fazendeiro": DialogModel.new("Josefino Da Silva Souza",preload("res://sprites/fazendeiro/idle/down/1.png")),
+	"fazendeira": DialogModel.new("Océlia Da Silva Souza",preload("res://sprites/fazendeira/idle/down/1.png")),
+	"ocelina": DialogModel.new("Ocelina Da Silva Souza",preload("res://sprites/ocelina/idle/down/1.png")),
 		
 	"mae_defunta": DialogModel.new("Zumira Costa",preload("res://sprites/mae_defunta/idle/down/1.png")),
 	

@@ -7,6 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://t76046sej0fn" path="res://sprites/construcoes/vaquinha.png" id="5_68qbq"]
 [ext_resource type="Texture2D" uid="uid://5qf24girdxeq" path="res://sprites/construcoes/porquinho.png" id="6_l4u76"]
 [ext_resource type="Texture2D" uid="uid://c8cfer1ys1hdk" path="res://sprites/construcoes/ovelhas e bodes.png" id="7_3hsdo"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="8_l4u76"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="9_f6aqg"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="10_5d86n"]
+[ext_resource type="Texture2D" uid="uid://5qeaxe2hke12" path="res://sprites/fazendeira/idle/down/1.png" id="10_lge4n"]
+[ext_resource type="Texture2D" uid="uid://coc4iieqq086d" path="res://sprites/fazendeira/idle/down/2.png" id="11_nr0f0"]
+[ext_resource type="Texture2D" uid="uid://k7k4qdb6au2i" path="res://sprites/ocelina/idle/down/1.png" id="13_frs3g"]
+[ext_resource type="Texture2D" uid="uid://qo52cflltqrw" path="res://sprites/ocelina/idle/down/2.png" id="14_euamm"]
+[ext_resource type="Texture2D" uid="uid://di8tho1ok55lb" path="res://sprites/josefino_neto/idle/down/1.png" id="15_yxl72"]
+[ext_resource type="Texture2D" uid="uid://dbx0gqnacq87l" path="res://sprites/josefino_neto/idle/down/2.png" id="16_pjj7p"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="17_nr0f0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21arb"]
 atlas = ExtResource("3_21arb")
@@ -458,6 +468,102 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6aqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lge4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nr0f0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_gk28s"]
+script = ExtResource("17_nr0f0")
+id = "fazendeira"
+text = "Ei, tu viu o Josefino?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_j32pl"]
+script = ExtResource("17_nr0f0")
+id = "player"
+text = "Ele tá ali no Neísso."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_67enk"]
+script = ExtResource("17_nr0f0")
+id = "fazendeira"
+text = "Eu sabia! Pense num caba sem vergonha! Os bicho tudo solto e ele bebendo."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_nx3cf"]
+script = ExtResource("17_nr0f0")
+id = "fazendeira"
+text = "Aaah, minha filha! Quando ele chegar, ele vai ver só! Se eu não quebro um pedaço desse pé de pau nas costas dele hoje!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5d86n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_frs3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_euamm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_frs3g"]
+script = ExtResource("17_nr0f0")
+id = "ocelina"
+text = "Pense! Pense num menino maluvido! Puxou o avô!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_euamm"]
+script = ExtResource("17_nr0f0")
+id = "ocelina"
+text = "Mandei ele ir tomar banho pra almoçar e ele taí brincando com os garrote!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4b6aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_yxl72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pjj7p")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_nr0f0"]
+script = ExtResource("17_nr0f0")
+id = "josefino_neto"
+text = "Olha esse aí que fofinho! Dançando todo feliz. Nem sabe que ela é o almoço de amanhã!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_yxl72"]
+script = ExtResource("17_nr0f0")
+id = "player"
+text = "Credo, menino!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_pjj7p"]
+script = ExtResource("17_nr0f0")
+id = "josefino_neto"
+text = "E tu é daquelas que só come mato?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -577,3 +683,36 @@ animation = &"bode 1"
 frame_progress = 0.7568888
 script = ExtResource("4_snulf")
 nome_animacao = "bode 1"
+
+[node name="PreConsertoPonte" type="Node2D" parent="." unique_id=154291146]
+y_sort_enabled = true
+script = ExtResource("8_l4u76")
+max_act = 5
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Fazendeira" parent="PreConsertoPonte" unique_id=551480179 instance=ExtResource("9_f6aqg")]
+position = Vector2(609, 530)
+sprite_frames = SubResource("SpriteFrames_f6aqg")
+
+[node name="DialogArea" parent="PreConsertoPonte/Fazendeira" unique_id=1406538012 instance=ExtResource("10_5d86n")]
+position = Vector2(-1.999939, -8.999878)
+scale = Vector2(3.1200001, 3.1200001)
+dialogs = Array[ExtResource("17_nr0f0")]([SubResource("Resource_gk28s"), SubResource("Resource_j32pl"), SubResource("Resource_67enk"), SubResource("Resource_nx3cf")])
+
+[node name="Ocelina" parent="PreConsertoPonte" unique_id=1099029411 instance=ExtResource("9_f6aqg")]
+position = Vector2(527, 210)
+sprite_frames = SubResource("SpriteFrames_5d86n")
+
+[node name="DialogArea" parent="PreConsertoPonte/Ocelina" unique_id=1111647942 instance=ExtResource("10_5d86n")]
+position = Vector2(0, -16)
+scale = Vector2(3.1200001, 3.1200001)
+dialogs = Array[ExtResource("17_nr0f0")]([SubResource("Resource_frs3g"), SubResource("Resource_euamm")])
+
+[node name="JosefinoNeto" parent="PreConsertoPonte" unique_id=962739685 instance=ExtResource("9_f6aqg")]
+position = Vector2(288, 144)
+sprite_frames = SubResource("SpriteFrames_4b6aa")
+
+[node name="DialogArea" parent="PreConsertoPonte/JosefinoNeto" unique_id=1935205722 instance=ExtResource("10_5d86n")]
+position = Vector2(2.9999542, -19.000046)
+scale = Vector2(3.1200001, 3.1200001)
+dialogs = Array[ExtResource("17_nr0f0")]([SubResource("Resource_nr0f0"), SubResource("Resource_yxl72"), SubResource("Resource_pjj7p")])
