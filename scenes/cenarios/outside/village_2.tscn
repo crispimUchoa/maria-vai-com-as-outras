@@ -5,12 +5,22 @@
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="3_tfgbv"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="4_m1o2t"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="5_eg5p3"]
+[ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="6_m1o2t"]
 
 [sub_resource type="Resource" id="Resource_qhds1"]
 script = ExtResource("5_eg5p3")
 id = "player"
 text = "Não tenho tempo pra desvios!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_a7c13"]
+script = ExtResource("5_eg5p3")
+id = "player"
+text = "Que calafrio! Não quero nem chegar perto daquele bar..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eg5p3"]
+size = Vector2(197, 74)
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -108,3 +118,23 @@ position = Vector2(372.99997, 220.00002)
 scale = Vector2(3.5033185, 5.6387715)
 dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_qhds1")])
 autoInteract = true
+
+[node name="PosNota" type="Node2D" parent="." unique_id=172566201]
+script = ExtResource("3_tfgbv")
+min_act = 8
+max_act = 8
+needed_actions = Dictionary[int, bool]({
+8: true
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" type="Area2D" parent="PosNota" unique_id=338422315]
+position = Vector2(425, 37)
+script = ExtResource("6_m1o2t")
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_a7c13")])
+metadata/_custom_type_script = "uid://dni5k4arclvqk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosNota/DialogArea" unique_id=1344737714]
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_eg5p3")
+debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)

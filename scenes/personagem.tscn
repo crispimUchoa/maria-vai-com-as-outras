@@ -22,12 +22,16 @@ animations = [{
 size = Vector2(43, 29)
 
 [node name="Personagem" type="StaticBody2D" unique_id=551480179]
+y_sort_enabled = true
 script = ExtResource("1_t2tgb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=715868200]
-position = Vector2(0, -43)
+y_sort_enabled = true
+position = Vector2(0, -15)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_t2tgb")
+autoplay = "default"
+offset = Vector2(0, -20.74074)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=609019419]
 position = Vector2(0.5, -14.5)
