@@ -5,7 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_csuyj"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="5_tx18u"]
 [ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="6_ytvba"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="7_ale6q"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_ytvba"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="8_1udov"]
+[ext_resource type="Texture2D" uid="uid://b0ap8lnej8s8" path="res://sprites/familia_anysio/francisco/idle/down/1.png" id="9_wkerr"]
+[ext_resource type="Texture2D" uid="uid://pnk6esmxji3" path="res://sprites/familia_anysio/francisco/idle/down/2.png" id="10_pm5ib"]
+[ext_resource type="Texture2D" uid="uid://c7seos2an2bfa" path="res://sprites/renato_aragao/idle/down/1.png" id="11_g6i10"]
+[ext_resource type="Texture2D" uid="uid://rma83qc4h32e" path="res://sprites/renato_aragao/idle/down/2.png" id="12_dqk6t"]
 
 [sub_resource type="Resource" id="Resource_wv4q4"]
 script = ExtResource("7_ytvba")
@@ -42,6 +48,76 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvba"]
 size = Vector2(197, 74)
+
+[sub_resource type="Resource" id="Resource_0gxrb"]
+script = ExtResource("7_ytvba")
+id = "renato_aragao"
+text = "Ei, bichinha! Tu tem certeza que tu viu o bicho vindo por aqui? Porque o único rastro que a gente viu foi subindo pro meio dos mato ali perto da Zumira."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ale6q"]
+script = ExtResource("7_ytvba")
+id = "player"
+text = "Tenho sim! Ele me seguiu até perto de casa."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_1udov"]
+script = ExtResource("7_ytvba")
+id = "player"
+text = "Você acredita em mim, né, professor?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_wkerr"]
+script = ExtResource("7_ytvba")
+id = "francisco_anysio"
+text = "Acredito sim, minina. Esse diabo deve ter cobrido as pegadas."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_pm5ib"]
+script = ExtResource("7_ytvba")
+id = "renato_aragao"
+text = "Não me venha com chorumelas! Aqui não é a escolinha da filha do Raimundo! Aqui é o mundo real! Onde já se viu animal esconder os rastros?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_g6i10"]
+script = ExtResource("7_ytvba")
+id = "renato_aragao"
+text = "A gente ta falando de um puma ou raposa. Não do Curupira! Essa aí deve ter tido visage por causa do medo."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_dqk6t"]
+script = ExtResource("7_ytvba")
+id = "player"
+text = "Eu sei o que eu vi!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx18u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wkerr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pm5ib")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ytvba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_g6i10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dqk6t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -161,3 +237,22 @@ metadata/_custom_type_script = "uid://dni5k4arclvqk"
 position = Vector2(-1.8140846, -4.449899)
 shape = SubResource("RectangleShape2D_ytvba")
 debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)
+
+[node name="AGPreConsertoPonte" type="Node2D" parent="." unique_id=1748421846]
+script = ExtResource("5_tx18u")
+min_act = 4
+max_act = 5
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="AGPreConsertoPonte" unique_id=1935205722 instance=ExtResource("7_ale6q")]
+position = Vector2(242, 245)
+scale = Vector2(7.84, 3.88)
+dialogs = Array[ExtResource("7_ytvba")]([SubResource("Resource_0gxrb"), SubResource("Resource_ale6q"), SubResource("Resource_1udov"), SubResource("Resource_wkerr"), SubResource("Resource_pm5ib"), SubResource("Resource_g6i10"), SubResource("Resource_dqk6t")])
+
+[node name="ChicoAnysio" parent="AGPreConsertoPonte" unique_id=551480179 instance=ExtResource("8_1udov")]
+position = Vector2(196, 260)
+sprite_frames = SubResource("SpriteFrames_tx18u")
+
+[node name="RenatoAragao" parent="AGPreConsertoPonte" unique_id=206650166 instance=ExtResource("8_1udov")]
+position = Vector2(284, 263)
+sprite_frames = SubResource("SpriteFrames_ytvba")
