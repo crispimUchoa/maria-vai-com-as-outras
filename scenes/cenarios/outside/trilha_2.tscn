@@ -4,6 +4,56 @@
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_q43mf"]
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="3_fv731"]
 [ext_resource type="PackedScene" uid="uid://pdrtunckjwh1" path="res://scenes/cenarios/outside/MachadoItem.tscn" id="4_nvncf"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="5_nuhou"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="6_gk2qm"]
+[ext_resource type="Texture2D" uid="uid://c3habf66gp84l" path="res://sprites/padre/idle/down/1.png" id="7_den6x"]
+[ext_resource type="Texture2D" uid="uid://djj813w7akipe" path="res://sprites/padre/idle/down/2.png" id="8_qapm1"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="9_5dsjn"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="10_gk2qm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_den6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qapm1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_nuhou"]
+script = ExtResource("10_gk2qm")
+id = "padre"
+text = "Olá, Maria. Como é que tu tá?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_gk2qm"]
+script = ExtResource("10_gk2qm")
+id = "player"
+text = "Oi, Padre. To muito assustada ainda, ainda mais aqui. Se eu fosse o senhor eu não ficava nesse matagal não."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_den6x"]
+script = ExtResource("10_gk2qm")
+id = "player"
+text = "Vai que o bicho fugiu pra essas banda."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_qapm1"]
+script = ExtResource("10_gk2qm")
+id = "padre"
+text = "Eu gosto de ficar perto da natureza. E eu acho que ele não veio pra cá não. Eu teria visto passando pela igreja."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_5dsjn"]
+script = ExtResource("10_gk2qm")
+id = "player"
+text = "Eu acho que tem muita natureza perto da igreja, mas cada doido com suas manias, né, padre? hahaha "
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -66,3 +116,19 @@ needed_items = Dictionary[String, bool]({
 
 [node name="MachadoItem" parent="ActGroup" unique_id=1390710440 instance=ExtResource("4_nvncf")]
 scale = Vector2(1.1904762, -0.56818175)
+
+[node name="PadrePreFuneral" type="Node2D" parent="." unique_id=244767172]
+y_sort_enabled = true
+script = ExtResource("5_nuhou")
+max_act = 8
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Personagem" parent="PadrePreFuneral" unique_id=551480179 instance=ExtResource("6_gk2qm")]
+position = Vector2(268, 228)
+sprite_frames = SubResource("SpriteFrames_qhds1")
+
+[node name="DialogArea" parent="PadrePreFuneral/Personagem" unique_id=1935205722 instance=ExtResource("9_5dsjn")]
+y_sort_enabled = true
+position = Vector2(0, -18)
+scale = Vector2(3.68, 3.68)
+dialogs = Array[ExtResource("10_gk2qm")]([SubResource("Resource_nuhou"), SubResource("Resource_gk2qm"), SubResource("Resource_den6x"), SubResource("Resource_qapm1"), SubResource("Resource_5dsjn")])

@@ -4,6 +4,9 @@ class_name Lobisomem
 @export_group("Persistência & Identificação")
 @export var id_unico: String = ""
 
+@export_group("Configuração de Ato")
+@export var atacar_direto: bool = false
+
 @export_group("Atributos de Combate")
 @export var vida_maxima: int = 3
 @export var item_necessario: String = "machado"
@@ -13,7 +16,7 @@ class_name Lobisomem
 @export var velocidade: float = 230.0 
 @export var puff_effect_scene: PackedScene = preload("res://scenes/puff_effect.tscn")
 
-var last_direction: Vector2 = Vector2.DOWN
+var last_direction: Vector2 = Vector2.RIGHT
 var path_follow: PathFollow2D = null
 var vida_atual: int = 3
 var target_player: CharacterBody2D = null
@@ -27,14 +30,34 @@ var em_introducao: bool = false
 @onready var attack_area: Area2D = $AttackArea
 
 func _ready() -> void:
-	vida_atual = vida_maxima
-	
+	if not visibility_changed.is_connected(_on_visibility_changed):
+		visibility_changed.connect(_on_visibility_changed)
+
 	# Garante a conexão dos sinais dos nós de visão e ataque
 	if detection_area and not detection_area.body_entered.is_connected(_on_detection_area_body_entered):
 		detection_area.body_entered.connect(_on_detection_area_body_entered)
 		
 	if attack_area and not attack_area.body_entered.is_connected(_on_attack_area_body_entered):
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
+
+	# Se já iniciou oculto pelo ActGroup, pausa a física e espera ficar visível
+	if not is_visible_in_tree():
+		set_physics_process(false)
+		return
+	
+	_inicializar_lobisomem()
+
+func _on_visibility_changed() -> void:
+	if is_visible_in_tree():
+		set_physics_process(true)
+		_inicializar_lobisomem()
+	else:
+		set_physics_process(false)
+		target_player = null
+
+func _inicializar_lobisomem() -> void:
+	vida_atual = vida_maxima
+	update_idle_animation()
 	
 	if get_parent() is PathFollow2D:
 		path_follow = get_parent() as PathFollow2D
@@ -47,18 +70,10 @@ func _ready() -> void:
 			queue_free()
 		return
 
-	# Auto-detecção da Maria se recarregar na fuga entre mapas
-	if ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING):
+	# Auto-detecção da Maria se recarregar na fuga entre mapas ou no pós-funeral
+	if ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING) or ProgressManager.is_act(ProgressManager.Act.POS_FUNERAL):
 		await get_tree().process_frame
-		var players = get_tree().get_nodes_in_group("player")
-		if players.size() > 0:
-			target_player = players[0] as CharacterBody2D
-		else:
-			var player_node = get_parent().find_child("Maria", true, false)
-			if not player_node:
-				player_node = get_parent().find_child("Player", true, false)
-			if player_node is CharacterBody2D:
-				target_player = player_node
+		_buscar_player()
 
 func _physics_process(delta: float) -> void:
 	# Trava o movimento em diálogos, cutscenes ou morte
@@ -138,12 +153,27 @@ func update_idle_animation() -> void:
 			animated_sprite.play("idle_down")
 		else:
 			animated_sprite.play("idle_up")
+			
+func _buscar_player() -> void:
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		target_player = players[0] as CharacterBody2D
+	else:
+		var player_node = get_tree().current_scene.find_child("Maria", true, false)
+		if not player_node:
+			player_node = get_tree().current_scene.find_child("Player", true, false)
+		if player_node is CharacterBody2D:
+			target_player = player_node
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
+	if not is_visible_in_tree():
+		return
+		
 	if body is Player:
-		if ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING):
-			if not em_introducao and target_player == null:
-				target_player = body as CharacterBody2D
+		var ato_valido = ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING) or ProgressManager.is_act(ProgressManager.Act.POS_FUNERAL)
+		if ato_valido and not em_introducao and target_player == null:
+			target_player = body as CharacterBody2D
+			if not atacar_direto:
 				iniciar_interacao_inicial()
 
 func iniciar_interacao_inicial() -> void:
@@ -161,6 +191,8 @@ func iniciar_interacao_inicial() -> void:
 	em_introducao = false
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
+	if not is_visible_in_tree():
+		return
 	# Só ataca se estiver perseguindo o player ativamente
 	if body is Player and target_player != null and not capturou_player and not esta_despistado:
 		capturou_player = true

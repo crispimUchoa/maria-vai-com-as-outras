@@ -373,7 +373,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5ldj"]
-radius = 53.15073
+radius = 67.74216
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw7s"]
 size = Vector2(41, 45.25)
@@ -382,7 +382,7 @@ size = Vector2(41, 45.25)
 light_mask = 1023
 visibility_layer = 3
 scale = Vector2(2, 2)
-collision_layer = 3
+collision_layer = 2
 collision_mask = 255
 script = ExtResource("1_nr7hh")
 id_unico = "lobisomem"
@@ -398,7 +398,7 @@ shape = SubResource("RectangleShape2D_l5ldj")
 y_sort_enabled = true
 position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_l5ldj")
-animation = &"walk_left"
+animation = &"idle_down"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=394500703]
 light_mask = 1023

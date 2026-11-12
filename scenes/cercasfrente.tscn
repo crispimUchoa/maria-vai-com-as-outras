@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ldj"]
 size = Vector2(137, 28)
 
-[node name="Cercasfrente" type="Area2D" unique_id=1256694481]
+[node name="Cercasfrente" type="StaticBody2D" unique_id=2005323705]
 light_mask = 3
 visibility_layer = 3
 position = Vector2(1, -1)

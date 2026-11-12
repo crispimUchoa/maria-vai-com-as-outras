@@ -106,13 +106,13 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_bc48l"]
 script = ExtResource("13_pbkl3")
-id = "pai_maria"
+id = "mae_maria"
 text = "Deixa de conversar besteira, Maria! O William Boné ta dizeno aqui que a onça matou a menina!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_gxmxq"]
 script = ExtResource("13_pbkl3")
-id = "pai_maria"
+id = "mae_maria"
 text = "Tu vai dizer que o jornal ta errado e tu ta certa?"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 

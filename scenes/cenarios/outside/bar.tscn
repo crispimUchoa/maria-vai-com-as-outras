@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_31qgm"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_7ddsc"]
-[ext_resource type="PackedScene" uid="uid://buq4hc2w8e4j0" path="res://scenes/cercalado.tscn" id="3_nmuj1"]
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="4_xh0g2"]
 [ext_resource type="Texture2D" uid="uid://jmelcpnylrc4" path="res://sprites/neisso/idle/down/1.png" id="5_ejfvy"]
 [ext_resource type="Texture2D" uid="uid://ckh5n7fntjj14" path="res://sprites/neisso/idle/down/2.png" id="6_xpv7c"]
@@ -24,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dahm0m6dmgrbb" path="res://sprites/neisso/morto/hurt/up/6.png" id="22_dnfb6"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="23_dnfb6"]
 [ext_resource type="Script" uid="uid://cj0hicnwkof1d" path="res://scripts/cenarios/outside/mae_e_maria.gd" id="23_tishs"]
+[ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="24_tishs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
 animations = [{
@@ -3986,24 +3986,6 @@ scale = Vector2(2.4782403, 1.4153694)
 position = Vector2(700, 526)
 scale = Vector2(1, 1.640005)
 
-[node name="Cercalado" parent="." unique_id=796599163 instance=ExtResource("3_nmuj1")]
-position = Vector2(771, 445)
-id_unico = "cerca_bar1"
-
-[node name="Cercalado2" parent="." unique_id=1110734052 instance=ExtResource("3_nmuj1")]
-position = Vector2(771, 488)
-collision_layer = 3
-collision_mask = 3
-id_unico = "cerca_bar2"
-
-[node name="Cercalado3" parent="." unique_id=1393938777 instance=ExtResource("3_nmuj1")]
-position = Vector2(771, 534)
-id_unico = "cerca_bar3"
-
-[node name="Cercalado4" parent="." unique_id=606991340 instance=ExtResource("3_nmuj1")]
-position = Vector2(771, 579)
-id_unico = "cerca_bar4"
-
 [node name="Neisso" parent="." unique_id=1092087895 instance=ExtResource("4_xh0g2")]
 y_sort_enabled = true
 min_act = 4
@@ -4266,5 +4248,15 @@ script = ExtResource("23_tishs")
 position = Vector2(374, 536.318)
 scale = Vector2(13.400002, 6.2566175)
 autoInteract = true
+
+[node name="AGAtaqueLobi" type="Node2D" parent="." unique_id=654211070]
+script = ExtResource("7_xpv7c")
+min_act = 9
+max_act = 9
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="lobisomem" parent="AGAtaqueLobi" unique_id=1955558193 instance=ExtResource("24_tishs")]
+position = Vector2(500, 179.44098)
+atacar_direto = true
 
 [connection signal="interacted" from="AGMaeMorta/CutsceneCorpo/MaeEMaria/InteractionArea" to="AGMaeMorta/CutsceneCorpo/MaeEMaria" method="_on_interaction_area_interacted"]

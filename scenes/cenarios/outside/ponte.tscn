@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://cxg3hkcwpomt8" path="res://scripts/actions/consertar_ponte.gd" id="3_d5ekl"]
 [ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="6_quler"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_41ssh"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="8_hu2m5"]
+[ext_resource type="Texture2D" uid="uid://bg1d3aeg60jd4" path="res://sprites/familia_7/filha_5/idle/up/1.png" id="9_tpn6o"]
+[ext_resource type="Texture2D" uid="uid://fld85yjve15t" path="res://sprites/familia_7/filha_5/idle/up/2.png" id="10_xxlvc"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="11_iykme"]
 
 [sub_resource type="Resource" id="Resource_jotlg"]
 script = ExtResource("7_41ssh")
@@ -22,6 +26,38 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(819, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dunre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tpn6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xxlvc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_m1o2t"]
+script = ExtResource("7_41ssh")
+id = "filha_7_5"
+text = "Muito se fala sobre a ponte quebrada. Pouco se fala sobre os corajosos que atravessam pelo rio..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ofbop"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "Mulher, deixe de loucura."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_kwgwp"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "Arrudear pela igreja não dá 10 minuto."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -124,5 +160,21 @@ z_index = 1
 position = Vector2(399.5, 54)
 shape = SubResource("RectangleShape2D_qhds1")
 debug_color = Color(0.9578518, 0.88740873, 0, 0.41960785)
+
+[node name="PreConsertoPonte" type="Node2D" parent="." unique_id=2109274685]
+y_sort_enabled = true
+position = Vector2(202, 464)
+script = ExtResource("2_5tiq0")
+max_act = 5
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Filha_7_5" parent="PreConsertoPonte" unique_id=551480179 instance=ExtResource("8_hu2m5")]
+position = Vector2(362, -14)
+sprite_frames = SubResource("SpriteFrames_dunre")
+
+[node name="DialogArea" parent="PreConsertoPonte/Filha_7_5" unique_id=934241342 instance=ExtResource("11_iykme")]
+position = Vector2(0.99999994, -17.999998)
+scale = Vector2(3.28, 3.28)
+dialogs = Array[ExtResource("7_41ssh")]([SubResource("Resource_m1o2t"), SubResource("Resource_ofbop"), SubResource("Resource_kwgwp")])
 
 [connection signal="interacted" from="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar/InteractionArea" to="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar" method="_on_interaction_area_interacted"]
