@@ -17,6 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://brh8b0a24l7jj" path="res://sprites/fazendeiro/idle/left/1.png" id="17_c4mxu"]
 [ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="17_rbvfy"]
 [ext_resource type="Texture2D" uid="uid://brjji3mv7pdm8" path="res://sprites/fazendeiro/idle/left/2.png" id="18_mpshy"]
+[ext_resource type="Texture2D" uid="uid://dq2eywg0rx3fg" path="res://sprites/familia_7/mae/idle/down/1.png" id="18_twy53"]
+[ext_resource type="Texture2D" uid="uid://nyfx6wyn1bkx" path="res://sprites/familia_7/mae/idle/down/2.png" id="19_dtc2o"]
+[ext_resource type="Texture2D" uid="uid://c285ynyvitnyp" path="res://sprites/familia_7/filha_1/shoot/down/1.png" id="20_wsgyc"]
+[ext_resource type="Texture2D" uid="uid://btust6w5dgwjl" path="res://sprites/familia_7/filha_2/idle/right/1.png" id="21_br3ow"]
+[ext_resource type="Texture2D" uid="uid://dnknqtnw68xuo" path="res://sprites/familia_7/filha_2/idle/right/2.png" id="22_a7c13"]
+[ext_resource type="Texture2D" uid="uid://tuhbjk2rwueo" path="res://sprites/familia_7/filho/climb/up/1.png" id="23_u0os4"]
 
 [sub_resource type="Resource" id="Resource_reltv"]
 script = ExtResource("5_72x6h")
@@ -220,6 +226,98 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(197, 74)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbvfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_twy53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dtc2o")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_u0os4"]
+script = ExtResource("5_72x6h")
+id = "mae_7"
+text = "Tamo aqui esperano o padre voltar pra abençoar a gente. Depois dum negócio desse, nem em casa em fico em paz..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swhnx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_wsgyc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_bc8ks"]
+script = ExtResource("5_72x6h")
+id = "filha_7_1"
+text = "To acompanhando a mãe. Não fico em casa sozinha de jeito nenhuuum."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_nuubm"]
+script = ExtResource("5_72x6h")
+id = "filha_7_1"
+text = "Ainda bem que você corre avuado, viu? Fosse eu, a onça tava com o bucho estufado."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7q6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_br3ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_a7c13")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4mxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_u0os4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_lksi6"]
+script = ExtResource("5_72x6h")
+id = "filha_7_2"
+text = "Ei, Maria! Quer ajudar a gente a pegar as goiaba do padre não?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_bram3"]
+script = ExtResource("5_72x6h")
+id = "filha_7_2"
+text = "A gente divide com você!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_cnu7m"]
+script = ExtResource("5_72x6h")
+id = "filho_7"
+text = "Que nós é esse que tu ta falano? Se é só eu que to me atrepano na goiabeira?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_7xhlg"]
+script = ExtResource("5_72x6h")
+id = "player"
+text = "Não, não, valeu. To indo almoçar já já."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="Village3" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -278,6 +376,7 @@ position = Vector2(673, 76)
 position = Vector2(212, 345)
 
 [node name="VelorioMae" type="Node2D" parent="." unique_id=750602455]
+visible = false
 y_sort_enabled = true
 script = ExtResource("3_v583l")
 min_act = 8
@@ -390,3 +489,40 @@ metadata/_custom_type_script = "uid://dni5k4arclvqk"
 position = Vector2(-0.5, -12)
 shape = SubResource("RectangleShape2D_qhds1")
 debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)
+
+[node name="PreVelorioMae" type="Node2D" parent="." unique_id=2111249550]
+y_sort_enabled = true
+script = ExtResource("3_v583l")
+max_act = 7
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="mae_7" parent="PreVelorioMae" unique_id=1140194019 instance=ExtResource("7_ejpco")]
+position = Vector2(102, 295)
+sprite_frames = SubResource("SpriteFrames_rbvfy")
+
+[node name="DialogArea" parent="PreVelorioMae/mae_7" unique_id=2123024876 instance=ExtResource("4_3fp6q")]
+position = Vector2(0, -17)
+scale = Vector2(4.0799994, 4.0799994)
+dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_u0os4")])
+
+[node name="filha_7_1" parent="PreVelorioMae" unique_id=2025782801 instance=ExtResource("7_ejpco")]
+position = Vector2(324, 296)
+sprite_frames = SubResource("SpriteFrames_swhnx")
+
+[node name="DialogArea" parent="PreVelorioMae/filha_7_1" unique_id=1219516110 instance=ExtResource("4_3fp6q")]
+position = Vector2(-1.9999999, -20.999998)
+scale = Vector2(3.280181, 3.280181)
+dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_bc8ks"), SubResource("Resource_nuubm")])
+
+[node name="Filha_7_2" parent="PreVelorioMae" unique_id=898785435 instance=ExtResource("7_ejpco")]
+position = Vector2(541, 579)
+sprite_frames = SubResource("SpriteFrames_v7q6f")
+
+[node name="Filho_7" parent="PreVelorioMae" unique_id=468376771 instance=ExtResource("7_ejpco")]
+position = Vector2(587, 577)
+sprite_frames = SubResource("SpriteFrames_c4mxu")
+
+[node name="DialogArea" parent="PreVelorioMae/Filho_7" unique_id=1707382885 instance=ExtResource("4_3fp6q")]
+position = Vector2(-17, -17.999998)
+scale = Vector2(5.7599974, 5.7599974)
+dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_lksi6"), SubResource("Resource_bram3"), SubResource("Resource_cnu7m"), SubResource("Resource_7xhlg")])

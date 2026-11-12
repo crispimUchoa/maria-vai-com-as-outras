@@ -2,6 +2,44 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_j0k1w"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_f3kmf"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="3_3kkuk"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="4_fhxcu"]
+[ext_resource type="Texture2D" uid="uid://14khr8css2ox" path="res://sprites/familia_7/filha_6/idle/down/1.png" id="5_xs7gf"]
+[ext_resource type="Texture2D" uid="uid://xquq63v05njx" path="res://sprites/familia_7/filha_6/idle/down/2.png" id="6_y4rrg"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="7_8vobh"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="8_trc0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6r8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xs7gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y4rrg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_hu2m5"]
+script = ExtResource("8_trc0v")
+id = "filha_7_6"
+text = "Égua, man! Todo mundo saiu e deixou eu sozinha aqui."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_tpn6o"]
+script = ExtResource("8_trc0v")
+id = "player"
+text = "Por que você não foi com eles?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_xxlvc"]
+script = ExtResource("8_trc0v")
+id = "filha_7_6"
+text = "Pelo menos alguém nessa casa tem que respeitar minha preguiça!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -49,3 +87,18 @@ next_spawn_id = "SpawnVillage4"
 
 [node name="SpawnVillage2" type="Marker2D" parent="." unique_id=1637745321]
 position = Vector2(87, 385)
+
+[node name="PreConsertoPonte" type="Node2D" parent="." unique_id=1204583243]
+y_sort_enabled = true
+script = ExtResource("3_3kkuk")
+max_act = 5
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Filha_7_6" parent="PreConsertoPonte" unique_id=551480179 instance=ExtResource("4_fhxcu")]
+position = Vector2(178, 225)
+sprite_frames = SubResource("SpriteFrames_e6r8p")
+
+[node name="DialogArea" parent="PreConsertoPonte/Filha_7_6" unique_id=1935205722 instance=ExtResource("7_8vobh")]
+position = Vector2(0.99999994, -17.999998)
+scale = Vector2(3.28, 3.28)
+dialogs = Array[ExtResource("8_trc0v")]([SubResource("Resource_hu2m5"), SubResource("Resource_tpn6o"), SubResource("Resource_xxlvc")])

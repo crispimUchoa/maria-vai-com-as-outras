@@ -2,6 +2,50 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_mfohv"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="2_28ly4"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="3_asm8o"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="4_jfddm"]
+[ext_resource type="Texture2D" uid="uid://dchjrypfn0ugu" path="res://sprites/familia_7/pai/idle/left/1.png" id="5_dp8n4"]
+[ext_resource type="Texture2D" uid="uid://b43top47g40uq" path="res://sprites/familia_7/pai/idle/left/2.png" id="6_5d53m"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="7_o6tqk"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="8_dp8n4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gk2qm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dp8n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5d53m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_jfddm"]
+script = ExtResource("8_dp8n4")
+id = "player"
+text = "Opa, seu Juvenal! Tá fazendo o que aqui, homi? Não tá vendo o perigo de ficar no mei do mato assim?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_dp8n4"]
+script = ExtResource("8_dp8n4")
+id = "pai_7"
+text = "Calma, muié! To parado atoa não, to indo dar um pulo no Neísso!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_5d53m"]
+script = ExtResource("8_dp8n4")
+id = "pai_7"
+text = "To fazendo só um pouso forçado pra tirar o excesso de bagagem marrom. Se é que me entende. Hahahaha"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_o6tqk"]
+script = ExtResource("8_dp8n4")
+id = "player"
+text = "ÉGUA! Que nojo, macho! Toma cuidado com as cansanção!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -49,3 +93,19 @@ rotation = -1.5707964
 scale = Vector2(1, -6.28)
 next_level_file = "uid://cruxt5bosnvsx"
 next_spawn_id = "SpawnTrilha1"
+
+[node name="PreFuneral" type="Node2D" parent="." unique_id=1940482435]
+y_sort_enabled = true
+position = Vector2(-343, -68)
+script = ExtResource("3_asm8o")
+max_act = 8
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Personagem" parent="PreFuneral" unique_id=551480179 instance=ExtResource("4_jfddm")]
+position = Vector2(540, 451)
+sprite_frames = SubResource("SpriteFrames_gk2qm")
+
+[node name="DialogArea" parent="PreFuneral/Personagem" unique_id=1935205722 instance=ExtResource("7_o6tqk")]
+position = Vector2(0, -20)
+scale = Vector2(3.7199981, 3.7199981)
+dialogs = Array[ExtResource("8_dp8n4")]([SubResource("Resource_jfddm"), SubResource("Resource_dp8n4"), SubResource("Resource_5d53m"), SubResource("Resource_o6tqk")])
