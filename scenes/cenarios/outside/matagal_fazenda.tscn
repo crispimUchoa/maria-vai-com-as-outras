@@ -2,6 +2,66 @@
 
 [ext_resource type="TileSet" uid="uid://emp010yrms8h" path="res://tilesets/deserto.tres" id="1_4x7hg"]
 [ext_resource type="PackedScene" uid="uid://bw6e5vo2htrtq" path="res://scenes/cercasfrente.tscn" id="2_muwre"]
+[ext_resource type="Texture2D" uid="uid://c8cfer1ys1hdk" path="res://sprites/construcoes/ovelhas e bodes.png" id="3_swevw"]
+[ext_resource type="Script" uid="uid://p1rdphw6n8b6" path="res://scripts/animais_loop.gd" id="4_mrry8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj7jf"]
+atlas = ExtResource("3_swevw")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78v2"]
+atlas = ExtResource("3_swevw")
+region = Rect2(32, 240, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1luh"]
+atlas = ExtResource("3_swevw")
+region = Rect2(64, 240, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l5ldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj7jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n78v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1luh")
+}],
+"loop": 1,
+"name": &"bode 1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma7vc"]
+atlas = ExtResource("3_swevw")
+region = Rect2(96, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmdmy"]
+atlas = ExtResource("3_swevw")
+region = Rect2(128, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7480d"]
+atlas = ExtResource("3_swevw")
+region = Rect2(160, 192, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ygda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma7vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmdmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7480d")
+}],
+"loop": 1,
+"name": &"ovelha 1",
+"speed": 5.0
+}]
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -42,3 +102,22 @@ tile_set = ExtResource("1_4x7hg")
 [node name="Cercasfrente" parent="." unique_id=1256694481 instance=ExtResource("2_muwre")]
 position = Vector2(476, 222)
 scale = Vector2(0.93, 0.93)
+metadata/_edit_lock_ = true
+
+[node name="bode1" type="AnimatedSprite2D" parent="." unique_id=1988133094]
+position = Vector2(391.00003, 104)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_l5ldj")
+animation = &"bode 1"
+frame_progress = 0.16209666
+script = ExtResource("4_mrry8")
+nome_animacao = "bode 1"
+
+[node name="ovelha1" type="AnimatedSprite2D" parent="." unique_id=488755838]
+position = Vector2(504.00003, 78)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_2ygda")
+animation = &"ovelha 1"
+frame_progress = 0.2257788
+script = ExtResource("4_mrry8")
+nome_animacao = "ovelha 1"
