@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="4_m1o2t"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="5_eg5p3"]
 [ext_resource type="Script" uid="uid://dni5k4arclvqk" path="res://scripts/dialog_area.gd" id="6_m1o2t"]
+[ext_resource type="PackedScene" uid="uid://dwdnv1n4y8ebt" path="res://scenes/personagem.tscn" id="7_eg5p3"]
+[ext_resource type="Texture2D" uid="uid://6nuse4auiswa" path="res://sprites/familia_anysio/sebastiao/idle/down/1.png" id="8_4jhu7"]
+[ext_resource type="Texture2D" uid="uid://b2cfsw1wqntch" path="res://sprites/familia_anysio/sebastiao/idle/down/2.png" id="9_tn4po"]
+[ext_resource type="Texture2D" uid="uid://clltuh580k7dj" path="res://sprites/familia_anysio/socorro/idle/down/1.png" id="10_3txj7"]
+[ext_resource type="Texture2D" uid="uid://b3xog7n1nj6nj" path="res://sprites/familia_anysio/socorro/idle/down/2.png" id="11_f0ae3"]
+[ext_resource type="Texture2D" uid="uid://dnsdf2g0g5wbj" path="res://sprites/familia_anysio/graça/idle/down/1.png" id="12_n0kye"]
+[ext_resource type="Texture2D" uid="uid://032malwew8ea" path="res://sprites/familia_anysio/graça/idle/down/2.png" id="13_7tcq8"]
 
 [sub_resource type="Resource" id="Resource_qhds1"]
 script = ExtResource("5_eg5p3")
@@ -21,6 +28,90 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg5p3"]
 size = Vector2(197, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ycdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_4jhu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tn4po")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_57516"]
+script = ExtResource("5_eg5p3")
+id = "sebastiao_anysio"
+text = "Spiaa! A papaléguas! Ainda bem que é tu é ligeira."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_6nrq5"]
+script = ExtResource("5_eg5p3")
+id = "player"
+text = "Vai te catar, sem vergonha! E tu que ta aí espiando casa alheia!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_sgj7x"]
+script = ExtResource("5_eg5p3")
+id = "sebastiao_anysio"
+text = "Espiando nada! To esperando o Renato chegar, porque esse caba safado pegou meu martelo faz 1 semana e não devolveu ainda!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tn4po"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3txj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f0ae3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_5cs66"]
+script = ExtResource("5_eg5p3")
+id = "socorro_anysio"
+text = "To preocupada, menina. Chico e o Renato não voltaram até agora."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_hvruv"]
+script = ExtResource("5_eg5p3")
+id = "player"
+text = "Eles tão bem. Vi eles nesse instante. Não acharam nada."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_oxysl"]
+script = ExtResource("5_eg5p3")
+id = "socorro_anysio"
+text = "Graças a Deus."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jhu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_n0kye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7tcq8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_yxx8v"]
+script = ExtResource("5_eg5p3")
+id = "graca_anysio"
+text = "Se tu ver a Jiselma perto da ponte da uma pisa nela. Ela é doida pra atravessar o rio nadando. Perturbada demais."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -138,3 +229,37 @@ metadata/_custom_type_script = "uid://dni5k4arclvqk"
 position = Vector2(-0.5, -12)
 shape = SubResource("RectangleShape2D_eg5p3")
 debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)
+
+[node name="PreConsertoPonte" type="Node2D" parent="." unique_id=174619544]
+y_sort_enabled = true
+position = Vector2(124, 28)
+script = ExtResource("3_tfgbv")
+max_act = 5
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="SebastiaoAnysio" parent="PreConsertoPonte" unique_id=551480179 instance=ExtResource("7_eg5p3")]
+position = Vector2(115, 491)
+sprite_frames = SubResource("SpriteFrames_4ycdk")
+
+[node name="DialogArea" parent="PreConsertoPonte/SebastiaoAnysio" unique_id=1074876436 instance=ExtResource("4_m1o2t")]
+position = Vector2(-1.0000001, -17.000002)
+scale = Vector2(3.068484, 3.068484)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_57516"), SubResource("Resource_6nrq5"), SubResource("Resource_sgj7x")])
+
+[node name="SocorroAnysio" parent="PreConsertoPonte" unique_id=473386271 instance=ExtResource("7_eg5p3")]
+position = Vector2(424, 320)
+sprite_frames = SubResource("SpriteFrames_tn4po")
+
+[node name="DialogArea" parent="PreConsertoPonte/SocorroAnysio" unique_id=775557038 instance=ExtResource("4_m1o2t")]
+position = Vector2(0, -18.999998)
+scale = Vector2(3.7645326, 3.7645326)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_5cs66"), SubResource("Resource_hvruv"), SubResource("Resource_oxysl")])
+
+[node name="GracaAnysio" parent="PreConsertoPonte" unique_id=389481589 instance=ExtResource("7_eg5p3")]
+position = Vector2(0, 35)
+sprite_frames = SubResource("SpriteFrames_4jhu7")
+
+[node name="DialogArea" parent="PreConsertoPonte/GracaAnysio" unique_id=192429534 instance=ExtResource("4_m1o2t")]
+position = Vector2(1, -19)
+scale = Vector2(2.9599986, 2.9599986)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_yxx8v")])

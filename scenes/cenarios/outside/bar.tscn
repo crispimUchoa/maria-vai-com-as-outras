@@ -9,7 +9,9 @@
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="7_xpv7c"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="9_hqfrt"]
 [ext_resource type="Script" uid="uid://imuwfm8he4ld" path="res://scripts/destroi_objeto.gd" id="10_ec5p2"]
+[ext_resource type="Texture2D" uid="uid://clrn0cq1oy1qs" path="res://sprites/fazendeiro/idle/down/1.png" id="10_lg3jk"]
 [ext_resource type="Texture2D" uid="uid://mo7ftk2jp3es" path="res://assets/tilemaps/deserto.png" id="11_7noax"]
+[ext_resource type="Texture2D" uid="uid://c0yhd4k5p4cfp" path="res://sprites/fazendeiro/idle/down/2.png" id="11_ai5bc"]
 [ext_resource type="Texture2D" uid="uid://bmtq7flvnon2a" path="res://assets/tilemaps/cerca.png" id="12_5vcgp"]
 [ext_resource type="Texture2D" uid="uid://cfrgj4w3rrwxa" path="res://assets/tilemaps/houses.png" id="13_mbh0w"]
 [ext_resource type="Texture2D" uid="uid://bmxcbyysbmkb2" path="res://assets/tilemaps/new_trees_edited.png" id="14_pd53u"]
@@ -154,6 +156,38 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 script = ExtResource("9_hqfrt")
 id = "neisso"
 text = "Aí o padre convence todo mundo a não beber. Esse padre ta do lado do Diabo querendo fechar meu bar!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tishs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lg3jk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ai5bc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_rcxc1"]
+script = ExtResource("9_hqfrt")
+id = "fazendeiro"
+text = "Depois de um gole de pinga, sempre é bom descansar na sombra e tomar um vento."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_g20h6"]
+script = ExtResource("9_hqfrt")
+id = "fazendeiro"
+text = "Refrasca a mente do caba antes do trabalho e do almoço. Eu queria trazer o Netin aqui."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ai5bc"]
+script = ExtResource("9_hqfrt")
+id = "fazendeiro"
+text = "Mas a Ocelina fica: \"Ain pain naum pode, o menino tem só 13 anos.\". Blá blá blá. Pense num mimimi. No meu tempo tinha isso não."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lg3jk"]
@@ -3867,7 +3901,7 @@ id = "neisso"
 text = "A fazenda..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
-[sub_resource type="Resource" id="Resource_ai5bc"]
+[sub_resource type="Resource" id="Resource_gd11b"]
 script = ExtResource("9_hqfrt")
 id = "player"
 text = "Ela foi pra fazenda?"
@@ -3986,28 +4020,29 @@ scale = Vector2(2.4782403, 1.4153694)
 position = Vector2(700, 526)
 scale = Vector2(1, 1.640005)
 
-[node name="Neisso" parent="." unique_id=1092087895 instance=ExtResource("4_xh0g2")]
+[node name="PreConsertoPonte" parent="." unique_id=1092087895 instance=ExtResource("4_xh0g2")]
+visible = true
 y_sort_enabled = true
 min_act = 4
-max_act = 6
+max_act = 5
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Neisso" unique_id=1788070892]
+[node name="Neisso" type="StaticBody2D" parent="PreConsertoPonte" unique_id=1788070892]
 y_sort_enabled = true
 position = Vector2(304, 326)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Neisso/StaticBody2D" unique_id=989452286]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PreConsertoPonte/Neisso" unique_id=989452286]
 y_sort_enabled = true
 position = Vector2(0, -38)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_qhds1")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Neisso/StaticBody2D" unique_id=92124766]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PreConsertoPonte/Neisso" unique_id=92124766]
 y_sort_enabled = true
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_jotlg")
 
-[node name="AGEspocaBucho" type="Node2D" parent="Neisso" unique_id=550920642]
+[node name="AGEspocaBucho" type="Node2D" parent="PreConsertoPonte" unique_id=550920642]
 script = ExtResource("7_xpv7c")
 min_act = 4
 needed_items = Dictionary[String, bool]({
@@ -4020,13 +4055,13 @@ appear_mode = false
 use_act_inverval = false
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="DialogArea" parent="Neisso/AGEspocaBucho" unique_id=1935205722 instance=ExtResource("7_ejfvy")]
+[node name="DialogArea" parent="PreConsertoPonte/AGEspocaBucho" unique_id=1935205722 instance=ExtResource("7_ejfvy")]
 position = Vector2(304, 318)
 scale = Vector2(2.782515, -2.3668714)
 dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_xpv7c"), SubResource("Resource_hqfrt"), SubResource("Resource_ec5p2"), SubResource("Resource_42k11"), SubResource("Resource_i3gmi"), SubResource("Resource_b6q21"), SubResource("Resource_vge41"), SubResource("Resource_c44us"), SubResource("Resource_2hs5s"), SubResource("Resource_ibaas"), SubResource("Resource_7noax"), SubResource("Resource_5vcgp"), SubResource("Resource_mbh0w"), SubResource("Resource_pd53u")])
 actions = Array[int]([5])
 
-[node name="AGConserteAPonte" type="Node2D" parent="Neisso" unique_id=441748909]
+[node name="AGConserteAPonte" type="Node2D" parent="PreConsertoPonte" unique_id=441748909]
 script = ExtResource("7_xpv7c")
 min_act = 4
 max_act = 4
@@ -4038,11 +4073,20 @@ needed_items = Dictionary[String, bool]({
 })
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="DialogArea" parent="Neisso/AGConserteAPonte" unique_id=280503919 instance=ExtResource("7_ejfvy")]
+[node name="DialogArea" parent="PreConsertoPonte/AGConserteAPonte" unique_id=280503919 instance=ExtResource("7_ejfvy")]
 position = Vector2(304, 318)
 scale = Vector2(2.782515, -2.3668714)
 dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_dnfb6"), SubResource("Resource_tishs"), SubResource("Resource_sufq6"), SubResource("Resource_lg3jk"), SubResource("Resource_a1mr4")])
 next_act = 5
+
+[node name="Fazendeiro" parent="PreConsertoPonte" unique_id=551480179 instance=ExtResource("19_5vcgp")]
+position = Vector2(683, 202.49763)
+sprite_frames = SubResource("SpriteFrames_tishs")
+
+[node name="DialogArea" parent="PreConsertoPonte/Fazendeiro" unique_id=1074342404 instance=ExtResource("7_ejfvy")]
+position = Vector2(0, -14.034491)
+scale = Vector2(2.7200012, 2.7200012)
+dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_rcxc1"), SubResource("Resource_g20h6"), SubResource("Resource_ai5bc")])
 
 [node name="AGArvoresQuebraveis" type="Node2D" parent="." unique_id=289148052]
 visible = false
@@ -4135,19 +4179,18 @@ shape = SubResource("CircleShape2D_qhds1")
 debug_color = Color(0.9207215, 0.2601914, 0.28222877, 0.41960785)
 
 [node name="AGMaeMorta" type="Node2D" parent="." unique_id=871033749]
+visible = false
 y_sort_enabled = true
 script = ExtResource("7_xpv7c")
 min_act = 7
 max_act = 7
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="Mãe" parent="AGMaeMorta" unique_id=551480179 instance=ExtResource("19_5vcgp")]
-y_sort_enabled = true
+[node name="Mãe" parent="AGMaeMorta" unique_id=1389581236 instance=ExtResource("19_5vcgp")]
 position = Vector2(141, 189.4656)
 sprite_frames = SubResource("SpriteFrames_mbh0w")
 
 [node name="Neísso" parent="AGMaeMorta" unique_id=1456368084 instance=ExtResource("19_5vcgp")]
-y_sort_enabled = true
 position = Vector2(357, 360.88687)
 sprite_frames = SubResource("SpriteFrames_reltv")
 
@@ -4229,7 +4272,7 @@ metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 [node name="DialogArea" parent="AGMaeMorta/AchandoOsCorpos" unique_id=828094422 instance=ExtResource("7_ejfvy")]
 position = Vector2(375, 536.3181)
 scale = Vector2(9.240001, 6.978105)
-dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_reltv"), SubResource("Resource_upnnn"), SubResource("Resource_lcv5w"), SubResource("Resource_x3j4j"), SubResource("Resource_fgs8t"), SubResource("Resource_ai5bc"), SubResource("Resource_70hq0"), SubResource("Resource_hl4ni"), SubResource("Resource_h7fu3"), SubResource("Resource_yu0a6"), SubResource("Resource_n3w7o"), SubResource("Resource_fsum8"), SubResource("Resource_bfks6")])
+dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_reltv"), SubResource("Resource_upnnn"), SubResource("Resource_lcv5w"), SubResource("Resource_x3j4j"), SubResource("Resource_fgs8t"), SubResource("Resource_gd11b"), SubResource("Resource_70hq0"), SubResource("Resource_hl4ni"), SubResource("Resource_h7fu3"), SubResource("Resource_yu0a6"), SubResource("Resource_n3w7o"), SubResource("Resource_fsum8"), SubResource("Resource_bfks6")])
 actions = Array[int]([6])
 autoInteract = true
 
@@ -4250,6 +4293,7 @@ scale = Vector2(13.400002, 6.2566175)
 autoInteract = true
 
 [node name="AGAtaqueLobi" type="Node2D" parent="." unique_id=654211070]
+visible = false
 script = ExtResource("7_xpv7c")
 min_act = 9
 max_act = 9

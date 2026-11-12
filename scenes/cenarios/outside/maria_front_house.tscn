@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://bw81r65013rmu" path="res://scripts/pai_maria.gd" id="5_ud8s8"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="7_djula"]
 [ext_resource type="PackedScene" uid="uid://cgy4sq226oiko" path="res://scenes/safe_zone.tscn" id="10_niyox"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="11_o0udf"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="12_v05pd"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="13_65mvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jotlg"]
 size = Vector2(20, 20.507282)
@@ -30,6 +33,12 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(44.83092, 123.00295)
+
+[sub_resource type="Resource" id="Resource_qhds1"]
+script = ExtResource("13_65mvw")
+id = "player"
+text = "Droga! Se eu for por aí ele me pega!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -133,5 +142,16 @@ scale = Vector2(3.1629639, 3.1629639)
 
 [node name="SafeZone" parent="." unique_id=1003842484 instance=ExtResource("10_niyox")]
 position = Vector2(797, 361)
+
+[node name="AGFugindoLobi1" type="Node2D" parent="." unique_id=1885389773]
+script = ExtResource("11_o0udf")
+min_act = 3
+max_act = 3
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="AGFugindoLobi1" unique_id=1662889787 instance=ExtResource("12_v05pd")]
+position = Vector2(807, 363)
+scale = Vector2(6.64, 28.439999)
+dialogs = Array[ExtResource("13_65mvw")]([SubResource("Resource_qhds1")])
 
 [connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]
