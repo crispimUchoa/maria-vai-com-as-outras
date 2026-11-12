@@ -29,6 +29,15 @@ id = "player"
 text = "Não tenho tempo pra desvios!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_a7c13"]
+script = ExtResource("7_ytvba")
+id = "player"
+text = "Droga! Agora to com mais medo de passar aqui de novo..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvba"]
+size = Vector2(197, 74)
+
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 script = ExtResource("1_csuyj")
@@ -124,3 +133,24 @@ position = Vector2(274.5, 240.5)
 scale = Vector2(-12.493272, 3.5798166)
 dialogs = Array[ExtResource("7_ytvba")]([SubResource("Resource_qhds1")])
 autoInteract = true
+
+[node name="PosNota" type="Node2D" parent="." unique_id=921146982]
+script = ExtResource("5_tx18u")
+min_act = 8
+max_act = 8
+needed_actions = Dictionary[int, bool]({
+8: true
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" type="Area2D" parent="PosNota" unique_id=2094669822]
+position = Vector2(547, 594)
+scale = Vector2(1.653742, 1.5730693)
+script = ExtResource("6_ytvba")
+dialogs = Array[ExtResource("7_ytvba")]([SubResource("Resource_a7c13")])
+metadata/_custom_type_script = "uid://dni5k4arclvqk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PosNota/DialogArea" unique_id=1378735766]
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_ytvba")
+debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)
