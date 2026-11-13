@@ -37,7 +37,6 @@ enum Action {
 	ACHAR_NOTA_SOBRE_O_PADRE,
 	FALAR_PAI_POS_VELORIO,
 	VER_LOBI_FUGINDO,
-	
 }
 
 var actions: Array[Action] = []
