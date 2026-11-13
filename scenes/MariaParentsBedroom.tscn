@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c8737woe5gqas" path="res://sprites/pai_maria/sit/down/1.png" id="5_a3bn2"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="6_5gsn1"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_6wts5"]
+[ext_resource type="Texture2D" uid="uid://c0abkvm7xm5b3" path="res://sprites/sangue.png" id="8_a3bn2"]
+[ext_resource type="Texture2D" uid="uid://dhx0miwbmckkj" path="res://sprites/pai_maria/hurt/up/6.png" id="9_a3bn2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
 animations = [{
@@ -85,6 +87,33 @@ id = "pai_maria"
 text = "Amo demais sua mãe, não consigo suportar olhar pra'quele caixão... Deixe seu velho pai um pouco sozinho, vá buscar água nas cacimbas."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_6wts5"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "NÃAAAAAAAO! NÃAAAAAAAO!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_o6d6e"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "PAI! VOCÊ NÃO PODE ABANDONAR A GENTE, PAI! PAAAAI!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_ctdfa"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "POR QUE? POR QUE, MEU DEUS? POR QUÊ ISSO TÁ ACONTECENDO COMIGO?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i7q0"]
+size = Vector2(45, 47)
+
+[sub_resource type="Resource" id="Resource_a3bn2"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "Papai..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="MariaParentsBedroom" type="Node2D" unique_id=858555542]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=298897457]
@@ -147,6 +176,7 @@ rotation = 3.1415927
 scale = Vector2(1.07, -0.42)
 
 [node name="ProtegerFamilia" type="Node2D" parent="." unique_id=1063833776]
+visible = false
 script = ExtResource("3_voyhc")
 min_act = 6
 max_act = 7
@@ -185,6 +215,7 @@ next_act = 7
 next_mission = "Salve sua mãe"
 
 [node name="AGPaiTriste" type="Node2D" parent="." unique_id=2022263400]
+visible = false
 script = ExtResource("3_voyhc")
 min_act = 9
 max_act = 10
@@ -205,3 +236,60 @@ actions = Array[int]([11])
 next_act = 10
 autoInteract = true
 next_mission = "Ir buscar água"
+
+[node name="AGInvestigarPaiVo" type="Node2D" parent="." unique_id=746174514]
+y_sort_enabled = true
+script = ExtResource("3_voyhc")
+min_act = 11
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="AGAcharPai" type="Node2D" parent="AGInvestigarPaiVo" unique_id=1779349340]
+script = ExtResource("3_voyhc")
+needed_actions = Dictionary[int, bool]({
+21: false
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="AGInvestigarPaiVo/AGAcharPai" unique_id=392139669 instance=ExtResource("6_5gsn1")]
+position = Vector2(275, 325)
+scale = Vector2(3.5915744, 3.7012596)
+dialogs = Array[ExtResource("7_6wts5")]([SubResource("Resource_6wts5"), SubResource("Resource_o6d6e"), SubResource("Resource_ctdfa")])
+actions = Array[int]([21])
+autoInteract = true
+
+[node name="PaiMorto" type="StaticBody2D" parent="AGInvestigarPaiVo" unique_id=2045797523]
+y_sort_enabled = true
+position = Vector2(549, 373)
+
+[node name="Sprite2D2" type="Sprite2D" parent="AGInvestigarPaiVo/PaiMorto" unique_id=493439444]
+position = Vector2(2, -20)
+texture = ExtResource("8_a3bn2")
+
+[node name="Sprite2D" type="Sprite2D" parent="AGInvestigarPaiVo/PaiMorto" unique_id=1618363922]
+position = Vector2(-1.0000098, -1.0000076)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("9_a3bn2")
+offset = Vector2(-2.0740662, -29.481476)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AGInvestigarPaiVo/PaiMorto" unique_id=2106320913]
+position = Vector2(-0.29999924, -22.3)
+shape = SubResource("RectangleShape2D_3i7q0")
+
+[node name="DialogArea" parent="AGInvestigarPaiVo/PaiMorto" unique_id=616320684 instance=ExtResource("6_5gsn1")]
+position = Vector2(-0.79999924, -23.8)
+scale = Vector2(2.7599993, 2.7599993)
+dialogs = Array[ExtResource("7_6wts5")]([SubResource("Resource_a3bn2")])
+
+[node name="Sangues" type="Node2D" parent="AGInvestigarPaiVo" unique_id=146653622]
+
+[node name="Sprite2D" type="Sprite2D" parent="AGInvestigarPaiVo/Sangues" unique_id=424481978]
+position = Vector2(424.00003, 308)
+rotation = 0.00079204736
+scale = Vector2(0.7751688, 0.7751688)
+texture = ExtResource("8_a3bn2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AGInvestigarPaiVo/Sangues" unique_id=88061040]
+position = Vector2(481, 322)
+rotation = 0.00079204736
+scale = Vector2(0.5751688, 0.5751688)
+texture = ExtResource("8_a3bn2")

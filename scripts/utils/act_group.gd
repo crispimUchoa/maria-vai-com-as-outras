@@ -30,7 +30,6 @@ func is_item_done(item: String):
 	return needed_items[item] == InventoryManager.has_item(item)
 	
 func is_all_items_done():
-	print("ALL ITEMS ", needed_items.keys().all(is_item_done))
 	return needed_items.keys().all(is_item_done)
 
 func is_in_act_interval():
@@ -39,7 +38,6 @@ func is_in_act_interval():
 	return (min_act <= current_act and max_act >= current_act)
 
 func can_acess():
-	print(name, ' ', is_all_needed_actions_done() )
 	
 	return ( is_in_act_interval()
 	and is_all_needed_actions_done() and is_all_items_done())

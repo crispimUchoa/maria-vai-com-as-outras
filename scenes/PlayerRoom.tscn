@@ -183,7 +183,7 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 [sub_resource type="Resource" id="Resource_ejhc6"]
 script = ExtResource("13_pbkl3")
 id = "player"
-text = "Não posso sair antes de saber qued estão todos bem..."
+text = "Não posso sair antes de saber que estão todos bem..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_tcrrv"]
@@ -666,6 +666,26 @@ position = Vector2(480, 204)
 scale = Vector2(4.2000017, 3.6400003)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_eoypp")])
 autoInteract = true
+
+[node name="AchouNota" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=1186421223]
+script = ExtResource("22_bc48l")
+min_act = 11
+max_act = 11
+needed_actions = Dictionary[int, bool]({
+10: true,
+20: true,
+21: true,
+22: true
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="InteractionArea" parent="ActGroups/InvestigarPaiVo/AchouNota" unique_id=1459185572 instance=ExtResource("5_bfcy3")]
+position = Vector2(478, 244)
+scale = Vector2(5.2799993, 5.2799993)
+next_act = 12
+autoInteract = true
+next_mission = "Encontre o culpado"
+auto_destroy = true
 
 [node name="Sangue" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=669442354]
 
