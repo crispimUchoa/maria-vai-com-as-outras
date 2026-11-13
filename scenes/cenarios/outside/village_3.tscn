@@ -496,10 +496,11 @@ dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_wsgyc"), SubResou
 
 [node name="PosNota" type="Node2D" parent="VelorioMae" unique_id=1535452539]
 script = ExtResource("3_v583l")
+min_act = 8
+max_act = 9
 needed_actions = Dictionary[int, bool]({
 8: true
 })
-use_act_inverval = false
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="DialogArea" type="Area2D" parent="VelorioMae/PosNota" unique_id=1863961716]

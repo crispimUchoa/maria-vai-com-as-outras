@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b43top47g40uq" path="res://sprites/familia_7/pai/idle/left/2.png" id="6_5d53m"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="7_o6tqk"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="8_dp8n4"]
+[ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="9_5d53m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gk2qm"]
 animations = [{
@@ -85,6 +86,7 @@ rotation = 1.5707964
 scale = Vector2(1, 6.280001)
 next_level_file = "uid://cg4tetjd7h3oo"
 next_spawn_id = "SpawnTrilha1"
+enable_colision = false
 
 [node name="GoToTrilha2" parent="." unique_id=2038018809 instance=ExtResource("2_28ly4")]
 modulate = Color(1, 1, 1, 0.11372549)
@@ -109,3 +111,16 @@ sprite_frames = SubResource("SpriteFrames_gk2qm")
 position = Vector2(0, -20)
 scale = Vector2(3.7199981, 3.7199981)
 dialogs = Array[ExtResource("8_dp8n4")]([SubResource("Resource_jfddm"), SubResource("Resource_dp8n4"), SubResource("Resource_5d53m"), SubResource("Resource_o6tqk")])
+
+[node name="LobiPersegue" type="Node2D" parent="." unique_id=940759310]
+y_sort_enabled = true
+script = ExtResource("3_asm8o")
+min_act = 10
+max_act = 10
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="lobisomem" parent="LobiPersegue" unique_id=1955558193 instance=ExtResource("9_5d53m")]
+position = Vector2(359, 648)
+id_unico = "lobisomem_trilha"
+atacar_direto = true
+velocidade = 460.0

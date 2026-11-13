@@ -139,6 +139,24 @@ id = "padre"
 text = "NÃO! EU IMPLORO! EU NÃO VOU DEIXAR VOCÊ FAZER ISSO!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_qhds1"]
+script = ExtResource("4_ikkqh")
+id = "padre"
+text = "Maria? O que faz aqui hora dessa?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_jotlg"]
+script = ExtResource("4_ikkqh")
+id = "player"
+text = "Padre, você viu ele passando aqui perto?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_dffqp"]
+script = ExtResource("4_ikkqh")
+id = "padre"
+text = "O que? Não vi nem ouvi nada."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="Igreja1" type="Node2D" unique_id=1538178821]
 
 [node name="TileMap" type="Node2D" parent="." unique_id=288678539]
@@ -220,5 +238,24 @@ rotation = 1.5707964
 next_level_file = "uid://cg4tetjd7h3oo"
 next_spawn_id = "SpawnIgreja"
 sound = "uid://bwi044hq6ooow"
+
+[node name="PersegueLobi" type="Node2D" parent="." unique_id=384095319]
+script = ExtResource("2_dxy02")
+min_act = 10
+max_act = 10
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="GoToNext2" parent="PersegueLobi" unique_id=1614554135 instance=ExtResource("2_dk0o3")]
+modulate = Color(1, 1, 1, 0.34117648)
+position = Vector2(457, 599)
+rotation = 1.5707964
+next_level_file = "uid://cg4tetjd7h3oo"
+next_spawn_id = "SpawnIgreja"
+sound = "uid://bwi044hq6ooow"
+
+[node name="DialogArea" parent="PersegueLobi" unique_id=1179425164 instance=ExtResource("3_ikkqh")]
+position = Vector2(392, 215)
+scale = Vector2(6.440001, 6.440001)
+dialogs = Array[ExtResource("4_ikkqh")]([SubResource("Resource_qhds1"), SubResource("Resource_jotlg"), SubResource("Resource_dffqp")])
 
 [connection signal="interacted" from="AGIntimidação/Padre/InteractionArea" to="AGIntimidação/Padre" method="_on_interaction_area_interacted"]
