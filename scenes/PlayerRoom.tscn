@@ -413,7 +413,6 @@ actions = Array[int]([2])
 autoInteract = true
 
 [node name="ActGroupEspocaBucho" parent="ActGroups" unique_id=321565282 instance=ExtResource("8_ptpo5")]
-visible = true
 min_act = 4
 max_act = 4
 

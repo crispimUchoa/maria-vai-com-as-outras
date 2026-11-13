@@ -42,6 +42,12 @@ id = "player"
 text = "Mas não seria melhor ficar mais tempo aqui com ela antes de enterrarem? Sei não... Só o que eu quero é chorar..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_sc3w1"]
+script = ExtResource("5_72x6h")
+id = "player"
+text = "Nem acredito que já faz quase 24 horas que isso aconteceu..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [sub_resource type="Resource" id="Resource_qhds1"]
 script = ExtResource("5_72x6h")
 id = "player"
@@ -226,6 +232,24 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(197, 74)
 
+[sub_resource type="Resource" id="Resource_6540x"]
+script = ExtResource("5_72x6h")
+id = "player"
+text = "Não consigo..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_lu0df"]
+script = ExtResource("5_72x6h")
+id = "player"
+text = "Mamãe..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_tsvef"]
+script = ExtResource("5_72x6h")
+id = "player"
+text = "O padre saiu. Ta trancado..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rbvfy"]
 animations = [{
 "frames": [{
@@ -373,10 +397,9 @@ scale = Vector2(1.1208792, 0.060606062)
 position = Vector2(673, 76)
 
 [node name="SpawnFuneral" type="Marker2D" parent="." unique_id=687781141]
-position = Vector2(212, 345)
+position = Vector2(214, 386)
 
 [node name="VelorioMae" type="Node2D" parent="." unique_id=750602455]
-visible = false
 y_sort_enabled = true
 script = ExtResource("3_v583l")
 min_act = 8
@@ -392,9 +415,9 @@ use_act_inverval = false
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="DialogArea" parent="VelorioMae/DialogoInicial" unique_id=1935205722 instance=ExtResource("4_3fp6q")]
-position = Vector2(202, 350)
+position = Vector2(214, 387)
 scale = Vector2(6.1999984, 6.1999984)
-dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_reltv"), SubResource("Resource_upnnn"), SubResource("Resource_lcv5w")])
+dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_reltv"), SubResource("Resource_upnnn"), SubResource("Resource_lcv5w"), SubResource("Resource_sc3w1")])
 actions = Array[int]([7])
 autoInteract = true
 
@@ -490,11 +513,21 @@ position = Vector2(-0.5, -12)
 shape = SubResource("RectangleShape2D_qhds1")
 debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)
 
+[node name="DialogIgreja" parent="VelorioMae" unique_id=878315764 instance=ExtResource("4_3fp6q")]
+position = Vector2(211.99998, 239.99998)
+scale = Vector2(3.32, 3.32)
+dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_6540x"), SubResource("Resource_lu0df")])
+
 [node name="PreVelorioMae" type="Node2D" parent="." unique_id=2111249550]
 y_sort_enabled = true
 script = ExtResource("3_v583l")
 max_act = 7
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogIgreja" parent="PreVelorioMae" unique_id=235346648 instance=ExtResource("4_3fp6q")]
+position = Vector2(211.99998, 239.99998)
+scale = Vector2(3.32, 3.32)
+dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_tsvef")])
 
 [node name="mae_7" parent="PreVelorioMae" unique_id=1140194019 instance=ExtResource("7_ejpco")]
 position = Vector2(102, 295)
@@ -526,3 +559,18 @@ sprite_frames = SubResource("SpriteFrames_c4mxu")
 position = Vector2(-17, -17.999998)
 scale = Vector2(5.7599974, 5.7599974)
 dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_lksi6"), SubResource("Resource_bram3"), SubResource("Resource_cnu7m"), SubResource("Resource_7xhlg")])
+
+[node name="SpawnIgreja" type="Marker2D" parent="." unique_id=1269144791]
+position = Vector2(213, 282)
+
+[node name="AGPosFuneral" type="Node2D" parent="." unique_id=689194268]
+script = ExtResource("3_v583l")
+min_act = 9
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="GoToNext" parent="AGPosFuneral" unique_id=1276218934 instance=ExtResource("2_rseh7")]
+visible = false
+position = Vector2(152.00002, 210.00002)
+rotation = -1.5837173
+next_level_file = "uid://b1ria1yukrqyi"
+next_spawn_id = "SpawnEntradaIgreja"

@@ -11,5 +11,6 @@ func _on_interaction_area_interacted() -> void:
 	await SceneManager.cutscene_finished
 	SceneManager.show_cutscene(cutscene,"2", interval)
 	await SceneManager.cutscene_finished
+	ProgressManager.set_time(12.0)
 	SceneManager.stop_cutscene()
 	ProgressManager.set_act(ProgressManager.Act.ESPOCA_BUCHO)

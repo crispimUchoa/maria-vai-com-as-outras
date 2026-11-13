@@ -1,5 +1,8 @@
 extends ColorRect
 
+func _ready() -> void:
+	ProgressManager.change_daylight_requested.connect(set_night_intensity)
+
 func set_night_intensity(amount: float) -> void:
 	# Clamp para garantir que fique entre 0.0 e 1.0
 	amount = clamp(amount, 0.0, 1.0)
