@@ -37,6 +37,9 @@ enum Action {
 	ACHAR_NOTA_SOBRE_O_PADRE,
 	FALAR_PAI_POS_VELORIO,
 	VER_LOBI_FUGINDO,
+	TESTEMUNHAR_PAI_VO,
+	ACHAR_PAI,
+	ACHAR_VO
 }
 
 var actions: Array[Action] = []
@@ -78,6 +81,7 @@ func reset_progress():
 	InventoryManager.items = []
 	actions = []
 	mission = "Vá merendar"
+	current_time = 4.5
 
 func load_progress(loaded):
 	current_act = loaded["current_act"]
@@ -86,6 +90,7 @@ func load_progress(loaded):
 	merendou = loaded.get("merendou", false)
 	actions = loaded.get("actions", [] as Array[Action])
 	mission = loaded.get('mission', "Vá merendar")
+	current_time = loaded.get("time", 4.5)
 
 func save_progress() -> Dictionary:
 	return {
@@ -94,12 +99,16 @@ func save_progress() -> Dictionary:
 		"current_spawn_id": current_spawn_id,
 		"merendou": merendou,
 		"actions": actions,
-		"mission": mission
+		"mission": mission,
+		"time": current_time
 	}
 
 func set_mission(new_mission: String):
+	if (mission.is_empty()):
+		mission_requested.emit("")
+		return
 	mission = new_mission
-	mission_requested.emit(new_mission)
+	mission_requested.emit("Missão: " + new_mission)
 
 func has_action(action: Action):
 	return action in actions

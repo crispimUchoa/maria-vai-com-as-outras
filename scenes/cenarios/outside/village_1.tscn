@@ -181,7 +181,7 @@ max_act = 10
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="DialogArea" parent="PerseguiLobi" unique_id=18568600 instance=ExtResource("7_cn07n")]
-position = Vector2(-1.0000305, 0)
+position = Vector2(488, 292)
 scale = Vector2(5.72, 5.72)
 dialogs = Array[ExtResource("8_o3gud")]([SubResource("Resource_3txj7"), SubResource("Resource_jotlg"), SubResource("Resource_dffqp")])
 sound = "uid://be47ltd8x8dpb"

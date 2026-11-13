@@ -21,7 +21,7 @@ func start_talk(lines: Array[DialogInfoModel]):
 	
 	# Criar um CanvasLayer para envelopar a UI do diálogo no topo
 	var canvas_layer = CanvasLayer.new()
-	canvas_layer.layer = 100
+	canvas_layer.layer = 4
 	canvas_layer.add_child(dialog_instance)
 	
 	get_tree().current_scene.add_child(canvas_layer)

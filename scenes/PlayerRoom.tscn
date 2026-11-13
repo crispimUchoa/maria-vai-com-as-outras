@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://bcbegrjm4bfig" path="res://sprites/pai_maria/idle/up/1.png" id="20_kax03"]
 [ext_resource type="Texture2D" uid="uid://b0luapjtw8eou" path="res://sprites/pai_maria/idle/up/2.png" id="21_bc48l"]
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="22_bc48l"]
+[ext_resource type="Script" uid="uid://nl8gsamiqlsg" path="res://scripts/cutscene_nota_sete.gd" id="24_472o0"]
+[ext_resource type="Texture2D" uid="uid://c0abkvm7xm5b3" path="res://sprites/sangue.png" id="25_7iq7q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -178,6 +180,54 @@ id = "player"
 text = "Tenho que ver o que essa anotação quer dizer..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_ejhc6"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Não posso sair antes de saber qued estão todos bem..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_tcrrv"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "O QUE?!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_mp35n"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "QUE SANGUE TODO ESSE?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_cvyr4"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "CALMA, MARIA! DEVE SER UM MAL ENTENDIDO. EU SEGUI ELE, ELE NÃO PODE TER PASSADO AQUI..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_gn3kq"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Ele não me arrudeou..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_2unxj"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Não achei o papai ainda... Ele é forte... Ele tem que tá bem..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_u1of1"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Não posso deixar a vovó sozinha... Preciso achar ela logo..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_eoypp"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Não posso sair... Tenho que achar a última anotação do vovô..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
 metadata/_edit_horizontal_guides_ = [-1.0]
 
@@ -290,7 +340,6 @@ position = Vector2(480, 206)
 scale = Vector2(3.6, 2.4)
 
 [node name="ActGroupPosMerenda" parent="ActGroups" unique_id=2016916900 instance=ExtResource("8_ptpo5")]
-visible = true
 needed_actions = Dictionary[int, bool]({
 0: true
 })
@@ -499,18 +548,24 @@ scale = Vector2(4.9116406, 2.3296738)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf")])
 
 [node name="AGIniciaPosFuneral" type="Node2D" parent="ActGroups" unique_id=182594160]
+visible = false
 script = ExtResource("22_bc48l")
 min_act = 8
 max_act = 8
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="InteractionArea" parent="ActGroups/AGIniciaPosFuneral" unique_id=1614112181 instance=ExtResource("5_bfcy3")]
+[node name="Cutscene" type="Node2D" parent="ActGroups/AGIniciaPosFuneral" unique_id=990272086]
+script = ExtResource("24_472o0")
+
+[node name="InteractionArea" parent="ActGroups/AGIniciaPosFuneral/Cutscene" unique_id=1614112181 instance=ExtResource("5_bfcy3")]
 position = Vector2(482, 214)
 scale = Vector2(5.7963843, 7.636388)
 next_act = 9
 autoInteract = true
+next_time = 20.0
 
 [node name="AGPosFuneral" type="Node2D" parent="ActGroups" unique_id=1660659528]
+visible = false
 script = ExtResource("22_bc48l")
 min_act = 9
 max_act = 9
@@ -522,9 +577,137 @@ scale = Vector2(5.520001, 6.5999975)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_74n2g")])
 autoInteract = true
 
+[node name="InvestigarPaiVo" type="Node2D" parent="ActGroups" unique_id=735668942]
+script = ExtResource("22_bc48l")
+min_act = 11
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="NaoViuPaieVo" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=84747144]
+visible = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+20: true,
+21: false,
+22: false
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/InvestigarPaiVo/NaoViuPaieVo" unique_id=2079406127 instance=ExtResource("12_1gyjw")]
+position = Vector2(480, 204)
+scale = Vector2(4.2000017, 3.6400003)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_ejhc6")])
+autoInteract = true
+
+[node name="ChegouEmCasa" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=1819370135]
+visible = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+20: false
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/InvestigarPaiVo/ChegouEmCasa" unique_id=1011786719 instance=ExtResource("12_1gyjw")]
+position = Vector2(479, 273)
+scale = Vector2(4.08599, 4.08599)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_tcrrv"), SubResource("Resource_mp35n"), SubResource("Resource_cvyr4"), SubResource("Resource_gn3kq")])
+actions = Array[int]([20])
+autoInteract = true
+
+[node name="NaoViuPai" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=539499874]
+visible = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+20: true,
+21: false,
+22: true
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/InvestigarPaiVo/NaoViuPai" unique_id=1204487691 instance=ExtResource("12_1gyjw")]
+position = Vector2(480, 204)
+scale = Vector2(4.2000017, 3.6400003)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_2unxj")])
+autoInteract = true
+
+[node name="NaoViuVo" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=2082506547]
+visible = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+20: true,
+21: true,
+22: false
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/InvestigarPaiVo/NaoViuVo" unique_id=826733258 instance=ExtResource("12_1gyjw")]
+position = Vector2(480, 204)
+scale = Vector2(4.2000017, 3.6400003)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_u1of1")])
+autoInteract = true
+
+[node name="NaoAchouNota" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=609752252]
+visible = false
+script = ExtResource("22_bc48l")
+needed_actions = Dictionary[int, bool]({
+10: false,
+20: true,
+21: true,
+22: true
+})
+use_act_inverval = false
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/InvestigarPaiVo/NaoAchouNota" unique_id=1845602613 instance=ExtResource("12_1gyjw")]
+position = Vector2(480, 204)
+scale = Vector2(4.2000017, 3.6400003)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_eoypp")])
+autoInteract = true
+
+[node name="Sangue" type="Node2D" parent="ActGroups/InvestigarPaiVo" unique_id=669442354]
+
+[node name="Sprite2D" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=1465634784]
+position = Vector2(645.99994, 382.00003)
+scale = Vector2(0.28800204, 0.60000116)
+texture = ExtResource("25_7iq7q")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=1022045504]
+position = Vector2(645.99994, 382.00003)
+scale = Vector2(0.28800204, 0.60000116)
+texture = ExtResource("25_7iq7q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=317149862]
+position = Vector2(450, 427)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("25_7iq7q")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=1143279576]
+position = Vector2(350, 426)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("25_7iq7q")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=1778159223]
+position = Vector2(230, 425)
+scale = Vector2(0.5199994, 0.5199994)
+texture = ExtResource("25_7iq7q")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=2123245237]
+position = Vector2(120, 424)
+scale = Vector2(0.7199997, 0.7199997)
+texture = ExtResource("25_7iq7q")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ActGroups/InvestigarPaiVo/Sangue" unique_id=731361607]
+position = Vector2(451, 484)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("25_7iq7q")
+
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Couch/InteractionArea" to="Couch" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="ActGroups/ActGroupPreMerenda/VaMerendarArea/InteractionArea" to="ActGroups/ActGroupPreMerenda/VaMerendarArea" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="ActGroups/AGPaisQuartoPreDefunta/NaoEntrarNoQuartoDosPais/InteractionArea" to="ActGroups/AGPaisQuartoPreDefunta/NaoEntrarNoQuartoDosPais" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="ActGroups/ActGroupAlerta/AGAlertaCutscene/InteractAlerta/InteractionArea" to="ActGroups/ActGroupAlerta/AGAlertaCutscene/InteractAlerta" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="ActGroups/AGIniciaPosFuneral/Cutscene/InteractionArea" to="ActGroups/AGIniciaPosFuneral/Cutscene" method="_on_interaction_area_interacted"]

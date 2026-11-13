@@ -25,7 +25,6 @@ func spawn_player(initial_spawn: bool=false):
 	current_level_node.add_child(player)
 
 func _ready() -> void:	
-	ProgressManager.update_light()
 	
 	ProgressManager.mission_requested.connect(_on_mission_requested)
 	SceneManager.level_change_requested.connect(_on_level_change_requested)
@@ -41,6 +40,7 @@ func _ready() -> void:
 	ProgressManager.current_spawn_id.is_empty())):
 		SceneManager.change_level(ProgressManager.current_level, ProgressManager.current_spawn_id)
 	
+	ProgressManager.update_light()
 
 func _on_level_change_requested(next_level_path: String, next_spawn_id: String):
 	if level_container.get_child_count() > 0:
@@ -69,4 +69,4 @@ func _position_player(level: Node, spawn_id: String):
 		push_warning("Ponto de spawn '", spawn_id, "' não foi encontrado na fase: ", level.name)
 
 func _on_mission_requested(mission: String):
-	missionLabel.text = "Missão: " + mission
+	missionLabel.text = mission
