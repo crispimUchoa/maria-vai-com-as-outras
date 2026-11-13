@@ -104,7 +104,7 @@ func save_progress() -> Dictionary:
 	}
 
 func set_mission(new_mission: String):
-	if (mission.is_empty()):
+	if (new_mission.is_empty()):
 		mission_requested.emit("")
 		return
 	mission = new_mission
