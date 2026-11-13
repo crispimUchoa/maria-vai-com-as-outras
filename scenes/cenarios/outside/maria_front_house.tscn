@@ -243,17 +243,9 @@ dialogs = Array[ExtResource("13_65mvw")]([SubResource("Resource_qhds1")])
 script = ExtResource("11_o0udf")
 min_act = 10
 max_act = 10
-needed_actions = Dictionary[int, bool]({
-12: false
-})
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="triggeravistarlobo" type="Area2D" parent="AGLobiFuga" unique_id=7138429]
-position = Vector2(183, 266)
-
 [node name="Path2D" type="Path2D" parent="AGLobiFuga" unique_id=730714464]
-position = Vector2(19, -2870)
-scale = Vector2(0.9734442, 10.0292425)
 curve = SubResource("Curve2D_65mvw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="AGLobiFuga/Path2D" unique_id=2020434852]
@@ -262,18 +254,17 @@ rotation = -0.0066579743
 loop = false
 
 [node name="LobisomemFuga" type="Node2D" parent="AGLobiFuga/Path2D/PathFollow2D" unique_id=1613294339]
-position = Vector2(608.14166, 3.2513924)
-rotation = 0.24190056
-scale = Vector2(0.49028426, 0.8686802)
-skew = 1.2630984
+position = Vector2(39.968384, 70.22994)
+scale = Vector2(2, 2)
 script = ExtResource("14_v05pd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AGLobiFuga/Path2D/PathFollow2D/LobisomemFuga" unique_id=1448593799]
-position = Vector2(-316.66693, 483.3432)
-rotation = -1.0702542
-scale = Vector2(1.453, 2)
 sprite_frames = SubResource("SpriteFrames_2ygda")
 animation = &"run_down"
 frame_progress = 0.59528065
+
+[node name="InteractionArea" parent="AGLobiFuga" unique_id=691595414 instance=ExtResource("7_djula")]
+position = Vector2(193, 303)
+scale = Vector2(14.680001, 4.000001)
 
 [connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]
