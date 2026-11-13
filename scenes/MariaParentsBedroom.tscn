@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c8737woe5gqas" path="res://sprites/pai_maria/sit/down/1.png" id="5_a3bn2"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="6_5gsn1"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_6wts5"]
+[ext_resource type="Script" uid="uid://khjxv4dyoht1" path="res://scenes/conversa_pai.gd" id="8_yoln3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
 animations = [{
@@ -170,3 +171,20 @@ scale = Vector2(4.96, 4.96)
 dialogs = Array[ExtResource("7_6wts5")]([SubResource("Resource_voyhc"), SubResource("Resource_yoln3")])
 next_act = 7
 next_mission = "Salve sua mãe"
+
+[node name="AGPaiTriste" type="Node2D" parent="." unique_id=2022263400]
+script = ExtResource("3_voyhc")
+min_act = 9
+max_act = 10
+needed_actions = Dictionary[int, bool]({
+8: false
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="conversa_pai" type="Area2D" parent="AGPaiTriste" unique_id=1885131314]
+position = Vector2(425, 340)
+script = ExtResource("8_yoln3")
+
+[node name="Personagem2" parent="AGPaiTriste" unique_id=1848254302 instance=ExtResource("4_yoln3")]
+position = Vector2(418, 310)
+sprite_frames = SubResource("SpriteFrames_qhds1")

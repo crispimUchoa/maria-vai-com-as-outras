@@ -606,7 +606,7 @@ stream = ExtResource("3_2xkbm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"hurt"
+animation = &"run_down"
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
@@ -633,8 +633,7 @@ light_mask = 3
 visibility_layer = 3
 y_sort_enabled = true
 scale = Vector2(1, 0.99999994)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 0
 script = ExtResource("120_oxcmq")
 
 [node name="CollisionAxe" type="CollisionShape2D" parent="AxeHitbox" unique_id=1379490273]
