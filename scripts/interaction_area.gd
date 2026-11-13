@@ -49,6 +49,7 @@ func set_act_actions():
 			InventoryManager.add_item(item)
 	
 	if (not next_mission.is_empty()):
+		print(next_mission)
 		ProgressManager.set_mission(next_mission)
 	
 	if (next_time >= 0):
