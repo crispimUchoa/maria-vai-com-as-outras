@@ -236,7 +236,7 @@ func receber_dano_fatal() -> void:
 func take_damage(dano: int = 1) -> void:
 	if esta_morta or invulneravel:
 		return
-		
+
 	vida_atual -= dano
 	get_tree().call_group("hud_combate", "atualizar_vida_maria", vida_atual)
 	
