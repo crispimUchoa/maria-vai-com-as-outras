@@ -172,6 +172,12 @@ id = "player"
 text = "Nem falei com meus pais também..."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_74n2g"]
+script = ExtResource("13_pbkl3")
+id = "player"
+text = "Tenho que ver o que essa anotação quer dizer..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="PlayerRoom" type="Node2D" unique_id=1525808226]
 metadata/_edit_horizontal_guides_ = [-1.0]
 
@@ -486,6 +492,30 @@ metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 position = Vector2(480, 198)
 scale = Vector2(4.9116406, 2.3296738)
 dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_0ccyf")])
+
+[node name="AGIniciaPosFuneral" type="Node2D" parent="ActGroups" unique_id=182594160]
+script = ExtResource("22_bc48l")
+min_act = 8
+max_act = 8
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="InteractionArea" parent="ActGroups/AGIniciaPosFuneral" unique_id=1614112181 instance=ExtResource("5_bfcy3")]
+position = Vector2(482, 214)
+scale = Vector2(5.7963843, 7.636388)
+next_act = 9
+autoInteract = true
+
+[node name="AGPosFuneral" type="Node2D" parent="ActGroups" unique_id=1660659528]
+script = ExtResource("22_bc48l")
+min_act = 9
+max_act = 9
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogArea" parent="ActGroups/AGPosFuneral" unique_id=331529674 instance=ExtResource("12_1gyjw")]
+position = Vector2(481, 214.00002)
+scale = Vector2(5.520001, 6.5999975)
+dialogs = Array[ExtResource("13_pbkl3")]([SubResource("Resource_74n2g")])
+autoInteract = true
 
 [connection signal="interacted" from="Tv/InteractionArea" to="Tv" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Bible/InteractionArea" to="Bible" method="_on_interaction_area_interacted"]
