@@ -178,7 +178,7 @@ script = ExtResource("3_voyhc")
 min_act = 9
 max_act = 10
 needed_actions = Dictionary[int, bool]({
-8: false
+8: true
 })
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
