@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://djj813w7akipe" path="res://sprites/padre/idle/down/2.png" id="7_a6jnv"]
 [ext_resource type="Script" uid="uid://cghc2u6w6gsex" path="res://scripts/intimida_padre.gd" id="8_4n1mg"]
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="8_a6jnv"]
-[ext_resource type="PackedScene" uid="uid://4bvpbtvi131k" path="res://scenes/player.tscn" id="9_daj1v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2qiky"]
 animations = [{
@@ -209,7 +208,6 @@ autoInteract = true
 auto_destroy = true
 
 [node name="AGPosInitimidação" type="Node2D" parent="." unique_id=1815755166]
-visible = false
 position = Vector2(457, 599)
 script = ExtResource("2_dxy02")
 min_act = 13
@@ -218,12 +216,9 @@ metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="GoToNext" parent="AGPosInitimidação" unique_id=609231163 instance=ExtResource("2_dk0o3")]
 modulate = Color(1, 1, 1, 0.34117648)
+rotation = 1.5707964
 next_level_file = "uid://cg4tetjd7h3oo"
 next_spawn_id = "SpawnIgreja"
 sound = "uid://bwi044hq6ooow"
-
-[node name="Player" parent="." unique_id=806091486 instance=ExtResource("9_daj1v")]
-position = Vector2(398, 537)
-scale = Vector2(1.35, 1.35)
 
 [connection signal="interacted" from="AGIntimidação/Padre/InteractionArea" to="AGIntimidação/Padre" method="_on_interaction_area_interacted"]
