@@ -28,4 +28,5 @@ func _on_interaction_area_interacted() -> void:
 	ProgressManager.set_time(18.0)
 	SceneManager.stop_cutscene()
 	SceneManager.change_level('res://scenes/cenarios/outside/village_3.tscn', 'SpawnFuneral')
+	ProgressManager.set_mission("")
 	ProgressManager.set_act(ProgressManager.Act.FUNERAL)

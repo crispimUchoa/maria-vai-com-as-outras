@@ -448,6 +448,7 @@ position = Vector2(400, 62)
 scale = Vector2(3.2, 3.2)
 dialogs = Array[ExtResource("5_72x6h")]([SubResource("Resource_jotlg"), SubResource("Resource_8vuen"), SubResource("Resource_dffqp"), SubResource("Resource_l7a5p"), SubResource("Resource_khikw"), SubResource("Resource_0jk0i")])
 actions = Array[int]([8])
+next_mission = "Entenda a nota"
 
 [node name="Padre" parent="VelorioMae" unique_id=551480179 instance=ExtResource("7_ejpco")]
 position = Vector2(109, 272)

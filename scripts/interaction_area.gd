@@ -8,8 +8,19 @@ class_name InteractionArea extends Area2D
 @export var next_time: float = -1
 @export_file("*.wav", "*.mp3", "*.ogg") var sound: String
 @export var auto_destroy = false
+
+@export_group("Checkpoint")
+@export var is_checkpoint: bool = false
+@export var spawn_id: String
+@export_file(".tscn") var scene_file: String
+
 signal interacted
 
+func set_checkpoint():
+	if (not is_checkpoint or not scene_file or not spawn_id): return
+	ProgressManager.current_level = scene_file
+	ProgressManager.current_spawn_id = spawn_id
+	GameManager.salvar_jogo(global_position)
 
 func _ready() -> void:
 	# Conecta o sinal de entrada de corpos à função de tratamento
@@ -51,6 +62,7 @@ func set_act_actions():
 func interact():
 	if (DialogManager.current_dialog or SceneManager.current): return
 	play_sound()
+	set_checkpoint()
 	interacted.emit()
 	set_act_actions()
 	
