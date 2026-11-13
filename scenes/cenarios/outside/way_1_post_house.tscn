@@ -239,6 +239,7 @@ shape = SubResource("RectangleShape2D_ytvba")
 debug_color = Color(0.76724935, 0.09062614, 0.16937551, 0.41960785)
 
 [node name="AGPreConsertoPonte" type="Node2D" parent="." unique_id=1748421846]
+y_sort_enabled = true
 script = ExtResource("5_tx18u")
 min_act = 4
 max_act = 5

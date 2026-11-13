@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="7_o6tqk"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="8_dp8n4"]
 [ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="9_5d53m"]
+[ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="10_o6tqk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gk2qm"]
 animations = [{
@@ -124,3 +125,12 @@ position = Vector2(359, 648)
 id_unico = "lobisomem_trilha"
 atacar_direto = true
 velocidade = 460.0
+
+[node name="InteractionArea" parent="LobiPersegue" unique_id=893722254 instance=ExtResource("10_o6tqk")]
+position = Vector2(365.00003, 495.00003)
+scale = Vector2(5.839814, 5.839814)
+autoInteract = true
+auto_destroy = true
+is_checkpoint = true
+spawn_id = "SpawnTrilha1"
+scene_file = "uid://cg4tetjd7h3oo"

@@ -174,7 +174,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var ato_valido = (ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING) 
 		or ProgressManager.is_act(ProgressManager.Act.POS_FUNERAL)
-		or ProgressManager.Act.PERSIGUICAO_LOBI)
+		or ProgressManager.is_act(ProgressManager.Act.PERSIGUICAO_LOBI))
 		if ato_valido and not em_introducao and target_player == null:
 			target_player = body as CharacterBody2D
 			Audio.tocar("res://assets/sounds/uivo_bizarro.wav", true)

@@ -9,9 +9,35 @@
 [ext_resource type="Script" uid="uid://dt6542qjooyow" path="res://scripts/cenarios/maria_kitchen/armario.gd" id="7_0f2me"]
 [ext_resource type="Script" uid="uid://bkkeyg5oo8jmg" path="res://scripts/cenarios/maria_kitchen/fogao.gd" id="8_5ujh3"]
 [ext_resource type="PackedScene" uid="uid://cenkkpijmc1av" path="res://scenes/utils/ActGroup.tscn" id="8_f5f5p"]
+[ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="10_1aojx"]
+[ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="11_3kf71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(53.77434, 142.65741)
+
+[sub_resource type="Resource" id="Resource_pp1i2"]
+script = ExtResource("11_3kf71")
+id = "vovo"
+text = "Ainda to sem acreditar, minha filha..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_f5f5p"]
+script = ExtResource("11_3kf71")
+id = "player"
+text = "Eu também, vó..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_1aojx"]
+script = ExtResource("11_3kf71")
+id = "vovo"
+text = "Não to com muita cabeça agora, mas mais tarde vou te contar sobre a anotação que seu vô me pediu pra nunca ler, nem mostrar pra ninguém."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_3kf71"]
+script = ExtResource("11_3kf71")
+id = "vovo"
+text = "Guardei esse tempo todo. Escondi e zelei. Sabia que precisaria ler alguma hora..."
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="MariaKitchen" type="Node2D" unique_id=157593700]
 scale = Vector2(0.998304, 1)
@@ -114,23 +140,41 @@ script = ExtResource("8_5ujh3")
 position = Vector2(33.164856, -3.9238214)
 scale = Vector2(0.57281405, 1.4345095)
 
-[node name="ActGroup1" parent="." unique_id=1092087895 instance=ExtResource("8_f5f5p")]
+[node name="AGVoInicio" parent="." unique_id=1092087895 instance=ExtResource("8_f5f5p")]
 max_act = 2
 
-[node name="Vovo" type="Node2D" parent="ActGroup1" unique_id=1172700086]
+[node name="Vovo" type="Node2D" parent="AGVoInicio" unique_id=1172700086]
 script = ExtResource("3_ri44h")
 
-[node name="Vovo" type="Sprite2D" parent="ActGroup1/Vovo" unique_id=259399928]
+[node name="Vovo" type="Sprite2D" parent="AGVoInicio/Vovo" unique_id=259399928]
 z_index = 4
 position = Vector2(442.7509, 371.99997)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_eul7q")
 
-[node name="InteractionArea" parent="ActGroup1/Vovo" unique_id=1935205722 instance=ExtResource("4_85wyp")]
+[node name="InteractionArea" parent="AGVoInicio/Vovo" unique_id=1935205722 instance=ExtResource("4_85wyp")]
 position = Vector2(439.74585, 388)
 scale = Vector2(2.7787342, 3.3130984)
+
+[node name="AgVoPosFuneral" parent="." unique_id=1714397824 instance=ExtResource("8_f5f5p")]
+visible = true
+min_act = 9
+max_act = 10
+
+[node name="Vovo" type="Node2D" parent="AgVoPosFuneral" unique_id=1841165940]
+
+[node name="Vovo" type="Sprite2D" parent="AgVoPosFuneral/Vovo" unique_id=1144854036]
+z_index = 4
+position = Vector2(442.7509, 371.99997)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_eul7q")
+
+[node name="DialogArea" parent="AgVoPosFuneral/Vovo" unique_id=145649339 instance=ExtResource("10_1aojx")]
+position = Vector2(439.7458, 386)
+scale = Vector2(3.1636696, 3.1636696)
+dialogs = Array[ExtResource("11_3kf71")]([SubResource("Resource_pp1i2"), SubResource("Resource_f5f5p"), SubResource("Resource_1aojx"), SubResource("Resource_3kf71")])
 
 [connection signal="interacted" from="Pia/InteractionArea" to="Pia" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Armario/InteractionArea" to="Armario" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Fogao/InteractionArea" to="Fogao" method="_on_interaction_area_interacted"]
-[connection signal="interacted" from="ActGroup1/Vovo/InteractionArea" to="ActGroup1/Vovo" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="AGVoInicio/Vovo/InteractionArea" to="AGVoInicio/Vovo" method="_on_interaction_area_interacted"]

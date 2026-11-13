@@ -4,7 +4,7 @@ shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
 uniform vec4 night_color : source_color = vec4(0.1, 0.2, 0.45, 1.0); // Azul escuro
 uniform float night_amount : hint_range(0.0, 1.0) = 1.0;             // 0 = Dia, 1 = Noite
-uniform float brightness : hint_range(0.0, 2.0) = 1.25;              // Ajuste de brilho
+uniform float brightness : hint_range(0.0, 2.0) = 2;              // Ajuste de brilho
 uniform float contrast : hint_range(0.0, 2.0) = 1.1;                 // Ajuste de contraste
 
 void fragment() {

@@ -193,4 +193,13 @@ id_unico = "lobisomem_trilha"
 atacar_direto = true
 velocidade = 460.0
 
+[node name="InteractionArea" parent="LobiPersegue" unique_id=1098884301 instance=ExtResource("3_6qscw")]
+position = Vector2(374, 512)
+scale = Vector2(5.839814, 5.839814)
+autoInteract = true
+auto_destroy = true
+is_checkpoint = true
+spawn_id = "SpawnPonte"
+scene_file = "uid://b80dypf5m015j"
+
 [connection signal="interacted" from="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar/InteractionArea" to="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar" method="_on_interaction_area_interacted"]
