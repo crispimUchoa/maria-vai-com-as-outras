@@ -12,7 +12,12 @@ func _ready() -> void:
 	print("--- AxeHitbox pronta e monitorando ---")
 
 func _on_body_entered(body: Node2D) -> void:
-	_processar_impacto(body)
+	# Impede que o machado dê dano na própria Maria
+	if body is Player or body == get_parent():
+		return
+		
+	if body.has_method("take_damage"):
+		body.take_damage(1)
 
 func _on_area_entered(area: Area2D) -> void:
 	_processar_impacto(area)

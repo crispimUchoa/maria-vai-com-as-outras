@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name Player
 
+@export var vida_max: int = 3
+var vida_atual: int = 3
+var invulneravel: bool = false
+
 const WALK_SPEED = 130.0
 const RUN_SPEED = 230.0
 const display_name: String = "Maria"
@@ -22,6 +26,7 @@ var esta_morta: bool = false
 var screen_size: Vector2
 
 func _ready() -> void:
+	vida_atual = vida_max
 	animated_sprite.frame_changed.connect(_on_frame_changed)
 	screen_size = get_viewport_rect().size
 	
@@ -211,6 +216,8 @@ func receber_dano_fatal() -> void:
 		return
 		
 	esta_morta = true
+	vida_atual = 0
+	get_tree().call_group("hud_combate", "atualizar_vida_maria", 0)
 	velocity = Vector2.ZERO
 	
 	if walking_sound and walking_sound.playing:
@@ -225,6 +232,25 @@ func receber_dano_fatal() -> void:
 	# Espera os 1.5 segundos da animação de morte rodar ANTES de abrir diálogo ou game over
 	await get_tree().create_timer(1.5).timeout
 	game_over()
+
+func take_damage(dano: int = 1) -> void:
+	if esta_morta or invulneravel:
+		return
+		
+	vida_atual -= dano
+	get_tree().call_group("hud_combate", "atualizar_vida_maria", vida_atual)
+	
+	if vida_atual <= 0:
+		receber_dano_fatal()
+	else:
+		# Empurrão leve e 1.2s de invulnerabilidade piscando
+		invulneravel = true
+		if animated_sprite:
+			var tween = create_tween().set_loops(4)
+			tween.tween_property(animated_sprite, "modulate:a", 0.3, 0.15)
+			tween.tween_property(animated_sprite, "modulate:a", 1.0, 0.15)
+		await get_tree().create_timer(1.2).timeout
+		invulneravel = false
 
 func game_over() -> void:
 	# Reinicia o jogo a partir do save ou recarrega a cena atual

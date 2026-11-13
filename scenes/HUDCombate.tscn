@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bm0e27ipf3q0c"]
+
+[ext_resource type="Script" uid="uid://dyviaenet0ix3" path="res://scripts/hud_combate.gd" id="1_t20en"]
+[ext_resource type="Texture2D" uid="uid://j7768gmfb4ns" path="res://sprites/corações cheio.png" id="2_ufdj5"]
+[ext_resource type="Texture2D" uid="uid://cdqtjuoix1ux1" path="res://sprites/corações vazio.png" id="3_2cedj"]
+
+[node name="HudCombate" type="CanvasLayer" unique_id=1089152780]
+script = ExtResource("1_t20en")
+maria_coracao_cheio = ExtResource("2_ufdj5")
+maria_coracao_vazio = ExtResource("3_2cedj")
+lobo_coracao_cheio = ExtResource("2_ufdj5")
+lobo_coracao_vazio = ExtResource("3_2cedj")
+
+[node name="Control" type="Control" parent="." unique_id=403199511]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CoracoesMaria" type="HBoxContainer" parent="Control" unique_id=1396615267]
+visible = false
+layout_mode = 1
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 33.0
+
+[node name="coracao1" type="TextureRect" parent="Control/CoracoesMaria" unique_id=933585409]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ufdj5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coracao2" type="TextureRect" parent="Control/CoracoesMaria" unique_id=991032811]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ufdj5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coracao3" type="TextureRect" parent="Control/CoracoesMaria" unique_id=1762527379]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ufdj5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoracoesLobisomem" type="HBoxContainer" parent="Control" unique_id=1690997007]
+visible = false
+layout_mode = 0
+offset_left = 689.0
+offset_top = 7.0
+offset_right = 784.0
+offset_bottom = 38.0
+
+[node name="coracao1" type="TextureRect" parent="Control/CoracoesLobisomem" unique_id=493555532]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ufdj5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coracao2" type="TextureRect" parent="Control/CoracoesLobisomem" unique_id=445351500]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ufdj5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coracao3" type="TextureRect" parent="Control/CoracoesLobisomem" unique_id=596923950]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ufdj5")
+expand_mode = 1
+stretch_mode = 5
