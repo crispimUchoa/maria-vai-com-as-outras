@@ -113,6 +113,30 @@ id = "graca_anysio"
 text = "Se tu ver a Jiselma perto da ponte da uma pisa nela. Ela é doida pra atravessar o rio nadando. Perturbada demais."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_f0ae3"]
+script = ExtResource("5_eg5p3")
+id = "player"
+text = "Renato! TA TUDO BEM?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_n0kye"]
+script = ExtResource("5_eg5p3")
+id = "renato_aragao"
+text = "Tava antes de tu me acordar, diabo! Vai perturbar o Satanás!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_3txj7"]
+script = ExtResource("5_eg5p3")
+id = "player"
+text = "Oii! Tá todo mundo aqui??"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_jotlg"]
+script = ExtResource("5_eg5p3")
+id = "sebastiao_anysio"
+text = "E onde mais a gente 'taria essas hora'? Errada é tu fora hora dessa! Vai dormir, maluca!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -263,3 +287,21 @@ sprite_frames = SubResource("SpriteFrames_4jhu7")
 position = Vector2(1, -19)
 scale = Vector2(2.9599986, 2.9599986)
 dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_yxx8v")])
+
+[node name="PerseguiLobi" type="Node2D" parent="." unique_id=753694502]
+script = ExtResource("3_tfgbv")
+min_act = 10
+max_act = 10
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="DialogAragao" parent="PerseguiLobi" unique_id=1502951721 instance=ExtResource("4_m1o2t")]
+position = Vector2(545, 234)
+scale = Vector2(5.9199996, 5.9199996)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_f0ae3"), SubResource("Resource_n0kye")])
+sound = "uid://be47ltd8x8dpb"
+
+[node name="DialogAnysio" parent="PerseguiLobi" unique_id=835098256 instance=ExtResource("4_m1o2t")]
+position = Vector2(84.99997, 429)
+scale = Vector2(5.72, 5.72)
+dialogs = Array[ExtResource("5_eg5p3")]([SubResource("Resource_3txj7"), SubResource("Resource_jotlg")])
+sound = "uid://be47ltd8x8dpb"

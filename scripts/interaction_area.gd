@@ -22,6 +22,9 @@ func on_area_entered(body: Node) -> void:
 	if body.is_in_group("PlayerArea"):
 		interact()
 
+func play_sound():
+	if (sound):
+		Audio.tocar(sound)			
 
 func set_act_actions():
 	if (not ProgressManager.is_act(next_act) and not next_act == ProgressManager.Act.BEGIN_MARIA_HOUSE):
@@ -40,14 +43,14 @@ func set_act_actions():
 	if (next_time >= 0):
 		ProgressManager.set_time(next_time)
 	
-	if (sound):
-		Audio.tocar(sound)
+	
 	ProgressManager.update_acess()
 	if (auto_destroy):
 		queue_free()
 
 func interact():
 	if (DialogManager.current_dialog or SceneManager.current): return
+	play_sound()
 	interacted.emit()
 	set_act_actions()
 	

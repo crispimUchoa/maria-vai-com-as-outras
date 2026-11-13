@@ -49,19 +49,17 @@ func set_acess():
 		push_error("Max act must be higher or equal than min act.")
 	var active: bool = (can_acess() == appear_mode)
 	if (active):
-		process_mode = Node.PROCESS_MODE_INHERIT
+		set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 		visible = true or always_visible
 	else:
 		visible = false or always_visible
-		process_mode = Node.PROCESS_MODE_DISABLED
+		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	_set_collisions_recursive(self, active or always_visible)
 	
 func _set_collisions_recursive(node: Node, enabled: bool) -> void:
 	for child in node.get_children():
-
 		if child is TileMapLayer:
-			child.collision_enabled = enabled
+			child.set_deferred("collision_enabled", enabled)
 				
-		# Percorre os nós filhos recursivamente
 		if child.get_child_count() > 0:
 			_set_collisions_recursive(child, enabled)
