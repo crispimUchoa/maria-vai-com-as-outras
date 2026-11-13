@@ -6,6 +6,8 @@ func pd(text: String):
 
 func _on_interaction_area_interacted() -> void:
 	SceneManager.show_cutscene("res://scenes/cutscenes/mae_e_maria.tscn","0")
+	Audio.tocar('res://assets/sounds/grito_mae_morta.wav')
+
 	DialogManager.start_talk([
 		pd("MÃAAAAAAAAAAAAAAAAAAAAAAAE!"),
 		pd("NÃO PODE SER! MÃE REAGE, POR FAVOR!"),
