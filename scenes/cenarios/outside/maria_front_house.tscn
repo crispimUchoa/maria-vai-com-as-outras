@@ -13,6 +13,23 @@
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="11_o0udf"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="12_v05pd"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="13_65mvw"]
+[ext_resource type="Script" uid="uid://bofu4rmuxqnfl" path="res://scenes/cenarios/outside/lobisomem_fuga.gd" id="14_v05pd"]
+[ext_resource type="Texture2D" uid="uid://cmvs7jpjy3e75" path="res://sprites/lobisomem/run/down/1.png" id="15_cqijp"]
+[ext_resource type="Texture2D" uid="uid://la8gkwco20hi" path="res://sprites/lobisomem/run/down/2.png" id="16_jisk3"]
+[ext_resource type="Texture2D" uid="uid://dwxjr74m5naui" path="res://sprites/lobisomem/run/down/3.png" id="17_ibku2"]
+[ext_resource type="Texture2D" uid="uid://tvj4kec7eyo3" path="res://sprites/lobisomem/run/down/4.png" id="18_mbiq5"]
+[ext_resource type="Texture2D" uid="uid://drgbarrajc5ua" path="res://sprites/lobisomem/run/down/5.png" id="19_xfkdj"]
+[ext_resource type="Texture2D" uid="uid://drrd4syjwg4r7" path="res://sprites/lobisomem/run/down/6.png" id="20_wb2p2"]
+[ext_resource type="Texture2D" uid="uid://xogjutksfhhw" path="res://sprites/lobisomem/run/down/7.png" id="21_kvmgy"]
+[ext_resource type="Texture2D" uid="uid://cfo8d3qr6onjw" path="res://sprites/lobisomem/run/down/8.png" id="22_mqvss"]
+[ext_resource type="Texture2D" uid="uid://cys7lcuhoer4v" path="res://sprites/lobisomem/run/right/1.png" id="23_qvffd"]
+[ext_resource type="Texture2D" uid="uid://15v04spqsw1y" path="res://sprites/lobisomem/run/right/2.png" id="24_dqsd2"]
+[ext_resource type="Texture2D" uid="uid://t1861uo4fmfn" path="res://sprites/lobisomem/run/right/3.png" id="25_vgwhm"]
+[ext_resource type="Texture2D" uid="uid://cuy6xmukrov4o" path="res://sprites/lobisomem/run/right/4.png" id="26_3gl4e"]
+[ext_resource type="Texture2D" uid="uid://do6av7k30jhnr" path="res://sprites/lobisomem/run/right/5.png" id="27_504b5"]
+[ext_resource type="Texture2D" uid="uid://d3ssg0el14yad" path="res://sprites/lobisomem/run/right/6.png" id="28_7k480"]
+[ext_resource type="Texture2D" uid="uid://dp0nuggpjvwkp" path="res://sprites/lobisomem/run/right/7.png" id="29_5h1xh"]
+[ext_resource type="Texture2D" uid="uid://irlcmgkmc8mt" path="res://sprites/lobisomem/run/right/8.png" id="30_2h6w7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jotlg"]
 size = Vector2(20, 20.507282)
@@ -39,6 +56,73 @@ script = ExtResource("13_65mvw")
 id = "player"
 text = "Droga! Se eu for por aí ele me pega!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Curve2D" id="Curve2D_65mvw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 148.56491, 332.03772, 0, 0, 0, 0, 822.4607, 327.55087)
+}
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ygda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_cqijp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jisk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ibku2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_mbiq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xfkdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wb2p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kvmgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mqvss")
+}],
+"loop": 1,
+"name": &"run_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_qvffd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dqsd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vgwhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3gl4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_504b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7k480")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_5h1xh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2h6w7")
+}],
+"loop": 1,
+"name": &"run_right",
+"speed": 10.0
+}]
 
 [node name="MariaFrontHouse" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
@@ -153,5 +237,42 @@ metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 position = Vector2(807, 363)
 scale = Vector2(6.64, 28.439999)
 dialogs = Array[ExtResource("13_65mvw")]([SubResource("Resource_qhds1")])
+
+[node name="AGLobiFuga" type="Node2D" parent="." unique_id=63891230]
+script = ExtResource("11_o0udf")
+min_act = 10
+max_act = 10
+needed_actions = Dictionary[int, bool]({
+12: false
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="triggeravistarlobo" type="Area2D" parent="AGLobiFuga" unique_id=7138429]
+position = Vector2(183, 266)
+
+[node name="Path2D" type="Path2D" parent="AGLobiFuga" unique_id=730714464]
+position = Vector2(19, -2870)
+scale = Vector2(0.9734442, 10.0292425)
+curve = SubResource("Curve2D_65mvw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="AGLobiFuga/Path2D" unique_id=2020434852]
+position = Vector2(148.56491, 332.03772)
+rotation = -0.0066579743
+loop = false
+
+[node name="LobisomemFuga" type="Node2D" parent="AGLobiFuga/Path2D/PathFollow2D" unique_id=1613294339]
+position = Vector2(608.14166, 3.2513924)
+rotation = 0.24190056
+scale = Vector2(0.49028426, 0.8686802)
+skew = 1.2630984
+script = ExtResource("14_v05pd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AGLobiFuga/Path2D/PathFollow2D/LobisomemFuga" unique_id=1448593799]
+position = Vector2(-316.66693, 483.3432)
+rotation = -1.0702542
+scale = Vector2(1.453, 2)
+sprite_frames = SubResource("SpriteFrames_2ygda")
+animation = &"run_down"
+frame_progress = 0.59528065
 
 [connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]
