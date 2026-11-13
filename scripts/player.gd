@@ -253,6 +253,7 @@ func take_damage(dano: int = 1) -> void:
 		invulneravel = false
 
 func game_over() -> void:
+	Audio.parar()
 	# Reinicia o jogo a partir do save ou recarrega a cena atual
 	if GameManager.jogo_salvo:
 		GameManager.carregar_jogo()

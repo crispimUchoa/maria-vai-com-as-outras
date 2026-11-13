@@ -35,3 +35,4 @@ position = Vector2(65, 76)
 rotation = 1.5679681
 next_level_file = "uid://cg4tetjd7h3oo"
 next_spawn_id = "SpawnIgreja"
+sound = "uid://bwi044hq6ooow"

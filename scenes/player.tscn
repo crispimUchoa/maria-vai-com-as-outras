@@ -599,6 +599,7 @@ script = ExtResource("1_g2els")
 
 [node name="WalkingSound" type="AudioStreamPlayer" parent="." unique_id=530840448]
 stream = ExtResource("2_6c3st")
+volume_db = -2.552
 
 [node name="SwingAxeSound" type="AudioStreamPlayer" parent="." unique_id=520360006]
 stream = ExtResource("3_2xkbm")
