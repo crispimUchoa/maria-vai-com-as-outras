@@ -21,6 +21,7 @@ func _on_continue_button_pressed():
 # Novo jogo
 func _on_play_button_pressed():
 	GameManager.player_position = Vector2.ZERO
+	GameManager.objeto_destruido = []
 	ProgressManager.reset_progress()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
