@@ -41,8 +41,9 @@ func _on_interaction_area_interacted() -> void:
 	DialogManager.start_talk([
 		DialogInfoModel.new('player', "AAAAAAAAAAAAAAAAAAAAAAAAAAAA!")
 	])
+	Audio.tocar('res://assets/sounds/grito_defunta.wav')
 	await DialogManager.dialog_finished
-	
+
 	# 5. Cutscene Quadro 3
 	SceneManager.show_cutscene(cutscene, "2", interval)
 	await SceneManager.cutscene_finished
@@ -51,6 +52,7 @@ func _on_interaction_area_interacted() -> void:
 	DialogManager.start_talk([
 		DialogInfoModel.new('player', "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!")
 	])
+	
 	await DialogManager.dialog_finished
 	
 	# 7. Finaliza a cutscene e despausa o jogo de verdade!

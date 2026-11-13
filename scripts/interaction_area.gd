@@ -6,6 +6,8 @@ class_name InteractionArea extends Area2D
 @export var autoInteract = false
 @export var next_mission: String = ""
 @export var next_time: float = -1
+@export_file("*.wav", "*.mp3", "*.ogg") var sound: String
+@export var auto_destroy = false
 signal interacted
 
 
@@ -38,7 +40,11 @@ func set_act_actions():
 	if (next_time >= 0):
 		ProgressManager.set_time(next_time)
 	
+	if (sound):
+		Audio.tocar(sound)
 	ProgressManager.update_acess()
+	if (auto_destroy):
+		queue_free()
 
 func interact():
 	if (DialogManager.current_dialog or SceneManager.current): return

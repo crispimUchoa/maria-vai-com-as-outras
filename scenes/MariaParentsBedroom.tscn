@@ -119,6 +119,7 @@ position = Vector2(224.00002, 304)
 scale = Vector2(-1.07, 0.42)
 next_level_file = "uid://cwluaiewpahf0"
 next_spawn_id = "SpawnMariaParentsBedroom"
+sound = "uid://bwi044hq6ooow"
 
 [node name="InvisibleColisions" type="StaticBody2D" parent="." unique_id=1222729368]
 position = Vector2(268, 309.00003)

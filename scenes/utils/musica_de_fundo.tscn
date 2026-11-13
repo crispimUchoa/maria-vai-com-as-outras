@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://r3xf8p3mulma"]
+
+[ext_resource type="AudioStream" uid="uid://b1hqu7fs6g6fa" path="res://assets/sounds/mystery-song.mp3" id="1_yi6is"]
+
+[node name="MusicaDeFundo" type="AudioStreamPlayer" unique_id=409753167]
+stream = ExtResource("1_yi6is")
+volume_db = -15.295
+autoplay = true
+parameters/looping = true

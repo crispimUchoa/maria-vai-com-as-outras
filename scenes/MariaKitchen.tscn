@@ -72,6 +72,7 @@ rotation = -1.5707964
 scale = Vector2(1.6690874, 0.74)
 next_level_file = "uid://cwluaiewpahf0"
 next_spawn_id = "SpawnKitchen"
+sound = "uid://bwi044hq6ooow"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="GoToNext" unique_id=1419353826]
 

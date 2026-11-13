@@ -79,7 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://do05nlutpueiy" path="res://sprites/lobisomem/walk/up/9.png" id="77_2g34a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ldj"]
-size = Vector2(41.5, 20.25)
+size = Vector2(31, 16.625)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l5ldj"]
 animations = [{
@@ -391,7 +391,7 @@ id_unico = "lobisomem"
 light_mask = 1023
 visibility_layer = 3
 y_sort_enabled = true
-position = Vector2(4, -1.125)
+position = Vector2(0.5, -1.1875)
 shape = SubResource("RectangleShape2D_l5ldj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613930654]

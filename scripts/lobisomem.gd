@@ -175,7 +175,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 		var ato_valido = ProgressManager.is_act(ProgressManager.Act.DEAD_GIRL_WARNING) or ProgressManager.is_act(ProgressManager.Act.POS_FUNERAL)
 		if ato_valido and not em_introducao and target_player == null:
 			target_player = body as CharacterBody2D
-			
+			Audio.tocar("res://assets/sounds/uivo_bizarro.wav", true)
 			# Ativa a HUD de 3 corações na tela quando começa o confronto final
 			if modo_confronto_final:
 				var vida_maria = body.vida_atual if "vida_atual" in body else 3
@@ -218,6 +218,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 			capturou_player = true
 			velocity = Vector2.ZERO
 			if body.has_method("receber_dano_fatal"):
+				Audio.tocar("res://assets/sounds/lobo_mordida.wav")
 				body.receber_dano_fatal()
 
 func take_damage(damage: int = 1) -> void:
