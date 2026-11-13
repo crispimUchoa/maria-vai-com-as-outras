@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c8737woe5gqas" path="res://sprites/pai_maria/sit/down/1.png" id="5_a3bn2"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="6_5gsn1"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="7_6wts5"]
-[ext_resource type="Script" uid="uid://khjxv4dyoht1" path="res://scenes/conversa_pai.gd" id="8_yoln3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qhds1"]
 animations = [{
@@ -72,6 +71,18 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 script = ExtResource("7_6wts5")
 id = "pai_maria"
 text = "Shhh! Quando sua mãe chegar, você vai ver!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_r83si"]
+script = ExtResource("7_6wts5")
+id = "player"
+text = "Pai, por que saiu cedo do velório da mãe?"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_hdtws"]
+script = ExtResource("7_6wts5")
+id = "pai_maria"
+text = "Amo demais sua mãe, não consigo suportar olhar pra'quele caixão... Deixe seu velho pai um pouco sozinho, vá buscar água nas cacimbas."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="MariaParentsBedroom" type="Node2D" unique_id=858555542]
@@ -182,10 +193,15 @@ needed_actions = Dictionary[int, bool]({
 })
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
-[node name="conversa_pai" type="Area2D" parent="AGPaiTriste" unique_id=1885131314]
-position = Vector2(425, 340)
-script = ExtResource("8_yoln3")
-
 [node name="Personagem2" parent="AGPaiTriste" unique_id=1848254302 instance=ExtResource("4_yoln3")]
 position = Vector2(418, 310)
 sprite_frames = SubResource("SpriteFrames_qhds1")
+
+[node name="DialogArea" parent="AGPaiTriste" unique_id=1391948101 instance=ExtResource("6_5gsn1")]
+position = Vector2(417, 292)
+scale = Vector2(7.905907, 8.835385)
+dialogs = Array[ExtResource("7_6wts5")]([SubResource("Resource_r83si"), SubResource("Resource_hdtws")])
+actions = Array[int]([11])
+next_act = 10
+autoInteract = true
+next_mission = "Ir buscar água"
