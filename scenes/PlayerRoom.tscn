@@ -329,6 +329,7 @@ scale = Vector2(1.4875647, 1.953696)
 polygon = PackedVector2Array(-1.9226685, -1.1354828, 16.59108, -1.1354828, -27.957611, 72.04047)
 
 [node name="ActGroupAlerta" parent="ActGroups" unique_id=303861555 instance=ExtResource("8_ptpo5")]
+visible = true
 y_sort_enabled = true
 min_act = 3
 max_act = 3

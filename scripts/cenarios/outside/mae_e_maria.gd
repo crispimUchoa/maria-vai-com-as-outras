@@ -23,6 +23,7 @@ func _on_interaction_area_interacted() -> void:
 	await DialogManager.dialog_finished
 	SceneManager.show_cutscene("res://scenes/cutscenes/mae_e_maria.tscn","1", 1.0)
 	await SceneManager.cutscene_finished
+	ProgressManager.set_time(18.0)
 	SceneManager.stop_cutscene()
 	SceneManager.change_level('res://scenes/cenarios/outside/village_3.tscn', 'SpawnFuneral')
 	ProgressManager.set_act(ProgressManager.Act.FUNERAL)

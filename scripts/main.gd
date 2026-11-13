@@ -26,6 +26,8 @@ func spawn_player(initial_spawn: bool=false):
 	current_level_node.add_child(player)
 
 func _ready() -> void:	
+	ProgressManager.update_light()
+	
 	ProgressManager.mission_requested.connect(_on_mission_requested)
 	SceneManager.level_change_requested.connect(_on_level_change_requested)
 	ProgressManager.set_mission(ProgressManager.mission)
