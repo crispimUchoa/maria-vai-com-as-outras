@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cqdabla0iyxhr" path="res://scripts/interaction_area.gd" id="1_5enim"]
 [ext_resource type="Script" uid="uid://cnqpf4f6b3s25" path="res://scripts/go_to_next.gd" id="1_h5jmt"]
-[ext_resource type="AudioStream" uid="uid://dpcuf56ck1aqb" path="res://assets/sounds/door-locked.wav" id="3_fufvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(10.667473, 19.768984)
@@ -22,12 +21,12 @@ size = Vector2(4, 50)
 script = ExtResource("1_h5jmt")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1285247361]
-position = Vector2(-17, -1)
+position = Vector2(-1, 0)
 script = ExtResource("1_5enim")
 metadata/_custom_type_script = "uid://cqdabla0iyxhr"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2118351862]
-position = Vector2(0, 64)
+position = Vector2(-6, 63)
 rotation = -3.1415923
 scale = Vector2(4.7936325, -6.610963)
 shape = SubResource("RectangleShape2D_g4v7s")
@@ -47,8 +46,5 @@ position = Vector2(0, 64)
 scale = Vector2(-1.113161, 2.7370706)
 shape = SubResource("RectangleShape2D_aip8i")
 debug_color = Color(1, 0.013793166, 0.039712105, 0.41960785)
-
-[node name="DoorLocked" type="AudioStreamPlayer" parent="." unique_id=859928596]
-stream = ExtResource("3_fufvg")
 
 [connection signal="interacted" from="InteractionArea" to="." method="_on_interaction_area_interacted"]

@@ -5,7 +5,6 @@
 [ext_resource type="Shader" uid="uid://gecof63y0xf8" path="res://scripts/utils/night_shader.gdshader" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://ms1wpimgki3l" path="res://scripts/utils/night_setter.gd" id="4_tefeu"]
-[ext_resource type="AudioStream" uid="uid://bwi044hq6ooow" path="res://assets/sounds/door-creak.wav" id="5_tbgi4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jotlg"]
 shader = ExtResource("3_tbgi4")
@@ -35,10 +34,6 @@ script = ExtResource("4_tefeu")
 visible = false
 
 [node name="Sounds" type="Node2D" parent="." unique_id=1782088673]
-
-[node name="DoorCreak" type="AudioStreamPlayer" parent="Sounds" unique_id=394528258]
-stream = ExtResource("5_tbgi4")
-volume_db = 4.457
 
 [node name="InitialSpawn" type="Marker2D" parent="." unique_id=1187404950]
 position = Vector2(350, 350)

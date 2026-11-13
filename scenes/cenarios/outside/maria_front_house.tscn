@@ -198,6 +198,7 @@ rotation = -1.5707964
 scale = Vector2(1.1999999, 0.5199988)
 next_level_file = "uid://cwluaiewpahf0"
 next_spawn_id = "SpawnOutside"
+sound = "uid://bwi044hq6ooow"
 
 [node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("5_tw2xs")]
 visible = true

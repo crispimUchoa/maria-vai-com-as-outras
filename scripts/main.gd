@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var level_container: Node2D = $LevelContainer
 @onready var initial_player_spawn: Marker2D = $InitialSpawn
-@onready var door_creak: AudioStreamPlayer = $Sounds/DoorCreak
 @onready var missionLabel: Label = $MissionControl/Label
 
 var spawn_point_id = ""
@@ -51,7 +50,6 @@ func _on_level_change_requested(next_level_path: String, next_spawn_id: String):
 		
 	var next_level_scene = load(next_level_path)
 	if (next_level_scene):
-		door_creak.play(1.45)
 
 		var new_level = next_level_scene.instantiate()
 		level_container.add_child(new_level)
