@@ -2,6 +2,9 @@ extends Node
 
 signal mission_requested
 signal change_acess_requested
+signal change_daylight_requested
+
+var current_time = 4.5
 
 enum Act {
 	ATO_NULO,
@@ -105,3 +108,18 @@ func has_action(action: Action):
 func do_action(action: Action):
 	if (!has_action(action)):
 		actions.append(action)
+
+func set_time(day_time: float):
+	current_time = day_time
+	var day_amount = sin((day_time) * PI/24)
+	if (day_time > 17):
+		day_amount = pow(day_amount, 5*(8 - (day_time - 17))/7)
+	var night_amount = (1 - day_amount) * 0.87
+	change_daylight_requested.emit(night_amount)
+
+func get_time():
+	return current_time
+	
+func update_light():
+	set_time(get_time())
+	

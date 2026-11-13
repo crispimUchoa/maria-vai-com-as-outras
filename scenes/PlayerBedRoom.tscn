@@ -5352,32 +5352,32 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_nxg3s"]
 script = ExtResource("14_sdo57")
-id = "vovo"
-text = "POR QUEEEEEEEE?"
+id = "player"
+text = "Vovó?"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_0lhfa"]
 script = ExtResource("14_sdo57")
 id = "vovo"
-text = "EU FALEI PRA ELA NÃO IR!"
+text = "Que foi menina? Atrapalhando meu cochilo da tarde!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_13fe2"]
 script = ExtResource("14_sdo57")
-id = "vovo"
-text = "EU ENTEGUEI A PROVA PRA ELA!"
+id = "player"
+text = "Vó, cadê a mãe?"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_2kawl"]
 script = ExtResource("14_sdo57")
-id = "player"
-text = "Vovó...?"
+id = "vovo"
+text = "Meu Deus! Já é noite! Ela não pode sair hora dessa com aquilo a solta!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_o1fyi"]
 script = ExtResource("14_sdo57")
 id = "vovo"
-text = "POR QUEEEE?"
+text = "Não deixe ela sair!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [node name="PlayerBedRoom" type="Node2D" unique_id=1851993271]

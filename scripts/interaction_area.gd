@@ -5,6 +5,7 @@ class_name InteractionArea extends Area2D
 @export var next_act: ProgressManager.Act = ProgressManager.Act.BEGIN_MARIA_HOUSE
 @export var autoInteract = false
 @export var next_mission: String = ""
+@export var next_time: float = -1
 signal interacted
 
 
@@ -33,6 +34,9 @@ func set_act_actions():
 	
 	if (not next_mission.is_empty()):
 		ProgressManager.set_mission(next_mission)
+	
+	if (next_time >= 0):
+		ProgressManager.set_time(next_time)
 	
 	ProgressManager.update_acess()
 

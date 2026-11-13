@@ -21,6 +21,7 @@ func _on_interaction_area_interacted() -> void:
 		ProgressManager.set_mission("Vá para a escola")
 	else:
 		DialogManager.start_talk([
-			DialogInfoModel.new("vovo", "É bom se apressar!"),
+			DialogInfoModel.new("vovo", "É bom se apressar! Já passou das 5!"),
 			DialogInfoModel.new("vovo", "Já faltou aula demais..."),
 		])
+		ProgressManager.set_time(5.5)

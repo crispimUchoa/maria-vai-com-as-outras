@@ -34,7 +34,7 @@ func _on_interaction_area_interacted() -> void:
 		
 	])
 	await DialogManager.dialog_finished
-	
+	ProgressManager.set_time(19.25)
 	SceneManager.stop_cutscene()
 	InventoryManager.remove_item("arvore_bar_1")
 	InventoryManager.remove_item("arvore_bar_2")
