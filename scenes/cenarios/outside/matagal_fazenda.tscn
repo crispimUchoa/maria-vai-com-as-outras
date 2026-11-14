@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8cfer1ys1hdk" path="res://sprites/construcoes/ovelhas e bodes.png" id="3_swevw"]
 [ext_resource type="Script" uid="uid://p1rdphw6n8b6" path="res://scripts/animais_loop.gd" id="4_mrry8"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_mrry8"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="6_mj7jf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mj7jf"]
 atlas = ExtResource("3_swevw")
@@ -103,7 +104,8 @@ tile_set = ExtResource("1_4x7hg")
 [node name="Cercasfrente" parent="." unique_id=1256694481 instance=ExtResource("2_muwre")]
 position = Vector2(476, 222)
 scale = Vector2(0.93, 0.93)
-id_unico = "cercamataga"
+id_unico = "cercamatagal"
+drop_item = true
 metadata/_edit_lock_ = true
 
 [node name="bode1" type="AnimatedSprite2D" parent="." unique_id=1988133094]
@@ -135,12 +137,22 @@ next_level_file = "uid://cyd10lnrp2e8e"
 next_spawn_id = "SpawnMatagal"
 
 [node name="SpawnFazenda" type="Marker2D" parent="." unique_id=287959751]
-position = Vector2(478, 270)
+position = Vector2(478, 284)
 
-[node name="GoToNext2" parent="." unique_id=1930718573 instance=ExtResource("5_mrry8")]
+[node name="ActGroup" type="Node2D" parent="." unique_id=807655319]
+position = Vector2(476, 222)
+scale = Vector2(0.93, 0.93)
+script = ExtResource("6_mj7jf")
+needed_items = Dictionary[String, bool]({
+"cercamatagal": true
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="GoToNext2" parent="ActGroup" unique_id=1930718573 instance=ExtResource("5_mrry8")]
 visible = false
-position = Vector2(414, 207)
+position = Vector2(-66.66666, -59.139782)
 rotation = -1.5707964
+scale = Vector2(1.0752689, 1.0752689)
 next_level_file = "uid://bdwjpvhq3atyx"
-next_spawn_id = "SpawnFazenda"
+next_spawn_id = "SpawnMatagal"
 autointerect = true

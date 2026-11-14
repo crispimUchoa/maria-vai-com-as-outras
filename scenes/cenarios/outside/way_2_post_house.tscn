@@ -15,6 +15,9 @@ size = Vector2(13.783142, 123.69313)
 
 [sub_resource type="Curve2D" id="Curve2D_j666f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jotlg"]
+size = Vector2(161, 50)
+
 [node name="MariaFrontHouse2" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -116,8 +119,22 @@ id_unico = "cercafinal"
 position = Vector2(362, 6.000001)
 rotation = -1.5707964
 scale = Vector2(0.8181816, 3.506628)
+next_level_file = "uid://dmlvs77sglosl"
+next_spawn_id = "SpawnWay2"
 
 [node name="SpawnMatagal" type="Marker2D" parent="." unique_id=691938517]
-position = Vector2(544, 56)
+position = Vector2(545, 75)
+
+[node name="ColisaoCercaQuebravel" type="Node2D" parent="." unique_id=2089011002]
+script = ExtResource("8_vwmy4")
+max_act = 12
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColisaoCercaQuebravel" unique_id=765820805]
+position = Vector2(630, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColisaoCercaQuebravel/StaticBody2D" unique_id=1139236549]
+position = Vector2(70.5, 15)
+shape = SubResource("RectangleShape2D_jotlg")
 
 [connection signal="interacted" from="ActGroup/Defunta/DefuntaArea" to="ActGroup/Defunta" method="_on_interaction_area_interacted"]

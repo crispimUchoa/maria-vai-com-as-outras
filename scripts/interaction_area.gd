@@ -3,7 +3,10 @@ class_name InteractionArea extends Area2D
 @export var actions: Array[ProgressManager.Action] = []
 @export var items: Array[String] = []
 @export var next_act: ProgressManager.Act = ProgressManager.Act.BEGIN_MARIA_HOUSE
-@export var autoInteract = false
+@export var autoInteract: bool = false:
+	set(value):
+		autoInteract = value
+		_atualizar_conexao()
 @export var next_mission: String = ""
 @export var next_time: float = -1
 @export_file("*.wav", "*.mp3", "*.ogg") var sound: String
@@ -23,9 +26,7 @@ func set_checkpoint():
 	GameManager.salvar_jogo(global_position)
 
 func _ready() -> void:
-	# Conecta o sinal de entrada de corpos à função de tratamento
-	if (autoInteract):
-		area_entered.connect(on_area_entered)
+	_atualizar_conexao()
 
 func on_area_entered(body: Node) -> void:
 	print("BODY ENTERED: ", body.name)
@@ -66,4 +67,11 @@ func interact():
 	set_checkpoint()
 	interacted.emit()
 	set_act_actions()
-	
+
+func _atualizar_conexao() -> void:
+	if autoInteract:
+		if not area_entered.is_connected(on_area_entered):
+			area_entered.connect(on_area_entered)
+	else:
+		if area_entered.is_connected(on_area_entered):
+			area_entered.disconnect(on_area_entered)
