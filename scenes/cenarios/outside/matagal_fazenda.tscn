@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6e5vo2htrtq" path="res://scenes/cercasfrente.tscn" id="2_muwre"]
 [ext_resource type="Texture2D" uid="uid://c8cfer1ys1hdk" path="res://sprites/construcoes/ovelhas e bodes.png" id="3_swevw"]
 [ext_resource type="Script" uid="uid://p1rdphw6n8b6" path="res://scripts/animais_loop.gd" id="4_mrry8"]
+[ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_mrry8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mj7jf"]
 atlas = ExtResource("3_swevw")
@@ -102,6 +103,7 @@ tile_set = ExtResource("1_4x7hg")
 [node name="Cercasfrente" parent="." unique_id=1256694481 instance=ExtResource("2_muwre")]
 position = Vector2(476, 222)
 scale = Vector2(0.93, 0.93)
+id_unico = "cercamataga"
 metadata/_edit_lock_ = true
 
 [node name="bode1" type="AnimatedSprite2D" parent="." unique_id=1988133094]
@@ -121,3 +123,24 @@ animation = &"ovelha 1"
 frame_progress = 0.2257788
 script = ExtResource("4_mrry8")
 nome_animacao = "ovelha 1"
+
+[node name="SpawnWay2" type="Marker2D" parent="." unique_id=15487352]
+position = Vector2(358, 545)
+
+[node name="GoToNext" parent="." unique_id=609231163 instance=ExtResource("5_mrry8")]
+position = Vector2(835, 596.99994)
+rotation = 1.5707964
+scale = Vector2(0.995171, 7.0341473)
+next_level_file = "uid://cyd10lnrp2e8e"
+next_spawn_id = "SpawnMatagal"
+
+[node name="SpawnFazenda" type="Marker2D" parent="." unique_id=287959751]
+position = Vector2(478, 270)
+
+[node name="GoToNext2" parent="." unique_id=1930718573 instance=ExtResource("5_mrry8")]
+visible = false
+position = Vector2(414, 207)
+rotation = -1.5707964
+next_level_file = "uid://bdwjpvhq3atyx"
+next_spawn_id = "SpawnFazenda"
+autointerect = true

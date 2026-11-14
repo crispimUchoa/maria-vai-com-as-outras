@@ -740,3 +740,13 @@ pontos_reposicionamento = Array[NodePath]([NodePath("../PontoRecuo/Ponto1"), Nod
 [node name="Ponto2" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=47572780]
 
 [node name="Ponto3" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=1091887911]
+
+[node name="SpawnMatagal" type="Marker2D" parent="." unique_id=119458209]
+position = Vector2(489, 485)
+
+[node name="GoToNext" parent="." unique_id=1226109297 instance=ExtResource("2_65w6m")]
+visible = false
+position = Vector2(553, 590.99994)
+rotation = 1.5707964
+scale = Vector2(0.68000245, 1)
+autointerect = true

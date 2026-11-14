@@ -4295,14 +4295,13 @@ scale = Vector2(13.400002, 6.2566175)
 autoInteract = true
 
 [node name="AGAtaqueLobi" type="Node2D" parent="." unique_id=654211070]
-visible = false
 script = ExtResource("7_xpv7c")
-min_act = 9
-max_act = 9
+min_act = 13
+max_act = 13
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="lobisomem" parent="AGAtaqueLobi" unique_id=1955558193 instance=ExtResource("24_tishs")]
-position = Vector2(500, 179.44098)
+position = Vector2(187, 363.8943)
 atacar_direto = true
 
 [connection signal="interacted" from="AGMaeMorta/CutsceneCorpo/MaeEMaria/InteractionArea" to="AGMaeMorta/CutsceneCorpo/MaeEMaria" method="_on_interaction_area_interacted"]
