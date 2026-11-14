@@ -599,6 +599,7 @@ tile_set = ExtResource("1_bs0kv")
 
 [node name="Cercasfrente" parent="TileMap" unique_id=2005323705 instance=ExtResource("2_euamm")]
 position = Vector2(494, 606)
+id_unico = "cercamatagal"
 
 [node name="GoToBar" parent="." unique_id=609231163 instance=ExtResource("2_65w6m")]
 modulate = Color(1, 1, 1, 0.11372549)
@@ -742,7 +743,7 @@ pontos_reposicionamento = Array[NodePath]([NodePath("../PontoRecuo/Ponto1"), Nod
 [node name="Ponto3" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=1091887911]
 
 [node name="SpawnMatagal" type="Marker2D" parent="." unique_id=119458209]
-position = Vector2(489, 485)
+position = Vector2(488, 527)
 
 [node name="GoToNext" parent="." unique_id=1226109297 instance=ExtResource("2_65w6m")]
 visible = false
@@ -750,3 +751,19 @@ position = Vector2(553, 590.99994)
 rotation = 1.5707964
 scale = Vector2(0.68000245, 1)
 autointerect = true
+
+[node name="GoToMatagal" type="Node2D" parent="." unique_id=409554010]
+position = Vector2(476, 222)
+scale = Vector2(0.93, 0.93)
+script = ExtResource("8_l4u76")
+needed_items = Dictionary[String, bool]({
+"cercamatagal": true
+})
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="GoToNext2" parent="GoToMatagal" unique_id=1268431069 instance=ExtResource("2_65w6m")]
+position = Vector2(81.72044, 405.37637)
+rotation = 1.5707964
+scale = Vector2(1.0752689, 1.0752689)
+next_level_file = "uid://dmlvs77sglosl"
+next_spawn_id = "SpawnFazenda"
