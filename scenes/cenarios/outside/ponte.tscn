@@ -60,6 +60,24 @@ id = "player"
 text = "Arrudear pela igreja não dá 10 minuto."
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="Resource" id="Resource_x4hp6"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "DESGRAAAAÇA! ELE TAVA ME ESPERANDO AQUI!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_e0g7b"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "EU DEVIA TER PEGADO ELE DE SURPRESA PELO MATAGAL DA FAZENDA!"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
+[sub_resource type="Resource" id="Resource_5pvdq"]
+script = ExtResource("7_41ssh")
+id = "player"
+text = "SENHOR, POR FAVOR! ME SALV-"
+metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
+
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -201,5 +219,27 @@ auto_destroy = true
 is_checkpoint = true
 spawn_id = "SpawnPonte"
 scene_file = "uid://b80dypf5m015j"
+
+[node name="AGAtaqueLobi" type="Node2D" parent="." unique_id=1780998544]
+y_sort_enabled = true
+script = ExtResource("2_5tiq0")
+min_act = 13
+max_act = 13
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="lobisomem" parent="AGAtaqueLobi" unique_id=260588102 instance=ExtResource("12_tpn6o")]
+position = Vector2(399, 524)
+atacar_direto = true
+velocidade = 460.0
+
+[node name="DialogArea" parent="AGAtaqueLobi" unique_id=829799547 instance=ExtResource("11_iykme")]
+position = Vector2(397, 520)
+scale = Vector2(9.48, 9.48)
+dialogs = Array[ExtResource("7_41ssh")]([SubResource("Resource_x4hp6"), SubResource("Resource_e0g7b"), SubResource("Resource_5pvdq")])
+autoInteract = true
+auto_destroy = true
+is_checkpoint = true
+spawn_id = "SpawnIgreja"
+scene_file = "uid://cg4tetjd7h3oo"
 
 [connection signal="interacted" from="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar/InteractionArea" to="TileMap/AGPonteQuebrada/AGConserteAPonte/InteractionConsertar" method="_on_interaction_area_interacted"]
