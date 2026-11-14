@@ -53,7 +53,7 @@ Projeto desenvolvido como requisito para a disciplina de **Extensão II** do cur
 ## 👥 Desenvolvedores
 
 * **Francisco Crispim Pinto Uchôa Neto** — [@crispimUchoa](https://github.com/crispimUchoa)
-* **Rita Jennyfer Batista Frota**
+* **Rita Jennyfer Batista Frota** — [@ritafrota](https://github.com/ritafrota)
 
 ---
 
