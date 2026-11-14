@@ -8,10 +8,13 @@ extends Node2D
 @export var can_go: bool = true
 @export_file("*.wav", "*.mp3", "*.ogg") var sound: String
 @export var enable_colision = true
+@export var autointerect = false
 
 func _ready() -> void:
 	if (not enable_colision):
 		limit_area.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	interaction_area.autoInteract = autointerect
 
 var alternative_func: Callable
 
