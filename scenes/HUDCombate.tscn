@@ -21,7 +21,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="CoracoesMaria" type="HBoxContainer" parent="Control" unique_id=1396615267]
-visible = false
 layout_mode = 1
 offset_left = 14.0
 offset_top = 5.0
@@ -50,7 +49,6 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="CoracoesLobisomem" type="HBoxContainer" parent="Control" unique_id=1690997007]
-visible = false
 layout_mode = 0
 offset_left = 689.0
 offset_top = 7.0

@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dbx0gqnacq87l" path="res://sprites/josefino_neto/idle/down/2.png" id="16_pjj7p"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="17_nr0f0"]
 [ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="19_yxl72"]
+[ext_resource type="PackedScene" uid="uid://bm0e27ipf3q0c" path="res://scenes/HUDCombate.tscn" id="20_yxl72"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21arb"]
 atlas = ExtResource("3_21arb")
@@ -730,9 +731,10 @@ max_act = 13
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="lobisomem" parent="AGConfrontoFinal" unique_id=1955558193 instance=ExtResource("19_yxl72")]
-position = Vector2(230, 488)
+position = Vector2(244, 417)
 modo_confronto_final = true
 pontos_reposicionamento = Array[NodePath]([NodePath("../PontoRecuo/Ponto1"), NodePath("../PontoRecuo/Ponto2"), NodePath("../PontoRecuo/Ponto3")])
+velocidade = 220.0
 
 [node name="PontoRecuo" type="Node2D" parent="AGConfrontoFinal" unique_id=1014739768]
 
@@ -741,6 +743,8 @@ pontos_reposicionamento = Array[NodePath]([NodePath("../PontoRecuo/Ponto1"), Nod
 [node name="Ponto2" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=47572780]
 
 [node name="Ponto3" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=1091887911]
+
+[node name="HudCombate" parent="AGConfrontoFinal" unique_id=1089152780 instance=ExtResource("20_yxl72")]
 
 [node name="SpawnMatagal" type="Marker2D" parent="." unique_id=119458209]
 position = Vector2(488, 527)
