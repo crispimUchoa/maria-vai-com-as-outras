@@ -39,7 +39,8 @@ enum Action {
 	VER_LOBI_FUGINDO,
 	TESTEMUNHAR_PAI_VO,
 	ACHAR_PAI,
-	ACHAR_VO
+	ACHAR_VO,
+	QUEBROU_JANELA
 }
 
 var actions: Array[Action] = []
