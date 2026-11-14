@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="4_vwmy4"]
 [ext_resource type="PackedScene" uid="uid://dyphha0lp61m3" path="res://scenes/goToNext.tscn" id="5_hv2q3"]
 [ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="6_48h6t"]
+[ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="8_vwmy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhds1"]
 size = Vector2(13.783142, 123.69313)
@@ -57,19 +58,6 @@ rotation = -1.5707964
 next_level_file = "uid://d3x7l0kxhmbx0"
 next_spawn_id = "SpawnWay2PostHouse"
 
-[node name="Trilho do lobi" type="Path2D" parent="." unique_id=1081208545]
-visibility_layer = 2
-y_sort_enabled = true
-curve = SubResource("Curve2D_j666f")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Trilho do lobi" unique_id=1462651302]
-visibility_layer = 2
-y_sort_enabled = true
-
-[node name="lobisomem" parent="Trilho do lobi/PathFollow2D" unique_id=1955558193 instance=ExtResource("6_48h6t")]
-y_sort_enabled = true
-position = Vector2(121, 390)
-
 [node name="ActGroup" parent="." unique_id=1092087895 instance=ExtResource("3_48h6t")]
 visible = true
 max_act = 3
@@ -93,5 +81,23 @@ y_sort_enabled = true
 scale = Vector2(3.7, 3.7)
 tile_map_data = PackedByteArray("AAABAAkAAwABAAEAAAA=")
 tile_set = ExtResource("1_egseu")
+
+[node name="Lobi" type="Node2D" parent="." unique_id=1729955556]
+script = ExtResource("8_vwmy4")
+max_act = 3
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Trilho do lobi" type="Path2D" parent="Lobi" unique_id=1081208545]
+visibility_layer = 2
+y_sort_enabled = true
+curve = SubResource("Curve2D_j666f")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Lobi/Trilho do lobi" unique_id=1462651302]
+visibility_layer = 2
+y_sort_enabled = true
+
+[node name="lobisomem" parent="Lobi/Trilho do lobi/PathFollow2D" unique_id=1955558193 instance=ExtResource("6_48h6t")]
+y_sort_enabled = true
+position = Vector2(121, 390)
 
 [connection signal="interacted" from="ActGroup/Defunta/DefuntaArea" to="ActGroup/Defunta" method="_on_interaction_area_interacted"]

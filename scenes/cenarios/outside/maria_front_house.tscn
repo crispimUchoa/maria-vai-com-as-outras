@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cd0ugccpnv6pd" path="res://scripts/utils/act_group.gd" id="11_o0udf"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="12_v05pd"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="13_65mvw"]
-[ext_resource type="Script" uid="uid://bofu4rmuxqnfl" path="res://scenes/cenarios/outside/lobisomem_fuga.gd" id="14_v05pd"]
+[ext_resource type="Script" uid="uid://bofu4rmuxqnfl" path="res://scripts/lobisomem_fuga.gd" id="14_v05pd"]
 [ext_resource type="Texture2D" uid="uid://cmvs7jpjy3e75" path="res://sprites/lobisomem/run/down/1.png" id="15_cqijp"]
 [ext_resource type="Texture2D" uid="uid://la8gkwco20hi" path="res://sprites/lobisomem/run/down/2.png" id="16_jisk3"]
 [ext_resource type="Texture2D" uid="uid://dwxjr74m5naui" path="res://sprites/lobisomem/run/down/3.png" id="17_ibku2"]
@@ -266,5 +266,6 @@ frame_progress = 0.59528065
 [node name="InteractionArea" parent="AGLobiFuga" unique_id=691595414 instance=ExtResource("7_djula")]
 position = Vector2(193, 303)
 scale = Vector2(14.680001, 4.000001)
+next_act = 10
 
 [connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://divus4htm5pdm"]
+
+[ext_resource type="Texture2D" uid="uid://cr6j5yghs5i32" path="res://assets/cutscenes/jnl.jpeg" id="1_634ru"]
+[ext_resource type="Texture2D" uid="uid://jcdw1x3malsr" path="res://assets/cutscenes/quebrando janela.jpeg" id="2_shixr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l5ldj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_634ru")
+}],
+"loop": 1,
+"name": &"janela_quebrada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_shixr")
+}],
+"loop": 1,
+"name": &"maria_quebra_janela",
+"speed": 5.0
+}]
+
+[node name="MariaQuebraJanela" type="CanvasLayer" unique_id=941877819]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1325471210]
+position = Vector2(402, 299)
+sprite_frames = SubResource("SpriteFrames_l5ldj")
+animation = &"janela_quebrada"

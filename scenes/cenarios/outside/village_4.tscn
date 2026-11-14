@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://xquq63v05njx" path="res://sprites/familia_7/filha_6/idle/down/2.png" id="6_y4rrg"]
 [ext_resource type="PackedScene" uid="uid://whrf0ocuuoy6" path="res://scenes/dialog_area.tscn" id="7_8vobh"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="8_trc0v"]
+[ext_resource type="Script" uid="uid://dt80npi5slgy" path="res://scripts/quebra_janela.gd" id="9_xs7gf"]
+[ext_resource type="PackedScene" uid="uid://drmqs8v24pdwq" path="res://scenes/interactionArea.tscn" id="10_y4rrg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e6r8p"]
 animations = [{
@@ -102,3 +104,19 @@ sprite_frames = SubResource("SpriteFrames_e6r8p")
 position = Vector2(0.99999994, -17.999998)
 scale = Vector2(3.28, 3.28)
 dialogs = Array[ExtResource("8_trc0v")]([SubResource("Resource_hu2m5"), SubResource("Resource_tpn6o"), SubResource("Resource_xxlvc")])
+
+[node name="MariaMachado" type="Node2D" parent="." unique_id=324434397]
+script = ExtResource("3_3kkuk")
+min_act = 10
+max_act = 10
+metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
+
+[node name="Node2D" type="Node2D" parent="MariaMachado" unique_id=795051999]
+script = ExtResource("9_xs7gf")
+
+[node name="InteractionArea" parent="MariaMachado/Node2D" unique_id=444652395 instance=ExtResource("10_y4rrg")]
+z_index = 4
+position = Vector2(216, 130)
+scale = Vector2(29.733814, 10.804991)
+
+[connection signal="interacted" from="MariaMachado/Node2D/InteractionArea" to="MariaMachado/Node2D" method="_on_interaction_area_interacted"]
