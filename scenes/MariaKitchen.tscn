@@ -121,15 +121,6 @@ position = Vector2(307.175, 222)
 rotation = -1.5707964
 scale = Vector2(1.028, 0.74)
 
-[node name="Pia" type="Node2D" parent="." unique_id=1763728161]
-position = Vector2(439.74582, 388)
-scale = Vector2(2.778734, 3.3130984)
-script = ExtResource("6_gcfee")
-
-[node name="InteractionArea" parent="Pia" unique_id=306515626 instance=ExtResource("4_85wyp")]
-position = Vector2(24.513151, -36.823536)
-scale = Vector2(-1.0152085, 1.3717982)
-
 [node name="Armario" type="Node2D" parent="." unique_id=1003615736]
 position = Vector2(439.74582, 388)
 scale = Vector2(2.778734, 3.3130984)
@@ -163,6 +154,15 @@ texture = ExtResource("3_eul7q")
 [node name="InteractionArea" parent="AGVoInicio/Vovo" unique_id=1935205722 instance=ExtResource("4_85wyp")]
 position = Vector2(439.74585, 388)
 scale = Vector2(2.7787342, 3.3130984)
+
+[node name="Pia" type="Node2D" parent="AGVoInicio" unique_id=1763728161]
+position = Vector2(439.7458, 388)
+scale = Vector2(2.7787337, 3.3130984)
+script = ExtResource("6_gcfee")
+
+[node name="InteractionArea" parent="AGVoInicio/Pia" unique_id=306515626 instance=ExtResource("4_85wyp")]
+position = Vector2(24.513151, -36.823536)
+scale = Vector2(-1.0152085, 1.3717982)
 
 [node name="AgVoPosFuneral" parent="." unique_id=1714397824 instance=ExtResource("8_f5f5p")]
 min_act = 9
@@ -233,7 +233,7 @@ position = Vector2(299.50797, 177)
 scale = Vector2(0.77492994, 0.77492994)
 texture = ExtResource("13_ajw1h")
 
-[connection signal="interacted" from="Pia/InteractionArea" to="Pia" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Armario/InteractionArea" to="Armario" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="Fogao/InteractionArea" to="Fogao" method="_on_interaction_area_interacted"]
 [connection signal="interacted" from="AGVoInicio/Vovo/InteractionArea" to="AGVoInicio/Vovo" method="_on_interaction_area_interacted"]
+[connection signal="interacted" from="AGVoInicio/Pia/InteractionArea" to="AGVoInicio/Pia" method="_on_interaction_area_interacted"]

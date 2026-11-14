@@ -455,6 +455,7 @@ script = ExtResource("17_gxmxq")
 position = Vector2(478, 255)
 scale = Vector2(9.103728, 5.4448857)
 autoInteract = true
+next_mission = "Interaja"
 
 [node name="AGAlerta" type="Node2D" parent="ActGroups/ActGroupAlerta" unique_id=1233373254]
 script = ExtResource("22_bc48l")
