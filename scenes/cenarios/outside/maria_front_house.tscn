@@ -267,5 +267,6 @@ frame_progress = 0.59528065
 position = Vector2(193, 303)
 scale = Vector2(14.680001, 4.000001)
 next_act = 10
+next_mission = "Pegue o Lobisomem!"
 
 [connection signal="interacted" from="ActGroup/PaiMaria/InteractionArea" to="ActGroup/PaiMaria" method="_on_interaction_area_interacted"]

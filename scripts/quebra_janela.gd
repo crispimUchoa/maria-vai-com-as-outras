@@ -9,3 +9,5 @@ func _on_interaction_area_interacted() -> void:
 	DialogManager.start_talk([
 		DialogInfoModel.new('player', 'MEU DEUS! Não é o Jenebelso!')
 	])
+	ProgressManager.set_act(ProgressManager.Act.INVESTIGAR_MORTE_PAI_E_VO)
+	ProgressManager.set_mission("Volte para casa")
