@@ -62,3 +62,11 @@ Projeto desenvolvido como requisito para a disciplina de **Extensão II** do cur
 1. Clone este repositório:
    ```bash
    git clone [https://github.com/crispimUchoa/maria-vai-com-as-outras.git](https://github.com/crispimUchoa/maria-vai-com-as-outras.git)
+
+## 🎨 Créditos de Arte (Sprites)
+
+Os sprites dos personagens foram criados utilizando o **[Universal LPC Spritesheet Character Generator](https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/)** (projeto *Liberated Pixel Cup* / [OpenGameArt.org](https://opengameart.org/content/lpc-collection)).
+
+* **Autores:** 7Soul, Ahmad3366, AntumDeluge, Barbara Riviera, Benjamin K. Smith (BenCreating), bluecarrot16, Carlo Enrico Victoria (Nemisys), Charles Sanchez (CharlesGabriel), Cobra Hubbard (BlueVortexGames), dalonedrau, Daniel Eddeland (daneeklu), DarkwallLKE, David Conway Jr. (JaidynReiman), DCSS artists (Crawl Tiles), Dr. Jamgo (drjamgo), Durrani, Eliza Wyatt (ElizaWy), Emilio J. Sanchez-Sierra, Evert, Fabzy, gr3yh47, Inboxninja, Joe White, Johannes Sjölund (wulax), Joshua Taylor, kcilds/Rocetti/Eredah, kheftel, kirts, laetissima, Lanea Zimmerman (Sharm), LordNeo, Luke Mehl, macmanmatty, Mandi Paugh, Manuel Riecke (MrBeast), Marcel van de Steeg (MadMarcel), Matthew Krohn (makrohn), Michael Whitlock (bigbeargames), MuffinElZangano, Napsio (Vitruvian Studio), Nila122, Nyom, Page, Pierre Vigier (pvigier), PlatForge project, Radomir Dopieralski, Sander Frenken (castelonia), Shaun Williams, Skorpio, Stafford McIntyre, Stephen Challener (Redshrike), Thane Brimhall (pennomi), The Foreman, thecilekli, TheraHedwig, Tracy, tskaufma, Tuomo Untinen (reemax), William.Thompsonj, Yamilian, Zi Ye.
+* **Licenças:** [CC-BY-SA 3.0 / 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [OGA-BY 3.0](https://static.opengameart.org/OGA-BY-3.0.txt), [CC-BY 3.0 / 4.0](https://creativecommons.org/licenses/by/4.0/), [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html) e [CC0](https://creativecommons.org/public-domain/cc0/).
+* **Créditos detalhados por asset e links originais:** Consulte o arquivo [`CREDITS.csv`](./CREDITS.csv) incluído neste repositório.
