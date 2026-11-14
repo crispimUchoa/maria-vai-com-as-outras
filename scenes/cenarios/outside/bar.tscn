@@ -4079,6 +4079,7 @@ position = Vector2(304, 318)
 scale = Vector2(2.782515, -2.3668714)
 dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_dnfb6"), SubResource("Resource_tishs"), SubResource("Resource_sufq6"), SubResource("Resource_lg3jk"), SubResource("Resource_a1mr4")])
 next_act = 5
+next_mission = "Conserte a ponte"
 
 [node name="Fazendeiro" parent="PreConsertoPonte" unique_id=551480179 instance=ExtResource("19_5vcgp")]
 position = Vector2(683, 202.49763)
