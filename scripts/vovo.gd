@@ -15,6 +15,7 @@ func _on_interaction_area_interacted() -> void:
 		ProgressManager.set_act(ProgressManager.Act.BEGIN_GO_TO_SCHOOL) 
 		SceneManager.show_cutscene('res://scenes/cutscenes/act_0_cuscuz.tscn', '0', 2.5)
 		await SceneManager.cutscene_finished
+		ProgressManager.set_time(5.5)
 		SceneManager.stop_cutscene()
 		
 		ProgressManager.do_action(merendou)
@@ -24,4 +25,3 @@ func _on_interaction_area_interacted() -> void:
 			DialogInfoModel.new("vovo", "É bom se apressar! Já passou das 5!"),
 			DialogInfoModel.new("vovo", "Já faltou aula demais..."),
 		])
-		ProgressManager.set_time(5.5)

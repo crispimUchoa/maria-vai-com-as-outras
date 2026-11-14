@@ -58,7 +58,7 @@ metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 [sub_resource type="Resource" id="Resource_daj1v"]
 script = ExtResource("4_ikkqh")
 id = "padre"
-text = "O diário do Antônio? Meu Deus, eu posso explicar!"
+text = "O diário do seu Chico? Meu Deus, eu posso explicar!"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
 [sub_resource type="Resource" id="Resource_a6jnv"]

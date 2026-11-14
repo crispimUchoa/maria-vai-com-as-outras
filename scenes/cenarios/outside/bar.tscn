@@ -4060,11 +4060,12 @@ position = Vector2(304, 318)
 scale = Vector2(2.782515, -2.3668714)
 dialogs = Array[ExtResource("9_hqfrt")]([SubResource("Resource_xpv7c"), SubResource("Resource_hqfrt"), SubResource("Resource_ec5p2"), SubResource("Resource_42k11"), SubResource("Resource_i3gmi"), SubResource("Resource_b6q21"), SubResource("Resource_vge41"), SubResource("Resource_c44us"), SubResource("Resource_2hs5s"), SubResource("Resource_ibaas"), SubResource("Resource_7noax"), SubResource("Resource_5vcgp"), SubResource("Resource_mbh0w"), SubResource("Resource_pd53u")])
 actions = Array[int]([5])
+next_mission = "Derrube as 4 árvores secas do Neísso"
 
 [node name="AGConserteAPonte" type="Node2D" parent="PreConsertoPonte" unique_id=441748909]
 script = ExtResource("7_xpv7c")
 min_act = 4
-max_act = 4
+max_act = 5
 needed_items = Dictionary[String, bool]({
 "arvore_bar_1": true,
 "arvore_bar_2": true,
