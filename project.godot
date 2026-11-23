@@ -25,6 +25,7 @@ GameManager="*uid://bqdbh20oc8rov"
 InventoryManager="*uid://cu0tylol56k0l"
 Audio="*uid://c3423sokq2vr5"
 MusicaDeFundo="*uid://r3xf8p3mulma"
+DamageManager="*uid://bxs44jludav3n"
 
 [display]
 
