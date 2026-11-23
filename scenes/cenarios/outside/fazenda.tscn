@@ -736,7 +736,7 @@ max_act = 13
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="lobisomem" parent="AGConfrontoFinal" unique_id=1955558193 instance=ExtResource("19_yxl72")]
-position = Vector2(36, 235)
+position = Vector2(659, 228)
 modo_confronto_final = true
 pontos_reposicionamento = Array[NodePath]([NodePath("../PontoRecuo/Ponto1"), NodePath("../PontoRecuo/Ponto2"), NodePath("../PontoRecuo/Ponto3")])
 velocidade = 220.0
