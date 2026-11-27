@@ -6,6 +6,18 @@
 [ext_resource type="AudioStream" uid="uid://cre54k68qlqxn" path="res://assets/sounds/menu-hover.wav" id="4_3vvtq"]
 [ext_resource type="Texture2D" uid="uid://dyidv2ln1f2do" path="res://assets/ui/controles_ui.png" id="5_s5g8n"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s5g8n"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="Gradient" id="Gradient_7yvfd"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.080783345, 0.080783345, 0.0807833, 0.8627451)
@@ -62,6 +74,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_s5g8n")
 text = "Continuar"
 autowrap_trim_flags = 0
 
@@ -71,6 +84,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_s5g8n")
 text = "Jogar"
 alignment = 0
 
@@ -80,6 +94,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_s5g8n")
 text = "Controles"
 alignment = 0
 
@@ -89,6 +104,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("3_r3g3c")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_s5g8n")
 text = "Sair"
 alignment = 0
 

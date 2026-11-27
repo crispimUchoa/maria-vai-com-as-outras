@@ -6,6 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://b127foakp2t6m" path="res://scenes/InventoryUI.tscn" id="3_vpyy4"]
 [ext_resource type="Texture2D" uid="uid://dyidv2ln1f2do" path="res://assets/ui/controles_ui.png" id="4_eptsf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eptsf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=378061740]
 process_mode = 3
 layer = 5
@@ -37,30 +49,35 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_eptsf")
 text = "Continuar"
 
 [node name="Controlls" type="Button" parent="ColorRect/VBoxContainer" unique_id=358517679]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_eptsf")
 text = "Controles"
 
 [node name="InventoryButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1009561091]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_eptsf")
 text = "Inventário"
 
 [node name="SaveButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=208265015]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_eptsf")
 text = "Salvar Jogo"
 
 [node name="MainMenuButton" type="Button" parent="ColorRect/VBoxContainer" unique_id=1229465319]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_r33we")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_eptsf")
 text = "Menu Inicial"
 
 [node name="InventoryUi" parent="ColorRect" unique_id=1523494795 instance=ExtResource("3_vpyy4")]
