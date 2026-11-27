@@ -1,5 +1,8 @@
 extends Node
 
+signal change_machado_ui_request
+signal change_key_press_ui_request
+
 const SAVE_PATH = "user://savegame.cfg"
 
 # ve se tem jogo salvo
@@ -79,3 +82,9 @@ func carregar_jogo() -> bool:
 		return true
 		
 	return false
+
+func set_machado_ui_visibility(visible: bool):
+	change_machado_ui_request.emit(visible)
+	
+func set_key_press_ui_visibility(visible: bool):
+	change_key_press_ui_request.emit(visible)

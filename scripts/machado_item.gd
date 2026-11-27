@@ -16,16 +16,19 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = true
 		if label_interacao:
+			GameManager.set_key_press_ui_visibility(true)
 			label_interacao.visible = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player_in_range = false
 		if label_interacao:
+			GameManager.set_key_press_ui_visibility(false)
 			label_interacao.visible = false
 
 func interact() -> void:
 	coletar_machado()
+	GameManager.set_machado_ui_visibility(true)
 
 func coletar_machado() -> void:
 	InventoryManager.add_item(item_id)

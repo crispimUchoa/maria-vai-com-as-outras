@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://gecof63y0xf8" path="res://scripts/utils/night_shader.gdshader" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://br2jvvy4jg6ud" path="res://scenes/pausemenu.tscn" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://ms1wpimgki3l" path="res://scripts/utils/night_setter.gd" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c4yllhcojvk55" path="res://scenes/indicators_ui.tscn" id="6_tefeu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jotlg"]
 shader = ExtResource("3_tbgi4")
@@ -43,3 +44,5 @@ position = Vector2(350, 350)
 [node name="Label" type="Label" parent="MissionControl" unique_id=1977000786]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="IndicatorsUi" parent="." unique_id=390080861 instance=ExtResource("6_tefeu")]

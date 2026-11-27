@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ecmcngtyxxy0"
+
+[deps]
+
+files=["res://CREDITS.notes.translation", "res://CREDITS.authors.translation", "res://CREDITS.licenses.translation", "res://CREDITS.urls.translation"]
+
+source_file="res://CREDITS.csv"
+dest_files=["res://CREDITS.notes.translation", "res://CREDITS.authors.translation", "res://CREDITS.licenses.translation", "res://CREDITS.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

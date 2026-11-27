@@ -1,41 +1,97 @@
+# PAUSE MENU
 extends CanvasLayer
 
-@export_file("pausemenu.tscn") var main_menu_scene: String = "res://scenes/mainmenu.tscn"
+@export_file("*.tscn") var main_menu_scene: String = "res://scenes/mainmenu.tscn"
 @onready var buttons_container: VBoxContainer = $ColorRect/VBoxContainer
 @onready var button_hover: AudioStreamPlayer = $ButtonHover
 @onready var inventory_ui: CanvasLayer = $ColorRect/InventoryUi
+@onready var controles_ui: CanvasLayer = $ColorRect/ControlesUi
+
+var _silenciar_foco: bool = false
 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS
 	
 	var buttons: Array[Node] = find_children("*", "Button", true, false)
 	for button in buttons:
-		button.mouse_entered.connect(_on_mouse_entered)
+		if button is Button:
+			button.mouse_entered.connect(_on_mouse_entered.bind(button))
+			button.focus_entered.connect(_on_focus_entered)
+			
 	hide()
 	fechar_inventario()
+	fechar_controles()
 
-func _on_mouse_entered() -> void:
-	button_hover.play()
+func _on_mouse_entered(button: Button) -> void:
+	if not button.has_focus():
+		button.grab_focus()
 
+func _on_focus_entered() -> void:
+	if not _silenciar_foco:
+		button_hover.play()
+
+func _focar_primeiro_botao() -> void:
+	if not visible or not buttons_container or not buttons_container.visible:
+		return
+		
+	var botoes_visiveis: Array[Button] = []
+	for child in buttons_container.get_children():
+		if child is Button and child.visible and not child.disabled:
+			botoes_visiveis.append(child)
+			
+	if botoes_visiveis.is_empty():
+		return
+		
+	# Faz a navegação dar a volta (do último volta ao primeiro e vice-versa)
+	var primeiro = botoes_visiveis.front()
+	var ultimo = botoes_visiveis.back()
+	primeiro.focus_neighbor_top = primeiro.get_path_to(ultimo)
+	ultimo.focus_neighbor_bottom = ultimo.get_path_to(primeiro)
+	
+	_silenciar_foco = true
+	primeiro.grab_focus()
+	_silenciar_foco = false
+
+func fechar_menus():
+	if inventory_ui and inventory_ui.visible:
+		fechar_inventario()
+	elif controles_ui and controles_ui.visible:
+		fechar_controles()
+	else:
+		resume_game()
+		
 func _unhandled_input(event: InputEvent) -> void:
-	# Tecla ESC
+	# Tecla ESC / Botão B ou Círculo
+	if  event.is_action_pressed("voltar"):
+		if visible:
+			fechar_menus()
+			
 	if event.is_action_pressed("ui_cancel"):
 		if visible:
-			# Se o inventário estiver aberto, fecha ele e volta aos botões primeiro
-			if inventory_ui and inventory_ui.visible:
-				fechar_inventario()
-			else:
-				resume_game()
+			fechar_menus()
 		else:
 			pause_game()
+		get_viewport().set_input_as_handled()
+		return
+
+	# Se o menu estiver aberto mas sem foco (ex: clicou fora com o mouse), recupera o foco
+	if visible and buttons_container.visible and get_viewport().gui_get_focus_owner() == null:
+		if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+			_focar_primeiro_botao()
+			get_viewport().set_input_as_handled()
 
 func pause_game() -> void:
 	show()
-	fechar_inventario() # Exibe os botões ao pausar
+	fechar_controles()
+	fechar_inventario() # Já exibe os botões e chama o foco
 	get_tree().paused = true
 
 func resume_game() -> void:
+	var foco := get_viewport().gui_get_focus_owner()
+	if foco:
+		foco.release_focus()
 	fechar_inventario()
+	fechar_controles()
 	hide()
 	get_tree().paused = false
 
@@ -54,11 +110,8 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_inventory_button_pressed() -> void:
 	if inventory_ui and buttons_container:
-		# Esconde os botões do pause e mostra a tela do inventário
 		buttons_container.hide()
 		inventory_ui.show()
-		
-		# Delega a atualização para o próprio script da UI do inventário
 		if inventory_ui.has_method("atualizar_inventario"):
 			inventory_ui.atualizar_inventario()
 
@@ -67,3 +120,16 @@ func fechar_inventario() -> void:
 		inventory_ui.hide()
 	if buttons_container:
 		buttons_container.show()
+	_focar_primeiro_botao()
+
+func fechar_controles() -> void:
+	if controles_ui:
+		controles_ui.hide()
+	if buttons_container:
+		buttons_container.show()
+	_focar_primeiro_botao()
+
+func _on_controlls_pressed() -> void:
+	if controles_ui and buttons_container:
+		buttons_container.hide()
+		controles_ui.show()
