@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b71sbb63oe3sc" path="res://scripts/dialog_box.gd" id="1_oohy4"]
 [ext_resource type="FontFile" uid="uid://bwa75d14e8f8f" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_oohy4"]
+[ext_resource type="Texture2D" uid="uid://bppns458qkhro" path="res://assets/icons/space_button.png" id="3_ideoa"]
 
 [sub_resource type="Gradient" id="Gradient_7w58v"]
 colors = PackedColorArray(0.16636813, 0.42546764, 0.59366953, 1, 0.54545707, 0.6496746, 0.86365443, 1)
@@ -65,3 +66,9 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("2_oohy4")
 theme_override_font_sizes/normal_font_size = 11
 text = "Contéudo do dialog"
+
+[node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=372227959]
+modulate = Color(1, 1, 1, 0.4392157)
+position = Vector2(776, 98.00001)
+scale = Vector2(0.3200028, 0.3200028)
+texture = ExtResource("3_ideoa")

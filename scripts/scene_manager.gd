@@ -13,6 +13,7 @@ func change_level(next_level_path: String, next_spawn_id: String) -> void:
 	level_change_requested.emit(next_level_path, next_spawn_id)
 
 func show_cutscene(scene_path: String, animation: String, timer: float = -1.0) -> void:
+	GameManager.set_key_press_ui_visibility(true)
 	if get_tree() == null:
 		return
 		
@@ -48,6 +49,7 @@ func stop_cutscene() -> void:
 	if is_instance_valid(current):
 		current.queue_free()
 		current = null
+	GameManager.set_key_press_ui_visibility(false)
 		
 	cutscene_running = false
 	esperando_avanco = false

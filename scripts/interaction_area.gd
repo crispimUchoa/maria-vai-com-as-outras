@@ -26,13 +26,20 @@ func set_checkpoint():
 	GameManager.salvar_jogo(global_position)
 
 func _ready() -> void:
-	_atualizar_conexao()
-
+	area_entered.connect(on_area_entered)
+	area_exited.connect(on_area_exited)
+	
 func on_area_entered(body: Node) -> void:
-	print("BODY ENTERED: ", body.name)
 	# Verifica se o nó que entrou pertence ao grupo "Player"
 	if body.is_in_group("PlayerArea"):
-		interact()
+		if (autoInteract):
+			interact()
+		else:
+			GameManager.set_key_press_ui_visibility(true)
+
+func on_area_exited(body: Node):
+	if body.is_in_group("PlayerArea"):
+		GameManager.set_key_press_ui_visibility(false)
 
 func play_sound():
 	if (sound):
@@ -69,9 +76,4 @@ func interact():
 	set_act_actions()
 
 func _atualizar_conexao() -> void:
-	if autoInteract:
-		if not area_entered.is_connected(on_area_entered):
-			area_entered.connect(on_area_entered)
-	else:
-		if area_entered.is_connected(on_area_entered):
-			area_entered.disconnect(on_area_entered)
+	pass
