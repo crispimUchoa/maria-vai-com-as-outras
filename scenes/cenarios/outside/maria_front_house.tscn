@@ -243,6 +243,9 @@ dialogs = Array[ExtResource("13_65mvw")]([SubResource("Resource_qhds1")])
 script = ExtResource("11_o0udf")
 min_act = 10
 max_act = 10
+needed_actions = Dictionary[int, bool]({
+12: false
+})
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="Path2D" type="Path2D" parent="AGLobiFuga" unique_id=730714464]

@@ -5,6 +5,10 @@ class_name Player
 var vida_atual: int = 3
 var invulneravel: bool = false
 
+@export_group("Recuo ao Receber Dano")
+@export var forca_recuo: float = 480.0
+@export var desaceleracao_recuo: float = 1800.0
+
 const WALK_SPEED = 130.0
 const RUN_SPEED = 230.0
 const display_name: String = "Maria"
@@ -14,6 +18,8 @@ var run = false
 var speed = WALK_SPEED
 var is_attacking: bool = false
 var esta_morta: bool = false
+var em_recuo: bool = false
+var recuo_velocity: Vector2 = Vector2.ZERO
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var walking_sound: AudioStreamPlayer = $WalkingSound
@@ -37,16 +43,16 @@ func _ready() -> void:
 		animated_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 
 func can_move() -> bool:
-	return !DialogManager.is_open() and !is_attacking and !SceneManager.cutscene_running and !esta_morta
+	return !DialogManager.is_open() and !is_attacking and !SceneManager.cutscene_running and !esta_morta and !em_recuo
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") and not is_attacking:
+	if event.is_action_pressed("attack") and not is_attacking and not em_recuo and not esta_morta:
 		if InventoryManager.has_item("machado"):
 			executar_ataque()
 		else:
 			print("Você precisa encontrar um machado primeiro!")
 			
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and not em_recuo:
 		interact()
 
 func executar_ataque() -> void:
@@ -70,8 +76,25 @@ func tocar_animacao_ataque(dir: Vector2) -> void:
 		else:
 			animated_sprite.play("attack_up")
 
-func _physics_process(_delta: float) -> void:
-	if esta_morta or is_attacking:
+func _physics_process(delta: float) -> void:
+	if esta_morta:
+		return
+
+	# Estado de recuo ao sofrer dano do lobisomem
+	if em_recuo:
+		if walking_sound.playing:
+			walking_sound.stop()
+		velocity = recuo_velocity
+		recuo_velocity = recuo_velocity.move_toward(Vector2.ZERO, desaceleracao_recuo * delta)
+		move_and_slide()
+		global_position = global_position.clamp(Vector2.ZERO, screen_size)
+		
+		if recuo_velocity.length() < 15.0:
+			em_recuo = false
+			velocity = Vector2.ZERO
+		return
+
+	if is_attacking:
 		return
 	
 	if Input.is_action_pressed("run"):
@@ -176,9 +199,9 @@ func _frame_right() -> void:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(31, -18)
-		2: axe_shape.position = Vector2(25, -8)
-		3: axe_shape.position = Vector2(20, -15)
+			axe_shape.position = Vector2(21, -23)
+		2: axe_shape.position = Vector2(25, -15)
+		3: axe_shape.position = Vector2(21, -7)
 		4: axe_shape.set_deferred("disabled", true)
 		
 func _frame_left() -> void:
@@ -186,9 +209,9 @@ func _frame_left() -> void:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(-31, -18)
-		2: axe_shape.position = Vector2(-25, -8)
-		3: axe_shape.position = Vector2(-20, -15)
+			axe_shape.position = Vector2(-21, -23)
+		2: axe_shape.position = Vector2(-25, -15)
+		3: axe_shape.position = Vector2(-21, -7)
 		4: axe_shape.set_deferred("disabled", true)
 
 func _frame_up() -> void:
@@ -196,9 +219,9 @@ func _frame_up() -> void:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(1, -26)
-		2: axe_shape.position = Vector2(-12, -31)
-		3: axe_shape.position = Vector2(0, -18)
+			axe_shape.position = Vector2(8, -29)
+		2: axe_shape.position = Vector2(0, -33)
+		3: axe_shape.position = Vector2(-8, -29)
 		4: axe_shape.set_deferred("disabled", true)
 
 func _frame_down() -> void:
@@ -206,16 +229,34 @@ func _frame_down() -> void:
 		0: axe_shape.set_deferred("disabled", true)
 		1: 
 			axe_shape.set_deferred("disabled", false)
-			axe_shape.position = Vector2(12, -7)
-		2: axe_shape.position = Vector2(3, -10)
-		3: axe_shape.position = Vector2(11, -7)
+			axe_shape.position = Vector2(8, 8)
+		2: axe_shape.position = Vector2(0, 12)
+		3: axe_shape.position = Vector2(-8, 8)
 		4: axe_shape.set_deferred("disabled", true)
+
+func aplicar_recuo(origem_dano: Vector2) -> void:
+	# Interrompe ataque caso a Maria tenha sido atingida no meio da animação
+	if is_attacking:
+		is_attacking = false
+		if axe_shape:
+			axe_shape.set_deferred("disabled", true)
+
+	var dir_recuo := Vector2.ZERO
+	if origem_dano != Vector2.ZERO and global_position != origem_dano:
+		dir_recuo = (global_position - origem_dano).normalized()
+	else:
+		dir_recuo = -last_direction.normalized()
+
+	em_recuo = true
+	recuo_velocity = dir_recuo * forca_recuo
+	update_idle_animation()
 
 func receber_dano_fatal() -> void:
 	if esta_morta:
 		return
 		
 	esta_morta = true
+	em_recuo = false
 	vida_atual = 0
 	get_tree().call_group("hud_combate", "atualizar_vida_maria", 0)
 	velocity = Vector2.ZERO
@@ -223,27 +264,26 @@ func receber_dano_fatal() -> void:
 	if walking_sound and walking_sound.playing:
 		walking_sound.stop()
 	
-	# Força o play na animação "hurt"
 	if animated_sprite and animated_sprite.sprite_frames.has_animation("hurt"):
 		animated_sprite.play("hurt")
 	else:
 		print("[ERRO] Animação 'hurt' não encontrada no SpriteFrames da Maria!")
 
-	# Espera os 1.5 segundos da animação de morte rodar ANTES de abrir diálogo ou game over
 	await get_tree().create_timer(1.5).timeout
 	game_over()
 
-func take_damage(dano: int = 1) -> void:
+func take_damage(dano: int = 1, lobi_position: Vector2 = Vector2.ZERO) -> void:
 	if esta_morta or invulneravel:
 		return
-
+	DamageManager.player_atacada.emit()
+	
 	vida_atual -= dano
 	get_tree().call_group("hud_combate", "atualizar_vida_maria", vida_atual)
 	
 	if vida_atual <= 0:
 		receber_dano_fatal()
 	else:
-		# Empurrão leve e 1.2s de invulnerabilidade piscando
+		aplicar_recuo(lobi_position)
 		invulneravel = true
 		if animated_sprite:
 			var tween = create_tween().set_loops(4)
@@ -254,7 +294,6 @@ func take_damage(dano: int = 1) -> void:
 
 func game_over() -> void:
 	Audio.parar()
-	# Reinicia o jogo a partir do save ou recarrega a cena atual
 	if GameManager.jogo_salvo:
 		GameManager.carregar_jogo()
 		get_tree().reload_current_scene()

@@ -593,9 +593,10 @@ height = 24.99997
 
 [node name="Player" type="CharacterBody2D" unique_id=806091486 groups=["Player"]]
 y_sort_enabled = true
-collision_layer = 2
+collision_layer = 6
 collision_mask = 255
 script = ExtResource("1_g2els")
+forca_recuo = 600.0
 
 [node name="WalkingSound" type="AudioStreamPlayer" parent="." unique_id=530840448]
 stream = ExtResource("2_6c3st")
@@ -607,7 +608,7 @@ stream = ExtResource("3_2xkbm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=633800944]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"run_down"
+animation = &"attack_down"
 offset = Vector2(0, -29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1516919859]
