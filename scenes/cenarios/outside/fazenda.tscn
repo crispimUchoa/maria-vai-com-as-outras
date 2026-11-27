@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dbx0gqnacq87l" path="res://sprites/josefino_neto/idle/down/2.png" id="16_pjj7p"]
 [ext_resource type="Script" uid="uid://bhsfxfnqm52hj" path="res://scripts/dialog_model.gd" id="17_nr0f0"]
 [ext_resource type="PackedScene" uid="uid://dnblrrg8wymtd" path="res://scenes/lobisomem.tscn" id="19_yxl72"]
+[ext_resource type="PackedScene" uid="uid://bm0e27ipf3q0c" path="res://scenes/HUDCombate.tscn" id="20_yxl72"]
+[ext_resource type="Script" uid="uid://c1w4ge8ffyen7" path="res://scripts/cenarios/outside/ativa_lobi.gd" id="21_pjj7p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21arb"]
 atlas = ExtResource("3_21arb")
@@ -566,6 +568,9 @@ id = "josefino_neto"
 text = "E tu é daquelas que só come mato?"
 metadata/_custom_type_script = "uid://bhsfxfnqm52hj"
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5ldj"]
+radius = 106.83164
+
 [node name="GenericOutside" type="Node2D" unique_id=1265579234]
 y_sort_enabled = true
 
@@ -724,23 +729,41 @@ scale = Vector2(3.1200001, 3.1200001)
 dialogs = Array[ExtResource("17_nr0f0")]([SubResource("Resource_nr0f0"), SubResource("Resource_yxl72"), SubResource("Resource_pjj7p")])
 
 [node name="AGConfrontoFinal" type="Node2D" parent="." unique_id=768438344]
+y_sort_enabled = true
 script = ExtResource("8_l4u76")
 min_act = 13
 max_act = 13
 metadata/_custom_type_script = "uid://cd0ugccpnv6pd"
 
 [node name="lobisomem" parent="AGConfrontoFinal" unique_id=1955558193 instance=ExtResource("19_yxl72")]
-position = Vector2(230, 488)
+position = Vector2(659, 228)
 modo_confronto_final = true
 pontos_reposicionamento = Array[NodePath]([NodePath("../PontoRecuo/Ponto1"), NodePath("../PontoRecuo/Ponto2"), NodePath("../PontoRecuo/Ponto3")])
+velocidade = 220.0
 
 [node name="PontoRecuo" type="Node2D" parent="AGConfrontoFinal" unique_id=1014739768]
 
 [node name="Ponto1" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=193270084]
+position = Vector2(67, 128)
 
 [node name="Ponto2" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=47572780]
+position = Vector2(644, 550)
 
 [node name="Ponto3" type="Marker2D" parent="AGConfrontoFinal/PontoRecuo" unique_id=1091887911]
+position = Vector2(774, 208)
+
+[node name="HudCombate" parent="AGConfrontoFinal" unique_id=1089152780 instance=ExtResource("20_yxl72")]
+
+[node name="AtivaLobi" type="Node2D" parent="AGConfrontoFinal" unique_id=289869822]
+position = Vector2(487, 524)
+script = ExtResource("21_pjj7p")
+
+[node name="Area2D" type="Area2D" parent="AGConfrontoFinal/AtivaLobi" unique_id=831101890]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AGConfrontoFinal/AtivaLobi/Area2D" unique_id=1588344249]
+shape = SubResource("CircleShape2D_l5ldj")
+debug_color = Color(0.93141073, 0.22464669, 0.3551926, 0.41960785)
 
 [node name="SpawnMatagal" type="Marker2D" parent="." unique_id=119458209]
 position = Vector2(488, 527)
@@ -767,3 +790,5 @@ rotation = 1.5707964
 scale = Vector2(1.0752689, 1.0752689)
 next_level_file = "uid://dmlvs77sglosl"
 next_spawn_id = "SpawnFazenda"
+
+[connection signal="body_entered" from="AGConfrontoFinal/AtivaLobi/Area2D" to="AGConfrontoFinal/AtivaLobi" method="_on_area_2d_body_entered"]

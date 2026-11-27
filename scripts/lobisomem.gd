@@ -18,6 +18,10 @@ class_name Lobisomem
 @export var velocidade: float = 230.0 
 @export var puff_effect_scene: PackedScene = preload("res://scenes/puff_effect.tscn")
 
+@export var t_max_rec: float = 2.0
+var t_recuando: float = 0.0
+var pause_pos_recuo: bool = false
+
 var last_direction: Vector2 = Vector2.RIGHT
 var path_follow: PathFollow2D = null
 var vida_atual: int = 3
@@ -37,6 +41,10 @@ var pode_atacar: bool = true
 @onready var attack_area: Area2D = $AttackArea
 
 func _ready() -> void:
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+
+	DamageManager.ativa_lobi_requested.connect(_on_ativa_lobi)
+	DamageManager.player_atacada.connect(_on_player_atacada)
 	if not visibility_changed.is_connected(_on_visibility_changed):
 		visibility_changed.connect(_on_visibility_changed)
 
@@ -51,6 +59,14 @@ func _ready() -> void:
 		return
 	
 	_inicializar_lobisomem()
+
+func _on_ativa_lobi(body: Node2D):
+	_on_detection_area_body_entered(body)
+
+func _on_player_atacada():
+	await get_tree().create_timer(0.1).timeout
+	iniciar_recuo_tatico()
+	await get_tree().create_timer(0.5).timeout
 
 func _on_visibility_changed() -> void:
 	if is_visible_in_tree():
@@ -85,7 +101,7 @@ func _physics_process(delta: float) -> void:
 		update_idle_animation()
 		return
 		
-	# 1. Estado de Knockback (afastado levemente ao levar machadada)
+	# Estado de Knockback (afastado levemente ao levar machadada)
 	if empurrao:
 		velocity = empurrao_velocity
 		empurrao_velocity = empurrao_velocity.move_toward(Vector2.ZERO, 900.0 * delta)
@@ -95,22 +111,37 @@ func _physics_process(delta: float) -> void:
 			iniciar_recuo_tatico()
 		return
 
-	# 2. Estado de Recuo (correndo para outro ponto da cena antes de recomeçar o ataque)
+	# Pausa real após terminar o recuo antes de voltar a atacar
+	if pause_pos_recuo:
+		velocity = Vector2.ZERO
+		update_idle_animation()
+		return
+
+	# Estado de Recuo (correndo para outro ponto da cena antes de recomeçar o ataque)
 	if recuando:
+		t_recuando += delta
 		var dir_recuo = (ponto_recuo_atual - global_position).normalized()
 		velocity = dir_recuo * (velocidade * 1.15)
 		last_direction = dir_recuo
 		update_run_animation(dir_recuo)
 		move_and_slide()
 		
-		if global_position.distance_to(ponto_recuo_atual) < 16.0 or is_on_wall():
+		var chegou_no_ponto = global_position.distance_to(ponto_recuo_atual) < 16.0
+		var bateu_obstaculo = get_slide_collision_count() > 0
+		var estourou_tempo = t_recuando >= t_max_rec
+		
+		if chegou_no_ponto or bateu_obstaculo or estourou_tempo:
+			print("[Lobo] Fim do recuo | tempo: %.2fs | motivo -> ponto:%s parede:%s tempo_max:%s" % [t_recuando, chegou_no_ponto, bateu_obstaculo, estourou_tempo])
 			recuando = false
+			t_recuando = 0.0
+			pause_pos_recuo = true
 			await get_tree().create_timer(0.4).timeout
+			pause_pos_recuo = false
 		return
 
 	var direction: Vector2 = Vector2.ZERO
 
-	# 3. Estado de Perseguição ativa (Correndo atrás da Maria)
+	# Estado de Perseguição ativa (Correndo atrás da Maria)
 	if target_player:
 		direction = (target_player.global_position - global_position).normalized()
 		velocity = direction * velocidade
@@ -212,7 +243,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		if modo_confronto_final:
 			pode_atacar = false
 			if body.has_method("take_damage"):
-				body.take_damage(dano_no_player)
+				body.take_damage(dano_no_player, global_position)
 			
 			await get_tree().create_timer(1.0).timeout
 			pode_atacar = true
@@ -252,9 +283,13 @@ func take_damage(damage: int = 1) -> void:
 		empurrao_velocity = dir_empurrao * 260.0
 
 func iniciar_recuo_tatico() -> void:
+	if recuando:
+		return
+		
 	if pontos_reposicionamento.is_empty():
 		ponto_recuo_atual = global_position + (last_direction * -120.0)
 		recuando = true
+		t_recuando = 0.0
 		return
 
 	var candidatos: Array[Vector2] = []
@@ -264,8 +299,21 @@ func iniciar_recuo_tatico() -> void:
 			candidatos.append(marker.global_position)
 
 	if candidatos.size() > 0:
-		ponto_recuo_atual = candidatos.pick_random()
+		var menor_cos = 1
+		var menor_idx = 0
+		
+		for index in candidatos.size():
+			var candidato = candidatos[index] - global_position
+			var norm_candidato = candidato.normalized()
+			var norm_dir = last_direction.normalized()
+			var c_cos = norm_candidato.dot(norm_dir)
+			if (c_cos < menor_cos):
+				menor_cos = c_cos
+				menor_idx = index
+			
+		ponto_recuo_atual = candidatos[menor_idx]
 		recuando = true
+		t_recuando = 0.0
 
 func piscar_dano() -> void:
 	if animated_sprite:
