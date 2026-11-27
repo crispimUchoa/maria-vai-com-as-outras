@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c4yllhcojvk55"]
+
+[ext_resource type="Texture2D" uid="uid://ooxcvakd63g8" path="res://assets/icons/axe_indicator_white.png" id="1_1xam3"]
+
+[node name="IndicatorsUi" type="Node2D" unique_id=390080861]
+
+[node name="Item" type="CanvasLayer" parent="." unique_id=890968429]
+
+[node name="Sprite2D" type="Sprite2D" parent="Item" unique_id=1300042068]
+position = Vector2(23, 67)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_1xam3")
+
+[node name="KeyPress" type="CanvasLayer" parent="." unique_id=891437199]
