@@ -24,7 +24,7 @@ func show_current_line():
 	display_name.text = current.display_name
 
 func _unhandled_input(event: InputEvent) -> void:
-	if (event.is_action_pressed("ui_accept")):
+	if (event.is_action_pressed("interact")):
 		dialog_index += 1
 		
 		if dialog_index < dialog_lines.size():

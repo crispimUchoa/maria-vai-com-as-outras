@@ -52,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			print("Você precisa encontrar um machado primeiro!")
 			
-	if event.is_action_pressed("ui_accept") and not em_recuo:
+	if event.is_action_pressed("interact") and not em_recuo:
 		interact()
 
 func executar_ataque() -> void:
