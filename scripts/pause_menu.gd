@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var buttons_container: VBoxContainer = $ColorRect/VBoxContainer
 @onready var button_hover: AudioStreamPlayer = $ButtonHover
 @onready var inventory_ui: CanvasLayer = $ColorRect/InventoryUi
+@onready var controles_ui: CanvasLayer = $ColorRect/ControlesUi
 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_ALWAYS
@@ -13,6 +14,7 @@ func _ready() -> void:
 		button.mouse_entered.connect(_on_mouse_entered)
 	hide()
 	fechar_inventario()
+	fechar_controles()
 
 func _on_mouse_entered() -> void:
 	button_hover.play()
@@ -24,6 +26,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			# Se o inventário estiver aberto, fecha ele e volta aos botões primeiro
 			if inventory_ui and inventory_ui.visible:
 				fechar_inventario()
+			elif controles_ui and controles_ui.visible:
+				fechar_controles()
 			else:
 				resume_game()
 		else:
@@ -62,8 +66,22 @@ func _on_inventory_button_pressed() -> void:
 		if inventory_ui.has_method("atualizar_inventario"):
 			inventory_ui.atualizar_inventario()
 
+
 func fechar_inventario() -> void:
 	if inventory_ui:
 		inventory_ui.hide()
 	if buttons_container:
 		buttons_container.show()
+		
+func fechar_controles() -> void:
+	if controles_ui:
+		controles_ui.hide()
+	if buttons_container:
+		buttons_container.show()
+
+
+func _on_controlls_pressed() -> void:
+	if controles_ui and buttons_container:
+		# Esconde os botões do pause e mostra a tela do inventário
+		buttons_container.hide()
+		controles_ui.show()

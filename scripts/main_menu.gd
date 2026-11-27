@@ -3,6 +3,8 @@ extends Control
 @export_file("mainmenu.tscn") var main_game_scene: String = "res://scenes/main.tscn"
 @onready var continue_button: Button = $VBoxContainer/ContinueButton
 @onready var button_hover: AudioStreamPlayer = $ButtonHover
+@onready var controles_ui: CanvasLayer = $ControlesUi
+@onready var vboxContainer: VBoxContainer = $VBoxContainer
 
 func _ready() -> void:
 	if continue_button:
@@ -10,6 +12,7 @@ func _ready() -> void:
 	var buttons: Array[Node] = find_children("*", "Button",true, false)
 	for button in buttons:
 		button.mouse_entered.connect(_on_mouse_entered)
+	fechar_controles()
 	
 func _on_mouse_entered():
 	button_hover.play()
@@ -25,8 +28,23 @@ func _on_play_button_pressed():
 	ProgressManager.reset_progress()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 	
-func _on_options_button_pressed():
-	print("Opções clicado!")
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+func _on_controlls_button_pressed() -> void:
+	vboxContainer.hide()
+	controles_ui.show()
+
+func _unhandled_input(event: InputEvent) -> void:
+	# Tecla ESC
+	if event.is_action_pressed("ui_cancel"):
+		if controles_ui and controles_ui.visible:
+			fechar_controles()
+
+func fechar_controles() -> void:
+	if controles_ui:
+		controles_ui.hide()
+	if vboxContainer:
+		vboxContainer.show()
